@@ -7,10 +7,8 @@ esse git representa um trabalho de jogo que será entregue na diciplina de PDSII
 - obj/: Guarda arquivos objeto (.o ou .obj) criados durante a compilação.
 - src/: Onde estão os arquivos de código-fonte (.cpp).
 - tests/: Abriga arquivos de teste para validação do código.
-
-
-.gitignore: Lista arquivos e pastas que o Git deve ignorar.
-makefile: Contém instruções para automatizar a compilação do projeto.
+- .gitignore: Lista arquivos e pastas que o Git deve ignorar.
+- makefile: Contém instruções para automatizar a compilação do projeto.
 
 
 
