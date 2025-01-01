@@ -10,4 +10,21 @@ esse git representa um trabalho de jogo que será entregue na diciplina de PDSII
 
 
 .gitignore: Lista arquivos e pastas que o Git deve ignorar.
-Makefile: Contém instruções para automatizar a compilação do projeto.
+makefile: Contém instruções para automatizar a compilação do projeto.
+
+use essas configurações no .vscode/tasks.json, para rodar o debug corretamente
+
+"args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-I../include",                        
+                "../src/main.cpp",                      // Arquivo principal
+                "../src/gerente.cpp",                   // Arquivo .cpp do gerente
+                "../src/jogador.cpp",                   // Arquivo .cpp do jogador
+                "-o",                               // Especifica o arquivo de saída
+                "${workspaceFolder}/bin/main"   
+            ],
+
+
+
+

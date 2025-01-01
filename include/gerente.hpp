@@ -12,7 +12,7 @@
 class CadastroJogadores {
     private:
         std::vector<Jogador> jogadores; //Vetor que armazenará os dados do txt com o objeto Jogador
-        const std::string arquivo = "jogadores.txt"; //nome do txt
+        const std::string arquivo = "../bancoDados/jogadores.txt"; //nome do txt
         //Métodos privados que acessam o arquivo para coleta e registro de dados
         void PullJogadores();
         void PushJogadores();

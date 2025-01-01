@@ -8,10 +8,9 @@ int main() {
     manager.ConstruirVetor();
     manager.PrintJogadores();
     manager.CadastrarJogador("Revo", "Roberto");
+    manager.CadastrarJogador("shaolin matador", "Pedro");
     manager.AddVit("Alga", "velha");
     manager.AddDer("Revo", "velha");
-    // manager.AddVit("Revo", "lig4");
-    // manager.AddDer("Revo", "lig4");
     manager.AddVit("Revo", "reversi");
     manager.AddDer("Revo", "reversi");
     manager.PrintJogadores();

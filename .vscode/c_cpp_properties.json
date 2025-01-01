@@ -1,0 +1,19 @@
+{
+    "configurations": [
+      {
+        "name": "Linux",
+        "includePath": [
+          "${workspaceFolder}/include", // Diretório dos cabeçalhos
+          "/usr/include",              // Diretórios padrão do sistema
+          "/usr/local/include"
+        ],
+        "defines": [],
+        "compilerPath": "/usr/bin/g++", // Caminho para o compilador
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "linux-gcc-x64"
+      }
+    ],
+    "version": 4
+  }
+  
