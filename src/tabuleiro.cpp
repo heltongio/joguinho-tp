@@ -24,18 +24,11 @@ void Tabuleiro::exibirTabuleiro() const {
 void Tabuleiro::atualizarCelula(int linha, int coluna, char valor) {
     linha = linha-1;
     coluna = coluna-1;
-    grid[linha][coluna * 2 + 1] = valor;
-
-
-
-
-        // if (linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas) {
-        //     std::ostringstream ss;
-        //     ss << "|" << valor << "|";
-        //     // grid[linha][coluna] = ss.str(); 
-        // } else {
-        //     std::cerr << "Posição inválida no tabuleiro!\n";
-        // }
+    if (linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas) {
+            grid[linha][coluna * 2 + 1] = valor;
+    } else {
+        std::cerr << "Posição inválida no tabuleiro!\n";
+    }
 }
 
 
