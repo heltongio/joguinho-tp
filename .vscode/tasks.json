@@ -7,10 +7,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "-I../include",                        // Diretório onde estão os cabeçalhos .hpp
-                "../src/main.cpp",                      // Arquivo principal
-                "../src/gerente.cpp",                   // Arquivo .cpp do gerente
-                "../src/jogador.cpp",                   // Arquivo .cpp do jogador
+                "-I../include",
+                "../src/*.cpp",
                 "-o",                               // Especifica o arquivo de saída
                 "${workspaceFolder}/bin/main"   
             ],
@@ -29,3 +27,4 @@
     ],
     "version": "2.0.0"
 }
+//teste

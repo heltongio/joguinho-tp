@@ -1,6 +1,6 @@
 # Variáveis
 CC = g++
-CFLAGS = -std=c++11 -Wall #-Wextra -Iinclude 
+CFLAGS = -std=c++11 -Wall -Iinclude#-Wextra -Iinclude 
 LDFLAGS = #caso seja necessario no futuro
 SRC_DIR = src
 INCLUDE_DIR = include
