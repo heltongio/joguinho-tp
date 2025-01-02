@@ -17,6 +17,7 @@ void Tabuleiro::exibirTabuleiro() const {
         }
         std::cout << '\n'; 
     }
+    std::cout << "\n";
 }
 
 
@@ -24,11 +25,9 @@ void Tabuleiro::exibirTabuleiro() const {
 void Tabuleiro::atualizarCelula(int linha, int coluna, char valor) {
     linha = linha-1;
     coluna = coluna-1;
-    if (linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas) {
-            grid[linha][coluna * 2 + 1] = valor;
-    } else {
-        std::cerr << "Posição inválida no tabuleiro!\n";
-    }
+    
+    grid[linha][coluna * 2 + 1] = valor;
+    
 }
 
 
