@@ -7,12 +7,15 @@
 #include <iomanip>
 #include <sstream>
 #include "jogador.hpp"
+#include <unistd.h> 
+#include <limits.h>
 
 
 class CadastroJogadores {
     private:
         std::vector<Jogador> jogadores; //Vetor que armazenará os dados do txt com o objeto Jogador
-        const std::string arquivo = "../bancoDados/jogadores.txt"; //nome do txt, no make e /bancoDados/jogadores.txt
+        std::string arquivo; // const std::string arquivo = "../bancoDados/jogadores.txt";
+        
         //Métodos privados que acessam o arquivo para coleta e registro de dados
         void PullJogadores();
         void PushJogadores();

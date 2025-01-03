@@ -5,41 +5,36 @@
 #include "velha.hpp"
 using namespace std;
 
-Tabuleiro iniciarJogo (const std::string& nomeDoJogo){  //funçao prov para teste
+// Tabuleiro iniciarJogo (const std::string& nomeDoJogo){  //funçao prov para teste
+// if (nomeDoJogo == "R") {
+//         Tabuleiro tabuleiro(8, 8, '|');
+//         tabuleiro.atualizarCelula(2,2,'X');
+//         tabuleiro.atualizarCelula(2,4,'X');
+//         tabuleiro.exibirTabuleiro();
+//         return tabuleiro;
+//     } else if (nomeDoJogo == "V") {
+//         Tabuleiro tabuleiro(3,3 , '|');
+//         tabuleiro.exibirTabuleiro();
+//         return tabuleiro;
+//     } else if (nomeDoJogo == "L") {
+//         Tabuleiro tabuleiro(7, 6, '|');
+//         tabuleiro.exibirTabuleiro();
+//         return tabuleiro;
+//     } else {
+//         std::cerr << "Jogo não reconhecido!\n";
+//         return Tabuleiro(0, 0, '\0');}
 
-
-if (nomeDoJogo == "R") {
-        Tabuleiro tabuleiro(8, 8, '|');
-        tabuleiro.atualizarCelula(2,2,'X');
-        tabuleiro.atualizarCelula(2,4,'X');
-        tabuleiro.exibirTabuleiro();
-        return tabuleiro;
-    } else if (nomeDoJogo == "V") {
-        Tabuleiro tabuleiro(3,3 , '|');
-        tabuleiro.exibirTabuleiro();
-        return tabuleiro;
-    } else if (nomeDoJogo == "L") {
-        Tabuleiro tabuleiro(7, 6, '|');
-        tabuleiro.exibirTabuleiro();
-        return tabuleiro;
-    } else {
-        std::cerr << "Jogo não reconhecido!\n";
-        return Tabuleiro(0, 0, '\0');}
-
-}
-
-
-
+// }
 
 
 
 
 int main() {
 
-    // CadastroJogadores manager;
-    // manager.ConstruirVetor();
-    // manager.PrintJogadores();
-    // manager.CadastrarJogador("Revo", "Roberto");
+    CadastroJogadores manager;
+    manager.ConstruirVetor();
+    manager.PrintJogadores();
+    manager.CadastrarJogador("Revo", "Roberto");
     // manager.CadastrarJogador("shaolin matador", "Pedro");
     // manager.AddVit("Alga", "velha");
     // manager.AddDer("Revo", "velha");
