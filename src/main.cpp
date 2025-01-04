@@ -35,13 +35,13 @@ int main() {
     manager.ConstruirVetor();
     manager.PrintJogadores();
     manager.CadastrarJogador("Revo", "Roberto");
-    // manager.CadastrarJogador("shaolin matador", "Pedro");
-    // manager.AddVit("Alga", "velha");
-    // manager.AddDer("Revo", "velha");
-    // manager.AddVit("Revo", "reversi");
-    // manager.AddDer("Revo", "reversi");
-    // manager.PrintJogadores();
-    // manager.SalvarArquivo();
+    manager.CadastrarJogador("shaolin", "Pedro");
+    manager.AddVit("Alga", "velha");
+    manager.AddDer("Revo", "velha");
+    manager.AddVit("Revo", "reversi");
+    manager.AddDer("Revo", "reversi");
+    manager.PrintJogadores();
+    manager.SalvarArquivo();
     
     // iniciarJogo("R");
     // cout<<"---------------------"<<endl;

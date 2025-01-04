@@ -21,7 +21,7 @@ void Velha::verificaJogada(int linha, int coluna, char valor){
 }
 
 void Velha::verificaGanhador(){
-
+    
 }
 
 Velha::~Velha(){
