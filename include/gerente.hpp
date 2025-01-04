@@ -24,6 +24,7 @@ class CadastroJogadores {
 
     void ConstruirVetor(); //Coleta os dados do txt e aloca no vetor jogadores
     void CadastrarJogador(const std::string, const std::string); //Adicona um jogador com nenhuma vitoria/derrota com o contrato <apelido> <nome>
+    void RemoverJogador(const std::string); //Remove Jogador utilizando o apelido <apelido>
     void SalvarArquivo(); //Salva os dados no txt
 
     //Add vitória/derrota com o contrato <apelido> <nome do jogo>(velha, lig4, reversi)

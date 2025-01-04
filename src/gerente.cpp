@@ -39,10 +39,17 @@ void CadastroJogadores::PullJogadores() {
     std::string linha;
     while(std::getline(fileIn, linha)) {
         std::stringstream ss(linha);
-        std::string apelido, nome;
+        std::string apelido, nome, nome_temp;
         
         int a, b, c, d, e, f;
-        ss >> apelido >> nome >> a >> b >> c >> d >> e >> f;
+        ss >> apelido >> nome >> nome_temp;
+        while (((nome_temp[0] <= 90)&&(65 <= nome_temp[0]))) {
+                nome = nome + " " + nome_temp;
+                ss >> nome_temp;
+        }
+        std::istringstream iss(nome_temp);
+        iss >> a;
+        ss >> b >> c >> d >> e >> f;
 
         jogadores.push_back(Jogador(apelido, nome, a, b, c, d, e, f));
     }
@@ -81,6 +88,23 @@ void CadastroJogadores::CadastrarJogador(std::string apelido, std::string nome) 
         }
     std::cout << "Jogador " << apelido << " cadastrado com sucesso" "\n" << std::endl;
     jogadores.push_back(Jogador(apelido, nome));
+    return;
+}
+
+void CadastroJogadores::RemoverJogador(std::string apelido) {
+    int aux = -1;
+    int verif = 0;
+    for (auto& jogador : jogadores) {
+        aux++;
+        if (jogador.GetApelido() == apelido) {
+            jogadores.erase(jogadores.begin()+ aux);
+            verif = 1;
+            std::cout << "Jogador " << apelido << " removido" << std::endl;
+        }
+    }
+    if (verif == 0){
+        std::cout << "ERRO: Jogador " << apelido << " inexistente" << std::endl;
+    }
     return;
 }
 
