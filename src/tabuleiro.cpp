@@ -30,6 +30,21 @@ void Tabuleiro::atualizarCelula(int linha, int coluna, char valor) {
     
 }
 
+std::string Tabuleiro::getEstadoLimpo() {
+    std::string estadoLimpo;
+    for (const auto& linha : grid) {
+        for (char c : linha) {
+            if (c != '|' && c != '\n') {
+                estadoLimpo += c;
+            }
+        }
+    }
+
+    return estadoLimpo;
+}
+
+
+
 
 Tabuleiro::~Tabuleiro(){
     return;

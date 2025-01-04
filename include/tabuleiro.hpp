@@ -18,6 +18,7 @@ class Tabuleiro {
         
             void exibirTabuleiro() const;
             void atualizarCelula(int linha, int coluna, char valor);
+            std::string getEstadoLimpo();
             ~Tabuleiro();
     };
 

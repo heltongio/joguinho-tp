@@ -1,35 +1,9 @@
 #include "gerente.hpp"
 
 
-// std::string retornaPasta() {
-//     char cwd[PATH_MAX];
-//     if (getcwd(cwd, sizeof(cwd)) == nullptr) {
-//         std::cout << "erro ao encontrar diretorio";
-//     }
-
-//     std::string caminhoAtual(cwd);
-//     size_t pos = caminhoAtual.find_last_of('/');
-//     if (pos == std::string::npos) {
-//         return caminhoAtual;
-//     }
-
-//     return caminhoAtual.substr(pos + 1);
-// }
-
 
 void CadastroJogadores::PullJogadores() {
-    
-    
-    // std::string pastaAtual = retornaPasta();
-    //     if (pastaAtual == "src") {
-    //         arquivo = "../bancoDados/jogadores.txt";
-    //     } else if (pastaAtual == "joguinho-tp") {
-    //         arquivo = "bancoDados/jogadores.txt";
-    //     } else if (pastaAtual == "bin") {
-    //         arquivo = "../bancoDados/jogadores.txt"; 
-    //     }else {
-    //         throw std::runtime_error("Pasta esperada não encontrada: " + pastaAtual);
-    //     }
+
     std::ifstream fileIn(arquivo);
     if (!fileIn.is_open()) {
         std::cout << "Erro ao abrir arquivo" << std::endl;

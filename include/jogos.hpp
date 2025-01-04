@@ -13,7 +13,7 @@ class Jogos{
         virtual void iniciarJogo();
         virtual void verificaJogada(int linha, int coluna, char valor);
         virtual void criaTabuleiro();
-        virtual void verificaGanhador();
+        virtual char verificaGanhador();
         ~Jogos();};
 
 #endif

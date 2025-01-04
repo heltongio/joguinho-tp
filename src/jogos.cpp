@@ -14,7 +14,7 @@ void Jogos::verificaJogada(int linha, int coluna, char valor){
    
 }
 
-void Jogos::verificaGanhador(){
+char Jogos::verificaGanhador(){
    
 }
 

@@ -5,43 +5,61 @@
 #include "velha.hpp"
 using namespace std;
 
-// Tabuleiro iniciarJogo (const std::string& nomeDoJogo){  //funçao prov para teste
-// if (nomeDoJogo == "R") {
-//         Tabuleiro tabuleiro(8, 8, '|');
-//         tabuleiro.atualizarCelula(2,2,'X');
-//         tabuleiro.atualizarCelula(2,4,'X');
-//         tabuleiro.exibirTabuleiro();
-//         return tabuleiro;
-//     } else if (nomeDoJogo == "V") {
-//         Tabuleiro tabuleiro(3,3 , '|');
-//         tabuleiro.exibirTabuleiro();
-//         return tabuleiro;
-//     } else if (nomeDoJogo == "L") {
-//         Tabuleiro tabuleiro(7, 6, '|');
-//         tabuleiro.exibirTabuleiro();
-//         return tabuleiro;
-//     } else {
-//         std::cerr << "Jogo não reconhecido!\n";
-//         return Tabuleiro(0, 0, '\0');}
-
-// }
-
-
-
 
 int main() {
+    cout << "CJ" << " : " << "Cadastrar Jogador" << endl;
+    cout << "RJ" << " : " << "Remover Jogador" << endl;
+    cout << "LJ" << " : " << "Listar de jogadores" << endl;
+    cout << "EP" << " : " << "" << endl;
+    cout << "FS" << " : " << "Finalizar Sistema" << endl;
 
+
+    string comando;
     CadastroJogadores manager;
     manager.ConstruirVetor();
-    manager.PrintJogadores();
-    manager.CadastrarJogador("Revo", "Roberto");
-    manager.CadastrarJogador("shaolin", "Pedro");
-    manager.AddVit("Alga", "velha");
-    manager.AddDer("Revo", "velha");
-    manager.AddVit("Revo", "reversi");
-    manager.AddDer("Revo", "reversi");
-    manager.PrintJogadores();
-    manager.SalvarArquivo();
+
+
+    //colocar tudo na mesma linha ex: EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
+    while (comando == "FS"){
+        cin >> comando;
+        
+        if (comando == "CJ"){
+            string apelido;
+            string nome;
+            cout << "Nome do jogador:";
+            cin >> nome;
+            cout << "Apelido do jogador:";
+            cin >> apelido;
+            manager.CadastrarJogador(apelido, nome);
+        }else if (comando == "RJ"){
+            string apelido;
+            cout << "Apelido do jogador:";
+            cin >> apelido;
+            manager.RemoverJogador(apelido);
+        }else if (comando == "LJ"){
+            manager.PrintJogadores();
+        }else if (comando == "EP"){
+            //em construção
+        }
+        
+        
+
+
+
+
+    }
+    
+    // CadastroJogadores manager;
+    // manager.ConstruirVetor();
+    // manager.PrintJogadores();
+    // manager.CadastrarJogador("Revo", "Roberto");
+    // manager.CadastrarJogador("shaolin", "Pedro");
+    // manager.AddVit("Alga", "velha");
+    // manager.AddDer("Revo", "velha");
+    // manager.AddVit("Revo", "reversi");
+    // manager.AddDer("Revo", "reversi");
+    // manager.PrintJogadores();
+    // manager.SalvarArquivo();
     
     // iniciarJogo("R");
     // cout<<"---------------------"<<endl;
@@ -52,11 +70,23 @@ int main() {
 
 
     Velha velha("rafael","paulo");
-    velha.verificaJogada(4,4,'X');
-    velha.verificaJogada(2,2,'X');
-    velha.verificaJogada(1,2,'O');
-    velha.verificaJogada(3,3,'X');
-    velha.verificaJogada(3,1,'O');
     velha.verificaJogada(1,1,'X');
+    velha.verificaGanhador();
+    velha.verificaJogada(2,1,'X');
+    velha.verificaGanhador();
+    velha.verificaJogada(3,1,'X');
+    velha.verificaGanhador();
+    // velha.verificaJogada(1,2,'X');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(2,2,'O');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(3,2,'X');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(1,3,'O');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(2,3,'X');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(3,3,'O');
+    // velha.verificaGanhador();
 
 }

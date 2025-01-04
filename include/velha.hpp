@@ -7,6 +7,7 @@
 
 class Velha:public Jogos{
     protected:
+        char vencedor;
         Tabuleiro tabuleiro;
     public:
         Velha(std::string jogador1, std::string jogador2)
@@ -15,7 +16,10 @@ class Velha:public Jogos{
         void iniciarJogo() override;
         void verificaJogada(int linha, int coluna, char valor) override;
         void criaTabuleiro() override;
-        void verificaGanhador() override;
+        char verificaGanhador() override;
+        bool verificaDiagonais(const std::string& estado);
+        bool verificaColuna(const std::string& estado, int coluna);
+        bool verificaLinha(const std::string& estado, int linha);
         ~Velha();
 };
 
