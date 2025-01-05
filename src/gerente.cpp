@@ -17,8 +17,11 @@ void CadastroJogadores::PullJogadores() {
         
         int a, b, c, d, e, f;
         ss >> apelido >> nome >> nome_temp;
-        while (((nome_temp[0] <= 90)&&(65 <= nome_temp[0]))) {
-                nome = nome + " " + nome_temp;
+        while (!((nome_temp[0] <= 57)&&(48 <= nome_temp[0]))) {
+                if (!nome.empty()) {
+                    nome += " ";
+                }
+                nome += nome_temp;
                 ss >> nome_temp;
         }
         std::istringstream iss(nome_temp);
@@ -27,9 +30,9 @@ void CadastroJogadores::PullJogadores() {
 
         jogadores.push_back(Jogador(apelido, nome, a, b, c, d, e, f));
     }
-    std::ofstream fileOut(arquivo, std::ofstream::trunc);
     fileIn.close();
-    return;}
+    return;
+}
 
 void CadastroJogadores::PushJogadores() {
     std::fstream file(arquivo, std::ios::in | std::ios::out);
@@ -83,6 +86,8 @@ void CadastroJogadores::RemoverJogador(std::string apelido) {
 }
 
 void CadastroJogadores::SalvarArquivo() {
+    std::ifstream fileIn(arquivo);
+    std::ofstream fileOut(arquivo, std::ofstream::trunc);
     PushJogadores();
     return;
 }

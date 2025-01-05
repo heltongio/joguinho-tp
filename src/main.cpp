@@ -20,14 +20,15 @@ int main() {
 
 
     //colocar tudo na mesma linha ex: EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
-    while (comando == "FS"){
+    while (true){
         cin >> comando;
         
         if (comando == "CJ"){
             string apelido;
             string nome;
             cout << "Nome do jogador:";
-            cin >> nome;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, nome);
             cout << "Apelido do jogador:";
             cin >> apelido;
             manager.CadastrarJogador(apelido, nome);
@@ -41,7 +42,10 @@ int main() {
         }else if (comando == "EP"){
             //em construção
         }
-        
+        else if (comando == "FS"){
+            manager.SalvarArquivo();
+            return 0;
+        }
         
 
 
@@ -69,13 +73,13 @@ int main() {
     // return 0;
 
 
-    Velha velha("rafael","paulo");
-    velha.verificaJogada(1,1,'X');
-    velha.verificaGanhador();
-    velha.verificaJogada(2,1,'X');
-    velha.verificaGanhador();
-    velha.verificaJogada(3,1,'X');
-    velha.verificaGanhador();
+    // Velha velha("rafael","paulo");
+    // velha.verificaJogada(1,1,'X');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(2,1,'X');
+    // velha.verificaGanhador();
+    // velha.verificaJogada(3,1,'X');
+    // velha.verificaGanhador();
     // velha.verificaJogada(1,2,'X');
     // velha.verificaGanhador();
     // velha.verificaJogada(2,2,'O');
