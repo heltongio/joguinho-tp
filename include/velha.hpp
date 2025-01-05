@@ -10,10 +10,10 @@ class Velha:public Jogos{
         char vencedor;
         Tabuleiro tabuleiro;
     public:
-        Velha(std::string jogador1, std::string jogador2)
-        : Jogos(jogador1, jogador2), tabuleiro(3, 3, '|') {}
+        Velha(std::string nomeJogo,std::string jogador1, std::string jogador2)
+        : Jogos(nomeJogo,jogador1, jogador2), tabuleiro(3, 3, '|') {}
 
-        void iniciarJogo() override;
+        void iniciarJogo(std::string nomeJogo) override;
         void verificaJogada(int linha, int coluna, char valor) override;
         void criaTabuleiro() override;
         char verificaGanhador() override;

@@ -3,16 +3,19 @@
 #include "tabuleiro.hpp"
 #include "jogos.hpp"
 #include "velha.hpp"
+
+// #include <limits>
 using namespace std;
 
 
 int main() {
+    //comandos não intuitivos
     cout << "CJ" << " : " << "Cadastrar Jogador" << endl;
     cout << "RJ" << " : " << "Remover Jogador" << endl;
     cout << "LJ" << " : " << "Listar de jogadores" << endl;
-    cout << "EP" << " : " << "" << endl;
+    cout << "EP" << " : " << "Inicia partida" << endl;
     cout << "FS" << " : " << "Finalizar Sistema" << endl;
-
+    cout << endl;
 
     string comando;
     CadastroJogadores manager;
@@ -22,29 +25,40 @@ int main() {
     //colocar tudo na mesma linha ex: EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
     while (true){
         cin >> comando;
-        
         if (comando == "CJ"){
+            // CJ <Apelido> <Nome>
             string apelido;
             string nome;
-            cout << "Nome do jogador:";
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            getline(cin, nome);
-            cout << "Apelido do jogador:";
+            // cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin >> nome;
             cin >> apelido;
             manager.CadastrarJogador(apelido, nome);
         }else if (comando == "RJ"){
+            // RJ <Apelido>
             string apelido;
-            cout << "Apelido do jogador:";
             cin >> apelido;
             manager.RemoverJogador(apelido);
         }else if (comando == "LJ"){
+            //Precisa listar em ordem alfabetica
             manager.PrintJogadores();
         }else if (comando == "EP"){
+            // EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
+            string jogo;
+            string apelido1;
+            string apelido2;
+
+            cin >> jogo;
+            cin >> apelido1;
+            cin >> apelido2;
+            //verificar se jogadores estão cadastrados
+            // Jogos jogo(jogo,apelido1,apelido2);
             //em construção
         }
         else if (comando == "FS"){
             manager.SalvarArquivo();
             return 0;
+        }else{
+            cout << "comando invalido" << endl;
         }
         
 
