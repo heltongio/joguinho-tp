@@ -23,9 +23,6 @@ void Tabuleiro::exibirTabuleiro() const {
 
  
 void Tabuleiro::atualizarCelula(int linha, int coluna, char valor) {
-    linha = linha-1;
-    coluna = coluna-1;
-    
     grid[linha][coluna * 2 + 1] = valor;
     
 }
@@ -43,7 +40,9 @@ std::string Tabuleiro::getEstadoLimpo() {
     return estadoLimpo;
 }
 
-
+std::vector<std::vector<char>> Tabuleiro::getGrid(){
+    return grid;
+}
 
 
 Tabuleiro::~Tabuleiro(){

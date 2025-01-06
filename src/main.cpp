@@ -22,9 +22,9 @@ int main() {
     manager.ConstruirVetor();
 
 
-    //colocar tudo na mesma linha ex: EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
     while (true){
         cin >> comando;
+
         if (comando == "CJ"){
             // CJ <Apelido> <Nome>
             string apelido;
@@ -50,9 +50,20 @@ int main() {
             cin >> jogo;
             cin >> apelido1;
             cin >> apelido2;
+
             //verificar se jogadores estão cadastrados
-            // Jogos jogo(jogo,apelido1,apelido2);
-            //em construção
+            if (jogo == "V"){
+                //alguns bugs no jogo da velha (não salva jogador ganhador)
+                Velha jogoVelha(apelido1,apelido2);
+                jogoVelha.iniciarJogo();
+            }else if(jogo == std::string("R")){
+                std::cout << "jogo em construção" << std::endl;
+            }else if(jogo == std::string("L")){
+                std::cout << "jogo em construção" << std::endl;
+            }else{
+                std::cout << "jogo não reconhecido" << std::endl;
+            }
+        
         }
         else if (comando == "FS"){
             manager.SalvarArquivo();

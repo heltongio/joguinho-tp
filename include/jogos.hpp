@@ -10,11 +10,11 @@ class Jogos{
         std::string jogador2;
         std::string nomeJogo;
     public:
-        Jogos(std::string nomeJogo,std::string jogador1, std::string jogador2);
-        virtual void iniciarJogo(std::string nomeJogo);
-        virtual void verificaJogada(int linha, int coluna, char valor);
-        virtual void criaTabuleiro();
-        virtual char verificaGanhador();
+        Jogos(std::string jogador1, std::string jogador2);
+        virtual void iniciarJogo();
+        virtual bool verificaJogada(int linha, int coluna, char valor, std::string jogador) = 0;
+        virtual void criaTabuleiro() = 0;
+        virtual bool verificaGanhador() = 0;
         ~Jogos();};
 
 #endif
