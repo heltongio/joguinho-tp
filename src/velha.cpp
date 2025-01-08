@@ -4,14 +4,10 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     int linha;
     int coluna;
 
-    if (verificaGanhador()){
-        // CadastroJogadores manager;
-        std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-        // manager.AddVit(jogador1, "velha");
-        // manager.AddDer(jogador2, "velha");
-        // manager.SalvarArquivo();
-        return true;
-    }
+    // if (verificaGanhador(jogador1, jogador2,valor)){
+    //     std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
+    //     return true;
+    // }
             
     std::cout << jogador1 <<" qual a jogada: ";
     std::cin >> linha;
@@ -21,6 +17,9 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     while (true){
 
         if (verificaJogada(linha,coluna,valor,jogador1)){
+            if (verificaGanhador(jogador1, jogador2,valor)){
+                return true;
+            }
             break;
         }else{
             std::cin >> linha;
@@ -28,15 +27,15 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
         }
     }
 
-    //melhorar para não ter q repitir
-    if (verificaGanhador()){
-        // CadastroJogadores manager;
-        std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-        // manager.AddVit(jogador1, "velha");
-        // manager.AddDer(jogador2, "velha");
-        // manager.SalvarArquivo();
-        return true;
-    }
+    // //melhorar para não ter q repitir
+    // if (verificaGanhador()){
+    //     // CadastroJogadores manager;
+    //     std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
+    //     // manager.AddVit(jogador1, "velha");
+    //     // manager.AddDer(jogador2, "velha");
+    //     // manager.SalvarArquivo();
+    //     return true;
+    // }
     return false;
             
 }
@@ -50,7 +49,8 @@ void Velha::iniciarJogo(){
     std::cout << jogador1 <<" escolha X ou O: ";
     std::cin >> valor;
     tabuleiro.exibirTabuleiro();
-     
+    
+    valor = std::toupper(valor);
     if (valor == 'X'){
         valor2 = 'O';
     }else{
@@ -84,6 +84,8 @@ void Velha::criaTabuleiro(){
     tabuleiro.exibirTabuleiro();
 }
 
+
+//verifica se digitou apenas um numero
 bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogador){
     std::vector<std::vector<char>> grid = tabuleiro.getGrid();
     linha = linha-1;
@@ -134,11 +136,15 @@ bool Velha::verificaDiagonais(const std::string& estado) {
     return false;
 }
 
-bool Velha::verificaGanhador() {
+bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
     std::string estado = tabuleiro.getEstadoLimpo();
 
     for (int i = 0; i < 3; ++i) {
         if (verificaLinha(estado, i) || verificaColuna(estado, i)||verificaDiagonais(estado)) {
+            std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
+            manager.AddVit(jogador1, "velha");
+            manager.AddDer(jogador2, "velha");
+
             return true;
         }
     }

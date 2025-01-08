@@ -1,13 +1,8 @@
 #include "jogos.hpp"
 #include "velha.hpp"
 
-Jogos::Jogos(std::string jogador1,std::string jogador2){
-    this->jogador1 = jogador1;
-    this->jogador2 = jogador2;
-
-
-    // iniciarJogo(nomeJogo);
-}
+Jogos::Jogos(std::string jogador1, std::string jogador2, CadastroJogadores& manager)
+    : jogador1(jogador1), jogador2(jogador2), manager(manager) {}
 
 void Jogos::iniciarJogo(){
     // nomeJogo = "V";
@@ -30,7 +25,7 @@ void Jogos::iniciarJogo(){
 
 // }
 
-// bool Jogos::verificaGanhador(){
+// bool Jogos::verificaGanhador(std::string jogador1, std::string jogador2, char valor){
 //   //problema no retorno não void 
 // }
 

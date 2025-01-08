@@ -54,7 +54,7 @@ int main() {
             //verificar se jogadores estão cadastrados
             if (jogo == "V"){
                 //alguns bugs no jogo da velha (não salva jogador ganhador)
-                Velha jogoVelha(apelido1,apelido2);
+                Velha jogoVelha(apelido1,apelido2,manager);
                 jogoVelha.iniciarJogo();
             }else if(jogo == std::string("R")){
                 std::cout << "jogo em construção" << std::endl;

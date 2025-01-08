@@ -1,5 +1,5 @@
 Revo Roberto 0 0 6 6 0 6
 shaolin Pedro 0 0 0 0 0 0
 brunin Giordano bruno 0 0 0 0 0 0
-r rafael 0 0 0 0 0 0
-p paulo 0 0 0 0 0 0
+r rafael 2 0 0 0 0 0
+p paulo 0 0 0 2 0 0
