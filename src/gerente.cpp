@@ -109,6 +109,11 @@ void CadastroJogadores::AddDer(std::string apelido, std::string jogo) {
 }
 
 void CadastroJogadores::PrintJogadores() {
+    
+    std::sort(jogadores.begin(), jogadores.end(), [](const Jogador& a, const Jogador& b) {
+        return (a.GetApelido() < b.GetApelido());
+    });
+
     for (auto jogador : jogadores){
         std::cout << jogador.GetApelido() << " " << jogador.GetNome() << std::endl;
         std::cout << "VELHA - " << "V: " << jogador.GetVit("velha") << " D: " << jogador.GetDer("velha") << std::endl;

@@ -14,7 +14,7 @@ std::string Jogador::GetNome() {
     return this->_nome;
 };
 
-std::string Jogador::GetApelido() {
+std::string Jogador::GetApelido() const {
     return this->_apelido;
 };
 

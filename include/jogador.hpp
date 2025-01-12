@@ -22,7 +22,7 @@ class Jogador {
 
         //Get de nome e apelido
         std::string GetNome();
-        std::string GetApelido();
+        std::string GetApelido() const;
 
         //Adicionar vitória/derrota ao jogador com <jogo> (velha, lig4, reversi)
         void SomarVit(const std::string&);

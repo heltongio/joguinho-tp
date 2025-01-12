@@ -29,12 +29,15 @@ int main() {
             // CJ <Apelido> <Nome>
             string apelido;
             string nome;
-            // cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin >> nome;
+            cout << "Nome do jogador:" << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            getline(cin, nome);
+            cout << "Apelido do jogador:" << endl;
             cin >> apelido;
             manager.CadastrarJogador(apelido, nome);
         }else if (comando == "RJ"){
             // RJ <Apelido>
+            cout << "Apelido do jogador que sera removido:" << endl;
             string apelido;
             cin >> apelido;
             manager.RemoverJogador(apelido);
