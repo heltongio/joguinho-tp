@@ -3,8 +3,9 @@
 #include "tabuleiro.hpp"
 #include "jogos.hpp"
 #include "velha.hpp"
+#include <limits>
+#include <cctype>
 
-// #include <limits>
 using namespace std;
 
 
@@ -23,7 +24,13 @@ int main() {
 
 
     while (true){
+        cout << "Qual comando deseja utilizar: ";
         cin >> comando;
+        cout << endl;
+
+        //deixa o comando em mausculo
+        transform(comando.begin(), comando.end(), comando.begin(), [](unsigned char c) {
+            return std::toupper(c);});
 
         if (comando == "CJ"){
             // CJ <Apelido> <Nome>
@@ -42,7 +49,6 @@ int main() {
             cin >> apelido;
             manager.RemoverJogador(apelido);
         }else if (comando == "LJ"){
-            //Precisa listar em ordem alfabetica
             manager.PrintJogadores();
         }else if (comando == "EP"){
             // EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
@@ -56,7 +62,6 @@ int main() {
 
             //verificar se jogadores estão cadastrados
             if (jogo == "V"){
-                //alguns bugs no jogo da velha (não salva jogador ganhador)
                 Velha jogoVelha(apelido1,apelido2,manager);
                 jogoVelha.iniciarJogo();
             }else if(jogo == std::string("R")){
@@ -72,7 +77,7 @@ int main() {
             manager.SalvarArquivo();
             return 0;
         }else{
-            cout << "comando invalido" << endl;
+            cout <<"\033[31m" << "Comando invalido tenta novamente!!" << "\033[0m"<< endl;
         }
         
 
@@ -80,45 +85,6 @@ int main() {
 
 
     }
-    
-    // CadastroJogadores manager;
-    // manager.ConstruirVetor();
-    // manager.PrintJogadores();
-    // manager.CadastrarJogador("Revo", "Roberto");
-    // manager.CadastrarJogador("shaolin", "Pedro");
-    // manager.AddVit("Alga", "velha");
-    // manager.AddDer("Revo", "velha");
-    // manager.AddVit("Revo", "reversi");
-    // manager.AddDer("Revo", "reversi");
-    // manager.PrintJogadores();
-    // manager.SalvarArquivo();
-    
-    // iniciarJogo("R");
-    // cout<<"---------------------"<<endl;
-    // iniciarJogo("V");
-    // cout<<"---------------------"<<endl;
-    // iniciarJogo("L");
-    // return 0;
 
-
-    // Velha velha("rafael","paulo");
-    // velha.verificaJogada(1,1,'X');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(2,1,'X');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(3,1,'X');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(1,2,'X');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(2,2,'O');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(3,2,'X');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(1,3,'O');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(2,3,'X');
-    // velha.verificaGanhador();
-    // velha.verificaJogada(3,3,'O');
-    // velha.verificaGanhador();
 
 }
