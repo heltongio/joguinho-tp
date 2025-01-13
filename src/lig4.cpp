@@ -45,3 +45,52 @@ void Lig4::iniciarJogo() {
         }
     }
 }
+
+//Realiza uma jogada na coluna especificada
+bool Lig4::realizarJogada(int coluna, char jogador) {
+    //Verifica se a coluna está dentro dos limites
+    if (coluna < 0 || coluna >= 7) {
+        return false;
+    }
+
+    //Procura a primeira célula disponível de baixo para cima
+    for (int linha = 5; linha >= 0; --linha) {
+        if (tabuleiro.getGrid()[linha][coluna * 2 + 1] == ' ') {
+            tabuleiro.atualizarCelula(linha, coluna, jogador); //Atualiza o tabuleiro
+            return true;
+        }
+    }
+    return false; //Se a coluna estiver cheia, a jogada é invalida
+}
+
+//Verifica se há uma sequência de 4 peças na linha
+bool Lig4::verificaLinha(int linha, char jogador) {
+    int consecutivos = 0;
+    for (int coluna = 0; coluna < 7; ++coluna) {
+        if (tabuleiro.getGrid()[linha][coluna * 2 + 1] == jogador) {
+            consecutivos++;
+            if (consecutivos == 4) {
+                return true; // Encontrou uma sequência de 4
+            }
+        } else {
+            consecutivos = 0; // Reinicia a contagem se encontrar outra peça
+        }
+    }
+    return false;
+}
+
+//Verifica se há uma sequência de 4 peças na coluna
+bool Lig4::verificaColuna(int coluna, char jogador) {
+    int consecutivos = 0;
+    for (int linha = 0; linha < 6; ++linha) {
+        if (tabuleiro.getGrid()[linha][coluna * 2 + 1] == jogador) {
+            consecutivos++;
+            if (consecutivos == 4) {
+                return true; //Encontrou uma sequência de 4
+            }
+        } else {
+            consecutivos = 0; //Reinicia a contagem se encontrar outra peça
+        }
+    }
+    return false;
+}
