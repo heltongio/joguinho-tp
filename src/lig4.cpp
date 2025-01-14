@@ -94,3 +94,29 @@ bool Lig4::verificaColuna(int coluna, char jogador) {
     }
     return false;
 }
+
+//Verifica se há uma sequência de 4 peças nas diagonais
+bool Lig4::verificaDiagonais(char jogador) {
+    auto grid = tabuleiro.getGrid();
+    for (int linha = 0; linha <= 5; ++linha) {
+        for (int coluna = 0; coluna <= 6; ++coluna) {
+            //Verifica a diagonal principal (esquerda para direita)
+            if (linha <= 2 && coluna <= 3 &&
+                grid[linha][coluna * 2 + 1] == jogador &&
+                grid[linha + 1][(coluna + 1) * 2 + 1] == jogador &&
+                grid[linha + 2][(coluna + 2) * 2 + 1] == jogador &&
+                grid[linha + 3][(coluna + 3) * 2 + 1] == jogador) {
+                return true;
+            }
+            // Verifica a diagonal inversa (direita para esquerda)
+            if (linha >= 3 && coluna <= 3 &&
+                grid[linha][coluna * 2 + 1] == jogador &&
+                grid[linha - 1][(coluna + 1) * 2 + 1] == jogador &&
+                grid[linha - 2][(coluna + 2) * 2 + 1] == jogador &&
+                grid[linha - 3][(coluna + 3) * 2 + 1] == jogador) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
