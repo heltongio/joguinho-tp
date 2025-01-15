@@ -85,6 +85,15 @@ void CadastroJogadores::RemoverJogador(std::string apelido) {
     return;
 }
 
+void CadastroJogadores::verificaJogadores(std::string apelido){
+    for (auto& jogador : jogadores) {
+            if (jogador.GetApelido() == apelido) {
+                return;
+            }
+    }
+    throw std::runtime_error("jogador não cadastrado");
+}
+
 void CadastroJogadores::SalvarArquivo() {
     std::ifstream fileIn(arquivo);
     std::ofstream fileOut(arquivo, std::ofstream::trunc);

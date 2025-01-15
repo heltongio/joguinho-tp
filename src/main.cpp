@@ -10,6 +10,8 @@ using namespace std;
 
 
 int main() {
+    string const RED = "\033[31m";
+    string const FIM = "\033[0m";
     //comandos não intuitivos
     cout << "CJ" << " : " << "Cadastrar Jogador" << endl;
     cout << "RJ" << " : " << "Remover Jogador" << endl;
@@ -28,12 +30,11 @@ int main() {
         cin >> comando;
         cout << endl;
 
-        //deixa o comando em mausculo
+       
         transform(comando.begin(), comando.end(), comando.begin(), [](unsigned char c) {
             return std::toupper(c);});
 
         if (comando == "CJ"){
-            // CJ <Apelido> <Nome>
             string apelido;
             string nome;
             cout << "Nome do jogador:" << endl;
@@ -43,7 +44,6 @@ int main() {
             cin >> apelido;
             manager.CadastrarJogador(apelido, nome);
         }else if (comando == "RJ"){
-            // RJ <Apelido>
             cout << "Apelido do jogador que sera removido:" << endl;
             string apelido;
             cin >> apelido;
@@ -51,25 +51,45 @@ int main() {
         }else if (comando == "LJ"){
             manager.PrintJogadores();
         }else if (comando == "EP"){
-            // EP <Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2>
+            
             string jogo;
             string apelido1;
             string apelido2;
 
+            cout << "Qual jogo deseja jogar? (Velha(V)/Lig4(L)/Reversi(R))" << endl;
             cin >> jogo;
+
+            transform(jogo.begin(), jogo.end(), jogo.begin(), [](unsigned char c) {
+                return std::toupper(c);});
+
+            cout << "Apelido do primeiro jogador:" ;
             cin >> apelido1;
+            cout << "Apelido do segundo jogador:" ;
             cin >> apelido2;
 
-            //verificar se jogadores estão cadastrados
-            if (jogo == "V"){
+            // verificar se jogador esta cadastrado
+            try {
+                manager.verificaJogadores(apelido1);
+            } catch (const std::exception& e) {
+                cout << RED << e.what() << ": " << apelido1 << FIM << endl;
+                continue;}
+
+            try {
+                manager.verificaJogadores(apelido2);
+            } catch (const std::exception& e) {
+                cout << RED << e.what() << ": " << apelido1 << FIM << endl;
+                continue;}
+            
+
+            if (jogo == "V" || jogo == "VELHA"){
                 Velha jogoVelha(apelido1,apelido2,manager);
                 jogoVelha.iniciarJogo();
-            }else if(jogo == std::string("R")){
-                std::cout << "jogo em construção" << std::endl;
-            }else if(jogo == std::string("L")){
-                std::cout << "jogo em construção" << std::endl;
+            }else if(jogo == string("R") || jogo == "REVERSI"){
+                cout << "jogo em construção" << endl;
+            }else if(jogo == string("L") || jogo == "LIG4"){
+                cout << "jogo em construção" << endl;
             }else{
-                std::cout << "jogo não reconhecido" << std::endl;
+                cout << RED << "jogo não reconhecido!" << FIM << endl;
             }
         
         }
@@ -77,7 +97,7 @@ int main() {
             manager.SalvarArquivo();
             return 0;
         }else{
-            cout <<"\033[31m" << "Comando invalido tenta novamente!!" << "\033[0m"<< endl;
+            cout << RED << "Comando invalido tenta novamente!!" << FIM << endl;
         }
         
 

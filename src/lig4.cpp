@@ -46,6 +46,11 @@ void Lig4::iniciarJogo() {
     }
 }
 
+bool Lig4::verificaGanhador(char){ // metodo provisorio para evitar erro
+    return true;
+}
+
+
 //Realiza uma jogada na coluna especificada
 bool Lig4::realizarJogada(int coluna, char jogador) {
     //Verifica se a coluna está dentro dos limites
