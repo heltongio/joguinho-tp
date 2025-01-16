@@ -9,6 +9,6 @@ esse git representa um trabalho de jogo que será entregue na diciplina de PDSII
 - tests/: Abriga arquivos de teste para validação do código.
 - .gitignore: Lista arquivos e pastas que o Git deve ignorar.
 - makefile: Contém instruções para automatizar a compilação do projeto.
-- wiki_images: Imagens dos cartões CRC usados no Wiki
+- wiki_images/: Imagens dos cartões CRC usados no Wiki
 
 
