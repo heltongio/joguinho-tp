@@ -22,8 +22,13 @@ int main() {
 
     string comando;
     CadastroJogadores manager;
-    manager.ConstruirVetor();
 
+    //Tenta abrir o arquivo
+    try {
+        manager.ConstruirVetor();
+    } catch(const exception& e){
+        cout << RED << e.what() << FIM << endl;
+    return 0;}
 
     while (true){
         cout << "Qual comando deseja utilizar: ";
@@ -42,12 +47,24 @@ int main() {
             getline(cin, nome);
             cout << "Apelido do jogador:" << endl;
             cin >> apelido;
-            manager.CadastrarJogador(apelido, nome);
+            //Verifica se jogador já estava cadastrado
+            try{
+                manager.CadastrarJogador(apelido, nome);
+            } catch (const exception& e) {
+                cout << RED << e.what() << " '" << apelido << "'" << FIM << endl;
+            continue;}
+
         }else if (comando == "RJ"){
             cout << "Apelido do jogador que sera removido:" << endl;
             string apelido;
             cin >> apelido;
-            manager.RemoverJogador(apelido);
+            //verifica se jogador esta cadastrado para ser removido
+            try {
+                manager.RemoverJogador(apelido);
+            } catch (const exception& e){
+                cout << RED << e.what() << " '" << apelido << "'" << FIM << endl;
+            continue;}
+            
         }else if (comando == "LJ"){
             manager.PrintJogadores();
         }else if (comando == "EP"){
@@ -64,20 +81,21 @@ int main() {
 
             cout << "Apelido do primeiro jogador:" ;
             cin >> apelido1;
-            cout << "Apelido do segundo jogador:" ;
-            cin >> apelido2;
-
-            // verificar se jogador esta cadastrado
+            
+            //verificar se jogador esta cadastrado
             try {
-                manager.verificaJogadores(apelido1);
-            } catch (const std::exception& e) {
+                manager.VerificaJogadores(apelido1);
+            } catch (const exception& e) {
                 cout << RED << e.what() << ": " << apelido1 << FIM << endl;
                 continue;}
 
+            cout << "Apelido do segundo jogador:" ;
+            
+            cin >> apelido2;
             try {
-                manager.verificaJogadores(apelido2);
-            } catch (const std::exception& e) {
-                cout << RED << e.what() << ": " << apelido1 << FIM << endl;
+                manager.VerificaJogadores(apelido2);
+            } catch (const exception& e) {
+                cout << RED << e.what() << ": " << apelido2 << FIM << endl;
                 continue;}
             
 
