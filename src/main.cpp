@@ -3,6 +3,7 @@
 #include "tabuleiro.hpp"
 #include "jogos.hpp"
 #include "velha.hpp"
+#include "lig4.hpp"
 #include <limits>
 #include <cctype>
 
@@ -45,9 +46,10 @@ int main() {
             cout << "Nome do jogador:" << endl;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getline(cin, nome);
+
             cout << "Apelido do jogador:" << endl;
             cin >> apelido;
-            //Verifica se jogador já estava cadastrado
+
             try{
                 manager.CadastrarJogador(apelido, nome);
             } catch (const exception& e) {
@@ -81,15 +83,8 @@ int main() {
 
             cout << "Apelido do primeiro jogador: " ;
             cin >> apelido1;
-<<<<<<< HEAD
-            cout << "Apelido do segundo jogador: " ;
-            cin >> apelido2;
-
-            // verificar se jogador esta cadastrado
-=======
             
             //verificar se jogador esta cadastrado
->>>>>>> 50f4b9cfe76c44a043afdbaf02339c3209ef62e9
             try {
                 manager.VerificaJogadores(apelido1);
             } catch (const exception& e) {
@@ -97,14 +92,14 @@ int main() {
                 continue;}
 
             cout << "Apelido do segundo jogador:" ;
-            
             cin >> apelido2;
+
             try {
                 manager.VerificaJogadores(apelido2);
             } catch (const exception& e) {
                 cout << RED << e.what() << ": " << apelido2 << FIM << endl;
                 continue;}
-            
+
 
             if (jogo == "V" || jogo == "VELHA"){
                 Velha jogoVelha(apelido1,apelido2,manager);
@@ -112,7 +107,8 @@ int main() {
             }else if(jogo == string("R") || jogo == "REVERSI"){
                 cout << "jogo em construção" << endl;
             }else if(jogo == string("L") || jogo == "LIG4"){
-                cout << "jogo em construção" << endl;
+                Lig4 jogoLig4(apelido1,apelido2,manager);
+                jogoLig4.iniciarJogo();
             }else{
                 cout << RED << "jogo não reconhecido!" << FIM << endl;
             }

@@ -20,6 +20,9 @@ private:
     bool verificaDiagonais(char jogador); //Verifica vitoria em diagonais
     bool verificaGanhador(char jogador); //Verifica se o jogador atual venceu
 
+    bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override; //provisorio
+    void criaTabuleiro() override; //provisorio
+    bool verificaGanhador(std::string jogador1, std::string jogador2, char valor) override;//provisorio
 public:
     Lig4(const std::string& jogador1, const std::string& jogador2, CadastroJogadores& manager);
     void iniciarJogo() override; //Metodo para iniciar o jogo

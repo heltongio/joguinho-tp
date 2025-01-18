@@ -125,3 +125,35 @@ bool Lig4::verificaDiagonais(char jogador) {
     }
     return false;
 }
+
+
+Lig4::~Lig4(){
+    return;
+}
+
+//provisorio
+bool Lig4::verificaJogada(int linha, int coluna, char valor, std::string jogador){
+    std::vector<std::vector<char>> grid = tabuleiro.getGrid();
+    linha = linha-1;
+    coluna = coluna-1;
+
+    if (grid[linha][coluna * 2 + 1] != ' '){
+        std::cerr << jogador << " posição inválida, tente novamente: ";
+        return false;
+    }else if (linha >= 0 && linha <= 3 && coluna >= 0 && coluna <= 3) {
+        tabuleiro.atualizarCelula(linha,coluna,valor);
+        tabuleiro.exibirTabuleiro();
+        return true;
+    }else {
+        std::cerr << jogador << " posição inválida, tente novamente: ";
+        return false;}
+}
+
+//provisorio
+void Lig4::criaTabuleiro(){
+    tabuleiro.exibirTabuleiro();
+}
+//provisorio
+bool Lig4::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
+    return false;
+}
