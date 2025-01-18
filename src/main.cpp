@@ -56,15 +56,15 @@ int main() {
             string apelido1;
             string apelido2;
 
-            cout << "Qual jogo deseja jogar? (Velha(V)/Lig4(L)/Reversi(R))" << endl;
+            cout << "Qual jogo deseja jogar? (Velha(V)/Lig4(L)/Reversi(R)): " ;
             cin >> jogo;
 
             transform(jogo.begin(), jogo.end(), jogo.begin(), [](unsigned char c) {
                 return std::toupper(c);});
 
-            cout << "Apelido do primeiro jogador:" ;
+            cout << "Apelido do primeiro jogador: " ;
             cin >> apelido1;
-            cout << "Apelido do segundo jogador:" ;
+            cout << "Apelido do segundo jogador: " ;
             cin >> apelido2;
 
             // verificar se jogador esta cadastrado
@@ -99,10 +99,6 @@ int main() {
         }else{
             cout << RED << "Comando invalido tenta novamente!!" << FIM << endl;
         }
-        
-
-
-
 
     }
 

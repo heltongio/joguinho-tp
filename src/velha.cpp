@@ -3,13 +3,8 @@
 bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     int linha;
     int coluna;
-
-    // if (verificaGanhador(jogador1, jogador2,valor)){
-    //     std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-    //     return true;
-    // }
             
-    std::cout << jogador1 <<" qual a jogada: ";
+    std::cout << jogador1 << " qual a jogada: ";
     std::cin >> linha;
     std::cin >> coluna;
 
@@ -27,26 +22,17 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
         }
     }
 
-    // //melhorar para não ter q repitir
-    // if (verificaGanhador()){
-    //     // CadastroJogadores manager;
-    //     std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-    //     // manager.AddVit(jogador1, "velha");
-    //     // manager.AddDer(jogador2, "velha");
-    //     // manager.SalvarArquivo();
-    //     return true;
-    // }
     return false;
             
 }
 
-//deixar jogador selecionar qual vai ser
+
 void Velha::iniciarJogo(){
     int cont = 0;
     char valor;
     char valor2;
 
-    std::cout << jogador1 <<" escolha X ou O: ";
+    std::cout << jogador1 << " escolha X ou O: ";
     std::cin >> valor;
     tabuleiro.exibirTabuleiro();
     
@@ -99,7 +85,7 @@ bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogado
         tabuleiro.exibirTabuleiro();
         return true;
     }else {
-        std::cerr << jogador << " posição inválida, tente novamente: "; // retorna falso
+        std::cerr << jogador << " posição inválida, tente novamente: ";
         return false;
     }
     
@@ -156,55 +142,3 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
 Velha::~Velha(){
 
 }
-
-// void Velha::verificaGanhador() {
-//     std::string estadoTabuleiro = tabuleiro.getEstadoLimpo();
-    
-//     char vencedor = '\0';
-
-//     for (int i = 0; i < 3; ++i) {
-//         int start = i * 3;
-//         if (estadoTabuleiro[start] != ' ' &&
-//             estadoTabuleiro[start] == estadoTabuleiro[start + 1] &&
-//             estadoTabuleiro[start + 1] == estadoTabuleiro[start + 2]) {
-//             vencedor = estadoTabuleiro[start];
-//             break;
-//         }
-//     }
-
-//     for (int i = 0; i < 3; ++i) {
-//         if (estadoTabuleiro[i] != ' ' &&
-//             estadoTabuleiro[i] == estadoTabuleiro[i + 3] &&
-//             estadoTabuleiro[i + 3] == estadoTabuleiro[i + 6]) {
-//             vencedor = estadoTabuleiro[i];
-//             break;
-//         }
-//     }
-
-
-//     if (estadoTabuleiro[0] != ' ' &&
-//         estadoTabuleiro[0] == estadoTabuleiro[4] &&
-//         estadoTabuleiro[4] == estadoTabuleiro[8]) {
-//         vencedor = estadoTabuleiro[0];
-//     }
-
-
-//     if (estadoTabuleiro[2] != ' ' &&
-//         estadoTabuleiro[2] == estadoTabuleiro[4] &&
-//         estadoTabuleiro[4] == estadoTabuleiro[6]) {
-//         vencedor = estadoTabuleiro[2];
-//     }
-
-//     if (vencedor != '\0') {
-//         std::cout << "O jogador '" << vencedor << "' venceu o jogo!\n";
-//     } else {
-//         std::cout << "Nenhum vencedor ainda.\n";
-//     }
-
-
-
-//     if (vencedor == '\0' && estadoTabuleiro.find(' ') == std::string::npos) {
-//     std::cout << "O jogo terminou em empate!\n";
-//     }
-
-// }
