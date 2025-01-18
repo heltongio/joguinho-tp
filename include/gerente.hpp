@@ -7,7 +7,6 @@
 #include <iomanip>
 #include <sstream>
 #include "jogador.hpp"
-#include <unistd.h> 
 #include <limits.h>
 #include <algorithm>
 
@@ -25,7 +24,7 @@ class CadastroJogadores {
     void CadastrarJogador(const std::string, const std::string); //Adicona um jogador com nenhuma vitoria/derrota com o contrato <apelido> <nome>
     void RemoverJogador(const std::string); //Remove Jogador utilizando o apelido <apelido>
     void SalvarArquivo(); //Salva os dados no txt
-    void verificaJogadores(std::string apelido);
+    void VerificaJogadores(std::string apelido);
 
     //Add vitória/derrota com o contrato <apelido> <nome do jogo>(velha, lig4, reversi)
     void AddVit(const std::string, const std::string);

@@ -6,8 +6,7 @@ void CadastroJogadores::PullJogadores() {
 
     std::ifstream fileIn(arquivo);
     if (!fileIn.is_open()) {
-        std::cout << "Erro ao abrir arquivo" << std::endl;
-        return;
+        throw std::runtime_error("ERRO: nao foi possivel abrir o arquivo");
     }
 
     std::string linha;
@@ -59,11 +58,10 @@ void CadastroJogadores::ConstruirVetor() {
 void CadastroJogadores::CadastrarJogador(std::string apelido, std::string nome) {
     for (auto& jogador : jogadores) {
             if (jogador.GetApelido() == apelido) {
-                std::cout << "ERRO: jogador repetido" << "\n" << std::endl;
-                return;
+                throw std::runtime_error("ERRO: jogador(a) repetido");
             }
         }
-    std::cout << "Jogador " << apelido << " cadastrado com sucesso" "\n" << std::endl;
+    std::cout << "Jogador(a) " << apelido << " cadastrado com sucesso" "\n" << std::endl;
     jogadores.push_back(Jogador(apelido, nome));
     return;
 }
@@ -76,22 +74,22 @@ void CadastroJogadores::RemoverJogador(std::string apelido) {
         if (jogador.GetApelido() == apelido) {
             jogadores.erase(jogadores.begin()+ aux);
             verif = 1;
-            std::cout << "Jogador " << apelido << " removido" << std::endl;
+            std::cout << "Jogador(a) " << apelido << " removido" << std::endl;
         }
     }
     if (verif == 0){
-        std::cout << "ERRO: Jogador " << apelido << " inexistente" << std::endl;
+        throw std::runtime_error("ERRO: jogador(a) inexistente");
     }
     return;
 }
 
-void CadastroJogadores::verificaJogadores(std::string apelido){
+void CadastroJogadores::VerificaJogadores(std::string apelido){
     for (auto& jogador : jogadores) {
             if (jogador.GetApelido() == apelido) {
                 return;
             }
     }
-    throw std::runtime_error("jogador não cadastrado");
+    throw std::runtime_error("ERRO: jogador(a) nao cadastrado");
 }
 
 void CadastroJogadores::SalvarArquivo() {
