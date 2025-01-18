@@ -1,7 +1,8 @@
-//Arquivo .cpp
+// Arquivo .cpp
 #include "lig4.hpp"
 #include <iostream>
 #include <cctype>
+#include <limits>
 
 // Construtor: inicializa o jogo Lig4 com dois jogadores e o tabuleiro
 Lig4::Lig4(const std::string& jogador1, const std::string& jogador2, CadastroJogadores& manager)
@@ -14,35 +15,52 @@ void Lig4::iniciarJogo() {
 
     while (true) {
         int coluna;
+        std::string entrada;
+
         // Pede ao jogador atual para escolher uma coluna
-        std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", insira a coluna para sua jogada: ";
-        std::cin >> coluna;
+        std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", insira a coluna para sua jogada (1-7): ";
+        std::cin >> entrada;
 
-        // Tenta realizar a jogada
-        if (realizarJogada(coluna - 1, jogadorAtual)) {
-            jogadas++; // Incrementa o número de jogadas
-            tabuleiro.exibirTabuleiro(); // Mostra o tabuleiro atualizado
+        // Valida a entrada: verifica se é um único número entre 1 e 7
+        if (entrada.size() == 1 && std::isdigit(entrada[0])) {
+            coluna = std::stoi(entrada);
 
-            // Verifica se o jogador atual venceu
-            if (verificaGanhador(jogadorAtual)) {
-                std::cout << "Parabéns! " << (jogadorAtual == 'X' ? jogador1 : jogador2) << " venceu!\n";
-                manager.AddVit(jogadorAtual == 'X' ? jogador1 : jogador2, "lig4");
-                manager.AddDer(jogadorAtual == 'X' ? jogador2 : jogador1, "lig4");
-                return; // Termina o jogo
+            // Verifica se o número está no intervalo válido
+            if (coluna >= 1 && coluna <= 7) {
+                // Tenta realizar a jogada
+                if (realizarJogada(coluna - 1, jogadorAtual)) {
+                    jogadas++; // Incrementa o número de jogadas
+                    tabuleiro.exibirTabuleiro(); // Mostra o tabuleiro atualizado
+
+                    // Verifica se o jogador atual venceu
+                    if (verificaGanhador(jogadorAtual)) {
+                        std::cout << "Parabéns! " << (jogadorAtual == 'X' ? jogador1 : jogador2) << " venceu!\n";
+                        manager.AddVit(jogadorAtual == 'X' ? jogador1 : jogador2, "lig4");
+                        manager.AddDer(jogadorAtual == 'X' ? jogador2 : jogador1, "lig4");
+                        return; // Termina o jogo
+                    }
+
+                    // Verifica se o tabuleiro está cheio (empate)
+                    if (jogadas == 6 * 7) {
+                        std::cout << "O jogo terminou em empate!\n";
+                        return;
+                    }
+
+                    // Alterna para o próximo jogador
+                    jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+                } else {
+                    std::cout << "Jogada inválida. A coluna está cheia ou não existe. Tente novamente.\n";
+                }
+            } else {
+                std::cout << "Entrada inválida. Escolha um número entre 1 e 7.\n";
             }
-
-            // Verifica se o tabuleiro está cheio (empate)
-            if (jogadas == 6 * 7) {
-                std::cout << "O jogo terminou em empate!\n";
-                return;
-            }
-
-            // Alterna para o próximo jogador
-            jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
         } else {
-            // Informa que a jogada foi inválida
-            std::cout << "Jogada inválida. Tente novamente.\n";
+            std::cout << "Entrada inválida. Insira apenas um número entre 1 e 7.\n";
         }
+
+        // Limpa o buffer caso a entrada tenha sido inválida
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
 
