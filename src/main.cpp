@@ -43,23 +43,30 @@ int main() {
         if (comando == "CJ"){
             string apelido;
             string nome;
-            cout << "Nome do jogador:" << endl;
+            
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            getline(cin, nome);
-
-            cout << "Apelido do jogador:" << endl;
-            cin >> apelido;
-
+            
+            while (nome.empty()) {
+                cout << "Nome do jogador:" << endl;
+                getline(cin, nome);
+            }
+            
+            while (apelido.empty()){
+                cout << "Apelido do jogador:" << endl;
+                getline(cin, apelido);
+            }
+            
             try{
                 manager.CadastrarJogador(apelido, nome);
-            } catch (const exception& e) {
-                cout << RED << e.what() << " '" << apelido << "'" << FIM << endl;
-            continue;}
+            }   catch (const invalid_argument& e) {
+                cout << RED << e.what() << FIM << endl;
+            continue;}   
 
         }else if (comando == "RJ"){
             cout << "Apelido do jogador que sera removido:" << endl;
             string apelido;
             cin >> apelido;
+           
             //verifica se jogador esta cadastrado para ser removido
             try {
                 manager.RemoverJogador(apelido);
