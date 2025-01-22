@@ -4,6 +4,7 @@
 #include "jogos.hpp"
 #include "velha.hpp"
 #include "lig4.hpp"
+#include "minimax.hpp"
 #include <limits>
 #include <cctype>
 

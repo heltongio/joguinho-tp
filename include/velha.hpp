@@ -2,6 +2,7 @@
 #define  VELHA_HPP
 #include <iostream>
 #include <string>
+#include "minimax.hpp"
 #include "jogos.hpp"
 #include "tabuleiro.hpp"
 #include "gerente.hpp"
@@ -10,6 +11,7 @@ class Velha:public Jogos{
     protected:
         char vencedor;
         Tabuleiro tabuleiro;
+        Minimax minimax;
     public:
         Velha(std::string jogador1, std::string jogador2,CadastroJogadores& manager)
         : Jogos(jogador1, jogador2, manager), tabuleiro(3, 3, '|') {}

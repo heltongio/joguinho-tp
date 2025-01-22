@@ -49,6 +49,7 @@ void Velha::iniciarJogo(){
             if (jogada(jogador1, jogador2,valor)){
                 break;
             }
+            minimax.jogadasPossiveis(tabuleiro,jogador1);
            
             
         }else if (cont%2 != 0){
