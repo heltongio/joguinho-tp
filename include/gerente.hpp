@@ -25,6 +25,7 @@ class CadastroJogadores {
     void RemoverJogador(const std::string); //Remove Jogador utilizando o apelido <apelido>
     void SalvarArquivo(); //Salva os dados no txt
     void VerificaJogadores(std::string apelido);
+    void OrganizaJogadores(); //Organiza os jogadores em ordem alfabetica do apelido
 
     //Add vitória/derrota com o contrato <apelido> <nome do jogo>(velha, lig4, reversi)
     void AddVit(const std::string, const std::string);

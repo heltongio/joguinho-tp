@@ -1,7 +1,6 @@
 #include "gerente.hpp"
 
 
-
 void CadastroJogadores::PullJogadores() {
 
     std::ifstream fileIn(arquivo);
@@ -9,6 +8,7 @@ void CadastroJogadores::PullJogadores() {
         throw std::runtime_error("ERRO: nao foi possivel abrir o arquivo");
     }
 
+    //Abrindo o arquivo e coletando as linhas
     std::string linha;
     while(std::getline(fileIn, linha)) {
         std::stringstream ss(linha);
@@ -16,7 +16,7 @@ void CadastroJogadores::PullJogadores() {
         
         int a, b, c, d, e, f;
         ss >> apelido >> nome >> nome_temp;
-        while (!((nome_temp[0] <= 57)&&(48 <= nome_temp[0]))) {
+        while (!std::isdigit(nome_temp[0])) { //Pegando nomes compostos
                 if (!nome.empty()) {
                     nome += " ";
                 }
@@ -29,6 +29,8 @@ void CadastroJogadores::PullJogadores() {
 
         jogadores.push_back(Jogador(apelido, nome, a, b, c, d, e, f));
     }
+    OrganizaJogadores();
+    SalvarArquivo();
     fileIn.close();
     return;
 }
@@ -39,6 +41,7 @@ void CadastroJogadores::PushJogadores() {
         std::cout << "Erro ao abrir arquivo" << std::endl;
         return;
     }
+    //Modificando os dados do arquivo
     for (auto& jogador : jogadores){
         file << jogador.GetApelido() << " " << jogador.GetNome() << " "
         << jogador.GetVit("velha") << " " << jogador.GetVit("lig4") << " "
@@ -56,23 +59,64 @@ void CadastroJogadores::ConstruirVetor() {
 }
 
 void CadastroJogadores::CadastrarJogador(std::string apelido, std::string nome) {
+    //variaveis usadas para formatar nomes e apelidos
+    std::stringstream ss(nome);
+    std::string palavra, novo_nome;
+
+    //Verifica se o nome está de acordo com o padrão esperado
+    for (auto& letra : nome){
+        if (!isalpha(letra) && letra != ' '){
+            throw std::invalid_argument("ERRO: nome com algarismos nao alfabeticos '" + nome + "'");
+        }
+    }
+    //Verifica se o apelido está de acordo com o padrão esperado
+    for (auto& letra : apelido){
+        if (!isalpha(letra)){
+            throw std::invalid_argument("ERRO: apelido com algarismos nao alfabeticos ou com mais de uma palavra '" + apelido + "'");
+        }
+    }
+    //Formata o nome deixa-los padronizados
+    
+    while (ss >> palavra) {
+        for (auto& letra : palavra) letra = std::tolower(letra);
+        palavra[0] = std::toupper(palavra[0]);
+        novo_nome += palavra + ' ';
+    }
+    novo_nome.pop_back();
+
+    //Formata o apelido
+    for(auto& letra : apelido) letra = std::tolower(letra);
+    apelido[0] = std::toupper(apelido[0]);
+
+    //Verifica se o jogador já está cadastrado
     for (auto& jogador : jogadores) {
             if (jogador.GetApelido() == apelido) {
-                throw std::runtime_error("ERRO: jogador(a) repetido");
+                throw std::invalid_argument("ERRO: jogador(a) '" + jogador.GetApelido() + "' repetido");
             }
         }
+
+    jogadores.push_back(Jogador(apelido, novo_nome));
     std::cout << "Jogador(a) " << apelido << " cadastrado com sucesso" "\n" << std::endl;
-    jogadores.push_back(Jogador(apelido, nome));
+
+    OrganizaJogadores();
+
+    SalvarArquivo();
     return;
 }
 
 void CadastroJogadores::RemoverJogador(std::string apelido) {
     int aux = -1;
     int verif = 0;
+    
+    //Fomatando o apelido recebido do usuario para encaixar em nosso padrao
+    for(auto& letra : apelido) letra = std::tolower(letra);
+    apelido[0] = std::toupper(apelido[0]);
+
+    //Procura jogador repetido
     for (auto& jogador : jogadores) {
         aux++;
         if (jogador.GetApelido() == apelido) {
-            jogadores.erase(jogadores.begin()+ aux);
+            jogadores.erase(jogadores.begin() + aux);
             verif = 1;
             std::cout << "Jogador(a) " << apelido << " removido" << std::endl;
         }
@@ -80,6 +124,7 @@ void CadastroJogadores::RemoverJogador(std::string apelido) {
     if (verif == 0){
         throw std::runtime_error("ERRO: jogador(a) inexistente");
     }
+    SalvarArquivo();
     return;
 }
 
@@ -90,6 +135,12 @@ void CadastroJogadores::VerificaJogadores(std::string apelido){
             }
     }
     throw std::runtime_error("ERRO: jogador(a) nao cadastrado");
+}
+
+void CadastroJogadores::OrganizaJogadores(){
+    std::sort(jogadores.begin(), jogadores.end(), [](const Jogador& a, const Jogador& b) {
+        return (a.GetApelido() < b.GetApelido());
+    });
 }
 
 void CadastroJogadores::SalvarArquivo() {
@@ -105,6 +156,7 @@ void CadastroJogadores::AddVit(std::string apelido, std::string jogo) {
             jogador.SomarVit(jogo);
         }
     }
+    SalvarArquivo();
 }
 
 void CadastroJogadores::AddDer(std::string apelido, std::string jogo) {
@@ -113,13 +165,10 @@ void CadastroJogadores::AddDer(std::string apelido, std::string jogo) {
             jogador.SomarDer(jogo);
         }
     }
+    SalvarArquivo();
 }
 
 void CadastroJogadores::PrintJogadores() {
-    
-    std::sort(jogadores.begin(), jogadores.end(), [](const Jogador& a, const Jogador& b) {
-        return (a.GetApelido() < b.GetApelido());
-    });
 
     for (auto jogador : jogadores){
         std::cout << jogador.GetApelido() << " " << jogador.GetNome() << std::endl;
