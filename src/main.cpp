@@ -90,6 +90,11 @@ int main() {
 
             cout << "Apelido do primeiro jogador: " ;
             cin >> apelido1;
+            for (auto& letra : apelido1){
+                if (!isalpha(letra) && letra != ' '){
+                    cout << "Apelido com algarismos nao alfabeticos ou mais de uma palavra '" + apelido1 + "'" << endl;;
+            }
+    }
             
             //verificar se jogador esta cadastrado
             try {

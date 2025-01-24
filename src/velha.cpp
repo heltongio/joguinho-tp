@@ -29,11 +29,18 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
 
 void Velha::iniciarJogo(){
     int cont = 0;
+    std::string valor_teste;
     char valor;
     char valor2;
 
     std::cout << jogador1 << " escolha X ou O: ";
-    std::cin >> valor;
+    std::cin >> valor_teste;
+    while (valor_teste.length() != 1 || ((toupper(valor_teste[0]) != 'X') && (toupper(valor_teste[0]) != 'O'))) {
+        std::cout << "Entrada invalida, tente novamnete" << std::endl;
+        std::cin >> valor_teste;
+    }
+    valor_teste[0] = toupper(valor_teste[0]);
+    valor = valor_teste[0];
     tabuleiro.exibirTabuleiro();
     
     valor = std::toupper(valor);
@@ -77,17 +84,23 @@ bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogado
     linha = linha-1;
     coluna = coluna-1;
 
-    if (grid[linha][coluna * 2 + 1] != ' '){
+    if ((linha < 0 || linha >= 3) || (coluna < 0 || coluna >= 3)) {
+        std::cerr << jogador << " posição inválida, tente novamente:";
+        return false;
+    }
+    else if (grid[linha][coluna * 2 + 1] != ' '){
         std::cerr << jogador << " posição inválida, tente novamente: ";
         return false;
-    }else if (linha >= 0 && linha <= 3 && coluna >= 0 && coluna <= 3) {
+    }else {
         tabuleiro.atualizarCelula(linha,coluna,valor);
         tabuleiro.exibirTabuleiro();
         return true;
-    }else {
-        std::cerr << jogador << " posição inválida, tente novamente: ";
-        return false;
     }
+    //if (linha >= 0 && linha <= 3 && coluna >= 0 && coluna <= 3) 
+    // }else {
+    //     std::cerr << jogador << " posição inválida, tente novamente: ";
+    //     return false;
+    // }
     
 }
 
