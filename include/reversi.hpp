@@ -18,6 +18,7 @@ private:
 
     bool verificaJogada(int linha, int coluna, char jogador); //Verifica se a jogada é possível
     bool verificaFeito(int linha, int coluna, char jogador, bool opcao, int sentido); //Quando 0 verifica a validade do movimento, quando 1 atualiza os valores do tabuleiro
+    bool verificaGanhador(char jogador); //Verifica se o jogador venceu
 
 public:
     Reversi(const std::string& jogador1, const std::string& jogador2, CadastroJogadores& manager);

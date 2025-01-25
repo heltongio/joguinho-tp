@@ -19,40 +19,79 @@ Reversi::~Reversi() {
 
 void Reversi::iniciarJogo() {   
     char jogadorAtual = 'X'; // O jogador X sempre começa
+
     tabuleiro.exibirTabuleiro(); // Mostra o tabuleiro vazio
     std::string entrada;
     int linha, coluna;
+    bool movimento = true;
+    bool jogadaValida = false;
+    bool pularJogada = false;
     while (true) {
+        
 
-        // Pede ao jogador atual para escolher uma linha e uma coluna
-        std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", insira a linha e a coluna para sua jogada (1-8): ";
-
-        for (int i = 0; i < 8; i++) {
-            for (int j = 1; j < 16; (j + 2))
-            {
-                if(tabuleiro.getGrid()[i][j] == ' ' && !verificaFeito(i, j, jogadorAtual, 0, 0)) {
-                    
-                }
-                else{
-                    std::cout << "Não há jogadas disponíveis para " << (jogadorAtual == 'X' ? jogador1 : jogador2) << ". O próximo jogador deve jogar.\n";
-                    jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+        std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", Faça sua jogada: ";
+        if (jogadas == 0) {
+            getline(std::cin >> std::ws, entrada);
+        } else {
+            for (int i = 1; i < 8; i++) {
+                for (int j = 1; j < 8; j++)
+                {   
+                    std::cout << "i: " << i << " j: " << j << std::endl;
+                    std::cout << "tabuleiro: " << tabuleiro.getGrid()[i][(j - 1) * 2 + 1] << std::endl;
+                    if(tabuleiro.getGrid()[i][(j - 1) * 2 + 1] == ' ') movimento = verificaFeito(i, j, jogadorAtual, 0, 0);
+                    if (movimento == true) {
+                        pularJogada = false;
+                        break;
+                    }
                 }
             }
+            if (!movimento){
+                std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", não há movimentos possíveis, sua vez será pulada.\n";
+                jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+                continue;
+            }
+            // for (int i = 1; i <= 8; i++) {
+            //     for (int j = 1; j <= 8; j++)
+            //     {
+            //         movimento = verificaJogada(i, j, jogadorAtual);
+            //         if (movimento == true) {
+            //             pularJogada = false;
+            //             break;
+            //         }
+            //         else {
+            //             if (pularJogada){
+            //                 verificaGanhador(jogadorAtual);
+            //             }
+            //             else {
+            //                 pularJogada = true;
+            //                 std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", não há movimentos possíveis, sua vez será pulada.\n";
+            //                 jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+            //             }   
+            //         }
+            //     }
+            // }
+            getline(std::cin, entrada);
         }
-
-
         
-        getline(std::cin >> std::ws, entrada);
         linha = entrada[0] - '0';
         coluna = entrada[2] - '0';
 
-        while(verificaJogada(linha, coluna, jogadorAtual)) {
+
+        jogadaValida = !verificaJogada(linha, coluna, jogadorAtual);
+
+
+        while (jogadaValida) {
             tabuleiro.exibirTabuleiro(); // Mostra o tabuleiro atualizado
             std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", insira o novo valor para sua jogada: ";
             getline(std::cin, entrada);
             linha = entrada[0] - '0';
             coluna = entrada[2] - '0';
+            jogadaValida = !verificaJogada(linha, coluna, jogadorAtual);
         }
+
+
+
+        tabuleiro.exibirTabuleiro(); // Mostra o tabuleiro atualizado
         jogadas++; // Incrementa o número de jogadas
 
         //Alterna para o próximo jogador
@@ -76,7 +115,8 @@ bool Reversi::verificaJogada(int linha, int coluna, char jogador) {
     }
 
     if (!verificaFeito(linha - 1, coluna - 1, jogador, 1, 0)) {
-        std::cout << "Jogada incorreta. Tente novamente com uma jogada possível\n";
+        std::cout << "Jogada inválida. Tente novamente com uma jogada possível\n";
+        return false;
     }
 
     return true;
@@ -91,67 +131,88 @@ bool Reversi::verificaFeito(int linha, int coluna, char jogador, bool opcao, int
 
     switch (sentido){ //inicia a repercução de verificação do movimento
     case 0:
-        if(linha - 1 >= 0 && tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador_op) {
+        if(linha - 1 >= 0 && tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador_op) {\
+            std::cout << "C: linha: " << linha << " coluna: " << coluna << std::endl;
             keep += verificaFeito(linha - 1, coluna, jogador, opcao, 2); //inicia recursão para verificar a linha superior
-            if(coluna - 1 >= 0 && tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador_op) {
-                keep += verificaFeito(linha - 1, coluna - 1, jogador, opcao, 1); //inicia recursão para verificar a diagonal superior esquerda
-            }
-            if(coluna + 1 <= 7 && tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador_op) {
-                keep += verificaFeito(linha - 1, coluna + 1, jogador, opcao, 3); //inicia recursão para verificar a diagonal superior direita
-            }
+        }     
+        if(linha - 1 >= 0 && coluna - 1 >= 0 && tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador_op) {
+            std::cout << "CE: linha: " << linha << " coluna: " << coluna << std::endl;
+            keep += verificaFeito(linha - 1, coluna - 1, jogador, opcao, 1); //inicia recursão para verificar a diagonal superior esquerda
         }
+        if(linha - 1 >= 0 && coluna + 1 <= 7 && tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador_op) {
+            std::cout << "CD: linha: " << linha << " coluna: " << coluna << std::endl;
+            keep += verificaFeito(linha - 1, coluna + 1, jogador, opcao, 3); //inicia recursão para verificar a diagonal superior direita
+        }
+    
+
         if(coluna - 1 >= 0 && tabuleiro.getGrid()[linha][coluna * 2 - 1] == jogador_op) {
-            keep += verificaFeito(linha, coluna - 1, jogador, opcao, 4); //inicia recursão para verificar a linha esquerda
+            std::cout << "E: linha: " << linha << " coluna: " << coluna << std::endl;
+            keep += verificaFeito(linha, coluna - 1, jogador, opcao, 4); //inicia recursão para verificar a lateral esquerda
         }
         if(coluna + 1 <= 7 && tabuleiro.getGrid()[linha][coluna * 2 + 3] == jogador_op) {
-            keep += verificaFeito(linha, coluna + 1, jogador, opcao, 5); //inicia recursão para verificar a linha direita
+            std::cout << "D: linha: " << linha << " coluna: " << coluna << std::endl;
+            keep += verificaFeito(linha, coluna + 1, jogador, opcao, 5); //inicia recursão para verificar a lateral direita
         }
+
+
         if(linha + 1 <= 7 && tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador_op) {
+            std::cout << "B: linha: " << linha << " coluna: " << coluna << std::endl;
             keep += verificaFeito(linha + 1, coluna, jogador, opcao, 7); //inicia recursão para verificar a linha inferior
-            if(coluna - 1 >= 0 && tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador_op) {
-                keep += verificaFeito(linha + 1, coluna - 1, jogador, opcao, 6); //inicia recursão para verificar a diagonal inferior esquerda
-            }
-            if(coluna + 1 <= 7 && tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador_op) {
-                keep += verificaFeito(linha + 1, coluna + 1, jogador, opcao, 8); //inicia recursão para verificar a diagonal inferior direita
-            }
         }
+        if(linha + 1 <= 7 && coluna - 1 >= 0 && tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador_op) {
+            std::cout << "BE: linha: " << linha << " coluna: " << coluna << std::endl;
+            keep += verificaFeito(linha + 1, coluna - 1, jogador, opcao, 6); //inicia recursão para verificar a diagonal inferior esquerda
+        }
+        if(linha + 1 <= 7 && coluna + 1 <= 7 && tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador_op) {
+            std::cout << "BD: linha: " << linha << " coluna: " << coluna << std::endl;
+            keep += verificaFeito(linha + 1, coluna + 1, jogador, opcao, 8); //inicia recursão para verificar a diagonal inferior direita
+        }
+        
         break;
     case 1:  //repercução da diagonal superior esquerda
+        std::cout << "CER: linha: " << linha << " coluna: " << coluna << std::endl;
         if (linha - 1 < 0 && coluna - 1 < 0) return false;
         else if(tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha - 1, coluna - 1, jogador, opcao, 1);
         else if(tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador) keep++;
         break;
     case 2: //repercução da linha superior
+        std::cout << "CR: linha: " << linha << " coluna: " << coluna << std::endl;
         if (linha - 1 < 0) return false;
         else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador_op) keep += verificaFeito(linha - 1, coluna, jogador, opcao, 2);
         else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador) keep++;
         break;
     case 3: //repercução da diagonal superior direita
+        std::cout << "CDR: linha: " << linha << " coluna: " << coluna << std::endl;
         if (linha - 1 < 0 && coluna + 1 > 8) return false;
         else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador_op) keep += verificaFeito(linha - 1, coluna + 1, jogador, opcao, 3);
         else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador) keep++;
         break;
     case 4: //repercução da linha esquerda
+        std::cout << "ER: linha: " << linha << " coluna: " << coluna << std::endl;
         if (coluna - 1 < 0) return false;
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha, coluna - 1, jogador, opcao, 4);
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador) keep++;
+        else if(tabuleiro.getGrid()[linha][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha, coluna - 1, jogador, opcao, 4);
+        else if(tabuleiro.getGrid()[linha][coluna * 2 - 1] == jogador) keep++;
         break;
     case 5: //repercução da linha direita
+        std::cout << "DR: linha: " << linha << " coluna: " << coluna << std::endl;
         if (coluna + 1 > 7) return false;
         else if(tabuleiro.getGrid()[linha][coluna * 2 + 3] == jogador_op) keep += verificaFeito(linha, coluna + 1, jogador, opcao, 5);
         else if(tabuleiro.getGrid()[linha][coluna * 2 + 3] == jogador) keep++;
         break;
     case 6: //repercução da diagonal inferior esquerda
-        if (linha + 1 > 7 && coluna - 1 < 8) return false;
+        std::cout << "BER: linha: " << linha << " coluna: " << coluna << std::endl;
+        if (linha + 1 > 7 && coluna - 1 < 0) return false;
         else if(tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha + 1, coluna - 1, jogador, opcao, 6);
         else if(tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador) keep++;
         break;
     case 7: //repercução da linha inferior
+        std::cout << "BR: linha: " << linha << " coluna: " << coluna << std::endl;
         if (linha + 1 > 7) return false;
         else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador_op) keep += verificaFeito(linha + 1, coluna, jogador, opcao, 7);
         else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador) keep++;
         break;
     case 8: //repercução da diagonal inferior direita
+        std::cout << "BDR: linha: " << linha << " coluna: " << coluna << std::endl;
         if (linha + 1 > 7 && coluna + 1 > 8) return false;
         else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador_op) keep += verificaFeito(linha + 1, coluna + 1, jogador, opcao, 8);
         else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador) keep++;
@@ -168,4 +229,32 @@ bool Reversi::verificaFeito(int linha, int coluna, char jogador, bool opcao, int
         return true;
     }
     else return false;
+}
+
+
+bool Reversi::verificaGanhador(char jogador) {
+    int pecasX = 0;
+    int pecasO = 0;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 16; j += 2) {
+            if (tabuleiro.getGrid()[i][j + 1] == 'X') {
+                pecasX++;
+            } else if (tabuleiro.getGrid()[i][j + 1] == 'O') {
+                pecasO++;
+            }
+        }
+    }
+
+    if (pecasX == 0 || pecasO == 0 || jogadas == 64) {
+        if (pecasX > pecasO) {
+            vencedor = jogador1;
+        } else if (pecasO > pecasX) {
+            vencedor = jogador2;
+        } else {
+            vencedor = "Empate";
+        }
+        std::cout << "O jogo acabou! O vencedor é: " << vencedor << std::endl;
+        return true;
+    }
+    return false;
 }
