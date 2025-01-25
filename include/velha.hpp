@@ -12,7 +12,7 @@ class Velha:public Jogos{
     protected:
         char vencedor;
         Tabuleiro tabuleiro;
-        std::shared_ptr<char> valorGanhador = std::make_shared<char>("N");
+        // std::shared_ptr<char> valorGanhador = std::make_shared<char>("N");
     public:
         Velha(std::string jogador1, std::string jogador2,CadastroJogadores& manager)
         : Jogos(jogador1, jogador2, manager), tabuleiro(3, 3, '|') {}

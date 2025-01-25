@@ -134,7 +134,7 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
             std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
             // manager.AddVit(jogador1, "velha");
             // manager.AddDer(jogador2, "velha");
-            valorGanhador = std::make_shared<char>(valor);
+            // valorGanhador = std::make_shared<char>(valor);
 
             return true;
         }
