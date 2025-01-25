@@ -13,13 +13,15 @@
 class CadastroJogadores {
     private:
         std::vector<Jogador> jogadores; //Vetor que armazenará os dados do txt com o objeto Jogador
-        const std::string arquivo = "bancoDados/jogadores.txt"; //caso erro mudar para "bancoDados/jogadores.txt"
+        std::string arquivo; //= "bancoDados/jogadores.txt"; //caso erro mudar para "bancoDados/jogadores.txt"
+        const std::string arquivo_teste = "bancoDados/jogadores_teste.txt";
         //Métodos privados que acessam o arquivo para coleta e registro de dados
         void PullJogadores();
         void PushJogadores();
     
     public:
 
+    CadastroJogadores(std::string);
     void ConstruirVetor(); //Coleta os dados do txt e aloca no vetor jogadores
     void CadastrarJogador(const std::string, const std::string); //Adicona um jogador com nenhuma vitoria/derrota com o contrato <apelido> <nome>
     void RemoverJogador(const std::string); //Remove Jogador utilizando o apelido <apelido>

@@ -22,7 +22,7 @@ int main() {
     cout << endl;
 
     string comando;
-    CadastroJogadores manager;
+    CadastroJogadores manager("bancoDados/jogadores.txt");
 
     //Tenta abrir o arquivo
     try {

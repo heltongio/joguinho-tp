@@ -1,6 +1,10 @@
 #include "gerente.hpp"
 
 
+CadastroJogadores::CadastroJogadores(std::string caminho) {
+    arquivo = caminho;
+}
+
 void CadastroJogadores::PullJogadores() {
 
     std::ifstream fileIn(arquivo);
