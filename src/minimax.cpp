@@ -31,7 +31,7 @@ std::vector<std::vector<char>> Minimax::jogadasPossiveis(Tabuleiro board,char va
 
 }
 
-
+//equisito
 void Minimax::imprimirTabuleiro(const std::vector<std::vector<char>>& tabs) {
     for (const auto& linha : tabs) {
         for (char c : linha) {
@@ -41,66 +41,67 @@ void Minimax::imprimirTabuleiro(const std::vector<std::vector<char>>& tabs) {
     }
 }
 
-int Minimax::is_win(Tabuleiro board){
+int Minimax::is_win(Tabuleiro board) {
+    Velha velha(board);
 
-    Velha* velha = new Velha(board);
-
-    if (velha->verificaTabLimpo(board.getEstadoLimpo())) {
-        delete velha; // Libera memória alocada
-        return 0; // Empate ou jogo inicial
+    if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
+        return 0;  // Empate ou jogo inicial
     }
-
-    if (velha->verificaGanhador(jogador2, jogador1, cpu)) {
-        delete velha; // Libera memória alocada
-        return 1; // Vitória do CPU
+    if (velha.verificaGanhador(jogador2, jogador1, cpu)) {
+        return 1;  // Vitória do CPU
     }
-
-
-    if (velha->verificaGanhador(jogador1, jogador2, humano)) {
-        delete velha; // Libera memória alocada
+    if (velha.verificaGanhador(jogador1, jogador2, humano)) {
         return -1; // Vitória do humano
     }
-
-
-    delete velha;
-    return 5;
+    return 5;  // Jogo em andamento
 }
 
-int Minimax::minimax(Tabuleiro board, bool minimizing){
-        int cont = 0;
 
-        if (is_win(board) != 5) {
-            return is_win(board);
-        }
 
-        if (minimizing) {
-            int value = std::numeric_limits<int>::min();
-            std::vector<std::vector<char>> children = jogadasPossiveis(board, cpu);
-
-            // for (const auto& child : children) {
-            //     Tabuleiro novoTabuleiro(child);
-            //     value = std::max(value, minimax(novoTabuleiro, false));
-            //     cont++;
-            // }
-
-            for (const auto& child : children) {
-                // std::string childEstado(child.begin(), child.end());
-                Tabuleiro novoTabuleiro(child);
-                value = std::max(value, minimax(novoTabuleiro, false));
-            }
-            return value;
-
-        } else {
-            int value = std::numeric_limits<int>::max();
-            std::vector<std::vector<char>> children = jogadasPossiveis(board, humano);
-
-            for (const auto& child : children) {
-                Tabuleiro novoTabuleiro(child);
-                value = std::min(value, minimax(novoTabuleiro, true));
-            return value;
-        }
-    return 0;
+Tabuleiro Minimax::minimax(Tabuleiro board, bool minimizing) {
+    int resultado = is_win(board);
+    if (resultado != 5) {
+        return board;  // Retorna o estado do tabuleiro se já houver resultado
     }
+
+    std::vector<std::vector<char>> children;
+    std::vector<char> melhorJogada;
+
+    if (minimizing) {
+        int melhorValor = std::numeric_limits<int>::min();
+        children = jogadasPossiveis(board, humano);
+
+        for (const auto& child : children) {
+            Tabuleiro novoTabuleiro(child);
+            auto jogada = minimax(novoTabuleiro, false);
+
+            Tabuleiro tabuleiroTeste(jogada);
+            int valor = is_win(tabuleiroTeste);
+
+            if (valor > melhorValor) {
+                melhorValor = valor;
+                melhorJogada = child;  // Guarda a melhor jogada
+            }
+        }
+    } else {
+        int melhorValor = std::numeric_limits<int>::max();
+        children = jogadasPossiveis(board, cpu);
+
+        for (const auto& child : children) {
+            Tabuleiro novoTabuleiro(child);
+            auto jogada = minimax(novoTabuleiro, true);
+
+            Tabuleiro tabuleiroTeste(jogada);
+            int valor = is_win(tabuleiroTeste);
+
+            if (valor < melhorValor) {
+                melhorValor = valor;
+                melhorJogada = child;  // Guarda a melhor jogada
+            }
+        }
+    }
+
+    return melhorJogada;  // Retorna apenas a melhor jogada
 }
 
 Minimax::~Minimax(){

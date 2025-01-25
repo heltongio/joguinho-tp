@@ -69,7 +69,9 @@ std::vector<char> Tabuleiro::getCleanState() {
     return cleanState;
 }
 
-
+void Tabuleiro::setTabuleiro(Tabuleiro tab){
+    grid = tab.getGrid();
+}
 
 std::vector<std::vector<char>> Tabuleiro::getGrid(){
     return grid;

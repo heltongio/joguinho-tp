@@ -46,20 +46,30 @@ void Velha::iniciarJogo(){
             if (jogada(jogador1, jogador2, valor)){
                 break;
             }
-            Minimax minimaxSolver (jogador1, jogador2, valor, valor2);
-            int melhorJogada = minimaxSolver.minimax(tabuleiro, false);
-            std::cout << "A pontuação da melhor jogada é: " << melhorJogada << std::endl;
 
-            std::vector<std::vector<char>> jogadas = minimaxSolver.jogadasPossiveis(tabuleiro, valor2);
-            std::cout << "Jogadas possíveis para CPU: " << std::endl;
-            minimaxSolver.imprimirTabuleiro(jogadas);
+            // std::cout << "A pontuação da melhor jogada é: " << melhorJogada << std::endl;
+
+            // std::vector<std::vector<char>> jogadas = minimaxSolver.jogadasPossiveis(tabuleiro, valor2);
+            // std::cout << "Jogadas possíveis para CPU: " << std::endl;
+            // minimaxSolver.imprimirTabuleiro(jogadas);
            
             
         }else if (cont%2 != 0){
             cont++;
-            if (jogada(jogador2, jogador1,valor2)){
-                break;
-            }
+
+            Minimax minimaxSolver (jogador1, jogador2, valor, valor2);
+            Tabuleiro melhorJogada = minimaxSolver.minimax(tabuleiro, false);
+            melhorJogada.exibirTabuleiro();
+
+
+            //melhorar definição de parada
+            tabuleiro.setTabuleiro(melhorJogada);
+            // break;
+
+            //pvp
+            // if (jogada(jogador2, jogador1,valor2)){
+            //     break;
+            // }
 
             
         }

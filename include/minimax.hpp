@@ -25,7 +25,7 @@ class Minimax {
         void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
         // int pontuaGanhadores(Tabuleiro board);
         int is_win(Tabuleiro board);
-        int minimax(Tabuleiro board, bool minimizing = false);
+        Tabuleiro minimax(Tabuleiro board, bool minimizing = false);
         ~Minimax();
 
     

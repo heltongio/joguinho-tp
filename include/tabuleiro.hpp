@@ -22,6 +22,7 @@ class Tabuleiro {
             void atualizarCelula(int linha, int coluna, char valor);
             std::string getEstadoLimpo();
             std::vector<char> getCleanState();
+            void setTabuleiro(Tabuleiro Tab);
             std::vector<std::vector<char>> getGrid();
             ~Tabuleiro();
     };
