@@ -11,10 +11,9 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     
     while (true){
 
-        if (verificaJogada(linha,coluna,valor,jogador1)){
+        if(verificaJogada(linha,coluna,valor,jogador1)){
             if (verificaGanhador(jogador1, jogador2,valor)){
-                return true;
-            }
+                return true;}
             break;
         }else{
             std::cin >> linha;
@@ -37,19 +36,18 @@ void Velha::iniciarJogo(){
     tabuleiro.exibirTabuleiro();
     
     valor = std::toupper(valor);
-    if (valor == 'X'){
-        valor2 = 'O';
-    }else{
-        valor2 = 'X';}
+    valor2 = (valor == 'X') ? 'O' : 'X';
 
     while (true){
 
         if (cont%2 == 0){
             cont++;
-            if (jogada(jogador1, jogador2,valor)){
+            if (jogada(jogador1, jogador2, valor)){
                 break;
             }
-            minimax.jogadasPossiveis(tabuleiro,jogador1);
+
+            std::vector<std::vector<char>> teste = minimax.jogadasPossiveis(tabuleiro,valor2);
+            minimax.imprimirTabuleiro(teste);
            
             
         }else if (cont%2 != 0){
@@ -57,7 +55,7 @@ void Velha::iniciarJogo(){
             if (jogada(jogador2, jogador1,valor2)){
                 break;
             }
-    
+
             
         }
         
@@ -129,8 +127,9 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
     for (int i = 0; i < 3; ++i) {
         if (verificaLinha(estado, i) || verificaColuna(estado, i)||verificaDiagonais(estado)) {
             std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-            manager.AddVit(jogador1, "velha");
-            manager.AddDer(jogador2, "velha");
+            // manager.AddVit(jogador1, "velha");
+            // manager.AddDer(jogador2, "velha");
+            valorGanhador = std::make_shared<char>(valor);
 
             return true;
         }

@@ -1,30 +1,104 @@
 #include "minimax.hpp"
+#include "velha.hpp"
 #include <iostream>
 #include <cctype>
 
-Tabuleiro Minimax::jogadasPossiveis(Tabuleiro Tabuleiro, const std::string& jogador){
-
-    std::vector<std::vector<char>> jogadas;
-    std::vector<std::vector<char>> board = Tabuleiro.getGrid();
 
 
-    for (int i = 0; i > board.max_size() ;i++){
-        std::cout << "teste";
+std::vector<std::vector<char>> Minimax::jogadasPossiveis(Tabuleiro board,const char valor){
+
+    std::vector<std::vector<char>> tabsjogPossiveis;
+    std::string boardLimpo = board.getEstadoLimpo();
+
+    std::vector<char> listLimpa(boardLimpo.begin(), boardLimpo.end());
+
+    for (size_t i = 0; i < listLimpa.size(); ++i) {
+        if (listLimpa[i] != ' ') {
+            continue;}
+
+        std::vector<char> possivel = listLimpa;
+        possivel[i] = valor;
+
+        tabsjogPossiveis.push_back(possivel);
     }
+
+
+    return tabsjogPossiveis;
 
 }
 
-// def candidates(board, player):
-//     candidate_moves = []
 
-//     for i in range(len(board)):
-//         for j in range(len(board)):
-//             if board[i][j] != ' ':
-//                 continue
+void Minimax::imprimirTabuleiro(const std::vector<std::vector<char>>& tabs) {
+    for (const auto& linha : tabs) {
+        for (char c : linha) {
+            std::cout << c << " ";
+        }
+        std::cout << std::endl;
+    }
+}
 
-//             candidate = deepcopy(board)
-//             candidate[i][j] = player
+bool Minimax::is_win(Tabuleiro board){
 
-//             candidate_moves.append(candidate)
+    std::string jogador1;
+    std::string jogador2;
+    char valor;
 
-//     return candidate_moves
+    // Chama a função verificaGanhador e recebe o resultado
+    bool resultado = velha.verificaGanhador(jogador1, jogador2, valor);
+
+    // Inicializa o ponteiro compartilhado com o valor retornado
+    std::shared_ptr<char> valorGanhador = std::make_shared<char>(valor);
+
+    if (resultado) {
+        if (*valorGanhador == 'X') {
+            return 1;
+        } else if (*valorGanhador == 'O') {
+            return -1;
+        }
+        return 0;
+    }
+
+    return 5;
+}
+
+
+
+
+int Minimax::pontuaGanhadores(Tabuleiro board){
+    if (is_win(board)){
+        return 1;
+    }
+    if (is_win(board)){
+        return -1;
+    }
+    return 0;
+}
+
+
+// def minimax(board, maximizing=False):
+//     if is_terminal(board):
+//         return evaluate(board)
+
+//     if maximizing:
+//         value = float('-inf')
+
+//         for child in candidates(board, CPU_PLAYER):
+//             value = max(value, minimax(child, False))
+//     else:
+//         value = float('+inf')
+
+//         for child in candidates(board, HUMAN_PLAYER):
+//             value = min(value, minimax(child, True))
+
+//     return value
+
+
+// i, j = randint(0, 2), randint(0, 2)
+
+// while board[i][j] != ' ':
+//     i, j = randint(0, 2), randint(0, 2)
+
+// board[i][j] = CPU_PLAYER
+
+// candidate_moves = candidates(board, CPU_PLAYER)
+// board = max(candidate_moves, key=minimax)

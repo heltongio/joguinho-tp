@@ -2,6 +2,7 @@
 #define  VELHA_HPP
 #include <iostream>
 #include <string>
+#include <memory>
 #include "minimax.hpp"
 #include "jogos.hpp"
 #include "tabuleiro.hpp"
@@ -12,6 +13,7 @@ class Velha:public Jogos{
         char vencedor;
         Tabuleiro tabuleiro;
         Minimax minimax;
+        std::shared_ptr<char> valorGanhador = std::make_shared<char>("N");
     public:
         Velha(std::string jogador1, std::string jogador2,CadastroJogadores& manager)
         : Jogos(jogador1, jogador2, manager), tabuleiro(3, 3, '|') {}

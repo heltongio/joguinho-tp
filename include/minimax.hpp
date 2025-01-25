@@ -4,13 +4,19 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <memory>
 #include "tabuleiro.hpp"
 
 
 class Minimax {
-        
+    private:
+        std::shared_ptr<char> valorGanhador;
+        Velha velha;
     public:
-    Tabuleiro jogadasPossiveis(Tabuleiro Tabuleiro, const std::string& jogador);
+        std::vector<std::vector<char>> jogadasPossiveis(Tabuleiro board, const char valor);
+        void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
+        int pontuaGanhadores(Tabuleiro board);
+        bool is_win(Tabuleiro board);
 
     
 };

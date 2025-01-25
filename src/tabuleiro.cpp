@@ -40,6 +40,21 @@ std::string Tabuleiro::getEstadoLimpo() {
     return estadoLimpo;
 }
 
+//Função provisoria
+std::vector<char> Tabuleiro::getCleanState() {
+    std::vector<char> cleanState;
+    for (const auto& linha : grid) {
+        for (char c : linha) {
+            if (c == 'X' || c == 'O' || c == ' ' || c == '\n') {
+                cleanState.push_back(c);
+            }
+        }
+    }
+    return cleanState;
+}
+
+
+
 std::vector<std::vector<char>> Tabuleiro::getGrid(){
     return grid;
 }
