@@ -2,7 +2,12 @@
 #include <iostream>
 #include <cctype>
 
-
+Minimax::Minimax(std::string jogador1, std::string jogador2, char humano, char cpu){
+    this->jogador1 = jogador1;
+    this->jogador2 = jogador2;
+    this->humano = humano;
+    this->cpu = cpu;
+}
 
 std::vector<std::vector<char>> Minimax::jogadasPossiveis(Tabuleiro board,char valor){
 
@@ -36,53 +41,53 @@ void Minimax::imprimirTabuleiro(const std::vector<std::vector<char>>& tabs) {
     }
 }
 
-bool Minimax::is_win(Tabuleiro board){
+int Minimax::is_win(Tabuleiro board){
 
-    std::string jogador1;
-    std::string jogador2;
-    char valor;
+    Velha* velha = new Velha(board);
 
-    // Chama a função verificaGanhador e recebe o resultado
-    bool resultado = velha->verificaGanhador(jogador1, jogador2, valor);
-
-    // Inicializa o ponteiro compartilhado com o valor retornado
-    char valorGanhador = valor;
-
-    if (resultado) {
-        if (valorGanhador == 'X') {
-            return 1;
-        } else if (valorGanhador == 'O') {
-            return -1;
-        }
-        return 0;
+    if (velha->verificaTabLimpo(board.getEstadoLimpo())) {
+        delete velha; // Libera memória alocada
+        return 0; // Empate ou jogo inicial
     }
 
+    if (velha->verificaGanhador(jogador2, jogador1, cpu)) {
+        delete velha; // Libera memória alocada
+        return 1; // Vitória do CPU
+    }
+
+
+    if (velha->verificaGanhador(jogador1, jogador2, humano)) {
+        delete velha; // Libera memória alocada
+        return -1; // Vitória do humano
+    }
+
+
+    delete velha;
     return 5;
 }
 
-
-int Minimax::minimax(Tabuleiro board, bool minimizing , char humano, char cpu) {
+int Minimax::minimax(Tabuleiro board, bool minimizing){
         int cont = 0;
+
         if (is_win(board) != 5) {
             return is_win(board);
         }
 
         if (minimizing) {
-            //da uma olhada aq
             int value = std::numeric_limits<int>::min();
             std::vector<std::vector<char>> children = jogadasPossiveis(board, cpu);
 
-            for (const auto& child : children) {
-                Tabuleiro novoTabuleiro(children);
-                value = std::max(value, minimax(novoTabuleiro, false, humano, cpu));
-                cont++;
-            }
-
             // for (const auto& child : children) {
-            //     // std::string childEstado(child.begin(), child.end());
-            //     Tabuleiro novoTabuleiro(children);
-            //     value = std::max(value, minimax(novoTabuleiro[cont], false, humano, cpu));
+            //     Tabuleiro novoTabuleiro(child);
+            //     value = std::max(value, minimax(novoTabuleiro, false));
+            //     cont++;
             // }
+
+            for (const auto& child : children) {
+                // std::string childEstado(child.begin(), child.end());
+                Tabuleiro novoTabuleiro(child);
+                value = std::max(value, minimax(novoTabuleiro, false));
+            }
             return value;
 
         } else {
@@ -90,16 +95,16 @@ int Minimax::minimax(Tabuleiro board, bool minimizing , char humano, char cpu) {
             std::vector<std::vector<char>> children = jogadasPossiveis(board, humano);
 
             for (const auto& child : children) {
-                std::string childEstado(child.begin(), child.end());
-                Tabuleiro novoTabuleiro(children);
-                value = std::min(value, minimax(novoTabuleiro, true, humano, cpu));
-            }
+                Tabuleiro novoTabuleiro(child);
+                value = std::min(value, minimax(novoTabuleiro, true));
             return value;
         }
-}
-    Minimax::~Minimax() {
-        delete velha;
+    return 0;
     }
+}
+
+Minimax::~Minimax(){
+    return;}
 
 
 

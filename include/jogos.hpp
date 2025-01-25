@@ -11,7 +11,7 @@ class Jogos{
         std::string nomeJogo;
         CadastroJogadores& manager;
     public:
-        Jogos() = default;
+
         Jogos(std::string jogador1, std::string jogador2,CadastroJogadores& manager);
         virtual void iniciarJogo();
         virtual bool verificaJogada(int linha, int coluna, char valor, std::string jogador) = 0;

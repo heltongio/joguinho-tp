@@ -10,21 +10,22 @@
 #include <limits>
 
 
-class Velha;
-
 
 
 class Minimax {
     private:
         char valorGanhador;
-        Velha* velha;
+        std::string jogador1;
+        std::string jogador2;
+        char humano;
+        char cpu;
     public:
-
+        Minimax(std::string jogador1, std::string jogador2, char humano, char cpu);
         std::vector<std::vector<char>> jogadasPossiveis(Tabuleiro board, const char valor);
         void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
         // int pontuaGanhadores(Tabuleiro board);
-        bool is_win(Tabuleiro board);
-        int minimax(Tabuleiro board, bool minimizing = false, char humano = 'X', char cpu = 'O');
+        int is_win(Tabuleiro board);
+        int minimax(Tabuleiro board, bool minimizing = false);
         ~Minimax();
 
     

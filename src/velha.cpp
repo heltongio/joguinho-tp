@@ -46,8 +46,8 @@ void Velha::iniciarJogo(){
             if (jogada(jogador1, jogador2, valor)){
                 break;
             }
-            Minimax minimaxSolver;
-            int melhorJogada = minimaxSolver.minimax(tabuleiro, false, valor, valor2);
+            Minimax minimaxSolver (jogador1, jogador2, valor, valor2);
+            int melhorJogada = minimaxSolver.minimax(tabuleiro, false);
             std::cout << "A pontuação da melhor jogada é: " << melhorJogada << std::endl;
 
             std::vector<std::vector<char>> jogadas = minimaxSolver.jogadasPossiveis(tabuleiro, valor2);
@@ -126,6 +126,18 @@ bool Velha::verificaDiagonais(const std::string& estado) {
     return false;
 }
 
+bool Velha::verificaTabLimpo(std::string estado){
+    bool tabuleiroCheio = true;
+
+    for (char c : estado) {
+        if (c == ' ') {
+            tabuleiroCheio = false;
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
     std::string estado = tabuleiro.getEstadoLimpo();
 
@@ -134,15 +146,20 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
             std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
             // manager.AddVit(jogador1, "velha");
             // manager.AddDer(jogador2, "velha");
-            // valorGanhador = std::make_shared<char>(valor);
+
 
             return true;
         }
     }
 
+    if(verificaTabLimpo(estado)){
+        std::cout << "O jogo terminou em empate!" << std::endl;
+        return true;
+    }
+
     return false;
 }
-
+// valorGanhador = std::make_shared<char>(valor);
 
 Velha::~Velha(){
 

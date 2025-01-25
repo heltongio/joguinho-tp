@@ -10,9 +10,20 @@ Tabuleiro::Tabuleiro(int linhas, int colunas, char valorInicial){
     }
 }
 
-Tabuleiro::Tabuleiro(std::vector<std::vector<char>> board){
-    grid = board;
+Tabuleiro::Tabuleiro(const std::vector<char>& child){
+   int totalElementos = child.size();
+   int colunas = static_cast<int>(std::sqrt(totalElementos));
+   int linhas = (colunas * colunas == totalElementos) ? colunas : (colunas + 1);
+   grid.resize(linhas, std::vector<char>(colunas * 2 + 1, ' '));
+   for (size_t i = 0; i < linhas; ++i) {
+    for (size_t j = 0; j < colunas; ++j) {
+        grid[i][j * 2] = '|'; // Insere os delimitadores |
+        grid[i][j * 2 + 1] = child[i * colunas + j];
+    }
+    grid[i][colunas * 2] = '|'; // Fecha a linha com |
+   }
 }
+
 
 
 void Tabuleiro::exibirTabuleiro() const {
