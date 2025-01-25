@@ -79,8 +79,8 @@ void CadastroJogadores::CadastrarJogador(std::string apelido, std::string nome) 
             throw std::invalid_argument("ERRO: apelido com algarismos nao alfabeticos ou com mais de uma palavra '" + apelido + "'");
         }
     }
-    //Formata o nome deixa-los padronizados
     
+    //Formata o nome deixa-los padronizados 
     while (ss >> palavra) {
         for (auto& letra : palavra) letra = std::tolower(letra);
         palavra[0] = std::toupper(palavra[0]);
@@ -126,19 +126,30 @@ void CadastroJogadores::RemoverJogador(std::string apelido) {
         }
     }
     if (verif == 0){
-        throw std::runtime_error("ERRO: jogador(a) inexistente");
+        throw std::runtime_error("ERRO: jogador(a) inexistente '" + apelido  + "'");
     }
     SalvarArquivo();
     return;
 }
 
-void CadastroJogadores::VerificaJogadores(std::string apelido){
+std::string CadastroJogadores::VerificaJogadores(std::string apelido){
+    //Verifica se o apelido está de acordo com o padrão esperado
+    for (auto& letra : apelido){
+        if (!isalpha(letra)){
+            throw std::invalid_argument("ERRO: apelido com algarismos nao alfabeticos ou com mais de uma palavra '" + apelido + "'");
+        }
+    }
+
+    //Formata o apelido
+    for(auto& letra : apelido) letra = std::tolower(letra);
+    apelido[0] = std::toupper(apelido[0]);
+
     for (auto& jogador : jogadores) {
             if (jogador.GetApelido() == apelido) {
-                return;
+                return jogador.GetApelido();
             }
     }
-    throw std::runtime_error("ERRO: jogador(a) nao cadastrado");
+    throw std::runtime_error("ERRO: jogador(a) nao cadastrado '" + apelido + "'");
 }
 
 void CadastroJogadores::OrganizaJogadores(){

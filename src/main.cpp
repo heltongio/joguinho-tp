@@ -63,15 +63,19 @@ int main() {
             continue;}   
 
         }else if (comando == "RJ"){
-            cout << "Apelido do jogador que sera removido:" << endl;
             string apelido;
-            cin >> apelido;
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            while (apelido.empty()) {
+                cout << "Apelido do jogador que sera removido:" << endl;
+                getline(cin, apelido);
+            }
            
             //verifica se jogador esta cadastrado para ser removido
             try {
                 manager.RemoverJogador(apelido);
             } catch (const exception& e){
-                cout << RED << e.what() << " '" << apelido << "'" << FIM << endl;
+                cout << RED << e.what() << FIM << endl;
             continue;}
             
         }else if (comando == "LJ"){
@@ -88,28 +92,29 @@ int main() {
             transform(jogo.begin(), jogo.end(), jogo.begin(), [](unsigned char c) {
                 return std::toupper(c);});
 
-            cout << "Apelido do primeiro jogador: " ;
-            cin >> apelido1;
-            for (auto& letra : apelido1){
-                if (!isalpha(letra) && letra != ' '){
-                    cout << "Apelido com algarismos nao alfabeticos ou mais de uma palavra '" + apelido1 + "'" << endl;;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            
+            while (apelido1.empty()) {
+                cout << "Apelido do primeiro jogador: " << endl;
+                getline(cin, apelido1);
             }
-    }
             
             //verificar se jogador esta cadastrado
             try {
-                manager.VerificaJogadores(apelido1);
+                apelido1 = manager.VerificaJogadores(apelido1);
             } catch (const exception& e) {
-                cout << RED << e.what() << ": " << apelido1 << FIM << endl;
+                cout << RED << e.what() << FIM << endl;
                 continue;}
 
-            cout << "Apelido do segundo jogador:" ;
-            cin >> apelido2;
+            while (apelido2.empty()) {
+                cout << "Apelido do segundo jogador: " << endl;
+                getline(cin, apelido2);
+            }
 
             try {
-                manager.VerificaJogadores(apelido2);
+                apelido2 = manager.VerificaJogadores(apelido2);
             } catch (const exception& e) {
-                cout << RED << e.what() << ": " << apelido2 << FIM << endl;
+                cout << RED << e.what() << FIM << endl;
                 continue;}
 
 
