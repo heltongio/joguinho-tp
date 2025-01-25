@@ -10,6 +10,11 @@ Tabuleiro::Tabuleiro(int linhas, int colunas, char valorInicial){
     }
 }
 
+Tabuleiro::Tabuleiro(std::vector<std::vector<char>> board){
+    grid = board;
+}
+
+
 void Tabuleiro::exibirTabuleiro() const {
     for (const auto& linha : grid) {
         for (const auto& celula : linha) {

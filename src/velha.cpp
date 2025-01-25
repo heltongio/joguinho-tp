@@ -1,5 +1,6 @@
 #include "velha.hpp"
 
+
 bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     int linha;
     int coluna;
@@ -45,9 +46,13 @@ void Velha::iniciarJogo(){
             if (jogada(jogador1, jogador2, valor)){
                 break;
             }
+            Minimax minimaxSolver;
+            int melhorJogada = minimaxSolver.minimax(tabuleiro, false, valor, valor2);
+            std::cout << "A pontuação da melhor jogada é: " << melhorJogada << std::endl;
 
-            std::vector<std::vector<char>> teste = minimax.jogadasPossiveis(tabuleiro,valor2);
-            minimax.imprimirTabuleiro(teste);
+            std::vector<std::vector<char>> jogadas = minimaxSolver.jogadasPossiveis(tabuleiro, valor2);
+            std::cout << "Jogadas possíveis para CPU: " << std::endl;
+            minimaxSolver.imprimirTabuleiro(jogadas);
            
             
         }else if (cont%2 != 0){

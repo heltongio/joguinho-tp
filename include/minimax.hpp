@@ -6,17 +6,26 @@
 #include <sstream>
 #include <memory>
 #include "tabuleiro.hpp"
+#include "velha.hpp"
+#include <limits>
+
+
+class Velha;
+
 
 
 class Minimax {
     private:
-        std::shared_ptr<char> valorGanhador;
-        Velha velha;
+        char valorGanhador;
+        Velha* velha;
     public:
+
         std::vector<std::vector<char>> jogadasPossiveis(Tabuleiro board, const char valor);
         void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
-        int pontuaGanhadores(Tabuleiro board);
+        // int pontuaGanhadores(Tabuleiro board);
         bool is_win(Tabuleiro board);
+        int minimax(Tabuleiro board, bool minimizing = false, char humano = 'X', char cpu = 'O');
+        ~Minimax();
 
     
 };

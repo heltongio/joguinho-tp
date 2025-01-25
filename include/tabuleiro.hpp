@@ -15,6 +15,7 @@ class Tabuleiro {
 
         public:
             Tabuleiro(int linhas, int colunas, char valorInicial);
+            Tabuleiro(std::vector<std::vector<char>> board);
         
             void exibirTabuleiro() const;
             void atualizarCelula(int linha, int coluna, char valor);

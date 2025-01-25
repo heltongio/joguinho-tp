@@ -12,7 +12,6 @@ class Velha:public Jogos{
     protected:
         char vencedor;
         Tabuleiro tabuleiro;
-        Minimax minimax;
         std::shared_ptr<char> valorGanhador = std::make_shared<char>("N");
     public:
         Velha(std::string jogador1, std::string jogador2,CadastroJogadores& manager)

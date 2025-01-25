@@ -1,11 +1,10 @@
 #include "minimax.hpp"
-#include "velha.hpp"
 #include <iostream>
 #include <cctype>
 
 
 
-std::vector<std::vector<char>> Minimax::jogadasPossiveis(Tabuleiro board,const char valor){
+std::vector<std::vector<char>> Minimax::jogadasPossiveis(Tabuleiro board,char valor){
 
     std::vector<std::vector<char>> tabsjogPossiveis;
     std::string boardLimpo = board.getEstadoLimpo();
@@ -44,15 +43,15 @@ bool Minimax::is_win(Tabuleiro board){
     char valor;
 
     // Chama a função verificaGanhador e recebe o resultado
-    bool resultado = velha.verificaGanhador(jogador1, jogador2, valor);
+    bool resultado = velha->verificaGanhador(jogador1, jogador2, valor);
 
     // Inicializa o ponteiro compartilhado com o valor retornado
-    std::shared_ptr<char> valorGanhador = std::make_shared<char>(valor);
+    char valorGanhador = valor;
 
     if (resultado) {
-        if (*valorGanhador == 'X') {
+        if (valorGanhador == 'X') {
             return 1;
-        } else if (*valorGanhador == 'O') {
+        } else if (valorGanhador == 'O') {
             return -1;
         }
         return 0;
@@ -62,35 +61,85 @@ bool Minimax::is_win(Tabuleiro board){
 }
 
 
+int Minimax::minimax(Tabuleiro board, bool minimizing , char humano, char cpu) {
+        int cont = 0;
+        if (is_win(board) != 5) {
+            return is_win(board);
+        }
 
+        if (minimizing) {
+            //da uma olhada aq
+            int value = std::numeric_limits<int>::min();
+            std::vector<std::vector<char>> children = jogadasPossiveis(board, cpu);
 
-int Minimax::pontuaGanhadores(Tabuleiro board){
-    if (is_win(board)){
-        return 1;
-    }
-    if (is_win(board)){
-        return -1;
-    }
-    return 0;
+            for (const auto& child : children) {
+                Tabuleiro novoTabuleiro(children);
+                value = std::max(value, minimax(novoTabuleiro, false, humano, cpu));
+                cont++;
+            }
+
+            // for (const auto& child : children) {
+            //     // std::string childEstado(child.begin(), child.end());
+            //     Tabuleiro novoTabuleiro(children);
+            //     value = std::max(value, minimax(novoTabuleiro[cont], false, humano, cpu));
+            // }
+            return value;
+
+        } else {
+            int value = std::numeric_limits<int>::max();
+            std::vector<std::vector<char>> children = jogadasPossiveis(board, humano);
+
+            for (const auto& child : children) {
+                std::string childEstado(child.begin(), child.end());
+                Tabuleiro novoTabuleiro(children);
+                value = std::min(value, minimax(novoTabuleiro, true, humano, cpu));
+            }
+            return value;
+        }
 }
+    Minimax::~Minimax() {
+        delete velha;
+    }
 
 
-// def minimax(board, maximizing=False):
-//     if is_terminal(board):
-//         return evaluate(board)
 
-//     if maximizing:
-//         value = float('-inf')
 
-//         for child in candidates(board, CPU_PLAYER):
+
+
+
+
+
+// int Minimax::minimax(Tabuleiro board, bool minimizing = false){
+//     if (is_win(board) != 5){
+//         return is_win(board);
+//     }
+
+//     if (minimizing){
+//         float value = float('-inf')
+
+//         for (child in jogadasPossiveis(board, CPU_PLAYER)){
 //             value = max(value, minimax(child, False))
-//     else:
+//         }
+
+//     }else{
 //         value = float('+inf')
 
 //         for child in candidates(board, HUMAN_PLAYER):
 //             value = min(value, minimax(child, True))
-
+//     }
 //     return value
+
+// int Minimax::pontuaGanhadores(Tabuleiro board){
+//     if (is_win(board)){
+//         return 1;
+//     }
+//     if (is_win(board)){
+//         return -1;
+//     }
+//     return 0;
+// }
+
+
 
 
 // i, j = randint(0, 2), randint(0, 2)
@@ -98,7 +147,8 @@ int Minimax::pontuaGanhadores(Tabuleiro board){
 // while board[i][j] != ' ':
 //     i, j = randint(0, 2), randint(0, 2)
 
-// board[i][j] = CPU_PLAYER
+// board[i][j] = CPU_PLAYER// candidate_moves = candidates(board, CPU_PLAYER)
+// board = max(candidate_moves, key=minimax)
 
 // candidate_moves = candidates(board, CPU_PLAYER)
 // board = max(candidate_moves, key=minimax)
