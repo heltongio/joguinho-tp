@@ -21,11 +21,13 @@ class Minimax {
         char cpu;
     public:
         Minimax(std::string jogador1, std::string jogador2, char humano, char cpu);
-        std::vector<std::vector<char>> jogadasPossiveis(Tabuleiro board, const char valor);
-        void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
+        std::vector<std::vector<int>> jogadasPossiveis(Tabuleiro board);
+        Tabuleiro jogada(Tabuleiro board, const std::vector<int>& coordenadas,char valor);
+        std::vector<int> melhoraco(Tabuleiro board,char jogador ,bool minimizing = false);
+        int minimax(Tabuleiro board, char jogador, char eu, int maxdepth = 3);
+        // void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
         // int pontuaGanhadores(Tabuleiro board);
-        int is_win(Tabuleiro board);
-        Tabuleiro minimax(Tabuleiro board, bool minimizing = false);
+        // int is_win(Tabuleiro board);
         ~Minimax();
 
     

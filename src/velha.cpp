@@ -58,18 +58,22 @@ void Velha::iniciarJogo(){
             cont++;
 
             Minimax minimaxSolver (jogador1, jogador2, valor, valor2);
-            Tabuleiro melhorJogada = minimaxSolver.minimax(tabuleiro, false);
-            melhorJogada.exibirTabuleiro();
+            // minimaxSolver.jogadasPossiveis(tabuleiro,valor);
+            std::vector<int> melhorJogada = minimaxSolver.melhoraco(tabuleiro, false);
+            std::cout << melhorJogada[0] + 1 << std::endl;
+            std::cout << melhorJogada[1] + 1 << std::endl;
+
+            // melhorJogada.exibirTabuleiro();
 
 
             //melhorar definição de parada
-            tabuleiro.setTabuleiro(melhorJogada);
+            // tabuleiro.setTabuleiro(melhorJogada);
             // break;
 
             //pvp
-            // if (jogada(jogador2, jogador1,valor2)){
-            //     break;
-            // }
+            if (jogada(jogador2, jogador1,valor2)){
+                break;
+            }
 
             
         }
@@ -106,35 +110,35 @@ bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogado
 }
 
 
-bool Velha::verificaLinha(const std::string& estado, int linha) {
-    int inicio = linha * 3;
-    if (estado[inicio] != ' ' && 
-        estado[inicio] == estado[inicio + 1] &&
-        estado[inicio + 1] == estado[inicio + 2]) {
-        vencedor = estado[inicio];
-        return true;
-    }
-    return false;
-}
+// bool Velha::verificaLinha(const std::string& estado, int linha) {
+//     int inicio = linha * 3;
+//     if (estado[inicio] != ' ' &&
+//         estado[inicio] == estado[inicio + 1] &&
+//         estado[inicio + 1] == estado[inicio + 2]) {
+//         vencedor = estado[inicio];
+//         return true;
+//     }
+//     return false;
+// }
 
-bool Velha::verificaColuna(const std::string& estado, int coluna) {
-    if (estado[coluna] != ' ' &&
-        estado[coluna] == estado[coluna + 3] &&
-        estado[coluna + 3] == estado[coluna + 6]) {
-        vencedor = estado[coluna];
-        return true;
-    }
-    return false;
-}
+// bool Velha::verificaColuna(const std::string& estado, int coluna) {
+//     if (estado[coluna] != ' ' &&
+//         estado[coluna] == estado[coluna + 3] &&
+//         estado[coluna + 3] == estado[coluna + 6]) {
+//         vencedor = estado[coluna];
+//         return true;
+//     }
+//     return false;
+// }
 
-bool Velha::verificaDiagonais(const std::string& estado) {
-    if ((estado[0] != ' ' && estado[0] == estado[4] && estado[4] == estado[8]) || 
-        (estado[2] != ' ' && estado[2] == estado[4] && estado[4] == estado[6])) {
-        vencedor = estado[4];
-        return true;
-    }
-    return false;
-}
+// bool Velha::verificaDiagonais(const std::string& estado) {
+//     if ((estado[0] != ' ' && estado[0] == estado[4] && estado[4] == estado[8]) ||
+//         (estado[2] != ' ' && estado[2] == estado[4] && estado[4] == estado[6])) {
+//         vencedor = estado[4];
+//         return true;
+//     }
+//     return false;
+// }
 
 bool Velha::verificaTabLimpo(std::string estado){
     bool tabuleiroCheio = true;
@@ -148,28 +152,68 @@ bool Velha::verificaTabLimpo(std::string estado){
     return true;
 }
 
+
+
+
+
+bool Velha::verificaLinha(const std::string& estado, int linha, char valor) {
+    int inicio = linha * 3;
+    return (estado[inicio] == valor && estado[inicio + 1] == valor && estado[inicio + 2] == valor);
+}
+
+
+bool Velha::verificaColuna(const std::string& estado, int coluna, char valor) {
+    return (estado[coluna] == valor && estado[coluna + 3] == valor && estado[coluna + 6] == valor);
+}
+
+
+bool Velha::verificaDiagonais(const std::string& estado, char valor) {
+    return ((estado[0] == valor && estado[4] == valor && estado[8] == valor) ||
+            (estado[2] == valor && estado[4] == valor && estado[6] == valor));
+}
+
+
 bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
     std::string estado = tabuleiro.getEstadoLimpo();
 
     for (int i = 0; i < 3; ++i) {
-        if (verificaLinha(estado, i) || verificaColuna(estado, i)||verificaDiagonais(estado)) {
-            std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-            // manager.AddVit(jogador1, "velha");
-            // manager.AddDer(jogador2, "velha");
-
-
+        if (verificaLinha(estado, i, valor) || verificaColuna(estado, i, valor) || verificaDiagonais(estado, valor)) {
             return true;
         }
     }
-
-    if(verificaTabLimpo(estado)){
-        std::cout << "O jogo terminou em empate!" << std::endl;
-        return true;
-    }
-
     return false;
 }
+
+
+
+
+
 // valorGanhador = std::make_shared<char>(valor);
+
+
+
+// std::string estado = tabuleiro.getEstadoLimpo();
+
+//     for (int i = 0; i < 3; ++i) {
+//         if (verificaLinha(estado, i) || verificaColuna(estado, i)||verificaDiagonais(estado)) {
+//             // std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
+//             // manager.AddVit(jogador1, "velha");
+//             // manager.AddDer(jogador2, "velha");
+
+
+//             return true;
+//         }
+//     }
+
+//     if(verificaTabLimpo(estado)){
+//         // std::cout << "O jogo terminou em empate!" << std::endl;
+//         return true;
+//     }
+
+//     return false;
+
+
+
 
 Velha::~Velha(){
 

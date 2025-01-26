@@ -9,100 +9,191 @@ Minimax::Minimax(std::string jogador1, std::string jogador2, char humano, char c
     this->cpu = cpu;
 }
 
-std::vector<std::vector<char>> Minimax::jogadasPossiveis(Tabuleiro board,char valor){
-
-    std::vector<std::vector<char>> tabsjogPossiveis;
+std::vector<std::vector<int>> Minimax::jogadasPossiveis(Tabuleiro board){
+    int j = 0;
+    std::vector<std::vector<int>> tabsjogPossiveis;
     std::string boardLimpo = board.getEstadoLimpo();
-
     std::vector<char> listLimpa(boardLimpo.begin(), boardLimpo.end());
 
-    for (size_t i = 0; i < listLimpa.size(); ++i) {
-        if (listLimpa[i] != ' ') {
-            continue;}
+    int x = listLimpa.size();
 
-        std::vector<char> possivel = listLimpa;
-        possivel[i] = valor;
-
-        tabsjogPossiveis.push_back(possivel);
-    }
-
-
-    return tabsjogPossiveis;
-
-}
-
-//equisito
-void Minimax::imprimirTabuleiro(const std::vector<std::vector<char>>& tabs) {
-    for (const auto& linha : tabs) {
-        for (char c : linha) {
-            std::cout << c << " ";
+    for (int i = 0; i < listLimpa.size(); ++i) {
+        if (listLimpa[i] == ' ') {
+            int linha = i / 3;  // A linha é o resultado da divisão inteira por 3
+            int coluna = i % 3; // A coluna é o resto da divisão por 3
+            tabsjogPossiveis.push_back({linha, coluna});
         }
-        std::cout << std::endl;
     }
+
+        return tabsjogPossiveis;
+    }
+
+Tabuleiro Minimax::jogada(Tabuleiro board, const std::vector<int>& coordenadas,char valor) {
+    Tabuleiro newBoard = board;
+    newBoard.atualizarCelula(coordenadas[0], coordenadas[1], valor);
+
+    return newBoard;
 }
 
-int Minimax::is_win(Tabuleiro board) {
+
+int Minimax::minimax(Tabuleiro board, char jogador, char eu ,int maxdepth){
     Velha velha(board);
 
-    if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
-        return 0;  // Empate ou jogo inicial
-    }
-    if (velha.verificaGanhador(jogador2, jogador1, cpu)) {
+
+    if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabLimpo(board.getEstadoLimpo()) ) {
         return 1;  // Vitória do CPU
     }
-    if (velha.verificaGanhador(jogador1, jogador2, humano)) {
-        return -1; // Vitória do humano
+    if (velha.verificaGanhador(jogador1, jogador2, humano) && !velha.verificaTabLimpo(board.getEstadoLimpo())) {
+        return -1; // Vitória do jogador humano
     }
-    return 5;  // Jogo em andamento
-}
-
-
-
-Tabuleiro Minimax::minimax(Tabuleiro board, bool minimizing) {
-    int resultado = is_win(board);
-    if (resultado != 5) {
-        return board;  // Retorna o estado do tabuleiro se já houver resultado
+    if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
+        return 0;  // Empate
     }
 
-    std::vector<std::vector<char>> children;
-    std::vector<char> melhorJogada;
 
-    if (minimizing) {
+    // if ((velha.verificaGanhador(jogador2, jogador1, cpu)) && !velha.verificaTabLimpo(board.getEstadoLimpo())  ) {
+    //     return 1;  // Vitória do CPU
+    // }
+
+    // && !velha.verificaTabLimpo(board.getEstadoLimpo())
+    // if ((velha.verificaGanhador(jogador1, jogador2, humano))  ) {
+    //     return -1;  // Vitória do CPU
+    // }
+
+    // if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
+    //     return 0;  // Empate ou jogo inicial
+    // }
+
+
+    std::vector<std::vector<int>> jogadas = jogadasPossiveis(board);
+
+
+    if (jogador == cpu){ //max
         int melhorValor = std::numeric_limits<int>::min();
-        children = jogadasPossiveis(board, humano);
 
-        for (const auto& child : children) {
-            Tabuleiro novoTabuleiro(child);
-            auto jogada = minimax(novoTabuleiro, false);
+        // std::vector<int> besta;
 
-            Tabuleiro tabuleiroTeste(jogada);
-            int valor = is_win(tabuleiroTeste);
+        for (const std::vector<int>& vetor : jogadas) {
 
-            if (valor > melhorValor) {
-                melhorValor = valor;
-                melhorJogada = child;  // Guarda a melhor jogada
-            }
+            Tabuleiro resultado = jogada(board, vetor, jogador);
+            int valor = minimax(resultado, jogador == 'X' ? 'O' : 'X', humano);
+            if (valor > melhorValor){
+                melhorValor = valor;}
         }
-    } else {
+        return melhorValor;
+    }else{ //min
         int melhorValor = std::numeric_limits<int>::max();
-        children = jogadasPossiveis(board, cpu);
 
-        for (const auto& child : children) {
-            Tabuleiro novoTabuleiro(child);
-            auto jogada = minimax(novoTabuleiro, true);
+        // std::vector<int> besta;
 
-            Tabuleiro tabuleiroTeste(jogada);
-            int valor = is_win(tabuleiroTeste);
+        for (const std::vector<int>& vetor : jogadas) {
 
-            if (valor < melhorValor) {
-                melhorValor = valor;
-                melhorJogada = child;  // Guarda a melhor jogada
-            }
+            Tabuleiro resultado = jogada(board, vetor, jogador);
+            int valor = minimax(resultado, jogador == 'X' ? 'O' : 'X', eu);
+            // resultado.exibirTabuleiro();
+            if (valor < melhorValor){
+                melhorValor = valor;}
         }
-    }
+        return melhorValor;
 
-    return melhorJogada;  // Retorna apenas a melhor jogada
+    }
 }
+
+std::vector<int> Minimax::melhoraco(Tabuleiro board, char jogador,bool minimizing) {
+
+    std::vector<std::vector<int>> jogadas = jogadasPossiveis(board);
+
+    int melhorValor = std::numeric_limits<int>::min();
+    std::vector<int> besta;
+    for (const std::vector<int>& vetor : jogadas) {
+        std::cout << "começando teste" << std::endl;
+        Tabuleiro resultado = jogada(board, vetor, cpu);
+        resultado.exibirTabuleiro();
+        int valor = minimax(resultado, cpu == 'X' ? 'O' : 'X', cpu);
+        std::cout << "valor: "<<valor<< std::endl;
+        if (valor > melhorValor){
+            melhorValor = valor;
+            besta = vetor;
+        }
+        std::cout<< "melhor valor:" << melhorValor << std::endl;
+        // board.exibirTabuleiro();
+    }
+    return besta;
+
+}
+
+//     int resultado = is_win(board);
+//     if (resultado != 5) {
+//         return board;  // Retorna o estado do tabuleiro se já houver resultado
+//     }
+
+//     std::vector<std::vector<char>> children;
+//     std::vector<char> melhorJogada;
+
+//     if (minimizing) {
+//         int melhorValor = std::numeric_limits<int>::min();
+//         children = jogadasPossiveis(board, humano);
+
+//         for (const auto& child : children) {
+//             Tabuleiro novoTabuleiro(child);
+//             auto jogada = minimax(novoTabuleiro, false);
+
+//             Tabuleiro tabuleiroTeste(jogada);
+//             int valor = is_win(tabuleiroTeste);
+
+//             if (valor > melhorValor) {
+//                 melhorValor = valor;
+//                 melhorJogada = child;  // Guarda a melhor jogada
+//             }
+//         }
+//     } else {
+//         int melhorValor = std::numeric_limits<int>::max();
+//         children = jogadasPossiveis(board, cpu);
+
+//         for (const auto& child : children) {
+//             Tabuleiro novoTabuleiro(child);
+//             auto jogada = minimax(novoTabuleiro, true);
+
+//             Tabuleiro tabuleiroTeste(jogada);
+//             int valor = is_win(tabuleiroTeste);
+
+//             if (valor < melhorValor) {
+//                 melhorValor = valor;
+//                 melhorJogada = child;  // Guarda a melhor jogada
+//             }
+//         }
+//     }
+
+//     return melhorJogada;  // Retorna apenas a melhor jogada
+
+
+
+
+// //equisito
+// void Minimax::imprimirTabuleiro(const std::vector<std::vector<char>>& tabs) {
+//     for (const auto& linha : tabs) {
+//         for (char c : linha) {
+//             std::cout << c << " ";
+//         }
+//         std::cout << std::endl;
+//     }
+// }
+
+// int Minimax::is_win(Tabuleiro board) {
+//     Velha velha(board);
+
+//     if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
+//         return 0;  // Empate ou jogo inicial
+//     }
+//     if (velha.verificaGanhador(jogador2, jogador1, cpu)) {
+//         return 1;  // Vitória do CPU
+//     }
+//     if (velha.verificaGanhador(jogador1, jogador2, humano)) {
+//         return -1; // Vitória do humano
+//     }
+//     return 5;  // Jogo em andamento
+// }
+
 
 Minimax::~Minimax(){
     return;}
