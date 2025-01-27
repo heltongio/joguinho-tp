@@ -82,6 +82,8 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "unordered_set": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "condition_variable": "cpp",
+        "semaphore": "cpp"
     }
 }
