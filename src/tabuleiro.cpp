@@ -27,13 +27,19 @@ Tabuleiro::Tabuleiro(const std::vector<char>& child){
 
 
 void Tabuleiro::exibirTabuleiro() const {
-    for (const auto& linha : grid) {
-        for (const auto& celula : linha) {
-            std::cout << celula; 
-        }
-        std::cout << '\n'; 
-    }
-    std::cout << "\n";
+
+    for (size_t i = 0; i < grid.size(); ++i) {
+        std::cout << i + 1 << " ";
+
+        for (const auto& celula : grid[i]) {
+            std::cout << celula;}
+        std::cout << '\n';}
+
+    std::cout << "   ";
+    size_t numColunas = grid[0].size() / 2;
+    for (size_t j = 0; j < numColunas; ++j) {
+        std::cout << j + 1 << " ";}
+    std::cout << '\n';
 }
 
 

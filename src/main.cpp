@@ -7,21 +7,29 @@
 #include "minimax.hpp"
 #include <limits>
 #include <cctype>
+#include <cstdlib>
+#include <chrono>
+#include <thread>
 
 using namespace std;
+
+
+void limparConsole(int segundos) {
+    std::this_thread::sleep_for(std::chrono::seconds(segundos));
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
 
 
 int main() {
     string const RED   = "\033[31m";
     string const GREEN = "\033[32m";
     string const FIM   = "\033[0m";
-    //comandos não intuitivos
-    cout << "CJ" << " : " << "Cadastrar Jogador" << endl;
-    cout << "RJ" << " : " << "Remover Jogador" << endl;
-    cout << "LJ" << " : " << "Listar de jogadores" << endl;
-    cout << "EP" << " : " << "Inicia partida" << endl;
-    cout << "FS" << " : " << "Finalizar Sistema" << endl;
-    cout << endl;
+
 
     string comando;
     CadastroJogadores manager("bancoDados/jogadores.txt");
@@ -34,6 +42,14 @@ int main() {
     return 0;}
 
     while (true){
+        cout << "1 - " << "CJ" << " : " << "Cadastrar Jogador" << endl;
+        cout << "2 - " << "RJ" << " : " << "Remover Jogador" << endl;
+        cout << "3 - " << "LJ" << " : " << "Listar de jogadores" << endl;
+        cout << "4 - " << "EP" << " : " << "Inicia partida" << endl;
+        cout << "5 - " << "FS" << " : " << "Finalizar Sistema" << endl;
+        cout << endl;
+
+
         cout << "Qual comando deseja utilizar: ";
         cin >> comando;
         cout << endl;
@@ -42,7 +58,7 @@ int main() {
         transform(comando.begin(), comando.end(), comando.begin(), [](unsigned char c) {
             return std::toupper(c);});
 
-        if (comando == "CJ"){
+        if (comando == "CJ" || comando == "1"){
             string apelido;
             string nome;
             
@@ -62,9 +78,10 @@ int main() {
                 manager.CadastrarJogador(apelido, nome);
             }   catch (const invalid_argument& e) {
                 cout << RED << e.what() << FIM << endl;
-            continue;}   
+            continue;}
+            limparConsole(1);
 
-        }else if (comando == "RJ"){
+        }else if (comando == "RJ" || comando == "2"){
             string apelido;
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -79,10 +96,12 @@ int main() {
             } catch (const exception& e){
                 cout << RED << e.what() << FIM << endl;
             continue;}
+            limparConsole(1);
             
-        }else if (comando == "LJ"){
+        }else if (comando == "LJ"|| comando == "3"){
             manager.PrintJogadores();
-        }else if (comando == "EP"){
+            limparConsole(3);
+        }else if (comando == "EP"|| comando == "4"){
             
             string jogo;
             string apelido1;
@@ -113,7 +132,9 @@ int main() {
 
             while (apelido2.empty()) {
                 cout << endl;
-                cout << GREEN << "Caso deseje jogar contra o CPU digite " << FIM << RED << "GLADOS"<< FIM  << endl;
+                if (jogo == "V"){
+                    cout << GREEN << "Caso deseje jogar contra o CPU digite " << FIM << RED << "GLADOS"<< FIM  << endl;
+                }
                 cout << "Apelido do segundo jogador: " << endl;
                 getline(cin, apelido2);
                 cout << endl;}
@@ -144,9 +165,9 @@ int main() {
             }else{
                 cout << RED << "jogo não reconhecido!" << FIM << endl;
             }
-        
+            limparConsole(3);
         }
-        else if (comando == "FS"){
+        else if (comando == "FS" || comando == "5"){
             manager.SalvarArquivo();
             return 0;
         }else{
