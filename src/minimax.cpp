@@ -36,68 +36,47 @@ Tabuleiro Minimax::jogada(Tabuleiro board, const std::vector<int>& coordenadas,c
 }
 
 
-int Minimax::minimax(Tabuleiro board, char jogador, char eu ,int maxdepth){
+int Minimax::minimax(Tabuleiro board, char jogador, char eu, int maxdepth, int depth) {
     Velha velha(board);
 
-
-    if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabLimpo(board.getEstadoLimpo()) ) {
-        return 1;  // Vitória do CPU
+    if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabLimpo(board.getEstadoLimpo())) {
+        return 10 - depth;  // Vitória do CPU (quanto mais rápido, melhor)
     }
     if (velha.verificaGanhador(jogador1, jogador2, humano) && !velha.verificaTabLimpo(board.getEstadoLimpo())) {
-        return -1; // Vitória do jogador humano
+        return depth - 10;  // Vitória do humano (quanto mais rápido, pior para o CPU)
     }
     if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
         return 0;  // Empate
     }
 
-
-    // if ((velha.verificaGanhador(jogador2, jogador1, cpu)) && !velha.verificaTabLimpo(board.getEstadoLimpo())  ) {
-    //     return 1;  // Vitória do CPU
-    // }
-
-    // && !velha.verificaTabLimpo(board.getEstadoLimpo())
-    // if ((velha.verificaGanhador(jogador1, jogador2, humano))  ) {
-    //     return -1;  // Vitória do CPU
-    // }
-
-    // if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
-    //     return 0;  // Empate ou jogo inicial
-    // }
-
+    if (depth >= maxdepth) {
+        return 0;  // Limite de profundidade alcançado, considera empate
+    }
 
     std::vector<std::vector<int>> jogadas = jogadasPossiveis(board);
 
-
-    if (jogador == cpu){ //max
+    if (jogador == cpu) { // Maximizar
         int melhorValor = std::numeric_limits<int>::min();
 
-        // std::vector<int> besta;
-
         for (const std::vector<int>& vetor : jogadas) {
-
             Tabuleiro resultado = jogada(board, vetor, jogador);
-            int valor = minimax(resultado, jogador == 'X' ? 'O' : 'X', humano);
-            if (valor > melhorValor){
-                melhorValor = valor;}
+            int valor = minimax(resultado, jogador == 'X' ? 'O' : 'X', eu, maxdepth, depth + 1);
+            melhorValor = std::max(melhorValor, valor);
         }
         return melhorValor;
-    }else{ //min
+    } else { // Minimizar
         int melhorValor = std::numeric_limits<int>::max();
 
-        // std::vector<int> besta;
-
         for (const std::vector<int>& vetor : jogadas) {
-
             Tabuleiro resultado = jogada(board, vetor, jogador);
-            int valor = minimax(resultado, jogador == 'X' ? 'O' : 'X', eu);
-            // resultado.exibirTabuleiro();
-            if (valor < melhorValor){
-                melhorValor = valor;}
+            int valor = minimax(resultado, jogador == 'X' ? 'O' : 'X', eu, maxdepth, depth + 1);
+            melhorValor = std::min(melhorValor, valor);
         }
         return melhorValor;
-
     }
 }
+
+
 
 std::vector<int> Minimax::melhoraco(Tabuleiro board, char jogador,bool minimizing) {
 
@@ -106,16 +85,16 @@ std::vector<int> Minimax::melhoraco(Tabuleiro board, char jogador,bool minimizin
     int melhorValor = std::numeric_limits<int>::min();
     std::vector<int> besta;
     for (const std::vector<int>& vetor : jogadas) {
-        std::cout << "começando teste" << std::endl;
+        // std::cout << "começando teste" << std::endl;
         Tabuleiro resultado = jogada(board, vetor, cpu);
-        resultado.exibirTabuleiro();
-        int valor = minimax(resultado, cpu == 'X' ? 'O' : 'X', cpu);
-        std::cout << "valor: "<<valor<< std::endl;
+        // resultado.exibirTabuleiro();
+        int valor = minimax(resultado, cpu == 'X' ? 'O' : 'X', cpu,9);
+        // std::cout << "valor: "<<valor<< std::endl;
         if (valor > melhorValor){
             melhorValor = valor;
             besta = vetor;
         }
-        std::cout<< "melhor valor:" << melhorValor << std::endl;
+        // std::cout<< "melhor valor:" << melhorValor << std::endl;
         // board.exibirTabuleiro();
     }
     return besta;

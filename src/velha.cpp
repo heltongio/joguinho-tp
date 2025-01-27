@@ -60,8 +60,11 @@ void Velha::iniciarJogo(){
             Minimax minimaxSolver (jogador1, jogador2, valor, valor2);
             // minimaxSolver.jogadasPossiveis(tabuleiro,valor);
             std::vector<int> melhorJogada = minimaxSolver.melhoraco(tabuleiro, false);
-            std::cout << melhorJogada[0] + 1 << std::endl;
-            std::cout << melhorJogada[1] + 1 << std::endl;
+            // std::cout << melhorJogada[0] + 1 << std::endl;
+            // std::cout << melhorJogada[1] + 1 << std::endl;
+
+            tabuleiro.atualizarCelula(melhorJogada[0],melhorJogada[1],valor2);
+            tabuleiro.exibirTabuleiro();
 
             // melhorJogada.exibirTabuleiro();
 
@@ -71,9 +74,9 @@ void Velha::iniciarJogo(){
             // break;
 
             //pvp
-            if (jogada(jogador2, jogador1,valor2)){
-                break;
-            }
+            // if (jogada(jogador2, jogador1,valor2)){
+            //     break;
+            // }
 
             
         }
