@@ -86,6 +86,7 @@
         "condition_variable": "cpp",
         "semaphore": "cpp",
         "bitset": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "forward_list": "cpp"
     }
 }
