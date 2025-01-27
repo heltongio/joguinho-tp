@@ -20,7 +20,7 @@ class CadastroJogadores {
         void PushJogadores();
     
     public:
-
+    CadastroJogadores() = default;
     CadastroJogadores(std::string);
     void ConstruirVetor(); //Coleta os dados do txt e aloca no vetor jogadores
     void CadastrarJogador(const std::string, const std::string); //Adicona um jogador com nenhuma vitoria/derrota com o contrato <apelido> <nome>

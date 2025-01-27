@@ -12,8 +12,9 @@ using namespace std;
 
 
 int main() {
-    string const RED = "\033[31m";
-    string const FIM = "\033[0m";
+    string const RED   = "\033[31m";
+    string const GREEN = "\033[32m";
+    string const FIM   = "\033[0m";
     //comandos não intuitivos
     cout << "CJ" << " : " << "Cadastrar Jogador" << endl;
     cout << "RJ" << " : " << "Remover Jogador" << endl;
@@ -94,25 +95,34 @@ int main() {
                 return std::toupper(c);});
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+
             
+
             while (apelido1.empty()) {
                 cout << "Apelido do primeiro jogador: " << endl;
-                getline(cin, apelido1);
-            }
+                getline(cin, apelido1);}
+
             
-            //verificar se jogador esta cadastrado
             try {
                 apelido1 = manager.VerificaJogadores(apelido1);
             } catch (const exception& e) {
                 cout << RED << e.what() << FIM << endl;
                 continue;}
 
+
             while (apelido2.empty()) {
+                cout << endl;
+                cout << GREEN << "Caso deseje jogar contra o CPU digite " << FIM << RED << "GLADOS"<< FIM  << endl;
                 cout << "Apelido do segundo jogador: " << endl;
                 getline(cin, apelido2);
-            }
-
+                cout << endl;}
             try {
+                std::regex pattern("glados", std::regex_constants::icase);
+
+                if (std::regex_match(apelido2, pattern)) {
+                    std::transform(apelido2.begin(), apelido2.end(), apelido2.begin(), ::toupper);}
+
                 apelido2 = manager.VerificaJogadores(apelido2);
             } catch (const exception& e) {
                 cout << RED << e.what() << FIM << endl;

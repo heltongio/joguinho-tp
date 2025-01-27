@@ -10,14 +10,14 @@ Minimax::Minimax(std::string jogador1, std::string jogador2, char humano, char c
 }
 
 std::vector<std::vector<int>> Minimax::jogadasPossiveis(Tabuleiro board){
-    int j = 0;
+    // int j = 0;
     std::vector<std::vector<int>> tabsjogPossiveis;
     std::string boardLimpo = board.getEstadoLimpo();
     std::vector<char> listLimpa(boardLimpo.begin(), boardLimpo.end());
 
-    int x = listLimpa.size();
+    // int x = listLimpa.size();
 
-    for (int i = 0; i < listLimpa.size(); ++i) {
+    for (std::vector<char>::size_type i = 0; i < listLimpa.size(); ++i) {
         if (listLimpa[i] == ' ') {
             int linha = i / 3;  // A linha é o resultado da divisão inteira por 3
             int coluna = i % 3; // A coluna é o resto da divisão por 3
@@ -39,13 +39,13 @@ Tabuleiro Minimax::jogada(Tabuleiro board, const std::vector<int>& coordenadas,c
 int Minimax::minimax(Tabuleiro board, char jogador, char eu, int maxdepth, int depth) {
     Velha velha(board);
 
-    if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabLimpo(board.getEstadoLimpo())) {
+    if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
         return 10 - depth;  // Vitória do CPU (quanto mais rápido, melhor)
     }
-    if (velha.verificaGanhador(jogador1, jogador2, humano) && !velha.verificaTabLimpo(board.getEstadoLimpo())) {
+    if (velha.verificaGanhador(jogador1, jogador2, humano) && !velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
         return depth - 10;  // Vitória do humano (quanto mais rápido, pior para o CPU)
     }
-    if (velha.verificaTabLimpo(board.getEstadoLimpo())) {
+    if (velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
         return 0;  // Empate
     }
 

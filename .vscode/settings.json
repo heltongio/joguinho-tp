@@ -84,6 +84,8 @@
         "unordered_set": "cpp",
         "xhash": "cpp",
         "condition_variable": "cpp",
-        "semaphore": "cpp"
+        "semaphore": "cpp",
+        "bitset": "cpp",
+        "regex": "cpp"
     }
 }

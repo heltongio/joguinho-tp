@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <regex>
+#include <algorithm>
 #include "minimax.hpp"
 #include "jogos.hpp"
 #include "tabuleiro.hpp"
@@ -12,7 +14,6 @@ class Velha:public Jogos{
     protected:
         char vencedor;
         Tabuleiro tabuleiro;
-        // std::shared_ptr<char> valorGanhador = std::make_shared<char>("N");
     public:
         Velha(Tabuleiro board)
         : Jogos("", "", *(std::make_shared<CadastroJogadores>().get())), tabuleiro(board) {}
@@ -26,7 +27,7 @@ class Velha:public Jogos{
         bool verificaDiagonais(const std::string& estado);
         bool verificaColuna(const std::string& estado, int coluna);
         bool verificaLinha(const std::string& estado, int linha);
-        bool verificaTabLimpo(std::string estado);
+        bool verificaTabuleiroCompleto(const std::string& jogador1, const std::string& jogador2);
         bool jogada(std::string jogador1, std::string jogador2, char valor);
         ~Velha();
 };
