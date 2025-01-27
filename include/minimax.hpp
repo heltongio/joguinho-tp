@@ -25,9 +25,6 @@ class Minimax {
         Tabuleiro jogada(Tabuleiro board, const std::vector<int>& coordenadas,char valor);
         std::vector<int> melhoraco(Tabuleiro board,char jogador ,bool minimizing = false);
         int minimax(Tabuleiro board, char jogador, char eu, int maxdepth, int depth = 0);
-        // void imprimirTabuleiro(const std::vector<std::vector<char>>& tabs);
-        // int pontuaGanhadores(Tabuleiro board);
-        // int is_win(Tabuleiro board);
         ~Minimax();
 
     
