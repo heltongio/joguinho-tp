@@ -171,36 +171,6 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
 }
 
 
-
-
-
-// valorGanhador = std::make_shared<char>(valor);
-
-
-
-// std::string estado = tabuleiro.getEstadoLimpo();
-
-//     for (int i = 0; i < 3; ++i) {
-//         if (verificaLinha(estado, i) || verificaColuna(estado, i)||verificaDiagonais(estado)) {
-//             // std::cout << jogador1 << " ganhou com " << valor <<  std::endl;
-//             // manager.AddVit(jogador1, "velha");
-//             // manager.AddDer(jogador2, "velha");
-
-
-//             return true;
-//         }
-//     }
-
-//     if(verificaTabLimpo(estado)){
-//         // std::cout << "O jogo terminou em empate!" << std::endl;
-//         return true;
-//     }
-
-//     return false;
-
-
-
-
 Velha::~Velha(){
 
 }

@@ -25,7 +25,7 @@ class Velha:public Jogos{
         bool verificaGanhador(std::string jogador1, std::string jogador2, char valor) override;
         bool verificaDiagonais(const std::string& estado, char valor);
         bool verificaColuna(const std::string& estado, int coluna, char valor);
-        bool verificaLinha(const std::string& estado, int linha, char valor);
+        bool verificaLinha(const std::string& estado, int linha);
         bool verificaTabLimpo(std::string estado);
         bool jogada(std::string jogador1, std::string jogador2, char valor);
         ~Velha();
