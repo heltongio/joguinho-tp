@@ -16,9 +16,20 @@ private:
     std::string vencedor; //Nome do jogador vencedor
     int jogadas; //Contador de jogadas realizadas
 
-    bool verificaJogada(int linha, int coluna, char jogador); //Verifica se a jogada é possível
-    bool verificaFeito(int linha, int coluna, char jogador, bool opcao, int sentido); //Quando 0 verifica a validade do movimento, quando 1 atualiza os valores do tabuleiro
-    bool verificaGanhador(char jogador); //Verifica se o jogador venceu
+    bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override; //Verifica se a jogada é possível
+    bool verificaEmpate(); //Verifica se o jogo terminou em empate
+    bool verificaGanhador(std::string jogador1, std::string jogador2, char valor) override; //Verifica se o jogador venceu
+    void criaTabuleiro() override;
+
+    bool iniciaRecursao(int linha, int coluna, char jogador, bool opcao); //Quando 0 verifica a validade do movimento, quando 1 atualiza os valores do tabuleiro
+    bool recursaoDSE(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal superior esquerda
+    bool recursaoS(int linha, int coluna, char jogador, bool opcao); //Recursão superior
+    bool recursaoDSD(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal superior direita
+    bool recursaoE(int linha, int coluna, char jogador, bool opcao); //Recursão para a esquerda
+    bool recursaoD(int linha, int coluna, char jogador, bool opcao); //Recursão para a direita
+    bool recursaoDIE(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal inferior esquerda
+    bool recursaoI(int linha, int coluna, char jogador, bool opcao); //Recursão inferior
+    bool recursaoDID(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal inferior direita
 
 public:
     Reversi(const std::string& jogador1, const std::string& jogador2, CadastroJogadores& manager);

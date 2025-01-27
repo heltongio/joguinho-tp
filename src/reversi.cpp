@@ -13,8 +13,12 @@ Reversi::Reversi(const std::string& jogador1, const std::string& jogador2, Cadas
         tabuleiro.atualizarCelula(4, 4, 'O');
     }
 
+
 Reversi::~Reversi() {
     return;
+}
+void Reversi::criaTabuleiro() {
+    tabuleiro.exibirTabuleiro();
 }
 
 void Reversi::iniciarJogo() {   
@@ -23,24 +27,66 @@ void Reversi::iniciarJogo() {
     tabuleiro.exibirTabuleiro(); // Mostra o tabuleiro vazio
     std::string entrada;
     int linha, coluna;
-    // bool movimento = true;
+    bool movimentoValido = false;
     bool jogadaValida = false;
-    // bool pularJogada = false;
+    bool pularJogada = false;
     while (true) {
         
 
-        std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", Faça sua jogada: ";
+        
         if (jogadas == 0) {
+            std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", Faça sua jogada: ";
             getline(std::cin >> std::ws, entrada);
         } else {
-            getline(std::cin, entrada);
+            for(int i = 0; i < 8; i++){
+                for(int j = 0; j < 8; j++ && tabuleiro.getGrid()[i][j * 2 + 1] == ' '){
+                    if(iniciaRecursao(i, j, jogadorAtual, 0)){
+                        pularJogada = false;
+                        movimentoValido = true;
+                        break;
+                    }
+                }
+                if(movimentoValido){
+                    break;
+                }
+            }
+            if(movimentoValido){
+                std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", Faça sua jogada: ";
+                getline(std::cin, entrada);
+            }
+            else{
+                if(pularJogada){
+                    std::cout << "Não há jogadas possíveis para o jogador " << (jogadorAtual == 'X' ? jogador1 : jogador2) << ".|\n O jogo acabou.\n";
+                    if(verificaEmpate()){
+                        std::cout << "O jogo terminou em empate!\n";
+                    }
+                    else if(verificaGanhador(jogador1, jogador2, jogadorAtual)){
+                        std::cout << "Parabéns! " << jogador1 << " venceu!\n";
+                        manager.AddVit(jogador1, "reversi");
+                        manager.AddDer(jogador2, "reversi");
+                    }
+                    else{
+                        std::cout << "Parabéns! " << jogador2 << " venceu!\n";
+                        manager.AddVit(jogador2, "reversi");
+                        manager.AddDer(jogador1, "reversi");
+                    }
+                }
+                else{
+                    std::cout << "Não há jogadas possíveis para o jogador " << (jogadorAtual == 'X' ? jogador1 : jogador2) << ". O jogador passará a vez.\n";
+                    pularJogada = true;
+                    jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+                    jogadas++;
+                    continue;
+                }
+            }
+            
         }
         
         linha = entrada[0] - '0';
         coluna = entrada[2] - '0';
 
 
-        jogadaValida = !verificaJogada(linha, coluna, jogadorAtual);
+        jogadaValida = !verificaJogada(linha, coluna, jogadorAtual, (jogadorAtual == 'X' ? jogador1 : jogador2));
 
 
         while (jogadaValida) {
@@ -49,7 +95,7 @@ void Reversi::iniciarJogo() {
             getline(std::cin, entrada);
             linha = entrada[0] - '0';
             coluna = entrada[2] - '0';
-            jogadaValida = !verificaJogada(linha, coluna, jogadorAtual);
+            jogadaValida = !verificaJogada(linha, coluna, jogadorAtual, (jogadorAtual == 'X' ? jogador1 : jogador2));
         }
 
 
@@ -65,7 +111,7 @@ void Reversi::iniciarJogo() {
 }
 
 
-bool Reversi::verificaJogada(int linha, int coluna, char jogador) {
+bool Reversi::verificaJogada(int linha, int coluna, char valor, std::string jogador) {
     
     if (linha < 1 || linha > 8 || coluna < 1 || coluna > 8) {
         std::cout << "Entrada inválida. Insira dois números entre 1 e 8.\n";
@@ -77,7 +123,7 @@ bool Reversi::verificaJogada(int linha, int coluna, char jogador) {
         return false;
     }
 
-    if (!verificaFeito(linha - 1, coluna - 1, jogador, 1, 0)) {
+    if (!iniciaRecursao(linha - 1, coluna - 1, valor, 1)) {
         std::cout << "Jogada inválida. Tente novamente com uma jogada possível\n";
         return false;
     }
@@ -85,123 +131,425 @@ bool Reversi::verificaJogada(int linha, int coluna, char jogador) {
     return true;
 }
 
-bool Reversi::verificaFeito(int linha, int coluna, char jogador, bool opcao, int sentido) {
-
+bool Reversi::iniciaRecursao(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
     int keep = 0;
-
-    char jogador_op;
-    jogador_op = (jogador == 'X') ? 'O' : 'X';
-
-    switch (sentido){ //inicia a repercução de verificação do movimento
-    case 0:
-        if(linha - 1 > 0 && tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador_op) {
-            keep += verificaFeito(linha - 1, coluna, jogador, opcao, 2); //inicia recursão para verificar a linha superior
-        }     
-        if(linha - 1 > 0 && coluna - 1 > 0 && tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador_op) {
-            keep += verificaFeito(linha - 1, coluna - 1, jogador, opcao, 1); //inicia recursão para verificar a diagonal superior esquerda
+    if(linha > 0 && coluna > 0) {
+        if(tabuleiro.getGrid()[linha - 1][(coluna - 1) * 2 + 1] == jogadorAdversario){
+            if(recursaoDSE(linha - 1, coluna - 1, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
         }
-        if(linha - 1 > 0 && coluna + 1 < 7 && tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador_op) {
-            keep += verificaFeito(linha - 1, coluna + 1, jogador, opcao, 3); //inicia recursão para verificar a diagonal superior direita
-        }
-    
-
-        if(coluna - 1 > 0 && tabuleiro.getGrid()[linha][coluna * 2 - 1] == jogador_op) {
-            keep += verificaFeito(linha, coluna - 1, jogador, opcao, 4); //inicia recursão para verificar a lateral esquerda
-        }
-        if(coluna + 1 < 7 && tabuleiro.getGrid()[linha][coluna * 2 + 3] == jogador_op) {
-            keep += verificaFeito(linha, coluna + 1, jogador, opcao, 5); //inicia recursão para verificar a lateral direita
-        }
-
-
-        if(linha + 1 < 7 && tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador_op) {
-            keep += verificaFeito(linha + 1, coluna, jogador, opcao, 7); //inicia recursão para verificar a linha inferior
-        }
-        if(linha + 1 < 7 && coluna - 1 > 0 && tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador_op) {
-            keep += verificaFeito(linha + 1, coluna - 1, jogador, opcao, 6); //inicia recursão para verificar a diagonal inferior esquerda
-        }
-        if(linha + 1 < 7 && coluna + 1 < 7 && tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador_op) {
-            keep += verificaFeito(linha + 1, coluna + 1, jogador, opcao, 8); //inicia recursão para verificar a diagonal inferior direita
-        }
-        
-        break;
-    case 1:  //repercução da diagonal superior esquerda
-        if (linha - 1 < 0 && coluna - 1 < 0) return false;
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha - 1, coluna - 1, jogador, opcao, 1);
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 - 1] == jogador) keep++;
-        break;
-    case 2: //repercução da linha superior
-        if (linha - 1 < 0) return false;
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador_op) keep += verificaFeito(linha - 1, coluna, jogador, opcao, 2);
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador) keep++;
-        break;
-    case 3: //repercução da diagonal superior direita
-        if (linha - 1 < 0 && coluna + 1 > 7) return false;
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador_op) keep += verificaFeito(linha - 1, coluna + 1, jogador, opcao, 3);
-        else if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 3] == jogador) keep++;
-        break;
-    case 4: //repercução da linha esquerda
-        if (coluna - 1 < 0) return false;
-        else if(tabuleiro.getGrid()[linha][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha, coluna - 1, jogador, opcao, 4);
-        else if(tabuleiro.getGrid()[linha][coluna * 2 - 1] == jogador) keep++;
-        break;
-    case 5: //repercução da linha direita
-        if (coluna + 1 > 7) return false;
-        else if(tabuleiro.getGrid()[linha][coluna * 2 + 3] == jogador_op) keep += verificaFeito(linha, coluna + 1, jogador, opcao, 5);
-        else if(tabuleiro.getGrid()[linha][coluna * 2 + 3] == jogador) keep++;
-        break;
-    case 6: //repercução da diagonal inferior esquerda
-        if (linha + 1 > 7 && coluna - 1 < 0) return false;
-        else if(tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador_op) keep += verificaFeito(linha + 1, coluna - 1, jogador, opcao, 6);
-        else if(tabuleiro.getGrid()[linha + 1][coluna * 2 - 1] == jogador) keep++;
-        break;
-    case 7: //repercução da linha inferior
-        if (linha + 1 > 7) return false;
-        else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador_op) keep += verificaFeito(linha + 1, coluna, jogador, opcao, 7);
-        else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador) keep++;
-        break;
-    case 8: //repercução da diagonal inferior direita
-        if (linha + 1 > 7 && coluna + 1 > 7) return false;
-        else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador_op) keep += verificaFeito(linha + 1, coluna + 1, jogador, opcao, 8);
-        else if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 3] == jogador) keep++;
-        break; 
-    default:
-        break;
-    
     }
-
-    if (keep > 0) {
-        if (opcao) {
-            tabuleiro.atualizarCelula(linha, coluna, jogador); //atualiza as peças do tabuleiro
+    if(linha > 0) {
+        if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogadorAdversario){
+            if(recursaoS(linha - 1, coluna, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
         }
+    }
+    if(linha > 0 && coluna < 7) {
+        if(tabuleiro.getGrid()[linha - 1][(coluna + 1) * 2 + 1] == jogadorAdversario){
+            if(recursaoDSD(linha - 1, coluna + 1, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
+        }
+    }
+    if(coluna > 0) {
+        if(tabuleiro.getGrid()[linha][(coluna - 1) * 2 + 1] == jogadorAdversario){
+            if(recursaoE(linha, coluna - 1, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
+        }
+    }
+    if(coluna < 7) {
+        if(tabuleiro.getGrid()[linha][(coluna + 1) * 2 + 1] == jogadorAdversario){
+            if(recursaoD(linha, coluna + 1, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
+        }
+    }
+    if(linha < 7 && coluna > 0) {
+        if(tabuleiro.getGrid()[linha + 1][(coluna - 1) * 2 + 1] == jogadorAdversario){
+            if(recursaoDIE(linha + 1, coluna - 1, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
+        }
+    }
+    if(linha < 7) {
+        if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogadorAdversario){
+            if(recursaoI(linha + 1, coluna, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
+        }
+    }
+    if(linha < 7 && coluna < 7) {
+        if(tabuleiro.getGrid()[linha + 1][(coluna + 1) * 2 + 1] == jogadorAdversario){
+            if(recursaoDID(linha + 1, coluna + 1, jogador, opcao)){
+                if(opcao){
+                    tabuleiro.atualizarCelula(linha, coluna, jogador);
+                }
+                keep++;
+            }
+        }
+    }
+    if(keep > 0){
         return true;
     }
     else return false;
 }
 
 
-bool Reversi::verificaGanhador(char jogador) {
-    int pecasX = 0;
-    int pecasO = 0;
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoDSE(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(linha == 0 || coluna == 0){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha - 1][(coluna - 1) * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha - 1][(coluna - 1) * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha - 1][(coluna - 1) * 2 + 1] == jogadorAdversario){
+        if(recursaoDSE(linha - 1, coluna - 1, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoS(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(linha == 0){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha - 1][coluna * 2 + 1] == jogadorAdversario){
+        if(recursaoS(linha - 1, coluna, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoDSD(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(linha == 0 || coluna == 7){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha - 1][(coluna + 1) * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha - 1][(coluna + 1) * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha - 1][(coluna + 1) * 2 + 1] == jogadorAdversario){
+        if(recursaoDSD(linha - 1, coluna + 1, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoE(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(coluna == 0){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha][(coluna - 1) * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha][(coluna - 1) * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha][(coluna - 1) * 2 + 1] == jogadorAdversario){
+        if(recursaoE(linha, coluna - 1, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoD(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(coluna == 7){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha][(coluna + 1) * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha][(coluna + 1) * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha][(coluna + 1) * 2 + 1] == jogadorAdversario){
+        if(recursaoD(linha, coluna + 1, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoDIE(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(linha == 7 || coluna == 0){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha + 1][(coluna - 1) * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha + 1][(coluna - 1) * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha + 1][(coluna - 1) * 2 + 1] == jogadorAdversario){
+        if(recursaoDIE(linha + 1, coluna - 1, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoI(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(linha == 7){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha + 1][coluna * 2 + 1] == jogadorAdversario){
+        if(recursaoI(linha + 1, coluna, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bool Reversi::recursaoDID(int linha, int coluna, char jogador, bool opcao) {
+    char jogadorAdversario = (jogador == 'X') ? 'O' : 'X';
+    if(linha == 7 || coluna == 7){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha + 1][(coluna + 1) * 2 + 1] == ' '){
+        return false;
+    }
+    if(tabuleiro.getGrid()[linha + 1][(coluna + 1) * 2 + 1] == jogador){
+        if (opcao){
+            tabuleiro.atualizarCelula(linha, coluna, jogador);
+        }
+        return true;
+    }
+    if(tabuleiro.getGrid()[linha + 1][(coluna + 1) * 2 + 1] == jogadorAdversario){
+        if(recursaoDID(linha + 1, coluna + 1, jogador, opcao)){
+            if (opcao){
+                tabuleiro.atualizarCelula(linha, coluna, jogador);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+bool Reversi::verificaEmpate() {
+    int pecasJogador1 = 0;
+    int pecasJogador2 = 0;
     for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 16; j += 2) {
-            if (tabuleiro.getGrid()[i][j + 1] == 'X') {
-                pecasX++;
-            } else if (tabuleiro.getGrid()[i][j + 1] == 'O') {
-                pecasO++;
+        for (int j = 0; j < 8; j++) {
+            if (tabuleiro.getGrid()[i][j * 2 + 1] == 'X') {
+                pecasJogador1++;
+            } else if (tabuleiro.getGrid()[i][j * 2 + 1] == 'O') {
+                pecasJogador2++;
             }
         }
     }
-
-    if (pecasX == 0 || pecasO == 0 || jogadas == 64) {
-        if (pecasX > pecasO) {
-            vencedor = jogador1;
-        } else if (pecasO > pecasX) {
-            vencedor = jogador2;
-        } else {
-            vencedor = "Empate";
-        }
-        std::cout << "O jogo acabou! O vencedor é: " << vencedor << std::endl;
+    if (pecasJogador1 == pecasJogador2) {
         return true;
     }
+    return false;
+}
+
+
+
+
+
+
+
+bool Reversi::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
+    int pecasJogador1 = 0;
+    int pecasJogador2 = 0;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (tabuleiro.getGrid()[i][j * 2 + 1] == 'X') {
+                pecasJogador1++;
+            } else if (tabuleiro.getGrid()[i][j * 2 + 1] == 'O') {
+                pecasJogador2++;
+            }
+        }
+    }
+    if (pecasJogador1 > pecasJogador2) {
+        return true;
+    } 
     return false;
 }

@@ -92,7 +92,7 @@ int main() {
                 cout << RED << e.what() << ": " << apelido1 << FIM << endl;
                 continue;}
 
-            cout << "Apelido do segundo jogador:" ;
+            cout << "Apelido do segundo jogador: " ;
             cin >> apelido2;
 
             try {
