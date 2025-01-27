@@ -7,6 +7,13 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     std::cout << jogador1 << " qual a jogada: ";
     std::cin >> linha;
     std::cin >> coluna;
+    while (std::cin.fail()) {
+        std::cerr << jogador1 << " posição inválida, tente novamente:";
+        std::cin.clear(); // Limpa o estado de erro
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> linha;
+        std::cin >> coluna;
+    }
 
     
     while (true){
@@ -34,10 +41,10 @@ void Velha::iniciarJogo(){
     char valor2;
 
     std::cout << jogador1 << " escolha X ou O: ";
-    std::cin >> valor_teste;
-    while (valor_teste.length() != 1 || ((toupper(valor_teste[0]) != 'X') && (toupper(valor_teste[0]) != 'O'))) {
+    std::getline(std::cin, valor_teste);
+    while (valor_teste.length() != 1 || ((toupper(valor_teste[0]) != 'X') && (toupper(valor_teste[0]) != 'O')) || (valor_teste.empty())) {
         std::cout << "Entrada invalida, tente novamnete" << std::endl;
-        std::cin >> valor_teste;
+        std::getline(std::cin, valor_teste);
     }
     valor_teste[0] = toupper(valor_teste[0]);
     valor = valor_teste[0];
@@ -77,7 +84,6 @@ void Velha::criaTabuleiro(){
     tabuleiro.exibirTabuleiro();
 }
 
-
 //verifica se digitou apenas um numero
 bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogador){
     std::vector<std::vector<char>> grid = tabuleiro.getGrid();
@@ -96,12 +102,7 @@ bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogado
         tabuleiro.exibirTabuleiro();
         return true;
     }
-    //if (linha >= 0 && linha <= 3 && coluna >= 0 && coluna <= 3) 
-    // }else {
-    //     std::cerr << jogador << " posição inválida, tente novamente: ";
-    //     return false;
-    // }
-    
+
 }
 
 
@@ -147,6 +148,20 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
             return true;
         }
     }
+    int verif = 0;
+    for (int i = 0; i < 9; ++i) {
+        if (estado[i] != ' ') {
+            verif++;
+        }
+    }
+    if (verif == 9) {
+        std::cout << "O jogo terminou em um empate, ambos jogadores perdem\n" <<  std::endl;
+        manager.AddDer(jogador1, "velha");
+        manager.AddDer(jogador2, "velha");
+        verif = 0;
+        return true;
+    }
+    verif = 0;
 
     return false;
 }

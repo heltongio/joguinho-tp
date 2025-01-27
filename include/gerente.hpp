@@ -9,6 +9,7 @@
 #include "jogador.hpp"
 #include <limits.h>
 #include <algorithm>
+#include <limits>
 
 class CadastroJogadores {
     private:
