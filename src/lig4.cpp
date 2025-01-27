@@ -193,6 +193,6 @@ void Lig4::criaTabuleiro() {
 }
 
 // Provisório
-bool Lig4::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
+bool Lig4::verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) {
     return false;
 }

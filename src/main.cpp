@@ -121,8 +121,12 @@ int main() {
                 std::regex pattern("glados", std::regex_constants::icase);
 
                 if (std::regex_match(apelido2, pattern)) {
-                    std::transform(apelido2.begin(), apelido2.end(), apelido2.begin(), ::toupper);}
+                    std::locale::global(std::locale("C"));
 
+                // Converte todas as letras para maiúsculas
+                std::transform(apelido2.begin(), apelido2.end(), apelido2.begin(), [](unsigned char c) {
+                    return std::toupper(c);
+                });}
                 apelido2 = manager.VerificaJogadores(apelido2);
             } catch (const exception& e) {
                 cout << RED << e.what() << FIM << endl;

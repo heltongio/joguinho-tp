@@ -39,15 +39,29 @@ Tabuleiro Minimax::jogada(Tabuleiro board, const std::vector<int>& coordenadas,c
 int Minimax::minimax(Tabuleiro board, char jogador, char eu, int maxdepth, int depth) {
     Velha velha(board);
 
-    if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
+    // board.exibirTabuleiro();
+
+    if (velha.verificaGanhador(jogador2, jogador1, cpu, true)) {
         return 10 - depth;  // Vitória do CPU (quanto mais rápido, melhor)
     }
-    if (velha.verificaGanhador(jogador1, jogador2, humano) && !velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
+    if (velha.verificaGanhador(jogador1, jogador2, humano, true)) {
         return depth - 10;  // Vitória do humano (quanto mais rápido, pior para o CPU)
     }
-    if (velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
+    if (velha.verificaTabuleiroCompleto(jogador1, jogador2, true)) {
         return 0;  // Empate
     }
+
+
+
+    // if (velha.verificaGanhador(jogador2, jogador1, cpu) && !velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
+    //     return 10 - depth;  // Vitória do CPU (quanto mais rápido, melhor)
+    // }
+    // if (velha.verificaGanhador(jogador1, jogador2, humano) && !velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
+    //     return depth - 10;  // Vitória do humano (quanto mais rápido, pior para o CPU)
+    // }
+    // if (velha.verificaTabuleiroCompleto(jogador1, jogador2)) {
+    //     return 0;  // Empate
+    // }
 
     if (depth >= maxdepth) {
         return 0;  // Limite de profundidade alcançado, considera empate

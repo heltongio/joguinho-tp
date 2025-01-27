@@ -15,7 +15,7 @@ class Jogos{
         virtual void iniciarJogo();
         virtual bool verificaJogada(int linha, int coluna, char valor, std::string jogador) = 0;
         virtual void criaTabuleiro() = 0;
-        virtual bool verificaGanhador(std::string jogador1, std::string jogador2, char valor) = 0;
+        virtual bool verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) = 0;
         virtual ~Jogos();};
 
 #endif

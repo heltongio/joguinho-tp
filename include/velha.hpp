@@ -23,11 +23,11 @@ class Velha:public Jogos{
         void iniciarJogo() override;
         bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override;
         void criaTabuleiro() override;
-        bool verificaGanhador(std::string jogador1, std::string jogador2, char valor) override;
-        bool verificaDiagonais(const std::string& estado);
-        bool verificaColuna(const std::string& estado, int coluna);
-        bool verificaLinha(const std::string& estado, int linha);
-        bool verificaTabuleiroCompleto(const std::string& jogador1, const std::string& jogador2);
+        bool verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) override;
+        bool verificaDiagonais(const std::string& estado, char valor);
+        bool verificaColuna(const std::string& estado, int coluna, char valor);
+        bool verificaLinha(const std::string& estado, int linha, char valor);
+        bool verificaTabuleiroCompleto(const std::string& jogador1, const std::string& jogador2, bool minimax);
         bool jogada(std::string jogador1, std::string jogador2, char valor);
         ~Velha();
 };
