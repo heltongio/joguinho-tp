@@ -1,6 +1,5 @@
 #include "velha.hpp"
 
-
 bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     int linha;
     int coluna;
@@ -19,9 +18,10 @@ bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
     
     while (true){
 
-        if(verificaJogada(linha,coluna,valor,jogador1)){
+        if (verificaJogada(linha,coluna,valor,jogador1)){
             if (verificaGanhador(jogador1, jogador2,valor)){
-                return true;}
+                return true;
+            }
             break;
         }else{
             std::cin >> linha;
@@ -51,47 +51,25 @@ void Velha::iniciarJogo(){
     tabuleiro.exibirTabuleiro();
     
     valor = std::toupper(valor);
-    valor2 = (valor == 'X') ? 'O' : 'X';
+    if (valor == 'X'){
+        valor2 = 'O';
+    }else{
+        valor2 = 'X';}
 
     while (true){
 
         if (cont%2 == 0){
             cont++;
-            if (jogada(jogador1, jogador2, valor)){
+            if (jogada(jogador1, jogador2,valor)){
                 break;
             }
-
-            // std::cout << "A pontuação da melhor jogada é: " << melhorJogada << std::endl;
-
-            // std::vector<std::vector<char>> jogadas = minimaxSolver.jogadasPossiveis(tabuleiro, valor2);
-            // std::cout << "Jogadas possíveis para CPU: " << std::endl;
-            // minimaxSolver.imprimirTabuleiro(jogadas);
            
             
         }else if (cont%2 != 0){
             cont++;
-
-            Minimax minimaxSolver (jogador1, jogador2, valor, valor2);
-            // minimaxSolver.jogadasPossiveis(tabuleiro,valor);
-            std::vector<int> melhorJogada = minimaxSolver.melhoraco(tabuleiro, false);
-            // std::cout << melhorJogada[0] + 1 << std::endl;
-            // std::cout << melhorJogada[1] + 1 << std::endl;
-
-            tabuleiro.atualizarCelula(melhorJogada[0],melhorJogada[1],valor2);
-            tabuleiro.exibirTabuleiro();
-
-            // melhorJogada.exibirTabuleiro();
-
-
-            //melhorar definição de parada
-            // tabuleiro.setTabuleiro(melhorJogada);
-            // break;
-
-            //pvp
-            // if (jogada(jogador2, jogador1,valor2)){
-            //     break;
-            // }
-
+            if (jogada(jogador2, jogador1,valor2)){
+                break;
+            }
             
         }
         
@@ -104,28 +82,6 @@ void Velha::iniciarJogo(){
 void Velha::criaTabuleiro(){
     tabuleiro.exibirTabuleiro();
 }
-
-//verifica se digitou apenas um numero
-bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogador){
-    std::vector<std::vector<char>> grid = tabuleiro.getGrid();
-    linha = linha-1;
-    coluna = coluna-1;
-
-    if ((linha < 0 || linha >= 3) || (coluna < 0 || coluna >= 3)) {
-        std::cerr << jogador << " posição inválida, tente novamente:";
-        return false;
-    }
-    else if (grid[linha][coluna * 2 + 1] != ' '){
-        std::cerr << jogador << " posição inválida, tente novamente: ";
-        return false;
-    }else {
-        tabuleiro.atualizarCelula(linha,coluna,valor);
-        tabuleiro.exibirTabuleiro();
-        return true;
-    }
-
-}
-
 
 //verifica se digitou apenas um numero
 bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogador){
@@ -208,6 +164,7 @@ bool Velha::verificaGanhador(std::string jogador1, std::string jogador2, char va
 
     return false;
 }
+
 
 Velha::~Velha(){
 
