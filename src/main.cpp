@@ -5,6 +5,7 @@
 #include "velha.hpp"
 #include "lig4.hpp"
 #include "minimax.hpp"
+#include "reversi.hpp"
 #include <limits>
 #include <cctype>
 #include <cstdlib>
@@ -158,7 +159,8 @@ int main() {
                 Velha jogoVelha(apelido1,apelido2,manager);
                 jogoVelha.iniciarJogo();
             }else if(jogo == string("R") || jogo == "REVERSI"){
-                cout << "jogo em construção" << endl;
+                Reversi jogoReversi(apelido1,apelido2,manager);
+                jogoReversi.iniciarJogo();
             }else if(jogo == string("L") || jogo == "LIG4"){
                 Lig4 jogoLig4(apelido1,apelido2,manager);
                 jogoLig4.iniciarJogo();

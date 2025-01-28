@@ -60,7 +60,7 @@ void Reversi::iniciarJogo() {
                     if(verificaEmpate()){
                         std::cout << "O jogo terminou em empate!\n";
                     }
-                    else if(verificaGanhador(jogador1, jogador2, jogadorAtual)){
+                    else if(verificaGanhador(jogador1, jogador2, jogadorAtual, false)){
                         std::cout << "Parabéns! " << jogador1 << " venceu!\n";
                         manager.AddVit(jogador1, "reversi");
                         manager.AddDer(jogador2, "reversi");
@@ -536,7 +536,7 @@ bool Reversi::verificaEmpate() {
 
 
 
-bool Reversi::verificaGanhador(std::string jogador1, std::string jogador2, char valor) {
+bool Reversi::verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) {
     int pecasJogador1 = 0;
     int pecasJogador2 = 0;
     for (int i = 0; i < 8; i++) {

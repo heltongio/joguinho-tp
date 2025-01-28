@@ -18,7 +18,7 @@ private:
 
     bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override; //Verifica se a jogada é possível
     bool verificaEmpate(); //Verifica se o jogo terminou em empate
-    bool verificaGanhador(std::string jogador1, std::string jogador2, char valor) override; //Verifica se o jogador venceu
+    bool verificaGanhador(std::string jogador1, std::string jogador2, char valor,bool minimax = false) override; //Verifica se o jogador venceu
     void criaTabuleiro() override;
 
     bool iniciaRecursao(int linha, int coluna, char jogador, bool opcao); //Quando 0 verifica a validade do movimento, quando 1 atualiza os valores do tabuleiro
