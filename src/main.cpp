@@ -43,11 +43,12 @@ int main() {
     return 0;}
 
     while (true){
-        cout << "1 - " << "CJ" << " : " << "Cadastrar Jogador" << endl;
-        cout << "2 - " << "RJ" << " : " << "Remover Jogador" << endl;
-        cout << "3 - " << "LJ" << " : " << "Listar de jogadores" << endl;
-        cout << "4 - " << "EP" << " : " << "Inicia partida" << endl;
-        cout << "5 - " << "FS" << " : " << "Finalizar Sistema" << endl;
+        cout << "1 - " << "CJ" << "  : " << "Cadastrar Jogador" << endl;
+        cout << "2 - " << "RJ" << "  : " << "Remover Jogador" << endl;
+        cout << "3 - " << "LJ" << "  : " << "Listar de jogadores" << endl;
+        cout << "4 - " << "EP" << "  : " << "Inicia partida pvp" << endl;
+        cout << "5 - " << "EPM"<<  " : " << "Inicia jogo da velha vs GLaDOS" << endl;
+        cout << "6 - " << "FS" << "  : " << "Finalizar Sistema" << endl;
         cout << endl;
 
 
@@ -133,9 +134,6 @@ int main() {
 
             while (apelido2.empty()) {
                 cout << endl;
-                if (jogo == "V"){
-                    cout << GREEN << "Caso deseje jogar contra o CPU digite " << FIM << RED << "GLADOS"<< FIM  << endl;
-                }
                 cout << "Apelido do segundo jogador: " << endl;
                 getline(cin, apelido2);
                 cout << endl;}
@@ -168,8 +166,30 @@ int main() {
                 cout << RED << "jogo não reconhecido!" << FIM << endl;
             }
             limparConsole(3);
-        }
-        else if (comando == "FS" || comando == "5"){
+        }else if (comando == "EPC" || comando == "5"){
+            cout << endl;
+            string jogo;
+            string apelido1;
+            string apelido2 = "GLADOS";
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            while (apelido1.empty()) {
+                cout << "Apelido do primeiro jogador: " << endl;
+                getline(cin, apelido1);}
+            try {
+                apelido1 = manager.VerificaJogadores(apelido1);
+            } catch (const exception& e) {
+                cout << RED << e.what() << FIM << endl;
+                continue;}
+
+            apelido2 = manager.VerificaJogadores(apelido2);
+
+            Velha jogoVelha(apelido1,apelido2,manager);
+            jogoVelha.iniciarJogo();
+            limparConsole(3);
+
+        }else if (comando == "FS" || comando == "5"){
             manager.SalvarArquivo();
             return 0;
         }else{
