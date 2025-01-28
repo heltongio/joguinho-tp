@@ -30,6 +30,7 @@ void Reversi::iniciarJogo() {
     bool movimentoValido = false;
     bool jogadaValida = false;
     bool pularJogada = false;
+    bool var = false;
     while (true) {
         
 
@@ -38,12 +39,15 @@ void Reversi::iniciarJogo() {
             std::cout << (jogadorAtual == 'X' ? jogador1 : jogador2) << ", Faça sua jogada: ";
             getline(std::cin >> std::ws, entrada);
         } else {
-            for(int i = 0; i < 8; i++){
-                for(int j = 0; j < 8; j++ && tabuleiro.getGrid()[i][j * 2 + 1] == ' '){
-                    if(iniciaRecursao(i, j, jogadorAtual, 0)){
-                        pularJogada = false;
-                        movimentoValido = true;
-                        break;
+            for(int i = 0; i <= 7; i++){
+                for(int j = 0; j <= 7; j++){
+                    if(tabuleiro.getGrid()[i][j * 2 + 1] == ' '){
+                        var = iniciaRecursao(i, j, jogadorAtual, 0);
+                        if(var){
+                            pularJogada = false;
+                            movimentoValido = true;
+                            break;
+                        }
                     }
                 }
                 if(movimentoValido){
@@ -56,19 +60,24 @@ void Reversi::iniciarJogo() {
             }
             else{
                 if(pularJogada){
-                    std::cout << "Não há jogadas possíveis para o jogador " << (jogadorAtual == 'X' ? jogador1 : jogador2) << ".|\n O jogo acabou.\n";
+                    std::cout << "Não há jogadas possíveis para o jogador " << (jogadorAtual == 'X' ? jogador1 : jogador2) << ".\n O jogo acabou.\n";
                     if(verificaEmpate()){
                         std::cout << "O jogo terminou em empate!\n";
+                        manager.AddDer(jogador1, "reversi");
+                        manager.AddDer(jogador2, "reversi");
+                        return;
                     }
                     else if(verificaGanhador(jogador1, jogador2, jogadorAtual, false)){
                         std::cout << "Parabéns! " << jogador1 << " venceu!\n";
                         manager.AddVit(jogador1, "reversi");
                         manager.AddDer(jogador2, "reversi");
+                        return;
                     }
                     else{
                         std::cout << "Parabéns! " << jogador2 << " venceu!\n";
                         manager.AddVit(jogador2, "reversi");
                         manager.AddDer(jogador1, "reversi");
+                        return;
                     }
                 }
                 else{
@@ -105,6 +114,7 @@ void Reversi::iniciarJogo() {
 
         //Alterna para o próximo jogador
         jogadorAtual = (jogadorAtual == 'X') ? 'O' : 'X';
+        movimentoValido = false;
 
 
     }
