@@ -1,3 +1,10 @@
+/**
+ * @file main.cpp
+ * @brief Programa principal para gerenciar jogadores e iniciar jogos interativos.
+ * @details Este programa permite gerenciar jogadores (cadastrar, remover, listar) e iniciar jogos como Velha, Lig4 e Reversi.
+ *          Ele utiliza diversas classes, como `CadastroJogadores`, `Velha`, `Lig4`, e `Reversi`, para implementar as funcionalidades.s
+ */
+
 #include "gerente.hpp"
 #include "jogador.hpp"
 #include "tabuleiro.hpp"
