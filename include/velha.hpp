@@ -28,6 +28,8 @@ class Velha:public Jogos{
         bool verificaColuna(const std::string& estado, int coluna, char valor);
         bool verificaLinha(const std::string& estado, int linha, char valor);
         bool verificaTabuleiroCompleto(const std::string& jogador1, const std::string& jogador2, bool minimax);
+        bool solicitarJogada(std::string& jogador,int& linha, int& coluna);
+        std::string frase();
         bool jogada(std::string jogador1, std::string jogador2, char valor);
         ~Velha();
 };

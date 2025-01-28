@@ -15,8 +15,8 @@ Tabuleiro::Tabuleiro(const std::vector<char>& child){
    int colunas = static_cast<int>(std::sqrt(totalElementos));
    int linhas = (colunas * colunas == totalElementos) ? colunas : (colunas + 1);
    grid.resize(linhas, std::vector<char>(colunas * 2 + 1, ' '));
-   for (size_t i = 0; i < linhas; ++i) {
-    for (size_t j = 0; j < colunas; ++j) {
+   for (int i = 0; i < linhas; ++i) {
+    for (int j = 0; j < colunas; ++j) {
         grid[i][j * 2] = '|'; // Insere os delimitadores |
         grid[i][j * 2 + 1] = child[i * colunas + j];
     }

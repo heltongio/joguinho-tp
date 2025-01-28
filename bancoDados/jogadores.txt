@@ -1,8 +1,8 @@
 Aobe Pedro Augusto Moreira 0 0 0 0 0 0
 Bola Manuel Pereira 0 0 0 0 0 0
-Glados Glados 14 0 0 6 0 0
+Glados Glados 18 0 0 7 0 0
 Isah Isadora 0 0 0 1 0 0
-Paulo Paulo 1 0 0 1 7 0
-Rafa Rafael 2 9 0 19 0 0
+Paulo Paulo 1 0 0 2 7 0
+Rafa Rafael 3 9 0 24 0 0
 Revo Roberto 0 0 6 6 0 6
 Zhaolin Pedro 0 0 0 0 0 0

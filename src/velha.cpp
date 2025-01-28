@@ -1,6 +1,6 @@
 #include "velha.hpp"
 
-std::string frase(){
+std::string Velha::frase(){
     std::ifstream arquivo("bancoDados/frases.txt");
     std::vector<std::string> frases;
 
@@ -21,38 +21,42 @@ std::string frase(){
 }
 
 
+bool Velha::solicitarJogada(std::string& jogador,int& linha, int& coluna) {
+    while (true) {
+        std::cout << jogador <<" digite a linha e coluna (1-3) (1-3): ";
+        std::cin >> linha >> coluna;
 
-bool Velha::jogada(std::string jogador1, std::string jogador2, char valor ){
-    int linha;
-    int coluna;
-            
-    std::cout << jogador1 << " qual a jogada: ";
-    std::cin >> linha;
-    std::cin >> coluna;
-    while (std::cin.fail()) {
-        std::cerr << jogador1 << " posição inválida, tente novamente:";
-        std::cin.clear(); // Limpa o estado de erro
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cin >> linha;
-        std::cin >> coluna;
+
+        if (std::cin.fail()) {
+            std::cerr << "Entrada inválida! Apenas números inteiros são permitidos.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        } else if (linha < 1 || linha > 3 || coluna < 1 || coluna > 3) {
+            std::cerr << "Posição inválida! As linhas e colunas devem ser entre 1 e 3.\n";
+        } else {
+            return true;
+        }
     }
+}
 
-    
-    while (true){
+bool Velha::jogada(std::string jogador1, std::string jogador2, char valor) {
+    int linha, coluna;
 
-        if (verificaJogada(linha,coluna,valor,jogador1)){
-            if (verificaGanhador(jogador1, jogador2,valor, false) || verificaTabuleiroCompleto(jogador1,jogador2, false)){
+    while (!solicitarJogada(jogador1, linha, coluna)) {}
+
+    while (true) {
+        if (verificaJogada(linha, coluna, valor, jogador1)) {
+            if (verificaGanhador(jogador1, jogador2, valor, false) || verificaTabuleiroCompleto(jogador1, jogador2, false)) {
                 return true;
             }
             break;
-        }else{
-            std::cin >> linha;
-            std::cin >> coluna;
+        } else {
+            std::cerr << "Posição já ocupada, tente novamente.\n";
+            solicitarJogada(jogador1, linha, coluna);
         }
     }
 
     return false;
-            
 }
 
 
@@ -66,17 +70,15 @@ void Velha::iniciarJogo(){
     std::cout << std::endl;
     std::getline(std::cin, valor_teste);
     while (valor_teste.length() != 1 || ((toupper(valor_teste[0]) != 'X') && (toupper(valor_teste[0]) != 'O')) || (valor_teste.empty())) {
-        std::cout << "Entrada invalida, tente novamnete" << std::endl;
+        std::cout << "Entrada invalida,use apenas X ou O" << std::endl;
         std::getline(std::cin, valor_teste);}
     valor_teste[0] = toupper(valor_teste[0]);
     valor = valor_teste[0];
     tabuleiro.exibirTabuleiro();
     
     valor = std::toupper(valor);
-    if (valor == 'X'){
-        valor2 = 'O';
-    }else{
-        valor2 = 'X';}
+
+    valor2 = (valor == 'X') ? 'O' : 'X';
 
     while (true){
 
@@ -92,7 +94,7 @@ void Velha::iniciarJogo(){
             std::vector<int> melhorJogada = minimaxSolver.melhoraco(tabuleiro, false);
             tabuleiro.atualizarCelula(melhorJogada[0],melhorJogada[1],valor2);
 
-            std::cout << "GLADOS" << " jogou:" << std::endl;
+            std::cout << "\033[1;34m" << "GLADOS" << "\033[0m" << " jogou:" << std::endl;
             tabuleiro.exibirTabuleiro();
 
             if (verificaGanhador(jogador2, jogador1, valor2, false) || verificaTabuleiroCompleto(jogador2,jogador1, false)){
@@ -119,7 +121,7 @@ void Velha::criaTabuleiro(){
     tabuleiro.exibirTabuleiro();
 }
 
-//verifica se digitou apenas um numero
+
 bool Velha::verificaJogada(int linha, int coluna, char valor, std::string jogador){
     std::vector<std::vector<char>> grid = tabuleiro.getGrid();
     linha = linha-1;
