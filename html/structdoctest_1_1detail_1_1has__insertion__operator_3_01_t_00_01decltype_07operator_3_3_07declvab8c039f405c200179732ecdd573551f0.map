@@ -1,0 +1,4 @@
+<map id="doctest::detail::has_insertion_operator&lt; T, decltype(operator&lt;&lt;(declval&lt; std::ostream &amp; &gt;(), declval&lt; const T &amp; &gt;()), void())&gt;" name="doctest::detail::has_insertion_operator&lt; T, decltype(operator&lt;&lt;(declval&lt; std::ostream &amp; &gt;(), declval&lt; const T &amp; &gt;()), void())&gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="5,99,198,213"/>
+<area shape="rect" id="node2" href="$structdoctest_1_1detail_1_1types_1_1true__type.html" title=" " alt="" coords="22,5,181,51"/>
+</map>

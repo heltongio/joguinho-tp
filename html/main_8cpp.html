@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JogosTabuleiro: Referência ao ficheiro src/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JogosTabuleiro
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência ao ficheiro main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Programa principal para gerenciar jogadores e iniciar jogos interativos.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &quot;gerente.hpp&quot;</code><br />
+<code>#include &quot;jogador.hpp&quot;</code><br />
+<code>#include &quot;tabuleiro.hpp&quot;</code><br />
+<code>#include &quot;jogos.hpp&quot;</code><br />
+<code>#include &quot;velha.hpp&quot;</code><br />
+<code>#include &quot;lig4.hpp&quot;</code><br />
+<code>#include &quot;minimax.hpp&quot;</code><br />
+<code>#include &quot;reversi.hpp&quot;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;cctype&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Diagrama de dependências de inclusão para main.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#asrc_2main_8cpp" alt=""/></div>
+<map name="asrc_2main_8cpp" id="asrc_2main_8cpp">
+<area shape="rect" title="Programa principal para gerenciar jogadores e iniciar jogos interativos." alt="" coords="1013,5,1118,34"/>
+<area shape="rect" href="gerente_8hpp_source.html" title=" " alt="" coords="368,236,467,265"/>
+<area shape="rect" href="jogador_8hpp_source.html" title=" " alt="" coords="130,313,228,342"/>
+<area shape="rect" title=" " alt="" coords="1356,313,1415,342"/>
+<area shape="rect" href="tabuleiro_8hpp_source.html" title=" " alt="" coords="900,236,1007,265"/>
+<area shape="rect" href="jogos_8hpp_source.html" title=" " alt="" coords="506,159,590,188"/>
+<area shape="rect" href="velha_8hpp_source.html" title=" " alt="" coords="890,82,975,111"/>
+<area shape="rect" href="minimax_8hpp_source.html" title=" " alt="" coords="1158,159,1266,188"/>
+<area shape="rect" href="lig4_8hpp_source.html" title=" " alt="" coords="432,82,505,111"/>
+<area shape="rect" href="reversi_8hpp_source.html" title=" " alt="" coords="632,82,726,111"/>
+<area shape="rect" title=" " alt="" coords="1204,82,1268,111"/>
+<area shape="rect" title=" " alt="" coords="1292,82,1356,111"/>
+<area shape="rect" title=" " alt="" coords="1381,82,1446,111"/>
+<area shape="rect" title=" " alt="" coords="1470,82,1533,111"/>
+<area shape="rect" title=" " alt="" coords="867,390,946,419"/>
+<area shape="rect" title=" " alt="" coords="599,390,657,419"/>
+<area shape="rect" title=" " alt="" coords="304,313,345,342"/>
+<area shape="rect" title=" " alt="" coords="5,390,78,419"/>
+<area shape="rect" title=" " alt="" coords="102,390,176,419"/>
+<area shape="rect" title=" " alt="" coords="1055,313,1129,342"/>
+<area shape="rect" title=" " alt="" coords="341,390,425,419"/>
+<area shape="rect" title=" " alt="" coords="470,313,541,342"/>
+<area shape="rect" title=" " alt="" coords="1186,390,1249,419"/>
+<area shape="rect" title=" " alt="" coords="200,390,251,419"/>
+<area shape="rect" title=" " alt="" coords="969,313,1031,342"/>
+<area shape="rect" title=" " alt="" coords="1103,236,1180,265"/>
+<area shape="rect" title=" " alt="" coords="970,159,1028,188"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a880bcc579f7c05ee20c006450deaf098"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a880bcc579f7c05ee20c006450deaf098">limparConsole</a> (int segundos)</td></tr>
+<tr class="memdesc:a880bcc579f7c05ee20c006450deaf098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para limpar o console após um intervalo de tempo.  <a href="main_8cpp.html#a880bcc579f7c05ee20c006450deaf098">Mais...</a><br /></td></tr>
+<tr class="separator:a880bcc579f7c05ee20c006450deaf098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função principal do programa.  <a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">Mais...</a><br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Programa principal para gerenciar jogadores e iniciar jogos interativos. </p>
+<p>Este programa permite gerenciar jogadores (cadastrar, remover, listar) e iniciar jogos como <a class="el" href="class_velha.html" title="Classe que implementa o jogo da velha.">Velha</a>, <a class="el" href="class_lig4.html">Lig4</a> e <a class="el" href="class_reversi.html">Reversi</a>. Ele utiliza diversas classes, como <code><a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a></code>, <code><a class="el" href="class_velha.html" title="Classe que implementa o jogo da velha.">Velha</a></code>, <code><a class="el" href="class_lig4.html">Lig4</a></code>, e <code><a class="el" href="class_reversi.html">Reversi</a></code>, para implementar as funcionalidades.s </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="a880bcc579f7c05ee20c006450deaf098"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a880bcc579f7c05ee20c006450deaf098">&#9670;&nbsp;</a></span>limparConsole()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void limparConsole </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>segundos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função para limpar o console após um intervalo de tempo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">segundos</td><td>Tempo de espera antes da limpeza. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função principal do programa. </p>
+<dl class="section return"><dt>Retorna</dt><dd>int Retorna 0 ao finalizar o programa. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
