@@ -1,33 +1,41 @@
-//Cabeçalho Lig4
 #ifndef LIG4_HPP
 #define LIG4_HPP
 
-#include "tabuleiro.hpp"
-#include "jogos.hpp"
-#include "gerente.hpp"
-#include <string>
+#include "jogos.hpp" // Inclui a classe base "Jogos", que será herdada
+#include "tabuleiro.hpp" // Inclui a classe "Tabuleiro" para manipular o tabuleiro do jogo
 
-//Classe que implementa o jogo Lig4
+// Classe Lig4
+// Representa o jogo de tabuleiro Lig4, derivada da classe base "Jogos"
 class Lig4 : public Jogos {
 private:
-    Tabuleiro tabuleiro; //Tabuleiro do jogo
-    std::string vencedor; //Nome do jogador vencedor
-    int jogadas; //Contador de jogadas realizadas
+    Tabuleiro tabuleiro; // Objeto responsável por gerenciar o tabuleiro do jogo
+    int jogadas; // Contador de jogadas realizadas no jogo
 
-    //Metodos auxiliares para verificar condições de vitoria
-    bool verificaLinha(int linha, char jogador); //Verifica vitoria em uma linha
-    bool verificaColuna(int coluna, char jogador); //Verifica vitoria em uma coluna
-    bool verificaDiagonais(char jogador); //Verifica vitoria em diagonais
-    bool verificaGanhador(char jogador); //Verifica se o jogador atual venceu
+    // Métodos auxiliares para verificar condições de vitória
+    bool verificaLinha(int linha, char jogador); // Verifica uma sequência de 4 peças em uma linha
+    bool verificaColuna(int coluna, char jogador); // Verifica uma sequência de 4 peças em uma coluna
+    bool verificaDiagonais(char jogador); // Verifica uma sequência de 4 peças nas diagonais
 
-    bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override; //provisorio
-    void criaTabuleiro() override; //provisorio
-    bool verificaGanhador(std::string jogador1, std::string jogador2, char valor,bool minimax) override;//provisorio
 public:
+    // Construtor da classe Lig4
+    // Recebe os nomes dos jogadores e uma referência para o gerenciador de jogadores
     Lig4(const std::string& jogador1, const std::string& jogador2, CadastroJogadores& manager);
-    void iniciarJogo() override; //Metodo para iniciar o jogo
-    bool realizarJogada(int coluna, char jogador); //Realiza uma jogada no tabuleiro
+
+    // Método para iniciar o jogo
+    // Contém a lógica principal do jogo e gerencia os turnos
+    void iniciarJogo() override;
+
+    // Método para realizar uma jogada
+    // Recebe a coluna escolhida e o símbolo do jogador atual
+    bool realizarJogada(int coluna, char jogador);
+
+    // Método para verificar se o jogador atual venceu
+    // Retorna true se houver uma sequência de 4 peças do jogador
+    bool verificaGanhador(char jogador);
+
+    // Destrutor da classe Lig4
+    // Realiza limpeza necessária ao destruir um objeto Lig4
     ~Lig4();
 };
 
-#endif
+#endif // LIG4_HPP
