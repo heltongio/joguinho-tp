@@ -2,14 +2,19 @@ Esse git representa um trabalho de jogo que será entregue na diciplina de PDSII
 
 Diretórios
 -
+- bancoDados/: Contém dados dos jogadores e das frases faladas pela GLaDOS
 - bin/: Armazena os executáveis gerados pela compilação.
+- coverage/: saidas dos testes executados e cobertura do codigo.
+- html/: Documentação do codigo em html.
 - include/: Contém arquivos de cabeçalho (.hpp) usados no projeto.
+- latex/: Documentação do codigo em latex.
 - obj/: Guarda arquivos objeto (.o ou .obj) criados durante a compilação.
 - src/: Onde estão os arquivos de código-fonte (.cpp).
 - tests/: Abriga arquivos de teste para validação do código.
+- wiki_images/: Imagens dos cartões CRC usados no Wiki
 - .gitignore: Lista arquivos e pastas que o Git deve ignorar.
 - makefile: Contém instruções para automatizar a compilação do projeto.
-- wiki_images/: Imagens dos cartões CRC usados no Wiki
+
 
 O Trabalho
 -
