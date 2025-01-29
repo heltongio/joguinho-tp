@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à estrutura doctest::detail::filldata&lt; const void * &gt;</title>
+<title>JogosTabuleiros: Referência da Estrutura doctest::detail::filldata&lt; const void * &gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -61,25 +62,66 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>doctest</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01const_01void_01_5_01_4.html">filldata&lt; const void * &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacedoctest.html">doctest</a></li><li class="navelem"><a class="el" href="namespacedoctest_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01const_01void_01_5_01_4.html">filldata&lt; const void * &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Membros públicos estáticos</a> &#124;
-<a href="structdoctest_1_1detail_1_1filldata_3_01const_01void_01_5_01_4-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-static-methods">Membros Públicos Estáticos</a> &#124;
+<a href="structdoctest_1_1detail_1_1filldata_3_01const_01void_01_5_01_4-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à estrutura doctest::detail::filldata&lt; const void * &gt;</div>  </div>
+<div class="title">Referência da Estrutura doctest::detail::filldata&lt; const void * &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="doctest_8h_source.html">doctest.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Membros públicos estáticos</h2></td></tr>
-<tr class="memitem:a4988e62e00fd190970beb8d449fe48c8"><td class="memItemLeft" align="right" valign="top"><a id="a4988e62e00fd190970beb8d449fe48c8"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>fill</b> (<a class="el" href="classstd_1_1basic__ostream.html">std::ostream</a> *stream, const void *in)</td></tr>
+Membros Públicos Estáticos</h2></td></tr>
+<tr class="memitem:a4988e62e00fd190970beb8d449fe48c8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01const_01void_01_5_01_4.html#a4988e62e00fd190970beb8d449fe48c8">fill</a> (<a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *stream, const void *in)</td></tr>
 <tr class="separator:a4988e62e00fd190970beb8d449fe48c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock">
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01188">1188</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+</div><h2 class="groupheader">Funções membros</h2>
+<a id="a4988e62e00fd190970beb8d449fe48c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4988e62e00fd190970beb8d449fe48c8">&#9670;&nbsp;</a></span>fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; const void * &gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>tests/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
 </ul>
 </div><!-- contents -->

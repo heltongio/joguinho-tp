@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Componentes membro - Funções</title>
+<title>JogosTabuleiros: Membros de classe - Funções</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -61,72 +62,29 @@ $(function() {
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a id="index_a"></a>- a -</h3><ul>
+<li>AddDer()
+: <a class="el" href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">CadastroJogadores</a>
+</li>
+<li>addFilter()
+: <a class="el" href="classdoctest_1_1_context.html#a60ad57a46c19db2b142468c3acac448a">doctest::Context</a>
+</li>
+<li>AddVit()
+: <a class="el" href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">CadastroJogadores</a>
+</li>
+<li>applyCommandLine()
+: <a class="el" href="classdoctest_1_1_context.html#ad55229220bf9ca74e6e0c6323bf672e1">doctest::Context</a>
+</li>
+<li>Approx()
+: <a class="el" href="structdoctest_1_1_approx.html#a86f0d1b44c1cf095697f23ccdab00802">doctest::Approx</a>
+</li>
+<li>AssertData()
+: <a class="el" href="structdoctest_1_1_assert_data.html#ae1f9906888c2dd06b6291ab196f5074e">doctest::AssertData</a>
+</li>
 <li>atualizarCelula()
 : <a class="el" href="class_tabuleiro.html#ab9603e192ed26dac207554695e72c35f">Tabuleiro</a>
-</li>
-<li>criaTabuleiro()
-: <a class="el" href="class_velha.html#acec21d4a18ac771fa857a19214de8f21">Velha</a>
-</li>
-<li>exibirTabuleiro()
-: <a class="el" href="class_tabuleiro.html#ae76781eee765933d487c26ab7f97cb92">Tabuleiro</a>
-</li>
-<li>frase()
-: <a class="el" href="class_velha.html#aa6e7e77d92fc94ed80df150444ef96ce">Velha</a>
-</li>
-<li>getCleanState()
-: <a class="el" href="class_tabuleiro.html#a9b475d90e178f2d0c918b5ea1ddd9879">Tabuleiro</a>
-</li>
-<li>getEstadoLimpo()
-: <a class="el" href="class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee">Tabuleiro</a>
-</li>
-<li>getGrid()
-: <a class="el" href="class_tabuleiro.html#a4709c147c8bcc080d6052a5a8e276cde">Tabuleiro</a>
-</li>
-<li>iniciarJogo()
-: <a class="el" href="class_velha.html#af21bf0bcbc8522ac9804d677e0a3e7f5">Velha</a>
-</li>
-<li>jogada()
-: <a class="el" href="class_velha.html#a0b0f52656c268f6df19489960f51ad16">Velha</a>
-</li>
-<li>setTabuleiro()
-: <a class="el" href="class_tabuleiro.html#ac8f11e2d3e51fede66797900fad41ad7">Tabuleiro</a>
-</li>
-<li>solicitarJogada()
-: <a class="el" href="class_velha.html#a08b9381c32a495091ac995193f9442ed">Velha</a>
-</li>
-<li>Tabuleiro()
-: <a class="el" href="class_tabuleiro.html#acfdc3a04d8c0bcbd54ec24719cd07940">Tabuleiro</a>
-</li>
-<li>unary_assert()
-: <a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a63a2a19638f4a761c70abd5563e2d23a">doctest::detail::ResultBuilder</a>
-</li>
-<li>Velha()
-: <a class="el" href="class_velha.html#a89ae07be1d54672b839d4a601a72bd56">Velha</a>
-</li>
-<li>verificaColuna()
-: <a class="el" href="class_velha.html#a04c6760cc79c0c2ea07fc87bc3c3c2af">Velha</a>
-</li>
-<li>verificaDiagonais()
-: <a class="el" href="class_velha.html#a44fc34a80968bbbfc044f69cded9e52c">Velha</a>
-</li>
-<li>verificaGanhador()
-: <a class="el" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">Velha</a>
-</li>
-<li>verificaJogada()
-: <a class="el" href="class_velha.html#aaab78ed3662cb0f0861c1732725b7626">Velha</a>
-</li>
-<li>verificaLinha()
-: <a class="el" href="class_velha.html#a9bbf6441f94f40a9ee0bb804b0211c80">Velha</a>
-</li>
-<li>verificaTabuleiroCompleto()
-: <a class="el" href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">Velha</a>
-</li>
-<li>~Tabuleiro()
-: <a class="el" href="class_tabuleiro.html#a25dfc7efac326aff2cdb7dd8a3b8b084">Tabuleiro</a>
-</li>
-<li>~Velha()
-: <a class="el" href="class_velha.html#a7d207df9d99b3ebab54bd136490ff9c8">Velha</a>
 </li>
 </ul>
 </div><!-- contents -->

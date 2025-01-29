@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à estrutura doctest::detail::TestSuite</title>
+<title>JogosTabuleiros: Referência da Estrutura doctest::detail::TestSuite</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -61,60 +62,248 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>doctest</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacedoctest.html">doctest</a></li><li class="navelem"><a class="el" href="namespacedoctest_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
+<a href="#pub-methods">Membros Públicos</a> &#124;
 <a href="#pub-attribs">Atributos Públicos</a> &#124;
-<a href="structdoctest_1_1detail_1_1_test_suite-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="structdoctest_1_1detail_1_1_test_suite-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à estrutura doctest::detail::TestSuite</div>  </div>
+<div class="title">Referência da Estrutura doctest::detail::TestSuite</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="doctest_8h_source.html">doctest.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:a8fea9c73837193c3a5e2f0829aa5a9cd"><td class="memItemLeft" align="right" valign="top"><a id="a8fea9c73837193c3a5e2f0829aa5a9cd"></a>
-<a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const char *in)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a8fea9c73837193c3a5e2f0829aa5a9cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a8fea9c73837193c3a5e2f0829aa5a9cd">operator*</a> (const char *in)</td></tr>
 <tr class="separator:a8fea9c73837193c3a5e2f0829aa5a9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87a44a0d2e0c4955c64ef5d01f7115d8"><td class="memTemplParams" colspan="2"><a id="a87a44a0d2e0c4955c64ef5d01f7115d8"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a87a44a0d2e0c4955c64ef5d01f7115d8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator*</b> (const T &amp;in)</td></tr>
+<tr class="memitem:a87a44a0d2e0c4955c64ef5d01f7115d8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a87a44a0d2e0c4955c64ef5d01f7115d8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a87a44a0d2e0c4955c64ef5d01f7115d8">operator*</a> (const T &amp;in)</td></tr>
 <tr class="separator:a87a44a0d2e0c4955c64ef5d01f7115d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:ab6260436f6fd52d473c0020ff916753c"><td class="memItemLeft" align="right" valign="top"><a id="ab6260436f6fd52d473c0020ff916753c"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_test_suite</b> = nullptr</td></tr>
+<tr class="memitem:ab6260436f6fd52d473c0020ff916753c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#ab6260436f6fd52d473c0020ff916753c">m_test_suite</a> = nullptr</td></tr>
 <tr class="separator:ab6260436f6fd52d473c0020ff916753c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0458cf84f4f2d308162b26c95a1bbbce"><td class="memItemLeft" align="right" valign="top"><a id="a0458cf84f4f2d308162b26c95a1bbbce"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_description</b> = nullptr</td></tr>
+<tr class="memitem:a0458cf84f4f2d308162b26c95a1bbbce"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a0458cf84f4f2d308162b26c95a1bbbce">m_description</a> = nullptr</td></tr>
 <tr class="separator:a0458cf84f4f2d308162b26c95a1bbbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82ecf10ca3db6bff60a087378267caea"><td class="memItemLeft" align="right" valign="top"><a id="a82ecf10ca3db6bff60a087378267caea"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_skip</b> = false</td></tr>
+<tr class="memitem:a82ecf10ca3db6bff60a087378267caea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a82ecf10ca3db6bff60a087378267caea">m_skip</a> = false</td></tr>
 <tr class="separator:a82ecf10ca3db6bff60a087378267caea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e86c2494775203d7509434872465d8c"><td class="memItemLeft" align="right" valign="top"><a id="a7e86c2494775203d7509434872465d8c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_no_breaks</b> = false</td></tr>
+<tr class="memitem:a7e86c2494775203d7509434872465d8c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a7e86c2494775203d7509434872465d8c">m_no_breaks</a> = false</td></tr>
 <tr class="separator:a7e86c2494775203d7509434872465d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af32b6741f56f39846bf750a9685d6446"><td class="memItemLeft" align="right" valign="top"><a id="af32b6741f56f39846bf750a9685d6446"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_no_output</b> = false</td></tr>
+<tr class="memitem:af32b6741f56f39846bf750a9685d6446"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#af32b6741f56f39846bf750a9685d6446">m_no_output</a> = false</td></tr>
 <tr class="separator:af32b6741f56f39846bf750a9685d6446"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf438e6731c002c2447e8e87c46c82b"><td class="memItemLeft" align="right" valign="top"><a id="aeaf438e6731c002c2447e8e87c46c82b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_may_fail</b> = false</td></tr>
+<tr class="memitem:aeaf438e6731c002c2447e8e87c46c82b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#aeaf438e6731c002c2447e8e87c46c82b">m_may_fail</a> = false</td></tr>
 <tr class="separator:aeaf438e6731c002c2447e8e87c46c82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c5953ed157cfc68dfc37cce66fb4103"><td class="memItemLeft" align="right" valign="top"><a id="a3c5953ed157cfc68dfc37cce66fb4103"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_should_fail</b> = false</td></tr>
+<tr class="memitem:a3c5953ed157cfc68dfc37cce66fb4103"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a3c5953ed157cfc68dfc37cce66fb4103">m_should_fail</a> = false</td></tr>
 <tr class="separator:a3c5953ed157cfc68dfc37cce66fb4103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0167ce62046912d83780302cb86adca"><td class="memItemLeft" align="right" valign="top"><a id="ab0167ce62046912d83780302cb86adca"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_expected_failures</b> = 0</td></tr>
+<tr class="memitem:ab0167ce62046912d83780302cb86adca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#ab0167ce62046912d83780302cb86adca">m_expected_failures</a> = 0</td></tr>
 <tr class="separator:ab0167ce62046912d83780302cb86adca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a430d6e400dd91b9a21c7bb06ede81ec9"><td class="memItemLeft" align="right" valign="top"><a id="a430d6e400dd91b9a21c7bb06ede81ec9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_timeout</b> = 0</td></tr>
+<tr class="memitem:a430d6e400dd91b9a21c7bb06ede81ec9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html#a430d6e400dd91b9a21c7bb06ede81ec9">m_timeout</a> = 0</td></tr>
 <tr class="separator:a430d6e400dd91b9a21c7bb06ede81ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock">
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01592">1592</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+</div><h2 class="groupheader">Funções membros</h2>
+<a id="a8fea9c73837193c3a5e2f0829aa5a9cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fea9c73837193c3a5e2f0829aa5a9cd">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a>&amp; doctest::detail::TestSuite::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87a44a0d2e0c4955c64ef5d01f7115d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87a44a0d2e0c4955c64ef5d01f7115d8">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a>&amp; doctest::detail::TestSuite::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01607">1607</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a id="a0458cf84f4f2d308162b26c95a1bbbce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0458cf84f4f2d308162b26c95a1bbbce">&#9670;&nbsp;</a></span>m_description</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* doctest::detail::TestSuite::m_description = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01595">1595</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="ab0167ce62046912d83780302cb86adca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0167ce62046912d83780302cb86adca">&#9670;&nbsp;</a></span>m_expected_failures</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int doctest::detail::TestSuite::m_expected_failures = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01601">1601</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="aeaf438e6731c002c2447e8e87c46c82b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf438e6731c002c2447e8e87c46c82b">&#9670;&nbsp;</a></span>m_may_fail</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::TestSuite::m_may_fail = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01599">1599</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a7e86c2494775203d7509434872465d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e86c2494775203d7509434872465d8c">&#9670;&nbsp;</a></span>m_no_breaks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::TestSuite::m_no_breaks = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01597">1597</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="af32b6741f56f39846bf750a9685d6446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af32b6741f56f39846bf750a9685d6446">&#9670;&nbsp;</a></span>m_no_output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::TestSuite::m_no_output = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01598">1598</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a3c5953ed157cfc68dfc37cce66fb4103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c5953ed157cfc68dfc37cce66fb4103">&#9670;&nbsp;</a></span>m_should_fail</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::TestSuite::m_should_fail = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01600">1600</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a82ecf10ca3db6bff60a087378267caea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ecf10ca3db6bff60a087378267caea">&#9670;&nbsp;</a></span>m_skip</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::TestSuite::m_skip = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01596">1596</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="ab6260436f6fd52d473c0020ff916753c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6260436f6fd52d473c0020ff916753c">&#9670;&nbsp;</a></span>m_test_suite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* doctest::detail::TestSuite::m_test_suite = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01594">1594</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a430d6e400dd91b9a21c7bb06ede81ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430d6e400dd91b9a21c7bb06ede81ec9">&#9670;&nbsp;</a></span>m_timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double doctest::detail::TestSuite::m_timeout = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01602">1602</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>tests/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
 </ul>
 </div><!-- contents -->

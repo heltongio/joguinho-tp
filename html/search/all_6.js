@@ -1,6 +1,24 @@
 var searchData=
 [
-  ['getcleanstate_27',['getCleanState',['../class_tabuleiro.html#a9b475d90e178f2d0c918b5ea1ddd9879',1,'Tabuleiro']]],
-  ['getestadolimpo_28',['getEstadoLimpo',['../class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee',1,'Tabuleiro']]],
-  ['getgrid_29',['getGrid',['../class_tabuleiro.html#a4709c147c8bcc080d6052a5a8e276cde',1,'Tabuleiro']]]
+  ['ge_416',['ge',['../namespacedoctest_1_1detail_1_1binary_assert_comparison.html#a2117cafa5b007d26f2e0988f3a081569a1de9460fcfb6a1681f13d54083f88313',1,'doctest::detail::binaryAssertComparison']]],
+  ['gerente_2ecpp_417',['gerente.cpp',['../gerente_8cpp.html',1,'']]],
+  ['gerente_2ehpp_418',['gerente.hpp',['../gerente_8hpp.html',1,'']]],
+  ['get_5factive_5fcontexts_419',['get_active_contexts',['../structdoctest_1_1_i_reporter.html#a67a2da62d754d3b517d6d50ef210a988',1,'doctest::IReporter']]],
+  ['get_5fnum_5factive_5fcontexts_420',['get_num_active_contexts',['../structdoctest_1_1_i_reporter.html#a7d520de46d9104c0eeb02375fabad32d',1,'doctest::IReporter']]],
+  ['get_5fnum_5fstringified_5fcontexts_421',['get_num_stringified_contexts',['../structdoctest_1_1_i_reporter.html#ac8b96fef046edc609a3374a61b84797d',1,'doctest::IReporter']]],
+  ['get_5fstringified_5fcontexts_422',['get_stringified_contexts',['../structdoctest_1_1_i_reporter.html#acc1a86891876a957c6fc382af7894f99',1,'doctest::IReporter']]],
+  ['getapelido_423',['GetApelido',['../class_jogador.html#a2bf53ea18f698db09cf723e203110471',1,'Jogador']]],
+  ['getcleanstate_424',['getCleanState',['../class_tabuleiro.html#a9b475d90e178f2d0c918b5ea1ddd9879',1,'Tabuleiro']]],
+  ['getcontextoptions_425',['getContextOptions',['../namespacedoctest.html#a1ff2f40fd17351e182820848e27e6c79',1,'doctest']]],
+  ['getcurrenttestsuite_426',['getCurrentTestSuite',['../namespacedoctest__detail__test__suite__ns.html#a3a236c82d51cd3622d14b00aa145df94',1,'doctest_detail_test_suite_ns']]],
+  ['getder_427',['GetDer',['../class_jogador.html#a61e3a6785ade2e7df7de8a0caf96fda4',1,'Jogador']]],
+  ['getestadolimpo_428',['getEstadoLimpo',['../class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee',1,'Tabuleiro']]],
+  ['getgrid_429',['getGrid',['../class_tabuleiro.html#a4709c147c8bcc080d6052a5a8e276cde',1,'Tabuleiro']]],
+  ['getnome_430',['GetNome',['../class_jogador.html#af6567cdd8998b3225f2ac3b45aa41dc7',1,'Jogador']]],
+  ['getvit_431',['GetVit',['../class_jogador.html#a112c1a55e1f0aaf74970368d647b58e8',1,'Jogador']]],
+  ['given_432',['GIVEN',['../doctest_8h.html#a6fdd23caff3293146ba6929b2d77465a',1,'doctest.h']]],
+  ['gnu_5ffile_5fline_433',['gnu_file_line',['../structdoctest_1_1_context_options.html#aab894e731a6fc86cf095288ec7d0c0f2',1,'doctest::ContextOptions']]],
+  ['green_434',['Green',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92a11e251a01549ffbc0993c769e787c6ae',1,'doctest::Color']]],
+  ['grey_435',['Grey',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92aa2a431a059ed0e85160db8967c8ace58',1,'doctest::Color']]],
+  ['gt_436',['gt',['../namespacedoctest_1_1detail_1_1binary_assert_comparison.html#a2117cafa5b007d26f2e0988f3a081569a3efb665f41cd9490d9739e1ad228918e',1,'doctest::detail::binaryAssertComparison']]]
 ];

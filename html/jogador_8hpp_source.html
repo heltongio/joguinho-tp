@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Código-Fonte de include/jogador.hpp</title>
+<title>JogosTabuleiros: Código-Fonte de include/jogador.hpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -69,7 +70,7 @@ $(function() {
 <div class="title">jogador.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JOGADOR_HPP</span></div>
+<a href="jogador_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef JOGADOR_HPP</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define JOGADOR_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
@@ -79,36 +80,40 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_jogador.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_jogador.html">Jogador</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        std::string _apelido;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        std::string _nome;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::map&lt;std::string, std::pair&lt;int, int&gt;&gt; _estatisticas; <span class="comment">//map que armazena [Nome do Jogo] {vitórias,}</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="comment">//Construtores &lt;apelido&gt; &lt;nome&gt; &lt;VitVelha&gt; &lt;VitLig4&gt; &lt;VitReversi&gt; &lt;DerVelha&gt; &lt;DerLig4&gt; &lt;DerReversi&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="class_jogador.html">Jogador</a>(std::string, std::string, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);<span class="comment">//Criar jogador com determinado número de vitórias/derrotas</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="class_jogador.html">Jogador</a>(std::string, std::string); <span class="comment">//Criar jogador com 0 vitórias/derrotas</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_jogador.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_jogador.html">Jogador</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::string _apelido;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="comment">//Get de nome e apelido</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::string GetNome();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::string GetApelido() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//Adicionar vitória/derrota ao jogador com &lt;jogo&gt; (velha, lig4, reversi)</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> SomarVit(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> SomarDer(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="comment">//Get para vitória/derrota do jogador com &lt;jogo&gt; (velha, lig4, reversi)</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">int</span> GetVit(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">int</span> GetDer(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//Destrutor</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ~<a class="code" href="class_jogador.html">Jogador</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_jogador_html"><div class="ttname"><a href="class_jogador.html">Jogador</a></div><div class="ttdef"><b>Definition:</b> jogador.hpp:11</div></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::string _nome;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::map&lt;std::string, std::pair&lt;int, int&gt;&gt; _estatisticas; <span class="comment">//map que armazena [Nome do Jogo] {vitórias,}</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="class_jogador.html#a0f0be1cc430ea1573e280c9b03477819">Jogador</a>(std::string, std::string, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <a class="code" href="class_jogador.html#a0f0be1cc430ea1573e280c9b03477819">Jogador</a>(std::string, std::string);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        std::string <a class="code" href="class_jogador.html#af6567cdd8998b3225f2ac3b45aa41dc7">GetNome</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::string <a class="code" href="class_jogador.html#a2bf53ea18f698db09cf723e203110471">GetApelido</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_jogador.html#a5f6184f15bb6760c72b25a8aa38f34df">SomarVit</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_jogador.html#ab8752429254c7d9620e2c92b5938dc1e">SomarDer</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_jogador.html#a112c1a55e1f0aaf74970368d647b58e8">GetVit</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_jogador.html#a61e3a6785ade2e7df7de8a0caf96fda4">GetDer</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="class_jogador.html#a3e62c32199fc9cfbcf22cf83f9008be6">~Jogador</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_jogador_html"><div class="ttname"><a href="class_jogador.html">Jogador</a></div><div class="ttdoc">Representa um jogador, armazenando informações como apelido, nome e estatísticas de jogos.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8hpp_source.html#l00015">jogador.hpp:15</a></div></div>
+<div class="ttc" id="aclass_jogador_html_a0f0be1cc430ea1573e280c9b03477819"><div class="ttname"><a href="class_jogador.html#a0f0be1cc430ea1573e280c9b03477819">Jogador::Jogador</a></div><div class="ttdeci">Jogador(std::string, std::string, int, int, int, int, int, int)</div><div class="ttdoc">Construtor que inicializa o jogador com o nome, apelido e estatísticas fornecidas.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00005">jogador.cpp:5</a></div></div>
+<div class="ttc" id="aclass_jogador_html_a112c1a55e1f0aaf74970368d647b58e8"><div class="ttname"><a href="class_jogador.html#a112c1a55e1f0aaf74970368d647b58e8">Jogador::GetVit</a></div><div class="ttdeci">int GetVit(const std::string &amp;)</div><div class="ttdoc">Retorna o número de vitórias do jogador para o jogo especificado.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00031">jogador.cpp:31</a></div></div>
+<div class="ttc" id="aclass_jogador_html_a2bf53ea18f698db09cf723e203110471"><div class="ttname"><a href="class_jogador.html#a2bf53ea18f698db09cf723e203110471">Jogador::GetApelido</a></div><div class="ttdeci">std::string GetApelido() const</div><div class="ttdoc">Retorna o apelido do jogador.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00017">jogador.cpp:17</a></div></div>
+<div class="ttc" id="aclass_jogador_html_a3e62c32199fc9cfbcf22cf83f9008be6"><div class="ttname"><a href="class_jogador.html#a3e62c32199fc9cfbcf22cf83f9008be6">Jogador::~Jogador</a></div><div class="ttdeci">~Jogador()</div><div class="ttdoc">Destrutor da classe Jogador.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00039">jogador.cpp:39</a></div></div>
+<div class="ttc" id="aclass_jogador_html_a5f6184f15bb6760c72b25a8aa38f34df"><div class="ttname"><a href="class_jogador.html#a5f6184f15bb6760c72b25a8aa38f34df">Jogador::SomarVit</a></div><div class="ttdeci">void SomarVit(const std::string &amp;)</div><div class="ttdoc">Adiciona uma vitória ao jogador para o jogo especificado.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00021">jogador.cpp:21</a></div></div>
+<div class="ttc" id="aclass_jogador_html_a61e3a6785ade2e7df7de8a0caf96fda4"><div class="ttname"><a href="class_jogador.html#a61e3a6785ade2e7df7de8a0caf96fda4">Jogador::GetDer</a></div><div class="ttdeci">int GetDer(const std::string &amp;)</div><div class="ttdoc">Retorna o número de derrotas do jogador para o jogo especificado.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00035">jogador.cpp:35</a></div></div>
+<div class="ttc" id="aclass_jogador_html_ab8752429254c7d9620e2c92b5938dc1e"><div class="ttname"><a href="class_jogador.html#ab8752429254c7d9620e2c92b5938dc1e">Jogador::SomarDer</a></div><div class="ttdeci">void SomarDer(const std::string &amp;)</div><div class="ttdoc">Adiciona uma derrota ao jogador para o jogo especificado.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00026">jogador.cpp:26</a></div></div>
+<div class="ttc" id="aclass_jogador_html_af6567cdd8998b3225f2ac3b45aa41dc7"><div class="ttname"><a href="class_jogador.html#af6567cdd8998b3225f2ac3b45aa41dc7">Jogador::GetNome</a></div><div class="ttdeci">std::string GetNome()</div><div class="ttdoc">Retorna o nome completo do jogador.</div><div class="ttdef"><b>Definition:</b> <a href="jogador_8cpp_source.html#l00013">jogador.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

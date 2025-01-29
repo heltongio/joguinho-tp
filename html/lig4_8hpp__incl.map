@@ -1,0 +1,19 @@
+<map id="include/lig4.hpp" name="include/lig4.hpp">
+<area shape="rect" id="node1" title="Declaração da classe Lig4, que implementa o jogo Lig4." alt="" coords="5,5,130,34"/>
+<area shape="rect" id="node2" href="$tabuleiro_8hpp.html" title=" " alt="" coords="115,236,222,265"/>
+<area shape="rect" id="node5" title=" " alt="" coords="49,313,107,342"/>
+<area shape="rect" id="node8" href="$jogos_8hpp.html" title=" " alt="" coords="141,82,226,111"/>
+<area shape="rect" id="node9" href="$gerente_8hpp.html" title="Declaração da classe CadastroJogadores para gerenciamento de jogadores." alt="" coords="454,159,553,188"/>
+<area shape="rect" id="node3" title=" " alt="" coords="444,313,523,342"/>
+<area shape="rect" id="node4" title=" " alt="" coords="347,313,409,342"/>
+<area shape="rect" id="node6" title=" " alt="" coords="229,313,303,342"/>
+<area shape="rect" id="node7" title=" " alt="" coords="138,313,200,342"/>
+<area shape="rect" id="node10" title=" " alt="" coords="799,236,840,265"/>
+<area shape="rect" id="node11" title=" " alt="" coords="627,313,700,342"/>
+<area shape="rect" id="node12" title=" " alt="" coords="724,313,798,342"/>
+<area shape="rect" id="node13" href="$jogador_8hpp.html" title=" " alt="" coords="575,236,672,265"/>
+<area shape="rect" id="node14" title=" " alt="" coords="829,313,914,342"/>
+<area shape="rect" id="node16" title=" " alt="" coords="347,236,417,265"/>
+<area shape="rect" id="node17" title=" " alt="" coords="441,236,499,265"/>
+<area shape="rect" id="node15" title=" " alt="" coords="553,313,603,342"/>
+</map>

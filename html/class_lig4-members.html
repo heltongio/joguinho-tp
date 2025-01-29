@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Lista dos membros</title>
+<title>JogosTabuleiros: Lista dos Membros</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,22 +63,22 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Lig4 Lista dos membros</div>  </div>
+<div class="title">Lig4 Lista dos Membros</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Lista completa de todos os membros de <a class="el" href="class_lig4.html">Lig4</a>, incluindo todos os membros herdados.</p>
+<p>Esta é a lista de todos os membros de <a class="el" href="class_lig4.html">Lig4</a>, incluindo os membros herdados.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>iniciarJogo</b>() override (definido em <a class="el" href="class_lig4.html">Lig4</a>)</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>jogador1</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>jogador2</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Jogos</b>(std::string jogador1, std::string jogador2, CadastroJogadores &amp;manager) (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Lig4</b>(const std::string &amp;jogador1, const std::string &amp;jogador2, CadastroJogadores &amp;manager) (definido em <a class="el" href="class_lig4.html">Lig4</a>)</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>manager</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>nomeJogo</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>realizarJogada</b>(int coluna, char jogador) (definido em <a class="el" href="class_lig4.html">Lig4</a>)</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Jogos</b>() (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Lig4</b>() (definido em <a class="el" href="class_lig4.html">Lig4</a>)</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_lig4.html#aadecde695d2a9489f60f82b4f2455b75">iniciarJogo</a>() override</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Jogos</a>(std::string jogador1, std::string jogador2, CadastroJogadores &amp;manager)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_lig4.html#aa73096a7999935c1c44f70de1713059d">Lig4</a>(const std::string &amp;jogador1, const std::string &amp;jogador2, CadastroJogadores &amp;manager)</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#aeb4914cfc23668b53a15469f5c2c2b08">nomeJogo</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_lig4.html#a160426eb47f52ba9276a697ed481d958">realizarJogada</a>(int coluna, char jogador)</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">~Jogos</a>()</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_lig4.html#add1bf78f99caaf523113e7f4cf843744">~Lig4</a>()</td><td class="entry"><a class="el" href="class_lig4.html">Lig4</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

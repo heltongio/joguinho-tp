@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Código-Fonte de include/reversi.hpp</title>
+<title>JogosTabuleiros: Código-Fonte de include/reversi.hpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -69,50 +70,73 @@ $(function() {
 <div class="title">reversi.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//Cabeçalho Reversi</span></div>
+<a href="reversi_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//Cabeçalho Reversi</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef REVERSI_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define REVERSI_HPP</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;tabuleiro.hpp&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;jogos.hpp&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;gerente.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tabuleiro_8hpp.html">tabuleiro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jogos_8hpp.html">jogos.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gerente_8hpp.html">gerente.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//classe que implementa o jogo Reversi</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_reversi.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_reversi.html">Reversi</a> : <span class="keyword">public</span> <a class="code" href="class_jogos.html">Jogos</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_tabuleiro.html">Tabuleiro</a> tabuleiro; <span class="comment">//Tabuleiro do jogo</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::string vencedor; <span class="comment">//Nome do jogador vencedor</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> jogadas; <span class="comment">//Contador de jogadas realizadas</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> verificaJogada(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> valor, std::string jogador) <span class="keyword">override</span>; <span class="comment">//Verifica se a jogada é possível</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> verificaEmpate(); <span class="comment">//Verifica se o jogo terminou em empate</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> verificaGanhador(std::string jogador1, std::string jogador2, <span class="keywordtype">char</span> valor,<span class="keywordtype">bool</span> minimax = <span class="keyword">false</span>) <span class="keyword">override</span>; <span class="comment">//Verifica se o jogador venceu</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> criaTabuleiro() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> iniciaRecursao(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Quando 0 verifica a validade do movimento, quando 1 atualiza os valores do tabuleiro</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> recursaoDSE(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão para a diagonal superior esquerda</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> recursaoS(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão superior</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> recursaoDSD(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão para a diagonal superior direita</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> recursaoE(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão para a esquerda</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> recursaoD(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão para a direita</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> recursaoDIE(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão para a diagonal inferior esquerda</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> recursaoI(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão inferior</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> recursaoDID(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); <span class="comment">//Recursão para a diagonal inferior direita</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_reversi.html">Reversi</a>(<span class="keyword">const</span> std::string&amp; jogador1, <span class="keyword">const</span> std::string&amp; jogador2, <a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a>&amp; manager);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> iniciarJogo() <span class="keyword">override</span>; <span class="comment">//Metodo para iniciar o jogo</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> realizarJogada(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador); <span class="comment">//Realiza uma jogada no tabuleiro</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ~<a class="code" href="class_reversi.html">Reversi</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_cadastro_jogadores_html"><div class="ttname"><a href="class_cadastro_jogadores.html">CadastroJogadores</a></div><div class="ttdef"><b>Definition:</b> gerente.hpp:14</div></div>
-<div class="ttc" id="aclass_jogos_html"><div class="ttname"><a href="class_jogos.html">Jogos</a></div><div class="ttdef"><b>Definition:</b> jogos.hpp:7</div></div>
-<div class="ttc" id="aclass_reversi_html"><div class="ttname"><a href="class_reversi.html">Reversi</a></div><div class="ttdef"><b>Definition:</b> reversi.hpp:13</div></div>
-<div class="ttc" id="aclass_tabuleiro_html"><div class="ttname"><a href="class_tabuleiro.html">Tabuleiro</a></div><div class="ttdoc">Representa um tabuleiro que pode ser utilizado para diferentes aplicações.</div><div class="ttdef"><b>Definition:</b> tabuleiro.hpp:18</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_reversi.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_reversi.html">Reversi</a> : <span class="keyword">public</span> <a class="code" href="class_jogos.html">Jogos</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_tabuleiro.html">Tabuleiro</a> tabuleiro; <span class="comment">//Tabuleiro do jogo</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string vencedor; <span class="comment">//Nome do jogador vencedor</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> jogadas; <span class="comment">//Contador de jogadas realizadas</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> verificaJogada(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> valor, std::string jogador) <span class="keyword">override</span>; <span class="comment">//Verifica se a jogada é possível</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> verificaEmpate();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> verificaGanhador(std::string <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, std::string <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <span class="keywordtype">char</span> valor,<span class="keywordtype">bool</span> minimax = <span class="keyword">false</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> criaTabuleiro() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> iniciaRecursao(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> recursaoDSE(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> recursaoS(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao); </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> recursaoDSD(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span> recursaoE(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> recursaoD(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">bool</span> recursaoDIE(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> recursaoI(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">bool</span> recursaoDID(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador, <span class="keywordtype">bool</span> opcao);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="class_reversi.html#ae9f57c20c633a3abb3352a71eaf7ad57">Reversi</a>(<span class="keyword">const</span> std::string&amp; <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <span class="keyword">const</span> std::string&amp; <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a>&amp; <a class="code" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_reversi.html#a31c0e14513a060458d3ced516c5da2f0">iniciarJogo</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="class_reversi.html#afd006e4fdacdedc4a3bb34fe6f1d1940">~Reversi</a>();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="class_reversi.html#a76b52f33f6b2c27e5bb9777b460f25b3">  168</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_reversi.html#a76b52f33f6b2c27e5bb9777b460f25b3">realizarJogada</a>(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> jogador);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;};</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html"><div class="ttname"><a href="class_cadastro_jogadores.html">CadastroJogadores</a></div><div class="ttdoc">Classe responsável por gerenciar o cadastro de jogadores.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8hpp_source.html#l00027">gerente.hpp:27</a></div></div>
+<div class="ttc" id="aclass_jogos_html"><div class="ttname"><a href="class_jogos.html">Jogos</a></div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00007">jogos.hpp:7</a></div></div>
+<div class="ttc" id="aclass_jogos_html_a1ef5ffaca3a5a45716869d523d3a032b"><div class="ttname"><a href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">Jogos::jogador1</a></div><div class="ttdeci">std::string jogador1</div><div class="ttdoc">Nome do jogador 1.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00012">jogos.hpp:12</a></div></div>
+<div class="ttc" id="aclass_jogos_html_aa1fb6c71276183337c9076985e2ee610"><div class="ttname"><a href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">Jogos::jogador2</a></div><div class="ttdeci">std::string jogador2</div><div class="ttdoc">Nome do jogador 2.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00017">jogos.hpp:17</a></div></div>
+<div class="ttc" id="aclass_jogos_html_ae55cd8929b26818272fb6f65a467c5b9"><div class="ttname"><a href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">Jogos::manager</a></div><div class="ttdeci">CadastroJogadores &amp; manager</div><div class="ttdoc">Referência ao gerenciador de cadastro de jogadores.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00027">jogos.hpp:27</a></div></div>
+<div class="ttc" id="aclass_reversi_html"><div class="ttname"><a href="class_reversi.html">Reversi</a></div><div class="ttdoc">Classe responsável por implementar os movimentos e regras do jogo Reversi.</div><div class="ttdef"><b>Definition:</b> <a href="reversi_8hpp_source.html#l00015">reversi.hpp:16</a></div></div>
+<div class="ttc" id="aclass_reversi_html_a31c0e14513a060458d3ced516c5da2f0"><div class="ttname"><a href="class_reversi.html#a31c0e14513a060458d3ced516c5da2f0">Reversi::iniciarJogo</a></div><div class="ttdeci">void iniciarJogo() override</div><div class="ttdoc">Inicia o jogo Reversi.</div><div class="ttdef"><b>Definition:</b> <a href="reversi_8cpp_source.html#l00024">reversi.cpp:24</a></div></div>
+<div class="ttc" id="aclass_reversi_html_a76b52f33f6b2c27e5bb9777b460f25b3"><div class="ttname"><a href="class_reversi.html#a76b52f33f6b2c27e5bb9777b460f25b3">Reversi::realizarJogada</a></div><div class="ttdeci">bool realizarJogada(int linha, int coluna, char jogador)</div><div class="ttdoc">Realiza uma jogada no tabuleiro (não utlizado)</div></div>
+<div class="ttc" id="aclass_reversi_html_ae9f57c20c633a3abb3352a71eaf7ad57"><div class="ttname"><a href="class_reversi.html#ae9f57c20c633a3abb3352a71eaf7ad57">Reversi::Reversi</a></div><div class="ttdeci">Reversi(const std::string &amp;jogador1, const std::string &amp;jogador2, CadastroJogadores &amp;manager)</div><div class="ttdoc">Construtor da classe Reversi.</div><div class="ttdef"><b>Definition:</b> <a href="reversi_8cpp_source.html#l00008">reversi.cpp:8</a></div></div>
+<div class="ttc" id="aclass_reversi_html_afd006e4fdacdedc4a3bb34fe6f1d1940"><div class="ttname"><a href="class_reversi.html#afd006e4fdacdedc4a3bb34fe6f1d1940">Reversi::~Reversi</a></div><div class="ttdeci">~Reversi()</div><div class="ttdoc">Destrutor da classe Reversi.</div><div class="ttdef"><b>Definition:</b> <a href="reversi_8cpp_source.html#l00017">reversi.cpp:17</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html"><div class="ttname"><a href="class_tabuleiro.html">Tabuleiro</a></div><div class="ttdoc">Representa um tabuleiro que pode ser utilizado para diferentes aplicações.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8hpp_source.html#l00018">tabuleiro.hpp:18</a></div></div>
+<div class="ttc" id="agerente_8hpp_html"><div class="ttname"><a href="gerente_8hpp.html">gerente.hpp</a></div><div class="ttdoc">Declaração da classe CadastroJogadores para gerenciamento de jogadores.</div></div>
+<div class="ttc" id="ajogos_8hpp_html"><div class="ttname"><a href="jogos_8hpp.html">jogos.hpp</a></div></div>
+<div class="ttc" id="atabuleiro_8hpp_html"><div class="ttname"><a href="tabuleiro_8hpp.html">tabuleiro.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

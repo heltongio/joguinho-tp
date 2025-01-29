@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à classe Minimax</title>
+<title>JogosTabuleiros: Referência da Classe Minimax</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,34 +63,306 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="class_minimax-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="class_minimax-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe Minimax</div>  </div>
+<div class="title">Referência da Classe Minimax</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementa o algoritmo <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a> para tomada de decisão no jogo da velha.  
+ <a href="class_minimax.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="minimax_8hpp_source.html">minimax.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:a9036b19ff2afa57b24eb172a1e2fac65"><td class="memItemLeft" align="right" valign="top"><a id="a9036b19ff2afa57b24eb172a1e2fac65"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Minimax</b> (std::string jogador1, std::string jogador2, char humano, char cpu)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a9036b19ff2afa57b24eb172a1e2fac65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_minimax.html#a9036b19ff2afa57b24eb172a1e2fac65">Minimax</a> (std::string jogador1, std::string jogador2, char humano, char cpu)</td></tr>
+<tr class="memdesc:a9036b19ff2afa57b24eb172a1e2fac65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a>.  <a href="class_minimax.html#a9036b19ff2afa57b24eb172a1e2fac65">Mais...</a><br /></td></tr>
 <tr class="separator:a9036b19ff2afa57b24eb172a1e2fac65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d39ab80485d9c556ff15cc36b626874"><td class="memItemLeft" align="right" valign="top"><a id="a5d39ab80485d9c556ff15cc36b626874"></a>
-std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>jogadasPossiveis</b> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board)</td></tr>
+<tr class="memitem:a5d39ab80485d9c556ff15cc36b626874"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">jogadasPossiveis</a> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board)</td></tr>
+<tr class="memdesc:a5d39ab80485d9c556ff15cc36b626874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém todas as jogadas possíveis no tabuleiro.  <a href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">Mais...</a><br /></td></tr>
 <tr class="separator:a5d39ab80485d9c556ff15cc36b626874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a0abe874070a50d42ab2c12cc0d2205"><td class="memItemLeft" align="right" valign="top"><a id="a5a0abe874070a50d42ab2c12cc0d2205"></a>
-<a class="el" href="class_tabuleiro.html">Tabuleiro</a>&#160;</td><td class="memItemRight" valign="bottom"><b>jogada</b> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board, const std::vector&lt; int &gt; &amp;coordenadas, char valor)</td></tr>
+<tr class="memitem:a5a0abe874070a50d42ab2c12cc0d2205"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tabuleiro.html">Tabuleiro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">jogada</a> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board, const std::vector&lt; int &gt; &amp;coordenadas, char valor)</td></tr>
+<tr class="memdesc:a5a0abe874070a50d42ab2c12cc0d2205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza uma jogada no tabuleiro.  <a href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">Mais...</a><br /></td></tr>
 <tr class="separator:a5a0abe874070a50d42ab2c12cc0d2205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d627e7bc6e11a1b31e640dacf5f3cb2"><td class="memItemLeft" align="right" valign="top"><a id="a1d627e7bc6e11a1b31e640dacf5f3cb2"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>melhoraco</b> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board, char jogador, bool minimizing=false)</td></tr>
+<tr class="memitem:a1d627e7bc6e11a1b31e640dacf5f3cb2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">melhoraco</a> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board, char jogador, bool minimizing=false)</td></tr>
+<tr class="memdesc:a1d627e7bc6e11a1b31e640dacf5f3cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encontra a melhor jogada para a CPU.  <a href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">Mais...</a><br /></td></tr>
 <tr class="separator:a1d627e7bc6e11a1b31e640dacf5f3cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d349bfbbd0f96e3fab9206c138a23cd"><td class="memItemLeft" align="right" valign="top"><a id="a8d349bfbbd0f96e3fab9206c138a23cd"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>minimax</b> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board, char jogador, char eu, int maxdepth, int depth=0)</td></tr>
+<tr class="memitem:a8d349bfbbd0f96e3fab9206c138a23cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">minimax</a> (<a class="el" href="class_tabuleiro.html">Tabuleiro</a> board, char jogador, char eu, int maxdepth, int depth=0)</td></tr>
+<tr class="memdesc:a8d349bfbbd0f96e3fab9206c138a23cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementação do algoritmo <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a>.  <a href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">Mais...</a><br /></td></tr>
 <tr class="separator:a8d349bfbbd0f96e3fab9206c138a23cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88b5b70cb204684d2a33bbc5e815d9a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_minimax.html#ac88b5b70cb204684d2a33bbc5e815d9a">~Minimax</a> ()</td></tr>
+<tr class="memdesc:ac88b5b70cb204684d2a33bbc5e815d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a>.  <a href="class_minimax.html#ac88b5b70cb204684d2a33bbc5e815d9a">Mais...</a><br /></td></tr>
+<tr class="separator:ac88b5b70cb204684d2a33bbc5e815d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Implementa o algoritmo <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a> para tomada de decisão no jogo da velha. </p>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8hpp_source.html#l00018">18</a> do arquivo <a class="el" href="minimax_8hpp_source.html">minimax.hpp</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a9036b19ff2afa57b24eb172a1e2fac65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9036b19ff2afa57b24eb172a1e2fac65">&#9670;&nbsp;</a></span>Minimax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Minimax::Minimax </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>humano</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>cpu</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jogador1</td><td>Nome do primeiro jogador. </td></tr>
+    <tr><td class="paramname">jogador2</td><td>Nome do segundo jogador. </td></tr>
+    <tr><td class="paramname">humano</td><td>Símbolo do jogador humano. </td></tr>
+    <tr><td class="paramname">cpu</td><td>Símbolo do jogador CPU. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8cpp_source.html#l00005">5</a> do arquivo <a class="el" href="minimax_8cpp_source.html">minimax.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac88b5b70cb204684d2a33bbc5e815d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88b5b70cb204684d2a33bbc5e815d9a">&#9670;&nbsp;</a></span>~Minimax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Minimax::~Minimax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destrutor da classe <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a>. </p>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8cpp_source.html#l00101">101</a> do arquivo <a class="el" href="minimax_8cpp_source.html">minimax.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções membros</h2>
+<a id="a5a0abe874070a50d42ab2c12cc0d2205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a0abe874070a50d42ab2c12cc0d2205">&#9670;&nbsp;</a></span>jogada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tabuleiro.html">Tabuleiro</a> Minimax::jogada </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tabuleiro.html">Tabuleiro</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>coordenadas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>valor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza uma jogada no tabuleiro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>Estado atual do tabuleiro. </td></tr>
+    <tr><td class="paramname">coordenadas</td><td>Posição da jogada. </td></tr>
+    <tr><td class="paramname">valor</td><td>Símbolo do jogador que está realizando a jogada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Um novo tabuleiro atualizado com a jogada. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8cpp_source.html#l00030">30</a> do arquivo <a class="el" href="minimax_8cpp_source.html">minimax.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5d39ab80485d9c556ff15cc36b626874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d39ab80485d9c556ff15cc36b626874">&#9670;&nbsp;</a></span>jogadasPossiveis()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; int &gt; &gt; Minimax::jogadasPossiveis </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tabuleiro.html">Tabuleiro</a>&#160;</td>
+          <td class="paramname"><em>board</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém todas as jogadas possíveis no tabuleiro. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>Estado atual do tabuleiro. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Um vetor contendo as coordenadas das jogadas possíveis. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8cpp_source.html#l00012">12</a> do arquivo <a class="el" href="minimax_8cpp_source.html">minimax.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1d627e7bc6e11a1b31e640dacf5f3cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d627e7bc6e11a1b31e640dacf5f3cb2">&#9670;&nbsp;</a></span>melhoraco()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; Minimax::melhoraco </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tabuleiro.html">Tabuleiro</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>jogador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>minimizing</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Encontra a melhor jogada para a CPU. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>Estado atual do tabuleiro. </td></tr>
+    <tr><td class="paramname">jogador</td><td>Símbolo do jogador atual. </td></tr>
+    <tr><td class="paramname">minimizing</td><td>Define se a jogada deve minimizar ou maximizar a pontuação. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Coordenadas da melhor jogada encontrada. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8cpp_source.html#l00082">82</a> do arquivo <a class="el" href="minimax_8cpp_source.html">minimax.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8d349bfbbd0f96e3fab9206c138a23cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d349bfbbd0f96e3fab9206c138a23cd">&#9670;&nbsp;</a></span>minimax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Minimax::minimax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tabuleiro.html">Tabuleiro</a>&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>jogador</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>eu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxdepth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depth</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementação do algoritmo <a class="el" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.">Minimax</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">board</td><td>Estado atual do tabuleiro. </td></tr>
+    <tr><td class="paramname">jogador</td><td>Símbolo do jogador atual. </td></tr>
+    <tr><td class="paramname">eu</td><td>Símbolo do jogador que chamou a função. </td></tr>
+    <tr><td class="paramname">maxdepth</td><td>Profundidade máxima de busca. </td></tr>
+    <tr><td class="paramname">depth</td><td>Profundidade atual da busca. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Um valor inteiro representando a pontuação da jogada. </dd></dl>
+
+<p class="definition">Definição na linha <a class="el" href="minimax_8cpp_source.html#l00038">38</a> do arquivo <a class="el" href="minimax_8cpp_source.html">minimax.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="minimax_8hpp_source.html">minimax.hpp</a></li>
-<li>src/minimax.cpp</li>
+<li>src/<a class="el" href="minimax_8cpp_source.html">minimax.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

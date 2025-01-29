@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JogosTabuleiros: Referência do Arquivo tests/TesteMain.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JogosTabuleiros
+   </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo TesteMain.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="doctest_8h_source.html">doctest.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="jogador_8hpp_source.html">jogador.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tabuleiro_8hpp_source.html">tabuleiro.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gerente_8hpp_source.html">gerente.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lig4_8hpp_source.html">lig4.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="velha_8hpp_source.html">velha.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="reversi_8hpp_source.html">reversi.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="minimax_8hpp_source.html">minimax.hpp</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para TesteMain.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_teste_main_8cpp__incl.png" border="0" usemap="#atests_2_teste_main_8cpp" alt=""/></div>
+<map name="atests_2_teste_main_8cpp" id="atests_2_teste_main_8cpp">
+<area shape="rect" title=" " alt="" coords="588,5,739,34"/>
+<area shape="rect" href="doctest_8h.html" title=" " alt="" coords="198,82,279,111"/>
+<area shape="rect" href="jogador_8hpp.html" title=" " alt="" coords="219,313,316,342"/>
+<area shape="rect" href="tabuleiro_8hpp.html" title=" " alt="" coords="1187,236,1294,265"/>
+<area shape="rect" href="gerente_8hpp.html" title="Declaração da classe CadastroJogadores para gerenciamento de jogadores." alt="" coords="404,236,504,265"/>
+<area shape="rect" href="lig4_8hpp.html" title="Declaração da classe Lig4, que implementa o jogo Lig4." alt="" coords="682,82,755,111"/>
+<area shape="rect" href="velha_8hpp.html" title=" " alt="" coords="854,82,940,111"/>
+<area shape="rect" href="minimax_8hpp.html" title=" " alt="" coords="1219,159,1326,188"/>
+<area shape="rect" href="reversi_8hpp.html" title=" " alt="" coords="563,82,657,111"/>
+<area shape="rect" title=" " alt="" coords="202,159,274,188"/>
+<area shape="rect" title=" " alt="" coords="910,390,990,419"/>
+<area shape="rect" title=" " alt="" coords="213,390,285,419"/>
+<area shape="rect" title=" " alt="" coords="1356,390,1419,419"/>
+<area shape="rect" title=" " alt="" coords="661,390,719,419"/>
+<area shape="rect" title=" " alt="" coords="5,390,90,419"/>
+<area shape="rect" title=" " alt="" coords="114,390,189,419"/>
+<area shape="rect" title=" " alt="" coords="309,390,359,419"/>
+<area shape="rect" title=" " alt="" coords="1038,313,1113,342"/>
+<area shape="rect" title=" " alt="" coords="1187,313,1249,342"/>
+<area shape="rect" title=" " alt="" coords="340,313,382,342"/>
+<area shape="rect" title=" " alt="" coords="406,313,476,342"/>
+<area shape="rect" title=" " alt="" coords="753,313,811,342"/>
+<area shape="rect" href="jogos_8hpp.html" title=" " alt="" coords="623,159,707,188"/>
+<area shape="rect" title=" " alt="" coords="935,236,1011,265"/>
+<area shape="rect" title=" " alt="" coords="1137,159,1195,188"/>
+</map>
+</div>
+</div>
+<p><a href="_teste_main_8cpp_source.html">Vá para o código-fonte desse arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a623b8690a262536536a43eab2d7df03d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#a623b8690a262536536a43eab2d7df03d">DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</a></td></tr>
+<tr class="separator:a623b8690a262536536a43eab2d7df03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:afee6b6667c20cd3da8705f01094b7323"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#afee6b6667c20cd3da8705f01094b7323">TEST_CASE</a> (&quot;Testando a classe <a class="el" href="class_jogador.html">Jogador</a>&quot;)</td></tr>
+<tr class="separator:afee6b6667c20cd3da8705f01094b7323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba7dcaa91c4b40c7678361df4ddf8174"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#aba7dcaa91c4b40c7678361df4ddf8174">TEST_CASE</a> (&quot;Testando a classe <a class="el" href="class_tabuleiro.html">Tabuleiro</a>&quot;)</td></tr>
+<tr class="separator:aba7dcaa91c4b40c7678361df4ddf8174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16f89f2acffb5124d16c4ccf550d0a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#ae16f89f2acffb5124d16c4ccf550d0a9">TEST_CASE</a> (&quot;Testando todas as jogadas possíveis do jogo da <a class="el" href="class_velha.html">Velha</a>&quot;)</td></tr>
+<tr class="separator:ae16f89f2acffb5124d16c4ccf550d0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d83a586330519fe33f2520cecb93d1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#a8d83a586330519fe33f2520cecb93d1a">TEST_CASE</a> (&quot;Testando cenário de empate no jogo da <a class="el" href="class_velha.html">Velha</a>&quot;)</td></tr>
+<tr class="separator:a8d83a586330519fe33f2520cecb93d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73957d3685fb9058bb4cec5adb051192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#a73957d3685fb9058bb4cec5adb051192">TEST_CASE</a> (&quot;Testando <a class="el" href="class_minimax.html">Minimax</a> em cenários extremos&quot;)</td></tr>
+<tr class="separator:a73957d3685fb9058bb4cec5adb051192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5a2c890d6c78ca09926746f7feff52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#a7d5a2c890d6c78ca09926746f7feff52">TEST_CASE</a> (&quot;Testando o jogo <a class="el" href="class_lig4.html">Lig4</a>&quot;)</td></tr>
+<tr class="separator:a7d5a2c890d6c78ca09926746f7feff52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae669ab3be794edddb91a751f5d930b75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_teste_main_8cpp.html#ae669ab3be794edddb91a751f5d930b75">TEST_CASE</a> (&quot;Testando o jogo <a class="el" href="class_reversi.html">Reversi</a>&quot;)</td></tr>
+<tr class="separator:ae669ab3be794edddb91a751f5d930b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a623b8690a262536536a43eab2d7df03d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a623b8690a262536536a43eab2d7df03d">&#9670;&nbsp;</a></span>DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00001">1</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="afee6b6667c20cd3da8705f01094b7323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afee6b6667c20cd3da8705f01094b7323">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando a classe <a class="el" href="class_jogador.html">Jogador</a>&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00011">11</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aba7dcaa91c4b40c7678361df4ddf8174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba7dcaa91c4b40c7678361df4ddf8174">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando a classe <a class="el" href="class_tabuleiro.html">Tabuleiro</a>&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00032">32</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8d83a586330519fe33f2520cecb93d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d83a586330519fe33f2520cecb93d1a">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando cenário de empate no jogo da <a class="el" href="class_velha.html">Velha</a>&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00058">58</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a73957d3685fb9058bb4cec5adb051192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73957d3685fb9058bb4cec5adb051192">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando <a class="el" href="class_minimax.html">Minimax</a> em cenários extremos&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00073">73</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7d5a2c890d6c78ca09926746f7feff52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5a2c890d6c78ca09926746f7feff52">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando o jogo <a class="el" href="class_lig4.html">Lig4</a>&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00085">85</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae669ab3be794edddb91a751f5d930b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae669ab3be794edddb91a751f5d930b75">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando o jogo <a class="el" href="class_reversi.html">Reversi</a>&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00117">117</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae16f89f2acffb5124d16c4ccf550d0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16f89f2acffb5124d16c4ccf550d0a9">&#9670;&nbsp;</a></span>TEST_CASE() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Testando todas as jogadas possíveis do jogo da <a class="el" href="class_velha.html">Velha</a>&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="_teste_main_8cpp_source.html#l00048">48</a> do arquivo <a class="el" href="_teste_main_8cpp_source.html">TesteMain.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

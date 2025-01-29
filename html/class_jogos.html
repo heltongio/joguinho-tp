@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à classe Jogos</title>
+<title>JogosTabuleiros: Referência da Classe Jogos</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,21 +63,23 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
+<a href="#pub-methods">Membros Públicos</a> &#124;
 <a href="#pro-attribs">Atributos Protegidos</a> &#124;
-<a href="class_jogos-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="class_jogos-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe Jogos<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Referência da Classe Jogos<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="jogos_8hpp_source.html">jogos.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Diagrama de heranças da classe Jogos</div>
+Diagrama de hierarquia para Jogos:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_jogos__inherit__graph.png" border="0" usemap="#a_jogos_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_jogos_inherit__map" id="a_jogos_inherit__map">
 <area shape="rect" title=" " alt="" coords="85,5,142,34"/>
-<area shape="rect" href="class_lig4.html" title=" " alt="" coords="5,82,54,111"/>
-<area shape="rect" href="class_reversi.html" title=" " alt="" coords="78,82,149,111"/>
+<area shape="rect" href="class_lig4.html" title="Classe que implementa o jogo Lig4, derivada da classe base Jogos." alt="" coords="5,82,54,111"/>
+<area shape="rect" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi." alt="" coords="78,82,149,111"/>
 <area shape="rect" href="class_velha.html" title="Classe que implementa o jogo da velha." alt="" coords="173,82,230,111"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -86,46 +89,421 @@ Diagrama de colaboração para Jogos:</div>
 <div class="center"><img src="class_jogos__coll__graph.png" border="0" usemap="#a_jogos_coll__map" alt="Collaboration graph"/></div>
 <map name="a_jogos_coll__map" id="a_jogos_coll__map">
 <area shape="rect" title=" " alt="" coords="49,99,105,128"/>
-<area shape="rect" href="class_cadastro_jogadores.html" title=" " alt="" coords="5,5,149,34"/>
+<area shape="rect" href="class_cadastro_jogadores.html" title="Classe responsável por gerenciar o cadastro de jogadores." alt="" coords="5,5,149,34"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:aef222c30679e2476002317c4ab4eeb84"><td class="memItemLeft" align="right" valign="top"><a id="aef222c30679e2476002317c4ab4eeb84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Jogos</b> (std::string jogador1, std::string jogador2, <a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;manager)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:aef222c30679e2476002317c4ab4eeb84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Jogos</a> (std::string <a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, std::string <a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;<a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>)</td></tr>
+<tr class="memdesc:aef222c30679e2476002317c4ab4eeb84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_jogos.html">Jogos</a>.  <a href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Mais...</a><br /></td></tr>
 <tr class="separator:aef222c30679e2476002317c4ab4eeb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacebcc91ab4a9f1cbb67010c6ef78d0a"><td class="memItemLeft" align="right" valign="top"><a id="aacebcc91ab4a9f1cbb67010c6ef78d0a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>iniciarJogo</b> ()</td></tr>
+<tr class="memitem:aacebcc91ab4a9f1cbb67010c6ef78d0a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">iniciarJogo</a> ()</td></tr>
+<tr class="memdesc:aacebcc91ab4a9f1cbb67010c6ef78d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método virtual para iniciar o jogo.  <a href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">Mais...</a><br /></td></tr>
 <tr class="separator:aacebcc91ab4a9f1cbb67010c6ef78d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07bab3cc6c0d088628217e462f53f1f7"><td class="memItemLeft" align="right" valign="top"><a id="a07bab3cc6c0d088628217e462f53f1f7"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaJogada</b> (int linha, int coluna, char valor, std::string jogador)=0</td></tr>
+<tr class="memitem:a07bab3cc6c0d088628217e462f53f1f7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#a07bab3cc6c0d088628217e462f53f1f7">verificaJogada</a> (int linha, int coluna, char valor, std::string jogador)=0</td></tr>
+<tr class="memdesc:a07bab3cc6c0d088628217e462f53f1f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método virtual puro para verificar a jogada.  <a href="class_jogos.html#a07bab3cc6c0d088628217e462f53f1f7">Mais...</a><br /></td></tr>
 <tr class="separator:a07bab3cc6c0d088628217e462f53f1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc0b1ddcf53b7e2b8a9117e5cda650fe"><td class="memItemLeft" align="right" valign="top"><a id="acc0b1ddcf53b7e2b8a9117e5cda650fe"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>criaTabuleiro</b> ()=0</td></tr>
+<tr class="memitem:acc0b1ddcf53b7e2b8a9117e5cda650fe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#acc0b1ddcf53b7e2b8a9117e5cda650fe">criaTabuleiro</a> ()=0</td></tr>
+<tr class="memdesc:acc0b1ddcf53b7e2b8a9117e5cda650fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método virtual puro para criar o tabuleiro do jogo.  <a href="class_jogos.html#acc0b1ddcf53b7e2b8a9117e5cda650fe">Mais...</a><br /></td></tr>
 <tr class="separator:acc0b1ddcf53b7e2b8a9117e5cda650fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b8719101524b2c117dfae6d75bd8254"><td class="memItemLeft" align="right" valign="top"><a id="a4b8719101524b2c117dfae6d75bd8254"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaGanhador</b> (std::string jogador1, std::string jogador2, char valor, bool minimax=false)=0</td></tr>
+<tr class="memitem:a4b8719101524b2c117dfae6d75bd8254"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#a4b8719101524b2c117dfae6d75bd8254">verificaGanhador</a> (std::string <a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, std::string <a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, char valor, bool minimax=false)=0</td></tr>
+<tr class="memdesc:a4b8719101524b2c117dfae6d75bd8254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método virtual puro para verificar se há um ganhador.  <a href="class_jogos.html#a4b8719101524b2c117dfae6d75bd8254">Mais...</a><br /></td></tr>
 <tr class="separator:a4b8719101524b2c117dfae6d75bd8254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bcdb76ed95071291667ff50447f86a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">~Jogos</a> ()</td></tr>
+<tr class="memdesc:a67bcdb76ed95071291667ff50447f86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual da classe <a class="el" href="class_jogos.html">Jogos</a>.  <a href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">Mais...</a><br /></td></tr>
+<tr class="separator:a67bcdb76ed95071291667ff50447f86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
-<tr class="memitem:a1ef5ffaca3a5a45716869d523d3a032b"><td class="memItemLeft" align="right" valign="top"><a id="a1ef5ffaca3a5a45716869d523d3a032b"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>jogador1</b></td></tr>
+<tr class="memitem:a1ef5ffaca3a5a45716869d523d3a032b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a></td></tr>
+<tr class="memdesc:a1ef5ffaca3a5a45716869d523d3a032b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogador 1.  <a href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">Mais...</a><br /></td></tr>
 <tr class="separator:a1ef5ffaca3a5a45716869d523d3a032b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1fb6c71276183337c9076985e2ee610"><td class="memItemLeft" align="right" valign="top"><a id="aa1fb6c71276183337c9076985e2ee610"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>jogador2</b></td></tr>
+<tr class="memitem:aa1fb6c71276183337c9076985e2ee610"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a></td></tr>
+<tr class="memdesc:aa1fb6c71276183337c9076985e2ee610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogador 2.  <a href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">Mais...</a><br /></td></tr>
 <tr class="separator:aa1fb6c71276183337c9076985e2ee610"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb4914cfc23668b53a15469f5c2c2b08"><td class="memItemLeft" align="right" valign="top"><a id="aeb4914cfc23668b53a15469f5c2c2b08"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>nomeJogo</b></td></tr>
+<tr class="memitem:aeb4914cfc23668b53a15469f5c2c2b08"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aeb4914cfc23668b53a15469f5c2c2b08">nomeJogo</a></td></tr>
+<tr class="memdesc:aeb4914cfc23668b53a15469f5c2c2b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogo.  <a href="class_jogos.html#aeb4914cfc23668b53a15469f5c2c2b08">Mais...</a><br /></td></tr>
 <tr class="separator:aeb4914cfc23668b53a15469f5c2c2b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae55cd8929b26818272fb6f65a467c5b9"><td class="memItemLeft" align="right" valign="top"><a id="ae55cd8929b26818272fb6f65a467c5b9"></a>
-<a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>manager</b></td></tr>
+<tr class="memitem:ae55cd8929b26818272fb6f65a467c5b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a></td></tr>
+<tr class="memdesc:ae55cd8929b26818272fb6f65a467c5b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Referência ao gerenciador de cadastro de jogadores.  <a href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">Mais...</a><br /></td></tr>
 <tr class="separator:ae55cd8929b26818272fb6f65a467c5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock">
+<p class="definition">Definição na linha <a class="el" href="jogos_8hpp_source.html#l00007">7</a> do arquivo <a class="el" href="jogos_8hpp_source.html">jogos.hpp</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="aef222c30679e2476002317c4ab4eeb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef222c30679e2476002317c4ab4eeb84">&#9670;&nbsp;</a></span>Jogos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Jogos::Jogos </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;&#160;</td>
+          <td class="paramname"><em>manager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="class_jogos.html">Jogos</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jogador1</td><td>Nome do jogador 1. </td></tr>
+    <tr><td class="paramname">jogador2</td><td>Nome do jogador 2. </td></tr>
+    <tr><td class="paramname">manager</td><td>Referência ao objeto <a class="el" href="class_cadastro_jogadores.html" title="Classe responsável por gerenciar o cadastro de jogadores.">CadastroJogadores</a> responsável pelo gerenciamento de jogadores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="jogos_8cpp_source.html">jogos.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a67bcdb76ed95071291667ff50447f86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bcdb76ed95071291667ff50447f86a">&#9670;&nbsp;</a></span>~Jogos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Jogos::~Jogos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destrutor virtual da classe <a class="el" href="class_jogos.html">Jogos</a>. </p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8cpp_source.html#l00012">12</a> do arquivo <a class="el" href="jogos_8cpp_source.html">jogos.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções membros</h2>
+<a id="acc0b1ddcf53b7e2b8a9117e5cda650fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0b1ddcf53b7e2b8a9117e5cda650fe">&#9670;&nbsp;</a></span>criaTabuleiro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Jogos::criaTabuleiro </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método virtual puro para criar o tabuleiro do jogo. </p>
+
+<p>Implementado por <a class="el" href="class_velha.html#acec21d4a18ac771fa857a19214de8f21">Velha</a>.</p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8cpp_source.html#l00009">9</a> do arquivo <a class="el" href="jogos_8cpp_source.html">jogos.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aacebcc91ab4a9f1cbb67010c6ef78d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacebcc91ab4a9f1cbb67010c6ef78d0a">&#9670;&nbsp;</a></span>iniciarJogo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Jogos::iniciarJogo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método virtual para iniciar o jogo. </p>
+<p>Pode ser sobrescrito pelas classes derivadas para implementar o comportamento específico do início de um jogo. </p>
+
+<p>Reimplementado por <a class="el" href="class_velha.html#af21bf0bcbc8522ac9804d677e0a3e7f5">Velha</a>, <a class="el" href="class_reversi.html#a31c0e14513a060458d3ced516c5da2f0">Reversi</a> e <a class="el" href="class_lig4.html#aadecde695d2a9489f60f82b4f2455b75">Lig4</a>.</p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8cpp_source.html#l00007">7</a> do arquivo <a class="el" href="jogos_8cpp_source.html">jogos.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b8719101524b2c117dfae6d75bd8254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8719101524b2c117dfae6d75bd8254">&#9670;&nbsp;</a></span>verificaGanhador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Jogos::verificaGanhador </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>valor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>minimax</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método virtual puro para verificar se há um ganhador. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jogador1</td><td>Nome do jogador 1. </td></tr>
+    <tr><td class="paramname">jogador2</td><td>Nome do jogador 2. </td></tr>
+    <tr><td class="paramname">valor</td><td>Valor representando o jogador (exemplo: 'X' ou 'O'). </td></tr>
+    <tr><td class="paramname">minimax</td><td>Define se a verificação será feita com suporte a algoritmos de IA. Valor padrão: <code>false</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><code>true</code> se houver um ganhador, <code>false</code> caso contrário. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">Velha</a>.</p>
+
+</div>
+</div>
+<a id="a07bab3cc6c0d088628217e462f53f1f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07bab3cc6c0d088628217e462f53f1f7">&#9670;&nbsp;</a></span>verificaJogada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Jogos::verificaJogada </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>linha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coluna</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>valor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>jogador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Método virtual puro para verificar a jogada. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>Linha onde a jogada foi realizada. </td></tr>
+    <tr><td class="paramname">coluna</td><td>Coluna onde a jogada foi realizada. </td></tr>
+    <tr><td class="paramname">valor</td><td>Valor representando a jogada (exemplo: 'X' ou 'O'). </td></tr>
+    <tr><td class="paramname">jogador</td><td>Nome do jogador que fez a jogada. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd><code>true</code> se a jogada for válida, <code>false</code> caso contrário. </dd></dl>
+
+<p>Implementado por <a class="el" href="class_velha.html#aaab78ed3662cb0f0861c1732725b7626">Velha</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a id="a1ef5ffaca3a5a45716869d523d3a032b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ef5ffaca3a5a45716869d523d3a032b">&#9670;&nbsp;</a></span>jogador1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Jogos::jogador1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nome do jogador 1. </p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8hpp_source.html#l00012">12</a> do arquivo <a class="el" href="jogos_8hpp_source.html">jogos.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa1fb6c71276183337c9076985e2ee610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1fb6c71276183337c9076985e2ee610">&#9670;&nbsp;</a></span>jogador2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Jogos::jogador2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nome do jogador 2. </p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8hpp_source.html#l00017">17</a> do arquivo <a class="el" href="jogos_8hpp_source.html">jogos.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae55cd8929b26818272fb6f65a467c5b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae55cd8929b26818272fb6f65a467c5b9">&#9670;&nbsp;</a></span>manager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a>&amp; Jogos::manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Referência ao gerenciador de cadastro de jogadores. </p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8hpp_source.html#l00027">27</a> do arquivo <a class="el" href="jogos_8hpp_source.html">jogos.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aeb4914cfc23668b53a15469f5c2c2b08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4914cfc23668b53a15469f5c2c2b08">&#9670;&nbsp;</a></span>nomeJogo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Jogos::nomeJogo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nome do jogo. </p>
+
+<p class="definition">Definição na linha <a class="el" href="jogos_8hpp_source.html#l00022">22</a> do arquivo <a class="el" href="jogos_8hpp_source.html">jogos.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="jogos_8hpp_source.html">jogos.hpp</a></li>
-<li>src/jogos.cpp</li>
+<li>src/<a class="el" href="jogos_8cpp_source.html">jogos.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

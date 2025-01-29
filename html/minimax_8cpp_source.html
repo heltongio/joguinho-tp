@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JogosTabuleiros: Código-Fonte de src/minimax.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JogosTabuleiros
+   </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">minimax.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="minimax_8cpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="minimax_8hpp.html">minimax.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cctype&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_minimax.html#a9036b19ff2afa57b24eb172a1e2fac65">    5</a></span>&#160;<a class="code" href="class_minimax.html#a9036b19ff2afa57b24eb172a1e2fac65">Minimax::Minimax</a>(std::string jogador1, std::string jogador2, <span class="keywordtype">char</span> humano, <span class="keywordtype">char</span> cpu){</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    this-&gt;jogador1 = jogador1;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    this-&gt;jogador2 = jogador2;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    this-&gt;humano = humano;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    this-&gt;cpu = cpu;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">   12</a></span>&#160;std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">Minimax::jogadasPossiveis</a>(<a class="code" href="class_tabuleiro.html">Tabuleiro</a> board){</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; tabsjogPossiveis;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string boardLimpo = board.<a class="code" href="class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee">getEstadoLimpo</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::vector&lt;char&gt; listLimpa(boardLimpo.begin(), boardLimpo.end());</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">for</span> (std::vector&lt;char&gt;::size_type i = 0; i &lt; listLimpa.size(); ++i) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">if</span> (listLimpa[i] == <span class="charliteral">&#39; &#39;</span>) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordtype">int</span> linha = i / 3;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordtype">int</span> coluna = i % 3;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            tabsjogPossiveis.push_back({linha, coluna});</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> tabsjogPossiveis;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">   30</a></span>&#160;<a class="code" href="class_tabuleiro.html">Tabuleiro</a> <a class="code" href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">Minimax::jogada</a>(<a class="code" href="class_tabuleiro.html">Tabuleiro</a> board, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; coordenadas,<span class="keywordtype">char</span> valor) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_tabuleiro.html">Tabuleiro</a> newBoard = board;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    newBoard.<a class="code" href="class_tabuleiro.html#ab9603e192ed26dac207554695e72c35f">atualizarCelula</a>(coordenadas[0], coordenadas[1], valor);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> newBoard;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//precisa implementar codigo de otimização</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">   38</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">Minimax::minimax</a>(<a class="code" href="class_tabuleiro.html">Tabuleiro</a> board, <span class="keywordtype">char</span> jogador, <span class="keywordtype">char</span> eu, <span class="keywordtype">int</span> maxdepth, <span class="keywordtype">int</span> depth) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_velha.html">Velha</a> velha(board);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> (velha.<a class="code" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">verificaGanhador</a>(jogador2, jogador1, cpu, <span class="keyword">true</span>)) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> 10 - depth;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (velha.<a class="code" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">verificaGanhador</a>(jogador1, jogador2, humano, <span class="keyword">true</span>)) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> depth - 10;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (velha.<a class="code" href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">verificaTabuleiroCompleto</a>(jogador1, jogador2, <span class="keyword">true</span>)) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> 0;  <span class="comment">// Empate</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (depth &gt;= maxdepth) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; jogadas = <a class="code" href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">jogadasPossiveis</a>(board);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (jogador == cpu) { <span class="comment">// Maximizar</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">int</span> melhorValor = std::numeric_limits&lt;int&gt;::min();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::vector&lt;int&gt;&amp; vetor : jogadas) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="class_tabuleiro.html">Tabuleiro</a> resultado = <a class="code" href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">jogada</a>(board, vetor, jogador);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordtype">int</span> valor = <a class="code" href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">minimax</a>(resultado, jogador == <span class="charliteral">&#39;X&#39;</span> ? <span class="charliteral">&#39;O&#39;</span> : <span class="charliteral">&#39;X&#39;</span>, eu, maxdepth, depth + 1);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            melhorValor = std::max(melhorValor, valor);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">return</span> melhorValor;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    } <span class="keywordflow">else</span> { <span class="comment">// Minimizar</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">int</span> melhorValor = std::numeric_limits&lt;int&gt;::max();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> std::vector&lt;int&gt;&amp; vetor : jogadas) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <a class="code" href="class_tabuleiro.html">Tabuleiro</a> resultado = <a class="code" href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">jogada</a>(board, vetor, jogador);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordtype">int</span> valor = <a class="code" href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">minimax</a>(resultado, jogador == <span class="charliteral">&#39;X&#39;</span> ? <span class="charliteral">&#39;O&#39;</span> : <span class="charliteral">&#39;X&#39;</span>, eu, maxdepth, depth + 1);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            melhorValor = std::min(melhorValor, valor);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> melhorValor;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">   82</a></span>&#160;std::vector&lt;int&gt; <a class="code" href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">Minimax::melhoraco</a>(<a class="code" href="class_tabuleiro.html">Tabuleiro</a> board, <span class="keywordtype">char</span> jogador,<span class="keywordtype">bool</span> minimizing) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; jogadas = <a class="code" href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">jogadasPossiveis</a>(board);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> melhorValor = std::numeric_limits&lt;int&gt;::min();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::vector&lt;int&gt; besta;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> std::vector&lt;int&gt;&amp; vetor : jogadas) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="class_tabuleiro.html">Tabuleiro</a> resultado = <a class="code" href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">jogada</a>(board, vetor, cpu);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span> valor = <a class="code" href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">minimax</a>(resultado, cpu == <span class="charliteral">&#39;X&#39;</span> ? <span class="charliteral">&#39;O&#39;</span> : <span class="charliteral">&#39;X&#39;</span>, cpu,9);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> (valor &gt; melhorValor){</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            melhorValor = valor;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            besta = vetor;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> besta;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="class_minimax.html#ac88b5b70cb204684d2a33bbc5e815d9a">  101</a></span>&#160;<a class="code" href="class_minimax.html#ac88b5b70cb204684d2a33bbc5e815d9a">Minimax::~Minimax</a>(){</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">return</span>;}</div>
+<div class="ttc" id="aclass_minimax_html_a1d627e7bc6e11a1b31e640dacf5f3cb2"><div class="ttname"><a href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">Minimax::melhoraco</a></div><div class="ttdeci">std::vector&lt; int &gt; melhoraco(Tabuleiro board, char jogador, bool minimizing=false)</div><div class="ttdoc">Encontra a melhor jogada para a CPU.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00082">minimax.cpp:82</a></div></div>
+<div class="ttc" id="aclass_minimax_html_a5a0abe874070a50d42ab2c12cc0d2205"><div class="ttname"><a href="class_minimax.html#a5a0abe874070a50d42ab2c12cc0d2205">Minimax::jogada</a></div><div class="ttdeci">Tabuleiro jogada(Tabuleiro board, const std::vector&lt; int &gt; &amp;coordenadas, char valor)</div><div class="ttdoc">Realiza uma jogada no tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00030">minimax.cpp:30</a></div></div>
+<div class="ttc" id="aclass_minimax_html_a5d39ab80485d9c556ff15cc36b626874"><div class="ttname"><a href="class_minimax.html#a5d39ab80485d9c556ff15cc36b626874">Minimax::jogadasPossiveis</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; jogadasPossiveis(Tabuleiro board)</div><div class="ttdoc">Obtém todas as jogadas possíveis no tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00012">minimax.cpp:12</a></div></div>
+<div class="ttc" id="aclass_minimax_html_a8d349bfbbd0f96e3fab9206c138a23cd"><div class="ttname"><a href="class_minimax.html#a8d349bfbbd0f96e3fab9206c138a23cd">Minimax::minimax</a></div><div class="ttdeci">int minimax(Tabuleiro board, char jogador, char eu, int maxdepth, int depth=0)</div><div class="ttdoc">Implementação do algoritmo Minimax.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00038">minimax.cpp:38</a></div></div>
+<div class="ttc" id="aclass_minimax_html_a9036b19ff2afa57b24eb172a1e2fac65"><div class="ttname"><a href="class_minimax.html#a9036b19ff2afa57b24eb172a1e2fac65">Minimax::Minimax</a></div><div class="ttdeci">Minimax(std::string jogador1, std::string jogador2, char humano, char cpu)</div><div class="ttdoc">Construtor da classe Minimax.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00005">minimax.cpp:5</a></div></div>
+<div class="ttc" id="aclass_minimax_html_ac88b5b70cb204684d2a33bbc5e815d9a"><div class="ttname"><a href="class_minimax.html#ac88b5b70cb204684d2a33bbc5e815d9a">Minimax::~Minimax</a></div><div class="ttdeci">~Minimax()</div><div class="ttdoc">Destrutor da classe Minimax.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00101">minimax.cpp:101</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html"><div class="ttname"><a href="class_tabuleiro.html">Tabuleiro</a></div><div class="ttdoc">Representa um tabuleiro que pode ser utilizado para diferentes aplicações.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8hpp_source.html#l00018">tabuleiro.hpp:18</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a55f2a242e43e31ce6f5a2f26ed7695ee"><div class="ttname"><a href="class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee">Tabuleiro::getEstadoLimpo</a></div><div class="ttdeci">std::string getEstadoLimpo()</div><div class="ttdoc">Obtém o estado do tabuleiro como uma string sem delimitadores.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8cpp_source.html#l00052">tabuleiro.cpp:52</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_ab9603e192ed26dac207554695e72c35f"><div class="ttname"><a href="class_tabuleiro.html#ab9603e192ed26dac207554695e72c35f">Tabuleiro::atualizarCelula</a></div><div class="ttdeci">void atualizarCelula(int linha, int coluna, char valor)</div><div class="ttdoc">Atualiza o valor de uma célula específica no tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8cpp_source.html#l00047">tabuleiro.cpp:47</a></div></div>
+<div class="ttc" id="aclass_velha_html"><div class="ttname"><a href="class_velha.html">Velha</a></div><div class="ttdoc">Classe que implementa o jogo da velha.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8hpp_source.html#l00023">velha.hpp:23</a></div></div>
+<div class="ttc" id="aclass_velha_html_a22d15f7790e62e8ae580066b6f60a1e3"><div class="ttname"><a href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">Velha::verificaGanhador</a></div><div class="ttdeci">bool verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) override</div><div class="ttdoc">Verifica se há um vencedor no jogo.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00197">velha.cpp:197</a></div></div>
+<div class="ttc" id="aclass_velha_html_a704fdfa35b3bb441c10acf60a423d2cc"><div class="ttname"><a href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">Velha::verificaTabuleiroCompleto</a></div><div class="ttdeci">bool verificaTabuleiroCompleto(const std::string &amp;jogador1, const std::string &amp;jogador2, bool minimax)</div><div class="ttdoc">Verifica se o tabuleiro está completamente preenchido (empate).</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00176">velha.cpp:176</a></div></div>
+<div class="ttc" id="aminimax_8hpp_html"><div class="ttname"><a href="minimax_8hpp.html">minimax.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

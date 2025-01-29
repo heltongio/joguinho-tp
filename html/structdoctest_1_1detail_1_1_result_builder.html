@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à estrutura doctest::detail::ResultBuilder</title>
+<title>JogosTabuleiros: Referência da Estrutura doctest::detail::ResultBuilder</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -61,19 +62,21 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>doctest</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html">ResultBuilder</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacedoctest.html">doctest</a></li><li class="navelem"><a class="el" href="namespacedoctest_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html">ResultBuilder</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="structdoctest_1_1detail_1_1_result_builder-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="structdoctest_1_1detail_1_1_result_builder-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à estrutura doctest::detail::ResultBuilder</div>  </div>
+<div class="title">Referência da Estrutura doctest::detail::ResultBuilder</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="doctest_8h_source.html">doctest.h</a>&gt;</code></p>
 <div class="dynheader">
-Diagrama de heranças da classe doctest::detail::ResultBuilder</div>
+Diagrama de hierarquia para doctest::detail::ResultBuilder:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdoctest_1_1detail_1_1_result_builder__inherit__graph.png" border="0" usemap="#adoctest_1_1detail_1_1_result_builder_inherit__map" alt="Inheritance graph"/></div>
 <map name="adoctest_1_1detail_1_1_result_builder_inherit__map" id="adoctest_1_1detail_1_1_result_builder_inherit__map">
@@ -96,78 +99,275 @@ Diagrama de colaboração para doctest::detail::ResultBuilder:</div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:a135e00690002d376f3d050700a635680"><td class="memItemLeft" align="right" valign="top"><a id="a135e00690002d376f3d050700a635680"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ResultBuilder</b> (assertType::Enum at, const char *file, int line, const char *expr, const char *exception_type=&quot;&quot;, const <a class="el" href="classdoctest_1_1_string.html">String</a> &amp;exception_string=&quot;&quot;)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a135e00690002d376f3d050700a635680"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a135e00690002d376f3d050700a635680">ResultBuilder</a> (<a class="el" href="namespacedoctest_1_1assert_type.html#ae1bb5bed722f34f1c38b83cb19d326d3">assertType::Enum</a> at, const char *file, int line, const char *expr, const char *exception_type=&quot;&quot;, const <a class="el" href="classdoctest_1_1_string.html">String</a> &amp;exception_string=&quot;&quot;)</td></tr>
 <tr class="separator:a135e00690002d376f3d050700a635680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab55660e3aaa5d8fccbe19360f65bb1f3"><td class="memItemLeft" align="right" valign="top"><a id="ab55660e3aaa5d8fccbe19360f65bb1f3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ResultBuilder</b> (assertType::Enum at, const char *file, int line, const char *expr, const char *exception_type, const <a class="el" href="classdoctest_1_1_contains.html">Contains</a> &amp;exception_string)</td></tr>
+<tr class="memitem:ab55660e3aaa5d8fccbe19360f65bb1f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#ab55660e3aaa5d8fccbe19360f65bb1f3">ResultBuilder</a> (<a class="el" href="namespacedoctest_1_1assert_type.html#ae1bb5bed722f34f1c38b83cb19d326d3">assertType::Enum</a> at, const char *file, int line, const char *expr, const char *exception_type, const <a class="el" href="classdoctest_1_1_contains.html">Contains</a> &amp;exception_string)</td></tr>
 <tr class="separator:ab55660e3aaa5d8fccbe19360f65bb1f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86c0ca727fead43263de4a7e9a59ad23"><td class="memItemLeft" align="right" valign="top"><a id="a86c0ca727fead43263de4a7e9a59ad23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setResult</b> (const <a class="el" href="structdoctest_1_1detail_1_1_result.html">Result</a> &amp;res)</td></tr>
+<tr class="memitem:a86c0ca727fead43263de4a7e9a59ad23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a86c0ca727fead43263de4a7e9a59ad23">setResult</a> (const <a class="el" href="structdoctest_1_1detail_1_1_result.html">Result</a> &amp;res)</td></tr>
 <tr class="separator:a86c0ca727fead43263de4a7e9a59ad23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa920a0617a26939d7adcd1ba2dec0e85"><td class="memTemplParams" colspan="2"><a id="aa920a0617a26939d7adcd1ba2dec0e85"></a>
-template&lt;int comparison, typename L , typename R &gt; </td></tr>
-<tr class="memitem:aa920a0617a26939d7adcd1ba2dec0e85"><td class="memTemplItemLeft" align="right" valign="top">DOCTEST_NOINLINE bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>binary_assert</b> (const DOCTEST_REF_WRAP(L) lhs, const DOCTEST_REF_WRAP(R) rhs)</td></tr>
+<tr class="memitem:aa920a0617a26939d7adcd1ba2dec0e85"><td class="memTemplParams" colspan="2">template&lt;int comparison, typename L , typename R &gt; </td></tr>
+<tr class="memitem:aa920a0617a26939d7adcd1ba2dec0e85"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="doctest_8h.html#a47e9d3609dfcc90b9a630ff33b9524d6">DOCTEST_NOINLINE</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#aa920a0617a26939d7adcd1ba2dec0e85">binary_assert</a> (const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(L) lhs, const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(R) rhs)</td></tr>
 <tr class="separator:aa920a0617a26939d7adcd1ba2dec0e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63a2a19638f4a761c70abd5563e2d23a"><td class="memTemplParams" colspan="2">template&lt;typename L &gt; </td></tr>
-<tr class="memitem:a63a2a19638f4a761c70abd5563e2d23a"><td class="memTemplItemLeft" align="right" valign="top">DOCTEST_NOINLINE bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a63a2a19638f4a761c70abd5563e2d23a">unary_assert</a> (const DOCTEST_REF_WRAP(L) val)</td></tr>
+<tr class="memitem:a63a2a19638f4a761c70abd5563e2d23a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="doctest_8h.html#a47e9d3609dfcc90b9a630ff33b9524d6">DOCTEST_NOINLINE</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a63a2a19638f4a761c70abd5563e2d23a">unary_assert</a> (const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(L) val)</td></tr>
 <tr class="separator:a63a2a19638f4a761c70abd5563e2d23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5eece6aa3b1a2cb366cf5a0cc6c854a3"><td class="memItemLeft" align="right" valign="top"><a id="a5eece6aa3b1a2cb366cf5a0cc6c854a3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>translateException</b> ()</td></tr>
+<tr class="memitem:a5eece6aa3b1a2cb366cf5a0cc6c854a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a5eece6aa3b1a2cb366cf5a0cc6c854a3">translateException</a> ()</td></tr>
 <tr class="separator:a5eece6aa3b1a2cb366cf5a0cc6c854a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af75dd1d8db8d3aa949d78025854085"><td class="memItemLeft" align="right" valign="top"><a id="a2af75dd1d8db8d3aa949d78025854085"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>log</b> ()</td></tr>
+<tr class="memitem:a2af75dd1d8db8d3aa949d78025854085"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a2af75dd1d8db8d3aa949d78025854085">log</a> ()</td></tr>
 <tr class="separator:a2af75dd1d8db8d3aa949d78025854085"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03686f862471728c2980d72e02980213"><td class="memItemLeft" align="right" valign="top"><a id="a03686f862471728c2980d72e02980213"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>react</b> () const</td></tr>
+<tr class="memitem:a03686f862471728c2980d72e02980213"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_result_builder.html#a03686f862471728c2980d72e02980213">react</a> () const</td></tr>
 <tr class="separator:a03686f862471728c2980d72e02980213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_structdoctest_1_1_assert_data"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structdoctest_1_1_assert_data')"><img src="closed.png" alt="-"/>&#160;Membros públicos herdados de <a class="el" href="structdoctest_1_1_assert_data.html">doctest::AssertData</a></td></tr>
-<tr class="memitem:ae1f9906888c2dd06b6291ab196f5074e inherit pub_methods_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="ae1f9906888c2dd06b6291ab196f5074e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AssertData</b> (assertType::Enum at, const char *file, int line, const char *expr, const char *exception_type, const <a class="el" href="classdoctest_1_1_assert_data_1_1_string_contains.html">StringContains</a> &amp;exception_string)</td></tr>
+<tr class="inherit_header pub_methods_structdoctest_1_1_assert_data"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structdoctest_1_1_assert_data')"><img src="closed.png" alt="-"/>&#160;Membros Públicos herdados de <a class="el" href="structdoctest_1_1_assert_data.html">doctest::AssertData</a></td></tr>
+<tr class="memitem:ae1f9906888c2dd06b6291ab196f5074e inherit pub_methods_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#ae1f9906888c2dd06b6291ab196f5074e">AssertData</a> (<a class="el" href="namespacedoctest_1_1assert_type.html#ae1bb5bed722f34f1c38b83cb19d326d3">assertType::Enum</a> at, const char *file, int line, const char *expr, const char *exception_type, const <a class="el" href="classdoctest_1_1_assert_data_1_1_string_contains.html">StringContains</a> &amp;exception_string)</td></tr>
 <tr class="separator:ae1f9906888c2dd06b6291ab196f5074e inherit pub_methods_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Outros membros herdados</h2></td></tr>
 <tr class="inherit_header pub_attribs_structdoctest_1_1_assert_data"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structdoctest_1_1_assert_data')"><img src="closed.png" alt="-"/>&#160;Atributos Públicos herdados de <a class="el" href="structdoctest_1_1_assert_data.html">doctest::AssertData</a></td></tr>
-<tr class="memitem:ab26ee6e05feaefc982c4f5481458cbda inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="ab26ee6e05feaefc982c4f5481458cbda"></a>
-const <a class="el" href="structdoctest_1_1_test_case_data.html">TestCaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_test_case</b></td></tr>
+<tr class="memitem:ab26ee6e05feaefc982c4f5481458cbda inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structdoctest_1_1_test_case_data.html">TestCaseData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#ab26ee6e05feaefc982c4f5481458cbda">m_test_case</a></td></tr>
 <tr class="separator:ab26ee6e05feaefc982c4f5481458cbda inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b3b2866b13ba048c0beea51bd798749 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a0b3b2866b13ba048c0beea51bd798749"></a>
-assertType::Enum&#160;</td><td class="memItemRight" valign="bottom"><b>m_at</b></td></tr>
+<tr class="memitem:a0b3b2866b13ba048c0beea51bd798749 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedoctest_1_1assert_type.html#ae1bb5bed722f34f1c38b83cb19d326d3">assertType::Enum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a0b3b2866b13ba048c0beea51bd798749">m_at</a></td></tr>
 <tr class="separator:a0b3b2866b13ba048c0beea51bd798749 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac22c9ed0d8c6edec58c4b26a0a00e714 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="ac22c9ed0d8c6edec58c4b26a0a00e714"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_file</b></td></tr>
+<tr class="memitem:ac22c9ed0d8c6edec58c4b26a0a00e714 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#ac22c9ed0d8c6edec58c4b26a0a00e714">m_file</a></td></tr>
 <tr class="separator:ac22c9ed0d8c6edec58c4b26a0a00e714 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1142f5fb5d171964b7677a9d23f81548 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a1142f5fb5d171964b7677a9d23f81548"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_line</b></td></tr>
+<tr class="memitem:a1142f5fb5d171964b7677a9d23f81548 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a1142f5fb5d171964b7677a9d23f81548">m_line</a></td></tr>
 <tr class="separator:a1142f5fb5d171964b7677a9d23f81548 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8fe9e24ffba3f575c7384a85f96297a inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="af8fe9e24ffba3f575c7384a85f96297a"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_expr</b></td></tr>
+<tr class="memitem:af8fe9e24ffba3f575c7384a85f96297a inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#af8fe9e24ffba3f575c7384a85f96297a">m_expr</a></td></tr>
 <tr class="separator:af8fe9e24ffba3f575c7384a85f96297a inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ddaf3e6532fdadba3c1f74eb931d4a inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="ac9ddaf3e6532fdadba3c1f74eb931d4a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_failed</b></td></tr>
+<tr class="memitem:ac9ddaf3e6532fdadba3c1f74eb931d4a inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#ac9ddaf3e6532fdadba3c1f74eb931d4a">m_failed</a></td></tr>
 <tr class="separator:ac9ddaf3e6532fdadba3c1f74eb931d4a inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e9d4c7eeff7c4fe310b0597bf7027b8 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a3e9d4c7eeff7c4fe310b0597bf7027b8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_threw</b></td></tr>
+<tr class="memitem:a3e9d4c7eeff7c4fe310b0597bf7027b8 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a3e9d4c7eeff7c4fe310b0597bf7027b8">m_threw</a></td></tr>
 <tr class="separator:a3e9d4c7eeff7c4fe310b0597bf7027b8 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fdbef933ef26c0bc174f9ec716924cd inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a1fdbef933ef26c0bc174f9ec716924cd"></a>
-<a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_exception</b></td></tr>
+<tr class="memitem:a1fdbef933ef26c0bc174f9ec716924cd inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a1fdbef933ef26c0bc174f9ec716924cd">m_exception</a></td></tr>
 <tr class="separator:a1fdbef933ef26c0bc174f9ec716924cd inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c6b5804b7dd4d8ba70126cb598f30bd inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a1c6b5804b7dd4d8ba70126cb598f30bd"></a>
-<a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_decomp</b></td></tr>
+<tr class="memitem:a1c6b5804b7dd4d8ba70126cb598f30bd inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a1c6b5804b7dd4d8ba70126cb598f30bd">m_decomp</a></td></tr>
 <tr class="separator:a1c6b5804b7dd4d8ba70126cb598f30bd inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace744d365532d299052c8a80a63f7079 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="ace744d365532d299052c8a80a63f7079"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_threw_as</b></td></tr>
+<tr class="memitem:ace744d365532d299052c8a80a63f7079 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#ace744d365532d299052c8a80a63f7079">m_threw_as</a></td></tr>
 <tr class="separator:ace744d365532d299052c8a80a63f7079 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c476dc606780aefdb7db2d7ca146199 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a1c476dc606780aefdb7db2d7ca146199"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_exception_type</b></td></tr>
+<tr class="memitem:a1c476dc606780aefdb7db2d7ca146199 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a1c476dc606780aefdb7db2d7ca146199">m_exception_type</a></td></tr>
 <tr class="separator:a1c476dc606780aefdb7db2d7ca146199 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86c189116f12eccc2d3362ec6d8862f4 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top"><a id="a86c189116f12eccc2d3362ec6d8862f4"></a>
-class DOCTEST_INTERFACE <a class="el" href="classdoctest_1_1_assert_data_1_1_string_contains.html">doctest::AssertData::StringContains</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_exception_string</b></td></tr>
+<tr class="memitem:a86c189116f12eccc2d3362ec6d8862f4 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="doctest_8h.html#a9c16ffc635ec47f07797d21ede26b1a5">DOCTEST_INTERFACE</a> <a class="el" href="classdoctest_1_1_assert_data_1_1_string_contains.html">doctest::AssertData::StringContains</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_assert_data.html#a86c189116f12eccc2d3362ec6d8862f4">m_exception_string</a></td></tr>
 <tr class="separator:a86c189116f12eccc2d3362ec6d8862f4 inherit pub_attribs_structdoctest_1_1_assert_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação dos métodos</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock">
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01682">1682</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a135e00690002d376f3d050700a635680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135e00690002d376f3d050700a635680">&#9670;&nbsp;</a></span>ResultBuilder() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::ResultBuilder::ResultBuilder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedoctest_1_1assert_type.html#ae1bb5bed722f34f1c38b83cb19d326d3">assertType::Enum</a>&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>expr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>exception_type</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdoctest_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>exception_string</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab55660e3aaa5d8fccbe19360f65bb1f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab55660e3aaa5d8fccbe19360f65bb1f3">&#9670;&nbsp;</a></span>ResultBuilder() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::ResultBuilder::ResultBuilder </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedoctest_1_1assert_type.html#ae1bb5bed722f34f1c38b83cb19d326d3">assertType::Enum</a>&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>expr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>exception_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdoctest_1_1_contains.html">Contains</a> &amp;&#160;</td>
+          <td class="paramname"><em>exception_string</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Funções membros</h2>
+<a id="aa920a0617a26939d7adcd1ba2dec0e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa920a0617a26939d7adcd1ba2dec0e85">&#9670;&nbsp;</a></span>binary_assert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int comparison, typename L , typename R &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="doctest_8h.html#a47e9d3609dfcc90b9a630ff33b9524d6">DOCTEST_NOINLINE</a> bool doctest::detail::ResultBuilder::binary_assert </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(L)&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(R)&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01693">1693</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a2af75dd1d8db8d3aa949d78025854085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2af75dd1d8db8d3aa949d78025854085">&#9670;&nbsp;</a></span>log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::ResultBuilder::log </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03686f862471728c2980d72e02980213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03686f862471728c2980d72e02980213">&#9670;&nbsp;</a></span>react()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void doctest::detail::ResultBuilder::react </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a86c0ca727fead43263de4a7e9a59ad23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c0ca727fead43263de4a7e9a59ad23">&#9670;&nbsp;</a></span>setResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void doctest::detail::ResultBuilder::setResult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdoctest_1_1detail_1_1_result.html">Result</a> &amp;&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5eece6aa3b1a2cb366cf5a0cc6c854a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eece6aa3b1a2cb366cf5a0cc6c854a3">&#9670;&nbsp;</a></span>translateException()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void doctest::detail::ResultBuilder::translateException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a63a2a19638f4a761c70abd5563e2d23a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63a2a19638f4a761c70abd5563e2d23a">&#9670;&nbsp;</a></span>unary_assert()</h2>
 
@@ -180,9 +380,9 @@ template&lt;typename L &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">DOCTEST_NOINLINE bool doctest::detail::ResultBuilder::unary_assert </td>
+          <td class="memname"><a class="el" href="doctest_8h.html#a47e9d3609dfcc90b9a630ff33b9524d6">DOCTEST_NOINLINE</a> bool doctest::detail::ResultBuilder::unary_assert </td>
           <td>(</td>
-          <td class="paramtype">const DOCTEST_REF_WRAP(L)&#160;</td>
+          <td class="paramtype">const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(L)&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
           <td></td>
         </tr>
@@ -195,9 +395,11 @@ template&lt;typename L &gt; </div>
 </div><div class="memdoc">
 <p>OCLINT bitwise operator in conditional</p>
 
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01703">1703</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
 </div>
 </div>
-<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>tests/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
 </ul>
 </div><!-- contents -->

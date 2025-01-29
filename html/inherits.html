@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Hierarquia de classes</title>
+<title>JogosTabuleiros: Hierarquia de Classes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,15 +63,15 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Hierarquia de classes</div>  </div>
+<div class="title">Hierarquia de Classes</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock">
-<p><a href="hierarchy.html">Ir para a representação textual da hierarquia da classe</a></p>
+<p><a href="hierarchy.html">Vá para a hierarquia de classes (texto)</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
 <tr><td><img src="inherit_graph_0.png" border="0" usemap="#a_cadastro_jogadores" alt=""/>
 <map name="a_cadastro_jogadores" id="a_cadastro_jogadores">
-<area shape="rect" href="class_cadastro_jogadores.html" title=" " alt="" coords="5,5,149,34"/>
+<area shape="rect" href="class_cadastro_jogadores.html" title="Classe responsável por gerenciar o cadastro de jogadores." alt="" coords="5,5,149,34"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_1.png" border="0" usemap="#adoctest_1_1_approx" alt=""/>
@@ -311,20 +312,20 @@ $(function() {
 </td></tr>
 <tr><td><img src="inherit_graph_45.png" border="0" usemap="#a_jogador" alt=""/>
 <map name="a_jogador" id="a_jogador">
-<area shape="rect" href="class_jogador.html" title=" " alt="" coords="5,5,76,34"/>
+<area shape="rect" href="class_jogador.html" title="Representa um jogador, armazenando informações como apelido, nome e estatísticas de jogos." alt="" coords="5,5,76,34"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_46.png" border="0" usemap="#a_jogos" alt=""/>
 <map name="a_jogos" id="a_jogos">
 <area shape="rect" href="class_jogos.html" title=" " alt="" coords="5,59,62,88"/>
-<area shape="rect" href="class_lig4.html" title=" " alt="" coords="121,5,169,34"/>
-<area shape="rect" href="class_reversi.html" title=" " alt="" coords="110,59,180,88"/>
+<area shape="rect" href="class_lig4.html" title="Classe que implementa o jogo Lig4, derivada da classe base Jogos." alt="" coords="121,5,169,34"/>
+<area shape="rect" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi." alt="" coords="110,59,180,88"/>
 <area shape="rect" href="class_velha.html" title="Classe que implementa o jogo da velha." alt="" coords="116,112,174,141"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_47.png" border="0" usemap="#a_minimax" alt=""/>
 <map name="a_minimax" id="a_minimax">
-<area shape="rect" href="class_minimax.html" title=" " alt="" coords="5,5,84,34"/>
+<area shape="rect" href="class_minimax.html" title="Implementa o algoritmo Minimax para tomada de decisão no jogo da velha." alt="" coords="5,5,84,34"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_48.png" border="0" usemap="#astd_1_1basic__istream_3_01char_t_00_01traits_01_4" alt=""/>

@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JogosTabuleiros: Código-Fonte de src/velha.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JogosTabuleiros
+   </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">velha.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="velha_8cpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="velha_8hpp.html">velha.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_velha.html#aa6e7e77d92fc94ed80df150444ef96ce">    3</a></span>&#160;std::string <a class="code" href="class_velha.html#aa6e7e77d92fc94ed80df150444ef96ce">Velha::frase</a>(){</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    std::ifstream arquivo(<span class="stringliteral">&quot;bancoDados/frases.txt&quot;</span>);</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    std::vector&lt;std::string&gt; frases;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">if</span> (!arquivo.is_open()) {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Não foi possível abrir o arquivo!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    }</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string linha;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">while</span> (std::getline(arquivo, linha)) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        frases.push_back(linha);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    arquivo.close();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::srand(<span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::time(<span class="keyword">nullptr</span>)));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> indiceAleatorio = std::rand() % frases.size();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> frases[indiceAleatorio];</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_velha.html#a08b9381c32a495091ac995193f9442ed">   24</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a08b9381c32a495091ac995193f9442ed">Velha::solicitarJogada</a>(std::string&amp; jogador,<span class="keywordtype">int</span>&amp; linha, <span class="keywordtype">int</span>&amp; coluna) {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        std::cout &lt;&lt; jogador &lt;&lt;<span class="stringliteral">&quot; digite a linha e coluna (1-3) (1-3): &quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::cin &gt;&gt; linha &gt;&gt; coluna;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (std::cin.fail()) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Entrada inválida! Apenas números inteiros são permitidos.\n&quot;</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            std::cin.clear();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            std::cin.ignore(std::numeric_limits&lt;std::streamsize&gt;::max(), <span class="charliteral">&#39;\n&#39;</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (linha &lt; 1 || linha &gt; 3 || coluna &lt; 1 || coluna &gt; 3) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Posição inválida! As linhas e colunas devem ser entre 1 e 3.\n&quot;</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_velha.html#a0b0f52656c268f6df19489960f51ad16">   42</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a0b0f52656c268f6df19489960f51ad16">Velha::jogada</a>(std::string jogador1, std::string jogador2, <span class="keywordtype">char</span> valor) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> linha, coluna;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">while</span> (!<a class="code" href="class_velha.html#a08b9381c32a495091ac995193f9442ed">solicitarJogada</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, linha, coluna)) {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_velha.html#aaab78ed3662cb0f0861c1732725b7626">verificaJogada</a>(linha, coluna, valor, <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>)) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">verificaGanhador</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, valor, <span class="keyword">false</span>) || <a class="code" href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">verificaTabuleiroCompleto</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <span class="keyword">false</span>)) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            std::cerr &lt;&lt; <span class="stringliteral">&quot;Posição já ocupada, tente novamente.\n&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <a class="code" href="class_velha.html#a08b9381c32a495091ac995193f9442ed">solicitarJogada</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, linha, coluna);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="class_velha.html#af21bf0bcbc8522ac9804d677e0a3e7f5">   63</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_velha.html#af21bf0bcbc8522ac9804d677e0a3e7f5">Velha::iniciarJogo</a>(){</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">int</span> cont = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::string valor_teste;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">char</span> valor;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">char</span> valor2;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    std::cout &lt;&lt; <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a> &lt;&lt; <span class="stringliteral">&quot; escolha X ou O: &quot;</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::getline(std::cin, valor_teste);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">while</span> (valor_teste.length() != 1 || ((toupper(valor_teste[0]) != <span class="charliteral">&#39;X&#39;</span>) &amp;&amp; (toupper(valor_teste[0]) != <span class="charliteral">&#39;O&#39;</span>)) || (valor_teste.empty())) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Entrada invalida,use apenas X ou O&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        std::getline(std::cin, valor_teste);}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    valor_teste[0] = toupper(valor_teste[0]);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    valor = valor_teste[0];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#ae76781eee765933d487c26ab7f97cb92">exibirTabuleiro</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    valor = std::toupper(valor);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    valor2 = (valor == <span class="charliteral">&#39;X&#39;</span>) ? <span class="charliteral">&#39;O&#39;</span> : <span class="charliteral">&#39;X&#39;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">while</span> (<span class="keyword">true</span>){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> (cont%2 == 0){</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            cont++;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_velha.html#a0b0f52656c268f6df19489960f51ad16">jogada</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>,valor)){</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;           </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cont%2 != 0 &amp;&amp; <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a> == <span class="stringliteral">&quot;Glados&quot;</span>){</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            cont++;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="class_minimax.html">Minimax</a> minimaxSolver (<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, valor, valor2);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            std::vector&lt;int&gt; melhorJogada = minimaxSolver.<a class="code" href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">melhoraco</a>(<a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#ab9603e192ed26dac207554695e72c35f">atualizarCelula</a>(melhorJogada[0],melhorJogada[1],valor2);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;\033[1;34m&quot;</span> &lt;&lt; <span class="stringliteral">&quot;GLADOS&quot;</span> &lt;&lt; <span class="stringliteral">&quot;\033[0m&quot;</span> &lt;&lt; <span class="stringliteral">&quot; jogou:&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#ae76781eee765933d487c26ab7f97cb92">exibirTabuleiro</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">verificaGanhador</a>(<a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, valor2, <span class="keyword">false</span>) || <a class="code" href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">verificaTabuleiroCompleto</a>(<a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>,<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <span class="keyword">false</span>)){</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                std::cout &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\033[1;34m&quot;</span> &lt;&lt; <a class="code" href="class_velha.html#aa6e7e77d92fc94ed80df150444ef96ce">frase</a>() &lt;&lt; <span class="stringliteral">&quot;\033[0m&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (cont%2 != 0){</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            cont++;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="class_velha.html#a0b0f52656c268f6df19489960f51ad16">jogada</a>(<a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>,valor2)){</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="class_velha.html#acec21d4a18ac771fa857a19214de8f21">  120</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_velha.html#acec21d4a18ac771fa857a19214de8f21">Velha::criaTabuleiro</a>(){</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#ae76781eee765933d487c26ab7f97cb92">exibirTabuleiro</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="class_velha.html#aaab78ed3662cb0f0861c1732725b7626">  125</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#aaab78ed3662cb0f0861c1732725b7626">Velha::verificaJogada</a>(<span class="keywordtype">int</span> linha, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> valor, std::string jogador){</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    std::vector&lt;std::vector&lt;char&gt;&gt; grid = <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#a4709c147c8bcc080d6052a5a8e276cde">getGrid</a>();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    linha = linha-1;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    coluna = coluna-1;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">if</span> ((linha &lt; 0 || linha &gt;= 3) || (coluna &lt; 0 || coluna &gt;= 3)) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        std::cerr &lt;&lt; jogador &lt;&lt; <span class="stringliteral">&quot; posição inválida, tente novamente:&quot;</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (grid[linha][coluna * 2 + 1] != <span class="charliteral">&#39; &#39;</span>){</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        std::cerr &lt;&lt; jogador &lt;&lt; <span class="stringliteral">&quot; posição inválida, tente novamente: &quot;</span>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    }<span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#ab9603e192ed26dac207554695e72c35f">atualizarCelula</a>(linha,coluna,valor);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#ae76781eee765933d487c26ab7f97cb92">exibirTabuleiro</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="class_velha.html#a9bbf6441f94f40a9ee0bb804b0211c80">  146</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a9bbf6441f94f40a9ee0bb804b0211c80">Velha::verificaLinha</a>(<span class="keyword">const</span> std::string&amp; estado, <span class="keywordtype">int</span> linha, <span class="keywordtype">char</span> valor) {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">int</span> inicio = linha * 3;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">if</span> (estado[inicio] == valor &amp;&amp;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        estado[inicio] == estado[inicio + 1] &amp;&amp;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        estado[inicio + 1] == estado[inicio + 2]) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="class_velha.html#a12968ca296baf7d63951461e522d1ebf">vencedor</a> = estado[inicio];</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="class_velha.html#a04c6760cc79c0c2ea07fc87bc3c3c2af">  157</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a04c6760cc79c0c2ea07fc87bc3c3c2af">Velha::verificaColuna</a>(<span class="keyword">const</span> std::string&amp; estado, <span class="keywordtype">int</span> coluna, <span class="keywordtype">char</span> valor) {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span> (estado[coluna] == valor &amp;&amp;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        estado[coluna] == estado[coluna + 3] &amp;&amp;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        estado[coluna + 3] == estado[coluna + 6]) {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <a class="code" href="class_velha.html#a12968ca296baf7d63951461e522d1ebf">vencedor</a> = estado[coluna];</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="class_velha.html#a44fc34a80968bbbfc044f69cded9e52c">  167</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a44fc34a80968bbbfc044f69cded9e52c">Velha::verificaDiagonais</a>(<span class="keyword">const</span> std::string&amp; estado, <span class="keywordtype">char</span> valor) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">if</span> ((estado[0] == valor &amp;&amp; estado[0] == estado[4] &amp;&amp; estado[4] == estado[8]) ||</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        (estado[2] == valor &amp;&amp; estado[2] == estado[4] &amp;&amp; estado[4] == estado[6])) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="class_velha.html#a12968ca296baf7d63951461e522d1ebf">vencedor</a> = valor;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">  176</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">Velha::verificaTabuleiroCompleto</a>(<span class="keyword">const</span> std::string&amp; jogador1, <span class="keyword">const</span> std::string&amp; jogador2, <span class="keywordtype">bool</span> minimax) {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    std::string estado = <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee">getEstadoLimpo</a>();</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">char</span> pos : estado) {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">if</span> (pos == <span class="charliteral">&#39; &#39;</span>) {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">if</span>(!minimax){</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;\033[31m&quot;</span> &lt;&lt; <span class="stringliteral">&quot;O jogo terminou em um empate, ambos jogadores perdem\n&quot;</span> &lt;&lt; <span class="stringliteral">&quot;\033[0m&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <a class="code" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>.<a class="code" href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">AddDer</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <span class="stringliteral">&quot;velha&quot;</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <a class="code" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>.<a class="code" href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">AddDer</a>(<a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <span class="stringliteral">&quot;velha&quot;</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">  197</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">Velha::verificaGanhador</a>(std::string jogador1, std::string jogador2, <span class="keywordtype">char</span> valor, <span class="keywordtype">bool</span> minimax) {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    std::string estado = <a class="code" href="class_velha.html#a11792631f730374136669ec68a2a3a47">tabuleiro</a>.<a class="code" href="class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee">getEstadoLimpo</a>();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_velha.html#a9bbf6441f94f40a9ee0bb804b0211c80">verificaLinha</a>(estado, i, valor) || <a class="code" href="class_velha.html#a04c6760cc79c0c2ea07fc87bc3c3c2af">verificaColuna</a>(estado, i, valor)||<a class="code" href="class_velha.html#a44fc34a80968bbbfc044f69cded9e52c">verificaDiagonais</a>(estado, valor)) {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordflow">if</span>(!minimax){</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;\033[32m&quot;</span> &lt;&lt; <a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a> &lt;&lt; <span class="stringliteral">&quot;\033[0m&quot;</span> &lt;&lt;<span class="stringliteral">&quot; ganhou com &quot;</span> &lt;&lt; valor &lt;&lt;  std::endl;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <a class="code" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>.<a class="code" href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">AddVit</a>(<a class="code" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, <span class="stringliteral">&quot;velha&quot;</span>);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <a class="code" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>.<a class="code" href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">AddDer</a>(<a class="code" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <span class="stringliteral">&quot;velha&quot;</span>);}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="class_velha.html#a7d207df9d99b3ebab54bd136490ff9c8">  216</a></span>&#160;<a class="code" href="class_velha.html#a7d207df9d99b3ebab54bd136490ff9c8">Velha::~Velha</a>(){</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;}</div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a2783eb8c25f81aaaf9a0543a82e9f7f2"><div class="ttname"><a href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">CadastroJogadores::AddDer</a></div><div class="ttdeci">void AddDer(const std::string, const std::string)</div><div class="ttdoc">Adiciona uma derrota ao jogador em um jogo específico.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00177">gerente.cpp:177</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a41d714e9426bd37b9876e10f8603443b"><div class="ttname"><a href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">CadastroJogadores::AddVit</a></div><div class="ttdeci">void AddVit(const std::string, const std::string)</div><div class="ttdoc">Adiciona uma vitória ao jogador em um jogo específico.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00168">gerente.cpp:168</a></div></div>
+<div class="ttc" id="aclass_jogos_html_a1ef5ffaca3a5a45716869d523d3a032b"><div class="ttname"><a href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">Jogos::jogador1</a></div><div class="ttdeci">std::string jogador1</div><div class="ttdoc">Nome do jogador 1.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00012">jogos.hpp:12</a></div></div>
+<div class="ttc" id="aclass_jogos_html_aa1fb6c71276183337c9076985e2ee610"><div class="ttname"><a href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">Jogos::jogador2</a></div><div class="ttdeci">std::string jogador2</div><div class="ttdoc">Nome do jogador 2.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00017">jogos.hpp:17</a></div></div>
+<div class="ttc" id="aclass_jogos_html_ae55cd8929b26818272fb6f65a467c5b9"><div class="ttname"><a href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">Jogos::manager</a></div><div class="ttdeci">CadastroJogadores &amp; manager</div><div class="ttdoc">Referência ao gerenciador de cadastro de jogadores.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8hpp_source.html#l00027">jogos.hpp:27</a></div></div>
+<div class="ttc" id="aclass_minimax_html"><div class="ttname"><a href="class_minimax.html">Minimax</a></div><div class="ttdoc">Implementa o algoritmo Minimax para tomada de decisão no jogo da velha.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8hpp_source.html#l00018">minimax.hpp:18</a></div></div>
+<div class="ttc" id="aclass_minimax_html_a1d627e7bc6e11a1b31e640dacf5f3cb2"><div class="ttname"><a href="class_minimax.html#a1d627e7bc6e11a1b31e640dacf5f3cb2">Minimax::melhoraco</a></div><div class="ttdeci">std::vector&lt; int &gt; melhoraco(Tabuleiro board, char jogador, bool minimizing=false)</div><div class="ttdoc">Encontra a melhor jogada para a CPU.</div><div class="ttdef"><b>Definition:</b> <a href="minimax_8cpp_source.html#l00082">minimax.cpp:82</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a4709c147c8bcc080d6052a5a8e276cde"><div class="ttname"><a href="class_tabuleiro.html#a4709c147c8bcc080d6052a5a8e276cde">Tabuleiro::getGrid</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; char &gt; &gt; getGrid()</div><div class="ttdoc">Retorna a matriz que representa o estado do tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8cpp_source.html#l00082">tabuleiro.cpp:82</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_a55f2a242e43e31ce6f5a2f26ed7695ee"><div class="ttname"><a href="class_tabuleiro.html#a55f2a242e43e31ce6f5a2f26ed7695ee">Tabuleiro::getEstadoLimpo</a></div><div class="ttdeci">std::string getEstadoLimpo()</div><div class="ttdoc">Obtém o estado do tabuleiro como uma string sem delimitadores.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8cpp_source.html#l00052">tabuleiro.cpp:52</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_ab9603e192ed26dac207554695e72c35f"><div class="ttname"><a href="class_tabuleiro.html#ab9603e192ed26dac207554695e72c35f">Tabuleiro::atualizarCelula</a></div><div class="ttdeci">void atualizarCelula(int linha, int coluna, char valor)</div><div class="ttdoc">Atualiza o valor de uma célula específica no tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8cpp_source.html#l00047">tabuleiro.cpp:47</a></div></div>
+<div class="ttc" id="aclass_tabuleiro_html_ae76781eee765933d487c26ab7f97cb92"><div class="ttname"><a href="class_tabuleiro.html#ae76781eee765933d487c26ab7f97cb92">Tabuleiro::exibirTabuleiro</a></div><div class="ttdeci">void exibirTabuleiro() const</div><div class="ttdoc">Exibe o tabuleiro no console.</div><div class="ttdef"><b>Definition:</b> <a href="tabuleiro_8cpp_source.html#l00029">tabuleiro.cpp:29</a></div></div>
+<div class="ttc" id="aclass_velha_html_a04c6760cc79c0c2ea07fc87bc3c3c2af"><div class="ttname"><a href="class_velha.html#a04c6760cc79c0c2ea07fc87bc3c3c2af">Velha::verificaColuna</a></div><div class="ttdeci">bool verificaColuna(const std::string &amp;estado, int coluna, char valor)</div><div class="ttdoc">Verifica se há uma sequência vencedora em uma coluna do tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00157">velha.cpp:157</a></div></div>
+<div class="ttc" id="aclass_velha_html_a08b9381c32a495091ac995193f9442ed"><div class="ttname"><a href="class_velha.html#a08b9381c32a495091ac995193f9442ed">Velha::solicitarJogada</a></div><div class="ttdeci">bool solicitarJogada(std::string &amp;jogador, int &amp;linha, int &amp;coluna)</div><div class="ttdoc">Solicita ao jogador que insira uma jogada.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00024">velha.cpp:24</a></div></div>
+<div class="ttc" id="aclass_velha_html_a0b0f52656c268f6df19489960f51ad16"><div class="ttname"><a href="class_velha.html#a0b0f52656c268f6df19489960f51ad16">Velha::jogada</a></div><div class="ttdeci">bool jogada(std::string jogador1, std::string jogador2, char valor)</div><div class="ttdoc">Realiza uma jogada no tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00042">velha.cpp:42</a></div></div>
+<div class="ttc" id="aclass_velha_html_a11792631f730374136669ec68a2a3a47"><div class="ttname"><a href="class_velha.html#a11792631f730374136669ec68a2a3a47">Velha::tabuleiro</a></div><div class="ttdeci">Tabuleiro tabuleiro</div><div class="ttdoc">Objeto que representa o tabuleiro do jogo.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8hpp_source.html#l00026">velha.hpp:26</a></div></div>
+<div class="ttc" id="aclass_velha_html_a12968ca296baf7d63951461e522d1ebf"><div class="ttname"><a href="class_velha.html#a12968ca296baf7d63951461e522d1ebf">Velha::vencedor</a></div><div class="ttdeci">char vencedor</div><div class="ttdoc">Armazena o caractere do jogador vencedor ('X' ou 'O').</div><div class="ttdef"><b>Definition:</b> <a href="velha_8hpp_source.html#l00025">velha.hpp:25</a></div></div>
+<div class="ttc" id="aclass_velha_html_a22d15f7790e62e8ae580066b6f60a1e3"><div class="ttname"><a href="class_velha.html#a22d15f7790e62e8ae580066b6f60a1e3">Velha::verificaGanhador</a></div><div class="ttdeci">bool verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) override</div><div class="ttdoc">Verifica se há um vencedor no jogo.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00197">velha.cpp:197</a></div></div>
+<div class="ttc" id="aclass_velha_html_a44fc34a80968bbbfc044f69cded9e52c"><div class="ttname"><a href="class_velha.html#a44fc34a80968bbbfc044f69cded9e52c">Velha::verificaDiagonais</a></div><div class="ttdeci">bool verificaDiagonais(const std::string &amp;estado, char valor)</div><div class="ttdoc">Verifica se há uma sequência vencedora nas diagonais do tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00167">velha.cpp:167</a></div></div>
+<div class="ttc" id="aclass_velha_html_a704fdfa35b3bb441c10acf60a423d2cc"><div class="ttname"><a href="class_velha.html#a704fdfa35b3bb441c10acf60a423d2cc">Velha::verificaTabuleiroCompleto</a></div><div class="ttdeci">bool verificaTabuleiroCompleto(const std::string &amp;jogador1, const std::string &amp;jogador2, bool minimax)</div><div class="ttdoc">Verifica se o tabuleiro está completamente preenchido (empate).</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00176">velha.cpp:176</a></div></div>
+<div class="ttc" id="aclass_velha_html_a7d207df9d99b3ebab54bd136490ff9c8"><div class="ttname"><a href="class_velha.html#a7d207df9d99b3ebab54bd136490ff9c8">Velha::~Velha</a></div><div class="ttdeci">~Velha()</div><div class="ttdoc">Destrutor da classe Velha.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00216">velha.cpp:216</a></div></div>
+<div class="ttc" id="aclass_velha_html_a9bbf6441f94f40a9ee0bb804b0211c80"><div class="ttname"><a href="class_velha.html#a9bbf6441f94f40a9ee0bb804b0211c80">Velha::verificaLinha</a></div><div class="ttdeci">bool verificaLinha(const std::string &amp;estado, int linha, char valor)</div><div class="ttdoc">Verifica se há uma sequência vencedora em uma linha do tabuleiro.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00146">velha.cpp:146</a></div></div>
+<div class="ttc" id="aclass_velha_html_aa6e7e77d92fc94ed80df150444ef96ce"><div class="ttname"><a href="class_velha.html#aa6e7e77d92fc94ed80df150444ef96ce">Velha::frase</a></div><div class="ttdeci">std::string frase()</div><div class="ttdoc">Retorna uma frase aleatória de um arquivo de texto.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00003">velha.cpp:3</a></div></div>
+<div class="ttc" id="aclass_velha_html_aaab78ed3662cb0f0861c1732725b7626"><div class="ttname"><a href="class_velha.html#aaab78ed3662cb0f0861c1732725b7626">Velha::verificaJogada</a></div><div class="ttdeci">bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override</div><div class="ttdoc">Verifica se uma jogada é válida.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00125">velha.cpp:125</a></div></div>
+<div class="ttc" id="aclass_velha_html_acec21d4a18ac771fa857a19214de8f21"><div class="ttname"><a href="class_velha.html#acec21d4a18ac771fa857a19214de8f21">Velha::criaTabuleiro</a></div><div class="ttdeci">void criaTabuleiro() override</div><div class="ttdoc">Cria e exibe o tabuleiro do jogo da velha.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00120">velha.cpp:120</a></div></div>
+<div class="ttc" id="aclass_velha_html_af21bf0bcbc8522ac9804d677e0a3e7f5"><div class="ttname"><a href="class_velha.html#af21bf0bcbc8522ac9804d677e0a3e7f5">Velha::iniciarJogo</a></div><div class="ttdeci">void iniciarJogo() override</div><div class="ttdoc">Inicia o jogo da velha.</div><div class="ttdef"><b>Definition:</b> <a href="velha_8cpp_source.html#l00063">velha.cpp:63</a></div></div>
+<div class="ttc" id="avelha_8hpp_html"><div class="ttname"><a href="velha_8hpp.html">velha.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <map id="Velha" name="Velha">
 <area shape="rect" id="node1" title="Classe que implementa o jogo da velha." alt="" coords="116,193,174,222"/>
 <area shape="rect" id="node2" href="$class_jogos.html" title=" " alt="" coords="49,99,105,128"/>
-<area shape="rect" id="node3" href="$class_cadastro_jogadores.html" title=" " alt="" coords="5,5,149,34"/>
+<area shape="rect" id="node3" href="$class_cadastro_jogadores.html" title="Classe responsável por gerenciar o cadastro de jogadores." alt="" coords="5,5,149,34"/>
 <area shape="rect" id="node4" href="$class_tabuleiro.html" title="Representa um tabuleiro que pode ser utilizado para diferentes aplicações." alt="" coords="129,99,209,128"/>
 </map>

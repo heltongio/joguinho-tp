@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>JogosTabuleiros: Código-Fonte de src/jogos.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">JogosTabuleiros
+   </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">jogos.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="jogos_8cpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jogos_8hpp.html">jogos.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="velha_8hpp.html">velha.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">    4</a></span>&#160;<a class="code" href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Jogos::Jogos</a>(std::string jogador1, std::string jogador2, <a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a>&amp; manager)</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    : jogador1(jogador1), jogador2(jogador2), manager(manager) {}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">    7</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">Jogos::iniciarJogo</a>(){}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_jogos.html#acc0b1ddcf53b7e2b8a9117e5cda650fe">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_jogos.html#acc0b1ddcf53b7e2b8a9117e5cda650fe">Jogos::criaTabuleiro</a>(){}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">   12</a></span>&#160;<a class="code" href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">Jogos::~Jogos</a>() {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="ttc" id="aclass_cadastro_jogadores_html"><div class="ttname"><a href="class_cadastro_jogadores.html">CadastroJogadores</a></div><div class="ttdoc">Classe responsável por gerenciar o cadastro de jogadores.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8hpp_source.html#l00027">gerente.hpp:27</a></div></div>
+<div class="ttc" id="aclass_jogos_html_a67bcdb76ed95071291667ff50447f86a"><div class="ttname"><a href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">Jogos::~Jogos</a></div><div class="ttdeci">virtual ~Jogos()</div><div class="ttdoc">Destrutor virtual da classe Jogos.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8cpp_source.html#l00012">jogos.cpp:12</a></div></div>
+<div class="ttc" id="aclass_jogos_html_aacebcc91ab4a9f1cbb67010c6ef78d0a"><div class="ttname"><a href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">Jogos::iniciarJogo</a></div><div class="ttdeci">virtual void iniciarJogo()</div><div class="ttdoc">Método virtual para iniciar o jogo.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8cpp_source.html#l00007">jogos.cpp:7</a></div></div>
+<div class="ttc" id="aclass_jogos_html_acc0b1ddcf53b7e2b8a9117e5cda650fe"><div class="ttname"><a href="class_jogos.html#acc0b1ddcf53b7e2b8a9117e5cda650fe">Jogos::criaTabuleiro</a></div><div class="ttdeci">virtual void criaTabuleiro()=0</div><div class="ttdoc">Método virtual puro para criar o tabuleiro do jogo.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8cpp_source.html#l00009">jogos.cpp:9</a></div></div>
+<div class="ttc" id="aclass_jogos_html_aef222c30679e2476002317c4ab4eeb84"><div class="ttname"><a href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Jogos::Jogos</a></div><div class="ttdeci">Jogos(std::string jogador1, std::string jogador2, CadastroJogadores &amp;manager)</div><div class="ttdoc">Construtor da classe Jogos.</div><div class="ttdef"><b>Definition:</b> <a href="jogos_8cpp_source.html#l00004">jogos.cpp:4</a></div></div>
+<div class="ttc" id="ajogos_8hpp_html"><div class="ttname"><a href="jogos_8hpp.html">jogos.hpp</a></div></div>
+<div class="ttc" id="avelha_8hpp_html"><div class="ttname"><a href="velha_8hpp.html">velha.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

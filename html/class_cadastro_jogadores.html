@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à classe CadastroJogadores</title>
+<title>JogosTabuleiros: Referência da Classe CadastroJogadores</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,49 +63,406 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="class_cadastro_jogadores-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="class_cadastro_jogadores-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe CadastroJogadores</div>  </div>
+<div class="title">Referência da Classe CadastroJogadores</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe responsável por gerenciar o cadastro de jogadores.  
+ <a href="class_cadastro_jogadores.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="gerente_8hpp_source.html">gerente.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:ab6ff38119953fb226968c4a6e95dc65e"><td class="memItemLeft" align="right" valign="top"><a id="ab6ff38119953fb226968c4a6e95dc65e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>CadastroJogadores</b> (std::string)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a0d6ec5d2d5c842cb0465b19a4630a7ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a0d6ec5d2d5c842cb0465b19a4630a7ca">CadastroJogadores</a> ()=default</td></tr>
+<tr class="memdesc:a0d6ec5d2d5c842cb0465b19a4630a7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão.  <a href="class_cadastro_jogadores.html#a0d6ec5d2d5c842cb0465b19a4630a7ca">Mais...</a><br /></td></tr>
+<tr class="separator:a0d6ec5d2d5c842cb0465b19a4630a7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ff38119953fb226968c4a6e95dc65e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#ab6ff38119953fb226968c4a6e95dc65e">CadastroJogadores</a> (std::string)</td></tr>
+<tr class="memdesc:ab6ff38119953fb226968c4a6e95dc65e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe o caminho do arquivo.  <a href="class_cadastro_jogadores.html#ab6ff38119953fb226968c4a6e95dc65e">Mais...</a><br /></td></tr>
 <tr class="separator:ab6ff38119953fb226968c4a6e95dc65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c0b931d41880a19e49c715d882b0d3"><td class="memItemLeft" align="right" valign="top"><a id="ae0c0b931d41880a19e49c715d882b0d3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ConstruirVetor</b> ()</td></tr>
+<tr class="memitem:ae0c0b931d41880a19e49c715d882b0d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#ae0c0b931d41880a19e49c715d882b0d3">ConstruirVetor</a> ()</td></tr>
+<tr class="memdesc:ae0c0b931d41880a19e49c715d882b0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o vetor de jogadores com os dados do arquivo txt.  <a href="class_cadastro_jogadores.html#ae0c0b931d41880a19e49c715d882b0d3">Mais...</a><br /></td></tr>
 <tr class="separator:ae0c0b931d41880a19e49c715d882b0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a711b485223a51112955b787610e77d91"><td class="memItemLeft" align="right" valign="top"><a id="a711b485223a51112955b787610e77d91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CadastrarJogador</b> (const std::string, const std::string)</td></tr>
+<tr class="memitem:a711b485223a51112955b787610e77d91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a711b485223a51112955b787610e77d91">CadastrarJogador</a> (const std::string, const std::string)</td></tr>
+<tr class="memdesc:a711b485223a51112955b787610e77d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adicona um jogador com nenhuma vitoria/derrota com o contrato &lt;apelido&gt; &lt;nome&gt;  <a href="class_cadastro_jogadores.html#a711b485223a51112955b787610e77d91">Mais...</a><br /></td></tr>
 <tr class="separator:a711b485223a51112955b787610e77d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b11103997a3319af00147920f759e5c"><td class="memItemLeft" align="right" valign="top"><a id="a5b11103997a3319af00147920f759e5c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RemoverJogador</b> (const std::string)</td></tr>
+<tr class="memitem:a5b11103997a3319af00147920f759e5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a5b11103997a3319af00147920f759e5c">RemoverJogador</a> (const std::string)</td></tr>
+<tr class="memdesc:a5b11103997a3319af00147920f759e5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um jogador do cadastro utilizando o apelido &lt;apelido&gt;.  <a href="class_cadastro_jogadores.html#a5b11103997a3319af00147920f759e5c">Mais...</a><br /></td></tr>
 <tr class="separator:a5b11103997a3319af00147920f759e5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564319d1969dee9a0d9f2e27b8c919ac"><td class="memItemLeft" align="right" valign="top"><a id="a564319d1969dee9a0d9f2e27b8c919ac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SalvarArquivo</b> ()</td></tr>
+<tr class="memitem:a564319d1969dee9a0d9f2e27b8c919ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a564319d1969dee9a0d9f2e27b8c919ac">SalvarArquivo</a> ()</td></tr>
+<tr class="memdesc:a564319d1969dee9a0d9f2e27b8c919ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva os dados dos jogadores no arquivo.  <a href="class_cadastro_jogadores.html#a564319d1969dee9a0d9f2e27b8c919ac">Mais...</a><br /></td></tr>
 <tr class="separator:a564319d1969dee9a0d9f2e27b8c919ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ccce92ed53b99afc4a2faa46b74a7f6"><td class="memItemLeft" align="right" valign="top"><a id="a0ccce92ed53b99afc4a2faa46b74a7f6"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>VerificaJogadores</b> (std::string apelido)</td></tr>
+<tr class="memitem:a0ccce92ed53b99afc4a2faa46b74a7f6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a0ccce92ed53b99afc4a2faa46b74a7f6">VerificaJogadores</a> (std::string apelido)</td></tr>
+<tr class="memdesc:a0ccce92ed53b99afc4a2faa46b74a7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um jogador está cadastrado.  <a href="class_cadastro_jogadores.html#a0ccce92ed53b99afc4a2faa46b74a7f6">Mais...</a><br /></td></tr>
 <tr class="separator:a0ccce92ed53b99afc4a2faa46b74a7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e28d6bb8f478de89cb06f184caafb08"><td class="memItemLeft" align="right" valign="top"><a id="a1e28d6bb8f478de89cb06f184caafb08"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OrganizaJogadores</b> ()</td></tr>
+<tr class="memitem:a1e28d6bb8f478de89cb06f184caafb08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a1e28d6bb8f478de89cb06f184caafb08">OrganizaJogadores</a> ()</td></tr>
+<tr class="memdesc:a1e28d6bb8f478de89cb06f184caafb08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ordena os jogadores em ordem alfabética pelo apelido.  <a href="class_cadastro_jogadores.html#a1e28d6bb8f478de89cb06f184caafb08">Mais...</a><br /></td></tr>
 <tr class="separator:a1e28d6bb8f478de89cb06f184caafb08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41d714e9426bd37b9876e10f8603443b"><td class="memItemLeft" align="right" valign="top"><a id="a41d714e9426bd37b9876e10f8603443b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddVit</b> (const std::string, const std::string)</td></tr>
+<tr class="memitem:a41d714e9426bd37b9876e10f8603443b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">AddVit</a> (const std::string, const std::string)</td></tr>
+<tr class="memdesc:a41d714e9426bd37b9876e10f8603443b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma vitória ao jogador em um jogo específico.  <a href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">Mais...</a><br /></td></tr>
 <tr class="separator:a41d714e9426bd37b9876e10f8603443b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2783eb8c25f81aaaf9a0543a82e9f7f2"><td class="memItemLeft" align="right" valign="top"><a id="a2783eb8c25f81aaaf9a0543a82e9f7f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddDer</b> (const std::string, const std::string)</td></tr>
+<tr class="memitem:a2783eb8c25f81aaaf9a0543a82e9f7f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">AddDer</a> (const std::string, const std::string)</td></tr>
+<tr class="memdesc:a2783eb8c25f81aaaf9a0543a82e9f7f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma derrota ao jogador em um jogo específico.  <a href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">Mais...</a><br /></td></tr>
 <tr class="separator:a2783eb8c25f81aaaf9a0543a82e9f7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3e212d071a3885b7389e8066b4a417e"><td class="memItemLeft" align="right" valign="top"><a id="af3e212d071a3885b7389e8066b4a417e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PrintJogadores</b> ()</td></tr>
+<tr class="memitem:af3e212d071a3885b7389e8066b4a417e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#af3e212d071a3885b7389e8066b4a417e">PrintJogadores</a> ()</td></tr>
+<tr class="memdesc:af3e212d071a3885b7389e8066b4a417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe a lista de jogadores e seus dados.  <a href="class_cadastro_jogadores.html#af3e212d071a3885b7389e8066b4a417e">Mais...</a><br /></td></tr>
 <tr class="separator:af3e212d071a3885b7389e8066b4a417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a5b6f70f4646f2d6f338a612a5cbb3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cadastro_jogadores.html#a2a5b6f70f4646f2d6f338a612a5cbb3d">~CadastroJogadores</a> ()</td></tr>
+<tr class="memdesc:a2a5b6f70f4646f2d6f338a612a5cbb3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe.  <a href="class_cadastro_jogadores.html#a2a5b6f70f4646f2d6f338a612a5cbb3d">Mais...</a><br /></td></tr>
+<tr class="separator:a2a5b6f70f4646f2d6f338a612a5cbb3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe responsável por gerenciar o cadastro de jogadores. </p>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8hpp_source.html#l00027">27</a> do arquivo <a class="el" href="gerente_8hpp_source.html">gerente.hpp</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a0d6ec5d2d5c842cb0465b19a4630a7ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d6ec5d2d5c842cb0465b19a4630a7ca">&#9670;&nbsp;</a></span>CadastroJogadores() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CadastroJogadores::CadastroJogadores </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construtor padrão. </p>
+
+</div>
+</div>
+<a id="ab6ff38119953fb226968c4a6e95dc65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ff38119953fb226968c4a6e95dc65e">&#9670;&nbsp;</a></span>CadastroJogadores() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CadastroJogadores::CadastroJogadores </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>caminho</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor que recebe o caminho do arquivo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho</td><td>Caminho do arquivo contendo os dados dos jogadores. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2a5b6f70f4646f2d6f338a612a5cbb3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5b6f70f4646f2d6f338a612a5cbb3d">&#9670;&nbsp;</a></span>~CadastroJogadores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CadastroJogadores::~CadastroJogadores </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destrutor da classe. </p>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00198">198</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções membros</h2>
+<a id="a2783eb8c25f81aaaf9a0543a82e9f7f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2783eb8c25f81aaaf9a0543a82e9f7f2">&#9670;&nbsp;</a></span>AddDer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::AddDer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>apelido</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>jogo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona uma derrota ao jogador em um jogo específico. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">apelido</td><td>Apelido do jogador. </td></tr>
+    <tr><td class="paramname">jogo</td><td>Nome do jogo ("velha", "lig4", "reversi"). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00177">177</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a41d714e9426bd37b9876e10f8603443b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d714e9426bd37b9876e10f8603443b">&#9670;&nbsp;</a></span>AddVit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::AddVit </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>apelido</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>jogo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adiciona uma vitória ao jogador em um jogo específico. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">apelido</td><td>Apelido do jogador. </td></tr>
+    <tr><td class="paramname">jogo</td><td>Nome do jogo ("velha", "lig4", "reversi"). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00168">168</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a711b485223a51112955b787610e77d91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a711b485223a51112955b787610e77d91">&#9670;&nbsp;</a></span>CadastrarJogador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::CadastrarJogador </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>apelido</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>nome</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adicona um jogador com nenhuma vitoria/derrota com o contrato &lt;apelido&gt; &lt;nome&gt; </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">apelido</td><td>Apelido do jogador. </td></tr>
+    <tr><td class="paramname">nome</td><td>Nome completo do jogador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00065">65</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae0c0b931d41880a19e49c715d882b0d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0c0b931d41880a19e49c715d882b0d3">&#9670;&nbsp;</a></span>ConstruirVetor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::ConstruirVetor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa o vetor de jogadores com os dados do arquivo txt. </p>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00060">60</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1e28d6bb8f478de89cb06f184caafb08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e28d6bb8f478de89cb06f184caafb08">&#9670;&nbsp;</a></span>OrganizaJogadores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::OrganizaJogadores </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ordena os jogadores em ordem alfabética pelo apelido. </p>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00155">155</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af3e212d071a3885b7389e8066b4a417e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3e212d071a3885b7389e8066b4a417e">&#9670;&nbsp;</a></span>PrintJogadores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::PrintJogadores </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exibe a lista de jogadores e seus dados. </p>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00186">186</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5b11103997a3319af00147920f759e5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b11103997a3319af00147920f759e5c">&#9670;&nbsp;</a></span>RemoverJogador()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::RemoverJogador </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>apelido</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um jogador do cadastro utilizando o apelido &lt;apelido&gt;. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">apelido</td><td>Apelido do jogador a ser removido. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00111">111</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a564319d1969dee9a0d9f2e27b8c919ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a564319d1969dee9a0d9f2e27b8c919ac">&#9670;&nbsp;</a></span>SalvarArquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CadastroJogadores::SalvarArquivo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Salva os dados dos jogadores no arquivo. </p>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00161">161</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0ccce92ed53b99afc4a2faa46b74a7f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ccce92ed53b99afc4a2faa46b74a7f6">&#9670;&nbsp;</a></span>VerificaJogadores()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CadastroJogadores::VerificaJogadores </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>apelido</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se um jogador está cadastrado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">apelido</td><td>Apelido do jogador. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O apelido do jogador, caso encontrado. </dd></dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se o jogador não estiver cadastrado. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="gerente_8cpp_source.html#l00135">135</a> do arquivo <a class="el" href="gerente_8cpp_source.html">gerente.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="gerente_8hpp_source.html">gerente.hpp</a></li>
-<li>src/gerente.cpp</li>
+<li>src/<a class="el" href="gerente_8cpp_source.html">gerente.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

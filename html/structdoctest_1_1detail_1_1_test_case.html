@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à estrutura doctest::detail::TestCase</title>
+<title>JogosTabuleiros: Referência da Estrutura doctest::detail::TestCase</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -61,20 +62,22 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>doctest</b></li><li class="navelem"><b>detail</b></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacedoctest.html">doctest</a></li><li class="navelem"><a class="el" href="namespacedoctest_1_1detail.html">detail</a></li><li class="navelem"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
+<a href="#pub-methods">Membros Públicos</a> &#124;
 <a href="#pub-attribs">Atributos Públicos</a> &#124;
-<a href="structdoctest_1_1detail_1_1_test_case-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="structdoctest_1_1detail_1_1_test_case-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à estrutura doctest::detail::TestCase</div>  </div>
+<div class="title">Referência da Estrutura doctest::detail::TestCase</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="doctest_8h_source.html">doctest.h</a>&gt;</code></p>
 <div class="dynheader">
-Diagrama de heranças da classe doctest::detail::TestCase</div>
+Diagrama de hierarquia para doctest::detail::TestCase:</div>
 <div class="dyncontent">
 <div class="center"><img src="structdoctest_1_1detail_1_1_test_case__inherit__graph.png" border="0" usemap="#adoctest_1_1detail_1_1_test_case_inherit__map" alt="Inheritance graph"/></div>
 <map name="adoctest_1_1detail_1_1_test_case_inherit__map" id="adoctest_1_1detail_1_1_test_case_inherit__map">
@@ -95,86 +98,365 @@ Diagrama de colaboração para doctest::detail::TestCase:</div>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:a0c18ba2713bb9db7dc3e7b35854c4840"><td class="memItemLeft" align="right" valign="top"><a id="a0c18ba2713bb9db7dc3e7b35854c4840"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TestCase</b> (funcType test, const char *file, unsigned line, const <a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;test_suite, const <a class="el" href="classdoctest_1_1_string.html">String</a> &amp;type=<a class="el" href="classdoctest_1_1_string.html">String</a>(), int template_id=-1)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a0c18ba2713bb9db7dc3e7b35854c4840"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a0c18ba2713bb9db7dc3e7b35854c4840">TestCase</a> (<a class="el" href="namespacedoctest_1_1detail.html#a25b5e019078af59a5e84982fddfbc9c1">funcType</a> test, const char *file, unsigned line, const <a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;test_suite, const <a class="el" href="classdoctest_1_1_string.html">String</a> &amp;type=<a class="el" href="classdoctest_1_1_string.html">String</a>(), int template_id=-1)</td></tr>
 <tr class="separator:a0c18ba2713bb9db7dc3e7b35854c4840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d8aa1f3d0cbd31f3bc4a74d9c6add23"><td class="memItemLeft" align="right" valign="top"><a id="a0d8aa1f3d0cbd31f3bc4a74d9c6add23"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TestCase</b> (const <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;other)</td></tr>
+<tr class="memitem:a0d8aa1f3d0cbd31f3bc4a74d9c6add23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a0d8aa1f3d0cbd31f3bc4a74d9c6add23">TestCase</a> (const <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;other)</td></tr>
 <tr class="separator:a0d8aa1f3d0cbd31f3bc4a74d9c6add23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64af5df2fca574ebd242ab756dc7064d"><td class="memItemLeft" align="right" valign="top"><a id="a64af5df2fca574ebd242ab756dc7064d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TestCase</b> (<a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a64af5df2fca574ebd242ab756dc7064d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a64af5df2fca574ebd242ab756dc7064d">TestCase</a> (<a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a64af5df2fca574ebd242ab756dc7064d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e767f89d496f2dc80ebbab72677c754"><td class="memItemLeft" align="right" valign="top"><a id="a3e767f89d496f2dc80ebbab72677c754"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DOCTEST_MSVC_SUPPRESS_WARNING_WITH_PUSH</b> (26434) <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;operator</td></tr>
+<tr class="memitem:a3e767f89d496f2dc80ebbab72677c754"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a3e767f89d496f2dc80ebbab72677c754">DOCTEST_MSVC_SUPPRESS_WARNING_WITH_PUSH</a> (26434) <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;operator</td></tr>
 <tr class="separator:a3e767f89d496f2dc80ebbab72677c754"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c74de90d396e94f58da3f8d31ebde14"><td class="memItemLeft" align="right" valign="top"><a id="a9c74de90d396e94f58da3f8d31ebde14"></a>
-DOCTEST_MSVC_SUPPRESS_WARNING_POP <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a9c74de90d396e94f58da3f8d31ebde14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="doctest_8h.html#a540e6314c4b71317f3459f0117e14bc8">DOCTEST_MSVC_SUPPRESS_WARNING_POP</a> <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a9c74de90d396e94f58da3f8d31ebde14">operator=</a> (<a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a9c74de90d396e94f58da3f8d31ebde14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a016ebe61334d9301c0b900ce242f69a1"><td class="memItemLeft" align="right" valign="top"><a id="a016ebe61334d9301c0b900ce242f69a1"></a>
-<a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const char *in)</td></tr>
+<tr class="memitem:a016ebe61334d9301c0b900ce242f69a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a016ebe61334d9301c0b900ce242f69a1">operator*</a> (const char *in)</td></tr>
 <tr class="separator:a016ebe61334d9301c0b900ce242f69a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ff8c8e9a0e4515dbef926a835b447f9"><td class="memTemplParams" colspan="2"><a id="a7ff8c8e9a0e4515dbef926a835b447f9"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a7ff8c8e9a0e4515dbef926a835b447f9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator*</b> (const T &amp;in)</td></tr>
+<tr class="memitem:a7ff8c8e9a0e4515dbef926a835b447f9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7ff8c8e9a0e4515dbef926a835b447f9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a7ff8c8e9a0e4515dbef926a835b447f9">operator*</a> (const T &amp;in)</td></tr>
 <tr class="separator:a7ff8c8e9a0e4515dbef926a835b447f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a865f5906758263125b68b8d785a05ca1"><td class="memItemLeft" align="right" valign="top"><a id="a865f5906758263125b68b8d785a05ca1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;other) const</td></tr>
+<tr class="memitem:a865f5906758263125b68b8d785a05ca1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a865f5906758263125b68b8d785a05ca1">operator&lt;</a> (const <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;other) const</td></tr>
 <tr class="separator:a865f5906758263125b68b8d785a05ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fed36b077f87cd75276875fe1db00b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a1fed36b077f87cd75276875fe1db00b9">~TestCase</a> ()=default</td></tr>
+<tr class="separator:a1fed36b077f87cd75276875fe1db00b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:aba46691733c89216ce6b0ac0b7dc6b42"><td class="memItemLeft" align="right" valign="top"><a id="aba46691733c89216ce6b0ac0b7dc6b42"></a>
-funcType&#160;</td><td class="memItemRight" valign="bottom"><b>m_test</b></td></tr>
+<tr class="memitem:aba46691733c89216ce6b0ac0b7dc6b42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacedoctest_1_1detail.html#a25b5e019078af59a5e84982fddfbc9c1">funcType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#aba46691733c89216ce6b0ac0b7dc6b42">m_test</a></td></tr>
 <tr class="separator:aba46691733c89216ce6b0ac0b7dc6b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ffb163e420de6387a52def254a52438"><td class="memItemLeft" align="right" valign="top"><a id="a8ffb163e420de6387a52def254a52438"></a>
-<a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_type</b></td></tr>
+<tr class="memitem:a8ffb163e420de6387a52def254a52438"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a8ffb163e420de6387a52def254a52438">m_type</a></td></tr>
 <tr class="separator:a8ffb163e420de6387a52def254a52438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5183eb061a33329ede72791ad3457f9"><td class="memItemLeft" align="right" valign="top"><a id="af5183eb061a33329ede72791ad3457f9"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_template_id</b></td></tr>
+<tr class="memitem:af5183eb061a33329ede72791ad3457f9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#af5183eb061a33329ede72791ad3457f9">m_template_id</a></td></tr>
 <tr class="separator:af5183eb061a33329ede72791ad3457f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30f21f77461de7bd68dc44362171b62a"><td class="memItemLeft" align="right" valign="top"><a id="a30f21f77461de7bd68dc44362171b62a"></a>
-<a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_full_name</b></td></tr>
+<tr class="memitem:a30f21f77461de7bd68dc44362171b62a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html#a30f21f77461de7bd68dc44362171b62a">m_full_name</a></td></tr>
 <tr class="separator:a30f21f77461de7bd68dc44362171b62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_structdoctest_1_1_test_case_data"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_structdoctest_1_1_test_case_data')"><img src="closed.png" alt="-"/>&#160;Atributos Públicos herdados de <a class="el" href="structdoctest_1_1_test_case_data.html">doctest::TestCaseData</a></td></tr>
-<tr class="memitem:ac3e8095418a13cd7bbc921cce5b3c5c6 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="ac3e8095418a13cd7bbc921cce5b3c5c6"></a>
-<a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_file</b></td></tr>
+<tr class="memitem:ac3e8095418a13cd7bbc921cce5b3c5c6 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#ac3e8095418a13cd7bbc921cce5b3c5c6">m_file</a></td></tr>
 <tr class="separator:ac3e8095418a13cd7bbc921cce5b3c5c6 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaabb9765e7aa39416c058a9cbccef57f inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="aaabb9765e7aa39416c058a9cbccef57f"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>m_line</b></td></tr>
+<tr class="memitem:aaabb9765e7aa39416c058a9cbccef57f inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#aaabb9765e7aa39416c058a9cbccef57f">m_line</a></td></tr>
 <tr class="separator:aaabb9765e7aa39416c058a9cbccef57f inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb34895130be773e624526d68e5b2cd inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a0cb34895130be773e624526d68e5b2cd"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_name</b></td></tr>
+<tr class="memitem:a0cb34895130be773e624526d68e5b2cd inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a0cb34895130be773e624526d68e5b2cd">m_name</a></td></tr>
 <tr class="separator:a0cb34895130be773e624526d68e5b2cd inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae264da66ff0e88a34c467d364dd18840 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="ae264da66ff0e88a34c467d364dd18840"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_test_suite</b></td></tr>
+<tr class="memitem:ae264da66ff0e88a34c467d364dd18840 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#ae264da66ff0e88a34c467d364dd18840">m_test_suite</a></td></tr>
 <tr class="separator:ae264da66ff0e88a34c467d364dd18840 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd855851b4b9edbaf46c3458abc1ba80 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="abd855851b4b9edbaf46c3458abc1ba80"></a>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>m_description</b></td></tr>
+<tr class="memitem:abd855851b4b9edbaf46c3458abc1ba80 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#abd855851b4b9edbaf46c3458abc1ba80">m_description</a></td></tr>
 <tr class="separator:abd855851b4b9edbaf46c3458abc1ba80 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c2353bd3fd8c2fa84d34ab4e973e038 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a0c2353bd3fd8c2fa84d34ab4e973e038"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_skip</b></td></tr>
+<tr class="memitem:a0c2353bd3fd8c2fa84d34ab4e973e038 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a0c2353bd3fd8c2fa84d34ab4e973e038">m_skip</a></td></tr>
 <tr class="separator:a0c2353bd3fd8c2fa84d34ab4e973e038 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4876d06d5172070efeeb7d15bd786cf inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="aa4876d06d5172070efeeb7d15bd786cf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_no_breaks</b></td></tr>
+<tr class="memitem:aa4876d06d5172070efeeb7d15bd786cf inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#aa4876d06d5172070efeeb7d15bd786cf">m_no_breaks</a></td></tr>
 <tr class="separator:aa4876d06d5172070efeeb7d15bd786cf inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23480651d6a09b34d76ede3fd11dd587 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a23480651d6a09b34d76ede3fd11dd587"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_no_output</b></td></tr>
+<tr class="memitem:a23480651d6a09b34d76ede3fd11dd587 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a23480651d6a09b34d76ede3fd11dd587">m_no_output</a></td></tr>
 <tr class="separator:a23480651d6a09b34d76ede3fd11dd587 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a887b70bf52f74724f0d7fe99d43a8783 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a887b70bf52f74724f0d7fe99d43a8783"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_may_fail</b></td></tr>
+<tr class="memitem:a887b70bf52f74724f0d7fe99d43a8783 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a887b70bf52f74724f0d7fe99d43a8783">m_may_fail</a></td></tr>
 <tr class="separator:a887b70bf52f74724f0d7fe99d43a8783 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a037f6dfb931aff9c9b17f31203a3987e inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a037f6dfb931aff9c9b17f31203a3987e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_should_fail</b></td></tr>
+<tr class="memitem:a037f6dfb931aff9c9b17f31203a3987e inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a037f6dfb931aff9c9b17f31203a3987e">m_should_fail</a></td></tr>
 <tr class="separator:a037f6dfb931aff9c9b17f31203a3987e inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c5995f53ad39769bf06600e562ea9eb inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a6c5995f53ad39769bf06600e562ea9eb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>m_expected_failures</b></td></tr>
+<tr class="memitem:a6c5995f53ad39769bf06600e562ea9eb inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a6c5995f53ad39769bf06600e562ea9eb">m_expected_failures</a></td></tr>
 <tr class="separator:a6c5995f53ad39769bf06600e562ea9eb inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cab4a7998b486bafa81498f93dd4d91 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top"><a id="a8cab4a7998b486bafa81498f93dd4d91"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_timeout</b></td></tr>
+<tr class="memitem:a8cab4a7998b486bafa81498f93dd4d91 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1_test_case_data.html#a8cab4a7998b486bafa81498f93dd4d91">m_timeout</a></td></tr>
 <tr class="separator:a8cab4a7998b486bafa81498f93dd4d91 inherit pub_attribs_structdoctest_1_1_test_case_data"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock">
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01615">1615</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a0c18ba2713bb9db7dc3e7b35854c4840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c18ba2713bb9db7dc3e7b35854c4840">&#9670;&nbsp;</a></span>TestCase() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::TestCase::TestCase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacedoctest_1_1detail.html#a25b5e019078af59a5e84982fddfbc9c1">funcType</a>&#160;</td>
+          <td class="paramname"><em>test</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structdoctest_1_1detail_1_1_test_suite.html">TestSuite</a> &amp;&#160;</td>
+          <td class="paramname"><em>test_suite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classdoctest_1_1_string.html">String</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em> = <code><a class="el" href="classdoctest_1_1_string.html">String</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>template_id</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d8aa1f3d0cbd31f3bc4a74d9c6add23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d8aa1f3d0cbd31f3bc4a74d9c6add23">&#9670;&nbsp;</a></span>TestCase() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::TestCase::TestCase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64af5df2fca574ebd242ab756dc7064d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64af5df2fca574ebd242ab756dc7064d">&#9670;&nbsp;</a></span>TestCase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::TestCase::TestCase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1fed36b077f87cd75276875fe1db00b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fed36b077f87cd75276875fe1db00b9">&#9670;&nbsp;</a></span>~TestCase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::TestCase::~TestCase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Funções membros</h2>
+<a id="a3e767f89d496f2dc80ebbab72677c754"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e767f89d496f2dc80ebbab72677c754">&#9670;&nbsp;</a></span>DOCTEST_MSVC_SUPPRESS_WARNING_WITH_PUSH()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">doctest::detail::TestCase::DOCTEST_MSVC_SUPPRESS_WARNING_WITH_PUSH </td>
+          <td>(</td>
+          <td class="paramtype">26434&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> &amp;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a016ebe61334d9301c0b900ce242f69a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a016ebe61334d9301c0b900ce242f69a1">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a>&amp; doctest::detail::TestCase::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ff8c8e9a0e4515dbef926a835b447f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff8c8e9a0e4515dbef926a835b447f9">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a>&amp; doctest::detail::TestCase::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01638">1638</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a865f5906758263125b68b8d785a05ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a865f5906758263125b68b8d785a05ca1">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool doctest::detail::TestCase::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c74de90d396e94f58da3f8d31ebde14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c74de90d396e94f58da3f8d31ebde14">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="doctest_8h.html#a540e6314c4b71317f3459f0117e14bc8">DOCTEST_MSVC_SUPPRESS_WARNING_POP</a> <a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a>&amp; doctest::detail::TestCase::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdoctest_1_1detail_1_1_test_case.html">TestCase</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a id="a30f21f77461de7bd68dc44362171b62a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30f21f77461de7bd68dc44362171b62a">&#9670;&nbsp;</a></span>m_full_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdoctest_1_1_string.html">String</a> doctest::detail::TestCase::m_full_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01621">1621</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="af5183eb061a33329ede72791ad3457f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5183eb061a33329ede72791ad3457f9">&#9670;&nbsp;</a></span>m_template_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int doctest::detail::TestCase::m_template_id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01620">1620</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="aba46691733c89216ce6b0ac0b7dc6b42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba46691733c89216ce6b0ac0b7dc6b42">&#9670;&nbsp;</a></span>m_test</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacedoctest_1_1detail.html#a25b5e019078af59a5e84982fddfbc9c1">funcType</a> doctest::detail::TestCase::m_test</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01617">1617</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<a id="a8ffb163e420de6387a52def254a52438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffb163e420de6387a52def254a52438">&#9670;&nbsp;</a></span>m_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdoctest_1_1_string.html">String</a> doctest::detail::TestCase::m_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definição na linha <a class="el" href="doctest_8h_source.html#l01619">1619</a> do arquivo <a class="el" href="doctest_8h_source.html">doctest.h</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>tests/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
 </ul>
 </div><!-- contents -->

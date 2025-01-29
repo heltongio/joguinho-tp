@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Legenda do grafo</title>
+<title>JogosTabuleiros: Legenda do Grafo</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,35 +63,35 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Legenda do grafo</div>  </div>
+<div class="title">Legenda do Grafo</div>  </div>
 </div><!--header-->
 <div class="contents">
 <p>Esta página explica como interpretar os grafos gerados pelo doxygen.</p>
-<p>Considere o seguinte exemplo: </p><div class="fragment"><div class="line"><span class="comment">/*! Esta classe vai estar escondida devido à truncação */</span></div>
+<p>Considere o seguinte exemplo: </p><div class="fragment"><div class="line"><span class="comment">/*! Classe oculta por causa da truncagem */</span></div>
 <div class="line"><span class="keyword">class </span>Invisible { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! Esta classe tem a relação de herança escondida */</span></div>
+<div class="line"><span class="comment">/*! Classe Truncated, relação de herança está oculta */</span></div>
 <div class="line"><span class="keyword">class </span>Truncated : <span class="keyword">public</span> Invisible { };</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">/* Classe não documentada por comentários doxygen */</span></div>
+<div class="line"><span class="comment">/* Classe não documentada com os comentários do Doxygen */</span></div>
 <div class="line"><span class="keyword">class </span>Undocumented { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! Classe derivada usando derivação pública */</span></div>
+<div class="line"><span class="comment">/*! Classe possui que possui uma relação de herança pública */</span></div>
 <div class="line"><span class="keyword">class </span>PublicBase : <span class="keyword">public</span> Truncated { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! A template class */</span></div>
+<div class="line"><span class="comment">/*! Um template de classe */</span></div>
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>Templ { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! Classe derivada usando derivação protegida */</span></div>
+<div class="line"><span class="comment">/*! Classe possui que possui uma relação de herança protegida  */</span></div>
 <div class="line"><span class="keyword">class </span>ProtectedBase { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! Classe derivada usando derivação privada */</span></div>
+<div class="line"><span class="comment">/*! Classe possui que possui uma relação de herança privada  */</span></div>
 <div class="line"><span class="keyword">class </span>PrivateBase { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! Classe usada pela classe Inherited */</span></div>
+<div class="line"><span class="comment">/*! Classe utilizada pela classe Inherited */</span></div>
 <div class="line"><span class="keyword">class </span>Used { };</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/*! Super classe que deriva de várias classes */</span></div>
+<div class="line"><span class="comment">/*! Super classe que herda outras classes */</span></div>
 <div class="line"><span class="keyword">class </span>Inherited : <span class="keyword">public</span> PublicBase,</div>
 <div class="line">                  <span class="keyword">protected</span> ProtectedBase,</div>
 <div class="line">                  <span class="keyword">private</span> PrivateBase,</div>
@@ -101,25 +102,29 @@ $(function() {
 <div class="line">    Used *m_usedClass;</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> Isto irá gerar o seguinte gráfo:</p>
-<center><img src="graph_legend.png" alt="" class="inline"/></center> <p>As caixas no grafo anterior têm as seguintes interpretações: </p><ul>
+<center><img src="graph_legend.png" alt="" class="inline"/></center> <p>As caixas no grafo acima possuem os seguintes significados: </p>
+<ul>
 <li>
-Uma caixa inteiramente preta representa a estrutura ou a classe para a qual o grafo foi gerado. </li>
+Uma caixa cinza denota a estrutura ou a classe que geroueste grafo. </li>
 <li>
-Uma caixa com borda preta representa uma estrutura ou classe documentada. </li>
+Uma caixa com a borda preta denota uma estrutura ou classe documentada. </li>
 <li>
-Uma caixa com borda cinzenta representa uma estrutura ou classe não documentada. </li>
+Uma caixa com a borda cinza denota uma estrutura ou classe não documentada. </li>
 <li>
-Uma caixa com borda vermelha representa uma estrutura ou classe documentada onde nem todas as relações de herança/encapsulamento são exibidas. Um grafo é truncado quando não cabe na sua área predefinida. </li>
+Uma caixa com a borda vermelha denota uma estrutura ou classe naqual nem todas as relações são mostradas. Um grafo é truncado quando esse não cabe no espaço especificado. </li>
 </ul>
-<p>As setas têm a seguinte interpretação: </p><ul>
+<p>As setas possuem os seguintes significados: </p>
+<ul>
 <li>
-Uma seta azul escura representa uma relação de herança pública entre duas classes. </li>
+Uma seta azul escura denota a relação de herança pública entre duas classes. </li>
 <li>
-Uma seta verde escura representa uma relação de herança protegida. </li>
+Uma seta verde escura denota a relação de herança protegida entre duas classes. </li>
 <li>
-Uma seta vermelha escura representa uma relação de herança privada. </li>
+Uma seta vermelha escura denota a relação de herança privada entre duas classes. </li>
 <li>
-Uma seta rocha em tracejado representa uma relação de encapsulamento ou uso por parte de outra classe. A legenda da seta contém o nome da variável ou variáveis da relação. A seta aponta da classe que estabelece a relação para a classe ou estrutura que é acessível. </li>
+Uma seta pontilhada púrpura denota a relação de uso e/ou agragação por outra classe/estrutura. A etiqueta da seta denota o nome do(s) campo(s) que representa(m) este apontamento. </li>
+<li>
+Uma seta pontilhada amarela denota a relação de instanciação de uma <em>template</em>. A etiqueta da seta denota os parâmetros de instanciação desta <em>template</em>. </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

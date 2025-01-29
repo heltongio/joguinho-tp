@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Referência à classe Reversi</title>
+<title>JogosTabuleiros: Referência da Classe Reversi</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,18 +63,23 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="class_reversi-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="class_reversi-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe Reversi</div>  </div>
+<div class="title">Referência da Classe Reversi</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe responsável por implementar os movimentos e regras do jogo <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>.  
+ <a href="class_reversi.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="reversi_8hpp_source.html">reversi.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Diagrama de heranças da classe Reversi</div>
+Diagrama de hierarquia para Reversi:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_reversi__inherit__graph.png" border="0" usemap="#a_reversi_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_reversi_inherit__map" id="a_reversi_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,82,76,111"/>
+<area shape="rect" title="Classe responsável por implementar os movimentos e regras do jogo Reversi." alt="" coords="5,82,76,111"/>
 <area shape="rect" href="class_jogos.html" title=" " alt="" coords="12,5,69,34"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
@@ -82,47 +88,202 @@ Diagrama de colaboração para Reversi:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_reversi__coll__graph.png" border="0" usemap="#a_reversi_coll__map" alt="Collaboration graph"/></div>
 <map name="a_reversi_coll__map" id="a_reversi_coll__map">
-<area shape="rect" title=" " alt="" coords="42,178,112,207"/>
+<area shape="rect" title="Classe responsável por implementar os movimentos e regras do jogo Reversi." alt="" coords="42,178,112,207"/>
 <area shape="rect" href="class_jogos.html" title=" " alt="" coords="49,99,105,128"/>
-<area shape="rect" href="class_cadastro_jogadores.html" title=" " alt="" coords="5,5,149,34"/>
+<area shape="rect" href="class_cadastro_jogadores.html" title="Classe responsável por gerenciar o cadastro de jogadores." alt="" coords="5,5,149,34"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:ae9f57c20c633a3abb3352a71eaf7ad57"><td class="memItemLeft" align="right" valign="top"><a id="ae9f57c20c633a3abb3352a71eaf7ad57"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Reversi</b> (const std::string &amp;jogador1, const std::string &amp;jogador2, <a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;manager)</td></tr>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:ae9f57c20c633a3abb3352a71eaf7ad57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reversi.html#ae9f57c20c633a3abb3352a71eaf7ad57">Reversi</a> (const std::string &amp;<a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, const std::string &amp;<a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;<a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>)</td></tr>
+<tr class="memdesc:ae9f57c20c633a3abb3352a71eaf7ad57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>.  <a href="class_reversi.html#ae9f57c20c633a3abb3352a71eaf7ad57">Mais...</a><br /></td></tr>
 <tr class="separator:ae9f57c20c633a3abb3352a71eaf7ad57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31c0e14513a060458d3ced516c5da2f0"><td class="memItemLeft" align="right" valign="top"><a id="a31c0e14513a060458d3ced516c5da2f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>iniciarJogo</b> () override</td></tr>
+<tr class="memitem:a31c0e14513a060458d3ced516c5da2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reversi.html#a31c0e14513a060458d3ced516c5da2f0">iniciarJogo</a> () override</td></tr>
+<tr class="memdesc:a31c0e14513a060458d3ced516c5da2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicia o jogo <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>.  <a href="class_reversi.html#a31c0e14513a060458d3ced516c5da2f0">Mais...</a><br /></td></tr>
 <tr class="separator:a31c0e14513a060458d3ced516c5da2f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76b52f33f6b2c27e5bb9777b460f25b3"><td class="memItemLeft" align="right" valign="top"><a id="a76b52f33f6b2c27e5bb9777b460f25b3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>realizarJogada</b> (int linha, int coluna, char jogador)</td></tr>
+<tr class="memitem:afd006e4fdacdedc4a3bb34fe6f1d1940"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reversi.html#afd006e4fdacdedc4a3bb34fe6f1d1940">~Reversi</a> ()</td></tr>
+<tr class="memdesc:afd006e4fdacdedc4a3bb34fe6f1d1940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>.  <a href="class_reversi.html#afd006e4fdacdedc4a3bb34fe6f1d1940">Mais...</a><br /></td></tr>
+<tr class="separator:afd006e4fdacdedc4a3bb34fe6f1d1940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b52f33f6b2c27e5bb9777b460f25b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_reversi.html#a76b52f33f6b2c27e5bb9777b460f25b3">realizarJogada</a> (int linha, int coluna, char jogador)</td></tr>
+<tr class="memdesc:a76b52f33f6b2c27e5bb9777b460f25b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza uma jogada no tabuleiro (não utlizado)  <a href="class_reversi.html#a76b52f33f6b2c27e5bb9777b460f25b3">Mais...</a><br /></td></tr>
 <tr class="separator:a76b52f33f6b2c27e5bb9777b460f25b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_jogos"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_jogos')"><img src="closed.png" alt="-"/>&#160;Membros públicos herdados de <a class="el" href="class_jogos.html">Jogos</a></td></tr>
-<tr class="memitem:aef222c30679e2476002317c4ab4eeb84 inherit pub_methods_class_jogos"><td class="memItemLeft" align="right" valign="top"><a id="aef222c30679e2476002317c4ab4eeb84"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Jogos</b> (std::string jogador1, std::string jogador2, <a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;manager)</td></tr>
+<tr class="inherit_header pub_methods_class_jogos"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_jogos')"><img src="closed.png" alt="-"/>&#160;Membros Públicos herdados de <a class="el" href="class_jogos.html">Jogos</a></td></tr>
+<tr class="memitem:aef222c30679e2476002317c4ab4eeb84 inherit pub_methods_class_jogos"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Jogos</a> (std::string <a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a>, std::string <a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a>, <a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;<a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a>)</td></tr>
+<tr class="memdesc:aef222c30679e2476002317c4ab4eeb84 inherit pub_methods_class_jogos"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor da classe <a class="el" href="class_jogos.html">Jogos</a>.  <a href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Mais...</a><br /></td></tr>
 <tr class="separator:aef222c30679e2476002317c4ab4eeb84 inherit pub_methods_class_jogos"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67bcdb76ed95071291667ff50447f86a inherit pub_methods_class_jogos"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">~Jogos</a> ()</td></tr>
+<tr class="memdesc:a67bcdb76ed95071291667ff50447f86a inherit pub_methods_class_jogos"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor virtual da classe <a class="el" href="class_jogos.html">Jogos</a>.  <a href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">Mais...</a><br /></td></tr>
+<tr class="separator:a67bcdb76ed95071291667ff50447f86a inherit pub_methods_class_jogos"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Outros membros herdados</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_jogos"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_jogos')"><img src="closed.png" alt="-"/>&#160;Atributos Protegidos herdados de <a class="el" href="class_jogos.html">Jogos</a></td></tr>
-<tr class="memitem:a1ef5ffaca3a5a45716869d523d3a032b inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top"><a id="a1ef5ffaca3a5a45716869d523d3a032b"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>jogador1</b></td></tr>
+<tr class="memitem:a1ef5ffaca3a5a45716869d523d3a032b inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a></td></tr>
+<tr class="memdesc:a1ef5ffaca3a5a45716869d523d3a032b inherit pro_attribs_class_jogos"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogador 1.  <a href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">Mais...</a><br /></td></tr>
 <tr class="separator:a1ef5ffaca3a5a45716869d523d3a032b inherit pro_attribs_class_jogos"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1fb6c71276183337c9076985e2ee610 inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top"><a id="aa1fb6c71276183337c9076985e2ee610"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>jogador2</b></td></tr>
+<tr class="memitem:aa1fb6c71276183337c9076985e2ee610 inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a></td></tr>
+<tr class="memdesc:aa1fb6c71276183337c9076985e2ee610 inherit pro_attribs_class_jogos"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogador 2.  <a href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">Mais...</a><br /></td></tr>
 <tr class="separator:aa1fb6c71276183337c9076985e2ee610 inherit pro_attribs_class_jogos"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb4914cfc23668b53a15469f5c2c2b08 inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top"><a id="aeb4914cfc23668b53a15469f5c2c2b08"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>nomeJogo</b></td></tr>
+<tr class="memitem:aeb4914cfc23668b53a15469f5c2c2b08 inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#aeb4914cfc23668b53a15469f5c2c2b08">nomeJogo</a></td></tr>
+<tr class="memdesc:aeb4914cfc23668b53a15469f5c2c2b08 inherit pro_attribs_class_jogos"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nome do jogo.  <a href="class_jogos.html#aeb4914cfc23668b53a15469f5c2c2b08">Mais...</a><br /></td></tr>
 <tr class="separator:aeb4914cfc23668b53a15469f5c2c2b08 inherit pro_attribs_class_jogos"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae55cd8929b26818272fb6f65a467c5b9 inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top"><a id="ae55cd8929b26818272fb6f65a467c5b9"></a>
-<a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>manager</b></td></tr>
+<tr class="memitem:ae55cd8929b26818272fb6f65a467c5b9 inherit pro_attribs_class_jogos"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a></td></tr>
+<tr class="memdesc:ae55cd8929b26818272fb6f65a467c5b9 inherit pro_attribs_class_jogos"><td class="mdescLeft">&#160;</td><td class="mdescRight">Referência ao gerenciador de cadastro de jogadores.  <a href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">Mais...</a><br /></td></tr>
 <tr class="separator:ae55cd8929b26818272fb6f65a467c5b9 inherit pro_attribs_class_jogos"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe responsável por implementar os movimentos e regras do jogo <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>. </p>
+
+<p class="definition">Definição na linha <a class="el" href="reversi_8hpp_source.html#l00015">15</a> do arquivo <a class="el" href="reversi_8hpp_source.html">reversi.hpp</a>.</p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="ae9f57c20c633a3abb3352a71eaf7ad57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9f57c20c633a3abb3352a71eaf7ad57">&#9670;&nbsp;</a></span>Reversi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Reversi::Reversi </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>jogador1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>jogador2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_cadastro_jogadores.html">CadastroJogadores</a> &amp;&#160;</td>
+          <td class="paramname"><em>manager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor da classe <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">jogador1</td><td>Nome do jogador 1 </td></tr>
+    <tr><td class="paramname">jogador2</td><td>Nome do jogador 2 </td></tr>
+    <tr><td class="paramname">manager</td><td>Gerente de jogadores </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definição na linha <a class="el" href="reversi_8cpp_source.html#l00008">8</a> do arquivo <a class="el" href="reversi_8cpp_source.html">reversi.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afd006e4fdacdedc4a3bb34fe6f1d1940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd006e4fdacdedc4a3bb34fe6f1d1940">&#9670;&nbsp;</a></span>~Reversi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Reversi::~Reversi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destrutor da classe <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>. </p>
+
+<p class="definition">Definição na linha <a class="el" href="reversi_8cpp_source.html#l00017">17</a> do arquivo <a class="el" href="reversi_8cpp_source.html">reversi.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções membros</h2>
+<a id="a31c0e14513a060458d3ced516c5da2f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31c0e14513a060458d3ced516c5da2f0">&#9670;&nbsp;</a></span>iniciarJogo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Reversi::iniciarJogo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inicia o jogo <a class="el" href="class_reversi.html" title="Classe responsável por implementar os movimentos e regras do jogo Reversi.">Reversi</a>. </p>
+
+<p>Reimplementa <a class="el" href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">Jogos</a>.</p>
+
+<p class="definition">Definição na linha <a class="el" href="reversi_8cpp_source.html#l00024">24</a> do arquivo <a class="el" href="reversi_8cpp_source.html">reversi.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a76b52f33f6b2c27e5bb9777b460f25b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b52f33f6b2c27e5bb9777b460f25b3">&#9670;&nbsp;</a></span>realizarJogada()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Reversi::realizarJogada </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>linha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coluna</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>jogador</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza uma jogada no tabuleiro (não utlizado) </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>Linha da jogada </td></tr>
+    <tr><td class="paramname">coluna</td><td>Coluna da jogada </td></tr>
+    <tr><td class="paramname">jogador</td><td>Char do jogador atual (X ou O) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a jogada foi realizada, false caso contrário </dd></dl>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="reversi_8hpp_source.html">reversi.hpp</a></li>
-<li>src/reversi.cpp</li>
+<li>src/<a class="el" href="reversi_8cpp_source.html">reversi.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

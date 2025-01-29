@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Lista dos membros</title>
+<title>JogosTabuleiros: Lista dos Membros</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -62,22 +63,22 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Jogos Lista dos membros</div>  </div>
+<div class="title">Jogos Lista dos Membros</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Lista completa de todos os membros de <a class="el" href="class_jogos.html">Jogos</a>, incluindo todos os membros herdados.</p>
+<p>Esta é a lista de todos os membros de <a class="el" href="class_jogos.html">Jogos</a>, incluindo os membros herdados.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>criaTabuleiro</b>()=0 (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>iniciarJogo</b>() (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>jogador1</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>jogador2</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Jogos</b>(std::string jogador1, std::string jogador2, CadastroJogadores &amp;manager) (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>manager</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>nomeJogo</b> (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>verificaGanhador</b>(std::string jogador1, std::string jogador2, char valor, bool minimax=false)=0 (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>verificaJogada</b>(int linha, int coluna, char valor, std::string jogador)=0 (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~Jogos</b>() (definido em <a class="el" href="class_jogos.html">Jogos</a>)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#acc0b1ddcf53b7e2b8a9117e5cda650fe">criaTabuleiro</a>()=0</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#aacebcc91ab4a9f1cbb67010c6ef78d0a">iniciarJogo</a>()</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#a1ef5ffaca3a5a45716869d523d3a032b">jogador1</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#aa1fb6c71276183337c9076985e2ee610">jogador2</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#aef222c30679e2476002317c4ab4eeb84">Jogos</a>(std::string jogador1, std::string jogador2, CadastroJogadores &amp;manager)</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#ae55cd8929b26818272fb6f65a467c5b9">manager</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#aeb4914cfc23668b53a15469f5c2c2b08">nomeJogo</a></td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#a4b8719101524b2c117dfae6d75bd8254">verificaGanhador</a>(std::string jogador1, std::string jogador2, char valor, bool minimax=false)=0</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jogos.html#a07bab3cc6c0d088628217e462f53f1f7">verificaJogada</a>(int linha, int coluna, char valor, std::string jogador)=0</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_jogos.html#a67bcdb76ed95071291667ff50447f86a">~Jogos</a>()</td><td class="entry"><a class="el" href="class_jogos.html">Jogos</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

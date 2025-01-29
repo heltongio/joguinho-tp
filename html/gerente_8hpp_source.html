@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JogosTabuleiro: Código-Fonte de include/gerente.hpp</title>
+<title>JogosTabuleiros: Código-Fonte de include/gerente.hpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">JogosTabuleiro
+   <div id="projectname">JogosTabuleiros
    </div>
+   <div id="projectbrief">O funcionamento do código se dá através de comandos do usuário. É possível cadastrar novos jogadores com a classe gerente, permitindo que o jogador insira um apelido, que deverá ser único, com uma única palavra e um nome podendo ser apenas o primeiro nome ou nome e sobrenome, sendo que devem ser utilizados apenas algarismos alfabéticos. Pode-se também remover jogadores a partir de seu apelido único. Também é possível printar todos os jogadores cadastrados com seus respectivos dados. Indo além desses processos básicos, partimos para execução dos jogos. Após escolher o jogo desejado sua respectiva classe inicia o jogo e realizará todos os processos esperados para os jogos, estes são: realizar uma jogada, com base em cordenadas do tabuleiro; verificar se tal jogada é válida; verificar seu o jogador venceu após sua rodada; verificar empate; e por fim, atualizar os dados de vitória e derrota dos jogadores.</div>
   </td>
  </tr>
  </tbody>
@@ -32,7 +33,7 @@
 <!-- Gerado por Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
@@ -40,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar','.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
-  initMenu('',true,false,'search.php','Localizar');
+  initMenu('',true,false,'search.php','Busca');
   $(document).ready(function() { init_search(); });
 });
 /* @license-end */</script>
@@ -69,49 +70,71 @@ $(function() {
 <div class="title">gerente.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GERENTE_HPP</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GERENTE_HPP</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;jogador.hpp&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_cadastro_jogadores.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::vector&lt;Jogador&gt; jogadores; <span class="comment">//Vetor que armazenará os dados do txt com o objeto Jogador</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        std::string arquivo; <span class="comment">//= &quot;bancoDados/jogadores.txt&quot;; //caso erro mudar para &quot;bancoDados/jogadores.txt&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">//Métodos privados que acessam o arquivo para coleta e registro de dados</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> PullJogadores();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> PushJogadores();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a>(std::string);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> ConstruirVetor(); <span class="comment">//Coleta os dados do txt e aloca no vetor jogadores</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> CadastrarJogador(<span class="keyword">const</span> std::string, <span class="keyword">const</span> std::string); <span class="comment">//Adicona um jogador com nenhuma vitoria/derrota com o contrato &lt;apelido&gt; &lt;nome&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> RemoverJogador(<span class="keyword">const</span> std::string); <span class="comment">//Remove Jogador utilizando o apelido &lt;apelido&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> SalvarArquivo(); <span class="comment">//Salva os dados no txt</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::string VerificaJogadores(std::string apelido);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> OrganizaJogadores(); <span class="comment">//Organiza os jogadores em ordem alfabetica do apelido</span></div>
+<a href="gerente_8hpp.html">Vá para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef GERENTE_HPP</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define GERENTE_HPP</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="jogador_8hpp.html">jogador.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_cadastro_jogadores.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::vector&lt;Jogador&gt; jogadores; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::string arquivo; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//Add vitória/derrota com o contrato &lt;apelido&gt; &lt;nome do jogo&gt;(velha, lig4, reversi)</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> AddVit(<span class="keyword">const</span> std::string, <span class="keyword">const</span> std::string);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> AddDer(<span class="keyword">const</span> std::string, <span class="keyword">const</span> std::string);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> PrintJogadores(); <span class="comment">//Imprime todos os dados dos jogadores</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    ~<a class="code" href="class_cadastro_jogadores.html">CadastroJogadores</a>(); <span class="comment">//Destrutor</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_cadastro_jogadores_html"><div class="ttname"><a href="class_cadastro_jogadores.html">CadastroJogadores</a></div><div class="ttdef"><b>Definition:</b> gerente.hpp:14</div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">void</span> PullJogadores();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> PushJogadores();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_cadastro_jogadores.html#a0d6ec5d2d5c842cb0465b19a4630a7ca">   47</a></span>&#160;        <a class="code" href="class_cadastro_jogadores.html#a0d6ec5d2d5c842cb0465b19a4630a7ca">CadastroJogadores</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="class_cadastro_jogadores.html#a0d6ec5d2d5c842cb0465b19a4630a7ca">CadastroJogadores</a>(std::string);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#ae0c0b931d41880a19e49c715d882b0d3">ConstruirVetor</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#a711b485223a51112955b787610e77d91">CadastrarJogador</a>(<span class="keyword">const</span> std::string, <span class="keyword">const</span> std::string);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#a5b11103997a3319af00147920f759e5c">RemoverJogador</a>(<span class="keyword">const</span> std::string);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#a564319d1969dee9a0d9f2e27b8c919ac">SalvarArquivo</a>(); </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::string <a class="code" href="class_cadastro_jogadores.html#a0ccce92ed53b99afc4a2faa46b74a7f6">VerificaJogadores</a>(std::string apelido);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#a1e28d6bb8f478de89cb06f184caafb08">OrganizaJogadores</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">AddVit</a>(<span class="keyword">const</span> std::string, <span class="keyword">const</span> std::string);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">AddDer</a>(<span class="keyword">const</span> std::string, <span class="keyword">const</span> std::string);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_cadastro_jogadores.html#af3e212d071a3885b7389e8066b4a417e">PrintJogadores</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="class_cadastro_jogadores.html#a2a5b6f70f4646f2d6f338a612a5cbb3d">~CadastroJogadores</a>(); <span class="comment">//Destrutor</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html"><div class="ttname"><a href="class_cadastro_jogadores.html">CadastroJogadores</a></div><div class="ttdoc">Classe responsável por gerenciar o cadastro de jogadores.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8hpp_source.html#l00027">gerente.hpp:27</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a0ccce92ed53b99afc4a2faa46b74a7f6"><div class="ttname"><a href="class_cadastro_jogadores.html#a0ccce92ed53b99afc4a2faa46b74a7f6">CadastroJogadores::VerificaJogadores</a></div><div class="ttdeci">std::string VerificaJogadores(std::string apelido)</div><div class="ttdoc">Verifica se um jogador está cadastrado.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00135">gerente.cpp:135</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a0d6ec5d2d5c842cb0465b19a4630a7ca"><div class="ttname"><a href="class_cadastro_jogadores.html#a0d6ec5d2d5c842cb0465b19a4630a7ca">CadastroJogadores::CadastroJogadores</a></div><div class="ttdeci">CadastroJogadores()=default</div><div class="ttdoc">Construtor padrão.</div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a1e28d6bb8f478de89cb06f184caafb08"><div class="ttname"><a href="class_cadastro_jogadores.html#a1e28d6bb8f478de89cb06f184caafb08">CadastroJogadores::OrganizaJogadores</a></div><div class="ttdeci">void OrganizaJogadores()</div><div class="ttdoc">Ordena os jogadores em ordem alfabética pelo apelido.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00155">gerente.cpp:155</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a2783eb8c25f81aaaf9a0543a82e9f7f2"><div class="ttname"><a href="class_cadastro_jogadores.html#a2783eb8c25f81aaaf9a0543a82e9f7f2">CadastroJogadores::AddDer</a></div><div class="ttdeci">void AddDer(const std::string, const std::string)</div><div class="ttdoc">Adiciona uma derrota ao jogador em um jogo específico.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00177">gerente.cpp:177</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a2a5b6f70f4646f2d6f338a612a5cbb3d"><div class="ttname"><a href="class_cadastro_jogadores.html#a2a5b6f70f4646f2d6f338a612a5cbb3d">CadastroJogadores::~CadastroJogadores</a></div><div class="ttdeci">~CadastroJogadores()</div><div class="ttdoc">Destrutor da classe.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00198">gerente.cpp:198</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a41d714e9426bd37b9876e10f8603443b"><div class="ttname"><a href="class_cadastro_jogadores.html#a41d714e9426bd37b9876e10f8603443b">CadastroJogadores::AddVit</a></div><div class="ttdeci">void AddVit(const std::string, const std::string)</div><div class="ttdoc">Adiciona uma vitória ao jogador em um jogo específico.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00168">gerente.cpp:168</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a564319d1969dee9a0d9f2e27b8c919ac"><div class="ttname"><a href="class_cadastro_jogadores.html#a564319d1969dee9a0d9f2e27b8c919ac">CadastroJogadores::SalvarArquivo</a></div><div class="ttdeci">void SalvarArquivo()</div><div class="ttdoc">Salva os dados dos jogadores no arquivo.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00161">gerente.cpp:161</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a5b11103997a3319af00147920f759e5c"><div class="ttname"><a href="class_cadastro_jogadores.html#a5b11103997a3319af00147920f759e5c">CadastroJogadores::RemoverJogador</a></div><div class="ttdeci">void RemoverJogador(const std::string)</div><div class="ttdoc">Remove um jogador do cadastro utilizando o apelido &lt;apelido&gt;.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00111">gerente.cpp:111</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_a711b485223a51112955b787610e77d91"><div class="ttname"><a href="class_cadastro_jogadores.html#a711b485223a51112955b787610e77d91">CadastroJogadores::CadastrarJogador</a></div><div class="ttdeci">void CadastrarJogador(const std::string, const std::string)</div><div class="ttdoc">Adicona um jogador com nenhuma vitoria/derrota com o contrato &lt;apelido&gt; &lt;nome&gt;</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00065">gerente.cpp:65</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_ae0c0b931d41880a19e49c715d882b0d3"><div class="ttname"><a href="class_cadastro_jogadores.html#ae0c0b931d41880a19e49c715d882b0d3">CadastroJogadores::ConstruirVetor</a></div><div class="ttdeci">void ConstruirVetor()</div><div class="ttdoc">Inicializa o vetor de jogadores com os dados do arquivo txt.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00060">gerente.cpp:60</a></div></div>
+<div class="ttc" id="aclass_cadastro_jogadores_html_af3e212d071a3885b7389e8066b4a417e"><div class="ttname"><a href="class_cadastro_jogadores.html#af3e212d071a3885b7389e8066b4a417e">CadastroJogadores::PrintJogadores</a></div><div class="ttdeci">void PrintJogadores()</div><div class="ttdoc">Exibe a lista de jogadores e seus dados.</div><div class="ttdef"><b>Definition:</b> <a href="gerente_8cpp_source.html#l00186">gerente.cpp:186</a></div></div>
+<div class="ttc" id="ajogador_8hpp_html"><div class="ttname"><a href="jogador_8hpp.html">jogador.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

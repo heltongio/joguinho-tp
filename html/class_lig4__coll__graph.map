@@ -1,5 +1,5 @@
 <map id="Lig4" name="Lig4">
-<area shape="rect" id="node1" title=" " alt="" coords="53,178,101,207"/>
+<area shape="rect" id="node1" title="Classe que implementa o jogo Lig4, derivada da classe base Jogos." alt="" coords="53,178,101,207"/>
 <area shape="rect" id="node2" href="$class_jogos.html" title=" " alt="" coords="49,99,105,128"/>
-<area shape="rect" id="node3" href="$class_cadastro_jogadores.html" title=" " alt="" coords="5,5,149,34"/>
+<area shape="rect" id="node3" href="$class_cadastro_jogadores.html" title="Classe responsável por gerenciar o cadastro de jogadores." alt="" coords="5,5,149,34"/>
 </map>
