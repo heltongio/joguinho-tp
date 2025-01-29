@@ -55,8 +55,8 @@ private:
      * @brief Verifica a validade de uma jogada.
      * @param linha Linha da jogada.
      * @param coluna Coluna da jogada.
-     * @param valor Valor da peça.
-     * @param jogador Nome do jogador.
+     * @param valor Valor da peça ('X' ou 'O').
+     * @param jogador Nome do jogador que está realizando a jogada.
      * @return true se a jogada for válida, false caso contrário.
      */
     bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override;
@@ -67,12 +67,12 @@ private:
     void criaTabuleiro() override;
 
     /**
-     * @brief Verifica a condição de vitória em diferentes cenários.
+     * @brief Verifica se há um vencedor no jogo.
      * @param jogador1 Nome do primeiro jogador.
      * @param jogador2 Nome do segundo jogador.
-     * @param valor Valor da peça.
-     * @param minimax Indicador se o método está sendo chamado em contexto de Minimax.
-     * @return true se houver uma condição de vitória, false caso contrário.
+     * @param valor Valor da peça ('X' ou 'O').
+     * @param minimax Indica se o método está sendo chamado em contexto de Minimax.
+     * @return true se houver um vencedor, false caso contrário.
      */
     bool verificaGanhador(std::string jogador1, std::string jogador2, char valor, bool minimax) override;
 
@@ -91,7 +91,7 @@ public:
     void iniciarJogo() override;
 
     /**
-     * @brief Realiza uma jogada em uma coluna especificada.
+     * @brief Realiza uma jogada no tabuleiro.
      * @param coluna Índice da coluna (0-6).
      * @param jogador Peça do jogador ('X' ou 'O').
      * @return true se a jogada foi válida, false caso contrário.
@@ -105,4 +105,3 @@ public:
 };
 
 #endif // LIG4_HPP
-''
