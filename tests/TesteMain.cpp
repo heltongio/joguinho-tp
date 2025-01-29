@@ -1,82 +1,137 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-#include "gerente.hpp"
 #include "jogador.hpp"
 #include "tabuleiro.hpp"
-#include "jogos.hpp"
-#include "velha.hpp"
+#include "gerente.hpp"
 #include "lig4.hpp"
+#include "velha.hpp"
 #include "reversi.hpp"
-#include <stdexcept>
-#include <fstream>
+#include "minimax.hpp"
 
+TEST_CASE("Testando a classe Jogador") {
+    Jogador jogador("apelido1", "Nome Completo", 5, 3, 2, 1, 4, 2);
 
-// Teste da classe Velha
-TEST_CASE("Teste da classe Velha") {
-    CadastroJogadores manager("bancoDados/jogadores.txt");
-    manager.ConstruirVetor();
+    CHECK(jogador.GetNome() == "Nome Completo");
+    CHECK(jogador.GetApelido() == "apelido1");
+    CHECK(jogador.GetVit("velha") == 5);
+    CHECK(jogador.GetDer("lig4") == 4);
 
-    Velha jogo("apelido1", "apelido2", manager);
+    jogador.SomarVit("reversi");
+    CHECK(jogador.GetVit("reversi") == 3);
 
-    // SUBCASE("Teste de jogada do jogador") {
-        // std::stringstream input("1\n2\n"); // Simula a entrada do usuário: linha = 1, coluna = 2
-        // std::cin.rdbuf(input.rdbuf());    // Redireciona std::cin para a string simulada
+    jogador.SomarDer("velha");
+    CHECK(jogador.GetDer("velha") == 2);
 
-        // CHECK_NOTHROW(jogo.iniciarJogo());
-
-    //     // Verifica se a jogada foi processada corretamente
-    //     CHECK(jogo. == 'X'); // Exemplo de validação
-    // }
-
-    CHECK_FALSE(jogo.verificaJogada(0, 0, 'X', "Jogador 1")); // Fora dos limites
-    CHECK_FALSE(jogo.verificaJogada(4, 4, 'X', "Jogador 1")); // Fora dos limites
-
-    CHECK(jogo.verificaJogada(1, 1, 'X', "Jogador 1")); // Jogada válida
-    CHECK_FALSE(jogo.verificaJogada(1, 1, 'O', "Jogador 2")); // Posição já ocupada
-
-    std::string estado = "XXX      "; // Linha 1 preenchida com X
-    CHECK(jogo.verificaLinha(estado, 0, 'X'));
-    CHECK_FALSE(jogo.verificaLinha(estado, 1, 'X'));
-
-
-
-
-
-
-
-    std::ofstream arquivo("bancoDados/frases.txt");
-    arquivo << "Frase 1\nFrase 2\nFrase 3\n";
-    arquivo.close();
-
-    std::string resultado = jogo.frase();
-    CHECK((resultado == "Frase 1" || resultado == "Frase 2" || resultado == "Frase 3"));
+    SUBCASE("Testando inicialização padrão") {
+        Jogador jogadorPadrao("player2", "Default");
+        CHECK(jogadorPadrao.GetVit("velha") == 0);
+        CHECK(jogadorPadrao.GetDer("lig4") == 0);
+    }
 }
 
-// Teste da classe Reversi
-TEST_CASE("Teste da classe Reversi") {
-    CadastroJogadores manager("bancoDados/jogadores.txt");
-    manager.ConstruirVetor();
+TEST_CASE("Testando a classe Tabuleiro") {
+    Tabuleiro tabuleiro(3, 3, ' ');
 
-    Reversi jogo("apelido1", "apelido2", manager);
+    CHECK_NOTHROW(tabuleiro.atualizarCelula(0, 0, 'X'));
+    CHECK_NOTHROW(tabuleiro.atualizarCelula(1, 1, 'O'));
 
-    // SUBCASE("Teste de inicialização do jogo Reversi") {
-    //     CHECK_NOTHROW(jogo.iniciarJogo());
-    // }
+    auto grid = tabuleiro.getGrid();
+    CHECK(grid[0][1] == 'X');
+    CHECK(grid[1][3] == 'O');
+
+    SUBCASE("Testando estado limpo do tabuleiro") {
+        std::string estadoLimpo = tabuleiro.getEstadoLimpo();
+        CHECK(estadoLimpo.size() == 9);
+    }
 }
 
-// Teste da classe Lig4
-TEST_CASE("Teste da classe Lig4") {
-    CadastroJogadores manager("bancoDados/jogadores.txt");
-    manager.ConstruirVetor();
-
-    Lig4 jogo("apelido1", "apelido2", manager);
-
-    // SUBCASE("Teste de inicialização do jogo Lig4") {
-    //     CHECK_NOTHROW(jogo.iniciarJogo());
-    // }
+TEST_CASE("Testando todas as jogadas possíveis do jogo da Velha") {
+    CadastroJogadores cadastro("test_data.txt");
+    Velha velha("player1", "player2", cadastro);
+    for (int i = 1; i <= 3; ++i) {
+        for (int j = 1; j <= 3; ++j) {
+            CHECK_NOTHROW(velha.verificaJogada(i, j, 'X', "player1"));
+        }
+    }
 }
 
-// // Teste da função limparConsole
-// TEST_CASE("Teste da função limparConsole") {
-//     CHECK_NOTHROW(limparConsole(1));
-// }
+TEST_CASE("Testando cenário de empate no jogo da Velha") {
+    CadastroJogadores cadastro("test_data.txt");
+    Velha velha("player1", "player2", cadastro);
+    velha.jogada("player1", "player2", 'X');
+    velha.jogada("player2", "player1", 'O');
+    velha.jogada("player1", "player2", 'X');
+    velha.jogada("player2", "player1", 'O');
+    velha.jogada("player1", "player2", 'X');
+    velha.jogada("player2", "player1", 'O');
+    velha.jogada("player1", "player2", 'X');
+    velha.jogada("player2", "player1", 'O');
+    velha.jogada("player1", "player2", 'X');
+    CHECK(velha.verificaTabuleiroCompleto("player1", "player2", false) == true);
+}
+
+TEST_CASE("Testando Minimax em cenários extremos") {
+    Tabuleiro tab(3, 3, ' ');
+    Minimax minimax("player1", "player2", 'X', 'O');
+
+    auto melhorJogada = minimax.melhoraco(tab, 'X', false);
+    CHECK(melhorJogada.size() == 2);
+    CHECK(melhorJogada[0] >= 0);
+    CHECK(melhorJogada[0] < 3);
+    CHECK(melhorJogada[1] >= 0);
+    CHECK(melhorJogada[1] < 3);
+}
+
+TEST_CASE("Testando o jogo Lig4") {
+    CadastroJogadores cadastro("test_data.txt");
+    Lig4 lig4("player1", "player2", cadastro);
+
+    SUBCASE("Iniciar jogo e realizar jogadas válidas e inválidas") {
+        CHECK_NOTHROW(lig4.iniciarJogo());
+        CHECK_NOTHROW(lig4.realizarJogada(0, 'X'));
+        CHECK_NOTHROW(lig4.realizarJogada(1, 'O'));
+        CHECK_THROWS(lig4.realizarJogada(7, 'X')); // Coluna fora do limite
+        CHECK_THROWS(lig4.realizarJogada(-1, 'O')); // Coluna negativa
+    }
+
+    SUBCASE("Testar condições de vitória") {
+        lig4.realizarJogada(0, 'X');
+        lig4.realizarJogada(1, 'X');
+        lig4.realizarJogada(2, 'X');
+        lig4.realizarJogada(3, 'X');
+        CHECK(lig4.verificaLinha(0, 'X') == true);
+    }
+
+    SUBCASE("Testar condições de empate") {
+        // Preencher o tabuleiro com jogadas que resultam em empate
+        for (int i = 0; i < 6; ++i) {
+            for (int j = 0; j < 7; ++j) {
+                char jogador = (i + j) % 2 == 0 ? 'X' : 'O';
+                CHECK(lig4.realizarJogada(j, jogador) == true);
+            }
+        }
+        CHECK(lig4.verificaColuna(0, 'X') == false);
+    }
+}
+
+TEST_CASE("Testando o jogo Reversi") {
+    CadastroJogadores cadastro("test_data.txt");
+    Reversi reversi("player1", "player2", cadastro);
+
+    SUBCASE("Iniciar jogo e realizar jogadas válidas e inválidas") {
+        CHECK_NOTHROW(reversi.iniciarJogo());
+        CHECK(reversi.verificaJogada(4, 5, 'X', "player1") == true);
+        CHECK(reversi.verificaJogada(3, 5, 'O', "player2") == true);
+        CHECK(reversi.verificaJogada(0, 0, 'X', "player1") == false); // Jogada inválida
+    }
+
+    SUBCASE("Testar verificação de vitória e empate") {
+        CHECK(reversi.verificaEmpate() == false);
+        CHECK(reversi.verificaGanhador("player1", "player2", 'X', false) == false);
+    }
+
+    SUBCASE("Testar recursão para captura de peças") {
+        CHECK(reversi.iniciaRecursao(3, 4, 'X', true) == true);
+        CHECK(reversi.iniciaRecursao(5, 6, 'O', true) == false); // Jogada inválida
+    }
+}
