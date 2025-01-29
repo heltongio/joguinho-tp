@@ -18,7 +18,6 @@ private:
     Tabuleiro tabuleiro; //Tabuleiro do jogo
     std::string vencedor; //Nome do jogador vencedor
     int jogadas; //Contador de jogadas realizadas
-<<<<<<< HEAD
     /**
      * @brief Verifica se os valores passados são validos para jogada
      * @param linha Linha do tabuleiro (tem que estar entre 1 e 8)
@@ -147,25 +146,6 @@ public:
      * @param jogador2 Nome do jogador 2
      * @param manager Gerente de jogadores
      */
-=======
-
-    void criaTabuleiro() override;
-
-    bool recursaoDSE(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal superior esquerda
-    bool recursaoS(int linha, int coluna, char jogador, bool opcao); //Recursão superior
-    bool recursaoDSD(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal superior direita
-    bool recursaoE(int linha, int coluna, char jogador, bool opcao); //Recursão para a esquerda
-    bool recursaoD(int linha, int coluna, char jogador, bool opcao); //Recursão para a direita
-    bool recursaoDIE(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal inferior esquerda
-    bool recursaoI(int linha, int coluna, char jogador, bool opcao); //Recursão inferior
-    bool recursaoDID(int linha, int coluna, char jogador, bool opcao); //Recursão para a diagonal inferior direita
-
-public:
-    bool verificaJogada(int linha, int coluna, char valor, std::string jogador) override; //Verifica se a jogada é possível
-    bool verificaEmpate(); //Verifica se o jogo terminou em empate
-    bool verificaGanhador(std::string jogador1, std::string jogador2, char valor,bool minimax = false) override; //Verifica se o jogador venceu
-    bool iniciaRecursao(int linha, int coluna, char jogador, bool opcao); //Quando 0 verifica a validade do movimento, quando 1 atualiza os valores do tabuleiro
->>>>>>> f114f8af2991643100f5c2f23993922d6614ab49
     Reversi(const std::string& jogador1, const std::string& jogador2, CadastroJogadores& manager);
     
     /**
